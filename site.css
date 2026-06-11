@@ -1,0 +1,159 @@
+/* ============================================================
+   anco. — portfolio site styles
+   ============================================================ */
+@font-face {
+  font-family: "Founders Grotesk";
+  src: url("fonts/FoundersGrotesk-Regular.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Founders Grotesk";
+  src: url("fonts/FoundersGrotesk-Medium.otf") format("opentype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Founders Grotesk";
+  src: url("fonts/FoundersGrotesk-Semibold.otf") format("opentype");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Founders Grotesk";
+  src: url("fonts/FoundersGrotesk-Bold.otf") format("opentype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+:root {
+  --ink: #17120d;
+  --paper: #f4f0e8;
+  --paper-2: #ece6da;
+  --line: rgba(23, 18, 13, 0.16);
+  --mono: "SFMono-Regular", "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", "Pretendard", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+:lang(ko), .kr { font-family: "Pretendard", "Inter", sans-serif; }
+
+::selection { background: var(--ink); color: var(--paper); }
+
+/* thin custom scrollbar */
+::-webkit-scrollbar { width: 9px; height: 9px; }
+::-webkit-scrollbar-track { background: var(--paper); }
+::-webkit-scrollbar-thumb { background: rgba(23,18,13,0.28); border-radius: 20px; border: 2px solid var(--paper); }
+
+.mono { font-family: var(--mono); }
+
+/* the anco. logo recolors via currentColor */
+.anco-logo path { fill: currentColor; }
+
+/* ---- project thumbnail: grayscale → color on hover ---- */
+.thumb {
+  position: relative;
+  overflow: hidden;
+  filter: grayscale(1) contrast(0.94) brightness(1.02);
+  transition: filter 0.75s cubic-bezier(0.2, 0.7, 0.15, 1), transform 0.75s cubic-bezier(0.2,0.7,0.15,1);
+}
+.group:hover .thumb { filter: grayscale(0) contrast(1); }
+.thumb__field { position: absolute; inset: 0; }
+.thumb__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.thumb__grain {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: var(--grain-url); background-size: 160px 160px;
+  opacity: 0.5; mix-blend-mode: soft-light;
+}
+.thumb__frame { position: absolute; inset: 16px; border: 1px solid rgba(237,231,218,0.45); pointer-events: none; }
+.thumb__label {
+  position: absolute; left: 18px; bottom: 14px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: rgba(237,231,218,0.82);
+}
+.thumb__fig {
+  position: absolute; right: 18px; top: 14px;
+  font-family: var(--mono); font-size: 10.5px; color: rgba(237,231,218,0.7);
+}
+
+/* rounded filter / tag pill */
+.pill {
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  white-space: nowrap;
+}
+.pill--on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* service list row hover invert */
+.svc-row { transition: background 0.4s cubic-bezier(0.2,0.7,0.15,1), color 0.4s ease, padding 0.4s ease; }
+.svc-row:hover { background: var(--ink); color: var(--paper); }
+.svc-row:hover .svc-arrow { transform: translateX(6px) rotate(0deg); opacity: 1; }
+.svc-arrow { transition: transform 0.4s ease, opacity 0.4s ease; opacity: 0.35; }
+
+/* underline-grow link */
+.ul-link { background-image: linear-gradient(currentColor, currentColor); background-size: 0% 1px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size 0.4s cubic-bezier(0.2,0.7,0.15,1); }
+.ul-link:hover { background-size: 100% 1px; }
+
+/* nav — solid black text, dot marks active */
+.nav-link { position: relative; opacity: 1; }
+.nav-link:hover { opacity: 1; }
+.nav-link--on { opacity: 1; }
+.nav-link--on .nav-dot { transform: scale(1); }
+.nav-dot { transform: scale(0); transition: transform 0.3s cubic-bezier(0.2,0.7,0.15,1); }
+
+/* entrance */
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+.rise { animation: rise 0.8s cubic-bezier(0.2, 0.7, 0.15, 1) both; }
+
+/* form input underline */
+.field-input {
+  background: transparent; border: 0; border-bottom: 1px solid var(--line);
+  padding: 12px 2px; width: 100%; color: var(--ink); font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+.field-input::placeholder { color: rgba(23,18,13,0.35); }
+.field-input:focus { outline: none; border-color: var(--ink); }
+
+/* detail overlay slide */
+@keyframes slideIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+.detail-in { animation: slideIn 0.55s cubic-bezier(0.2, 0.7, 0.15, 1) both; }
+
+/* ---- bottom-left paper flip: anco. ⇄ jiyeon kim ---- */
+.flip-card { perspective: 1100px; }
+.flip-inner {
+  position: relative; width: 100%;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+  animation: paperFlip 7.5s cubic-bezier(0.7, 0, 0.2, 1) infinite;
+}
+.flip-front, .flip-back { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.flip-front { position: relative; }
+.flip-back {
+  position: absolute; inset: 0;
+  transform: rotateX(180deg);
+  display: flex; align-items: center;
+}
+@keyframes paperFlip {
+  0%, 42%   { transform: rotateX(0deg); }
+  50%, 92%  { transform: rotateX(180deg); }
+  100%      { transform: rotateX(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner { animation: none; }
+}
+
+
+/* ---- scroll reveal: 슥! 빠르고 경쾌하게 ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(18px); will-change: opacity, transform; }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.42s cubic-bezier(0.22, 1, 0.36, 1), transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}

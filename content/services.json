@@ -1,0 +1,30 @@
+[
+  {
+    "num": "01",
+    "name": "Branding",
+    "nameKr": "브랜딩",
+    "related": "pilgrims",
+    "desc": "Channel Network Design / Youtube Visual Identity"
+  },
+  {
+    "num": "02",
+    "name": "Graphic",
+    "nameKr": "그래픽",
+    "related": "litho",
+    "desc": "TV/OTT Contents Package Design"
+  },
+  {
+    "num": "03",
+    "name": "Motion",
+    "nameKr": "모션",
+    "related": "caption",
+    "desc": "TV/OTT Contents Title MotionGrapgic Design"
+  },
+  {
+    "num": "04",
+    "name": "Poster",
+    "nameKr": "포스터",
+    "related": "pilgrims",
+    "desc": "Contents Poster Design"
+  }
+]
