@@ -157,7 +157,7 @@ function About() {
 
       <div className="mt-6 lg:mt-9 grid lg:grid-cols-2 gap-x-8 gap-y-8 items-start">
         <div className="group w-full max-w-full">
-          <div className="thumb aspect-[4/3] rounded-[10px]">
+          <div className="thumb bw aspect-[4/3] rounded-[10px]">
             <img src="site-img/profileImage_1.png" alt="Jiyeon Kim" className="w-full h-full object-cover" style={{ objectFit: "cover", margin: "0px", width: "100%" }} />
           </div>
         </div>

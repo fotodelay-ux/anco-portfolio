@@ -58,10 +58,10 @@ body {
 .thumb {
   position: relative;
   overflow: hidden;
-  filter: grayscale(1) contrast(0.94) brightness(1.02);
   transition: filter 0.75s cubic-bezier(0.2, 0.7, 0.15, 1), transform 0.75s cubic-bezier(0.2,0.7,0.15,1);
 }
-.group:hover .thumb { filter: grayscale(0) contrast(1); }
+.thumb.bw { filter: grayscale(1) contrast(0.94) brightness(1.02); }
+.group:hover .thumb.bw { filter: grayscale(0) contrast(1); }
 .thumb__field { position: absolute; inset: 0; }
 .thumb__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .thumb__grain {
