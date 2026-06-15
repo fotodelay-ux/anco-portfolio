@@ -36,13 +36,13 @@ function Sidebar({ active, goTo }) {
             </button>
           )}
         </nav>
-        {/*<button
+        <button
           onClick={() => goTo("contact")}
           className="mt-7 inline-flex items-center gap-2 whitespace-nowrap bg-ink text-paper text-[12px] uppercase tracking-[0.04em] rounded-full pl-4 pr-3.5 py-2.5 hover:opacity-90 transition" style={{ fontSize: "13px" }}>
           
           Start the project
           <span className="text-sm leading-none">↗</span>
-        </button>*/}
+        </button>
       </div>
 
       <div>
@@ -281,7 +281,9 @@ function ProjectCard({ p, onOpen }) {
           </div>
         </div>
         <div>
-          <p className="kr text-[14px] lg:text-[15px] leading-relaxed opacity-75 whitespace-pre-line line-clamp-[5] lg:line-clamp-[15]">{p.summary}</p>
+          <p className="text-[14px] lg:text-[15px] leading-relaxed opacity-75 line-clamp-6">{p.summaryEn || p.summary}</p>
+          {p.summaryKr &&
+          <p className="kr text-[14px] lg:text-[15px] leading-relaxed opacity-75 line-clamp-6 mt-3">{p.summaryKr}</p>}
           <span className="mono text-[15px] tracking-wide opacity-40 mt-[25px] inline-block group-hover:opacity-100 transition">See More →</span>
         </div>
       </div>
