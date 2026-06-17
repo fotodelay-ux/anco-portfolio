@@ -14,10 +14,10 @@
     theme: {
       extend: {
         colors: {
-          ink: "#17120d",
-          paper: "#f4f0e8",
-          "paper-2": "#ece6da",
-          line: "rgba(23,18,13,0.16)",
+          ink: "var(--ink)",
+          paper: "var(--paper)",
+          "paper-2": "var(--paper-2)",
+          line: "var(--line)",
         },
         fontFamily: {
           sans: ["Inter", "Pretendard", "sans-serif"],
@@ -30,6 +30,10 @@
   };
 </script>
 <link rel="stylesheet" href="site.css" />
+<script>
+  // 저장된 테마를 렌더 전에 적용 (깜빡임 방지)
+  try { if (localStorage.getItem("anco-theme") === "dark") document.documentElement.classList.add("dark"); } catch (e) {}
+</script>
 <style>
   :root { --grain-url: url("grain.png"); }
   /* big display headings use Founders Grotesk */

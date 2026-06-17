@@ -27,7 +27,35 @@
   --paper: #f4f0e8;
   --paper-2: #ece6da;
   --line: rgba(23, 18, 13, 0.16);
+  --muted: rgba(23, 18, 13, 0.35);
+  --scroll: rgba(23, 18, 13, 0.28);
   --mono: "SFMono-Regular", "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+}
+
+/* ---- dark mode: 잉크↔미색 반전 (따뜻한 차콜 배경) ---- */
+html.dark {
+  --ink: #ece6da;
+  --paper: #17120d;
+  --paper-2: #221b14;
+  --line: rgba(236, 230, 218, 0.18);
+  --muted: rgba(236, 230, 218, 0.4);
+  --scroll: rgba(236, 230, 218, 0.26);
+}
+
+/* theme toggle — bordered pill, sun/moon icon */
+.theme-toggle {
+  color: var(--ink); opacity: 0.7;
+  display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+  background: transparent; border: 1px solid var(--line); border-radius: 999px;
+  cursor: pointer; padding: 6px 11px;
+  transition: opacity 0.2s ease, background 0.3s ease, border-color 0.3s ease;
+}
+.theme-toggle:hover { opacity: 1; background: var(--paper-2); border-color: var(--ink); }
+.theme-toggle.subtle { border-color: transparent; background: transparent; padding: 4px; opacity: 0.42; }
+.theme-toggle.subtle:hover { opacity: 1; background: transparent; border-color: transparent; }
+.theme-toggle__label {
+  font-family: var(--mono); font-size: 10.5px; text-transform: uppercase;
+  letter-spacing: 0.08em; line-height: 1;
 }
 
 * { box-sizing: border-box; }
@@ -39,6 +67,7 @@ body {
   font-family: "Inter", "Pretendard", sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  transition: background 0.45s ease, color 0.45s ease;
 }
 :lang(ko), .kr { font-family: "Pretendard", "Inter", sans-serif; }
 
@@ -47,7 +76,7 @@ body {
 /* thin custom scrollbar */
 ::-webkit-scrollbar { width: 9px; height: 9px; }
 ::-webkit-scrollbar-track { background: var(--paper); }
-::-webkit-scrollbar-thumb { background: rgba(23,18,13,0.28); border-radius: 20px; border: 2px solid var(--paper); }
+::-webkit-scrollbar-thumb { background: var(--scroll); border-radius: 20px; border: 2px solid var(--paper); }
 
 .mono { font-family: var(--mono); }
 
@@ -116,7 +145,7 @@ body {
   padding: 12px 2px; width: 100%; color: var(--ink); font-size: 16px;
   transition: border-color 0.3s ease;
 }
-.field-input::placeholder { color: rgba(23,18,13,0.35); }
+.field-input::placeholder { color: var(--muted); }
 .field-input:focus { outline: none; border-color: var(--ink); }
 
 /* detail overlay slide */

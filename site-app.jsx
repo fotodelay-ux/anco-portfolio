@@ -20,6 +20,31 @@ function Thumb({ color, label, fig = "", className = "", img = "" }) {
 }
 
 /* ---------------- sidebar ---------------- */
+function ThemeToggle({ className = "", showLabel = false }) {
+  const [dark, setDark] = useState(() =>
+  typeof document !== "undefined" && document.documentElement.classList.contains("dark"));
+  const toggle = () => {
+    const next = !dark;
+    setDark(next);
+    document.documentElement.classList.toggle("dark", next);
+    try {localStorage.setItem("anco-theme", next ? "dark" : "light");} catch (e) {}
+  };
+  return (
+    <button onClick={toggle} aria-label={dark ? "라이트 모드로 전환" : "다크 모드로 전환"} title={dark ? "Switch to light" : "Switch to dark"} className={"theme-toggle " + className}>
+      {dark ?
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2" />
+          <path d="M12 2.2v2.4M12 19.4v2.4M2.2 12h2.4M19.4 12h2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7" />
+        </svg> :
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.8 6.8 0 0 0 9.8 9.8z" />
+        </svg>
+      }
+      {showLabel && <span className="theme-toggle__label">{dark ? "Light" : "Dark"}</span>}
+    </button>);
+
+}
+
 function Sidebar({ active, goTo }) {
   return (
     <aside className="hidden md:flex fixed left-0 top-0 h-screen w-[300px] border-r border-line flex-col justify-between py-7 pr-7 pl-[23px] z-30 bg-paper" style={{ fontFamily: "Inter" }}>
@@ -56,7 +81,10 @@ function Sidebar({ active, goTo }) {
             </div>
           </div>
         </div>
-        <div className="mono text-[10px] opacity-50 mt-4 leading-relaxed">© 2026 anco. — Jiyeon Kim</div>
+        <div className="flex items-center justify-between gap-3 mt-4">
+          <div className="mono text-[10px] opacity-50 leading-relaxed">© 2026 anco. — Jiyeon Kim</div>
+          <ThemeToggle className="subtle" />
+        </div>
       </div>
     </aside>);
 
@@ -82,6 +110,7 @@ function MobileHeader({ goTo }) {
         {MOBILE_NAV.map((it) =>
         <button key={it.id} onClick={() => goTo(it.id)} className="ul-link font-medium uppercase text-[14px] text-center pb-1 " style={{ fontFamily: "Inter" }}>{it.label}</button>
         )}
+        <ThemeToggle className="ml-auto subtle" />
       </nav>
     </header>);
 
@@ -103,7 +132,7 @@ function MobileBar({ goTo, onClose }) {
       {open &&
       <nav className="border-t border-line px-[7vw] pb-2">
           {MOBILE_NAV.map((it) =>
-        <button key={it.id} onClick={() => {setOpen(false);goTo(it.id);}} className="block w-full text-left py-3.5 text-[14px] uppercase tracking-[0.1em] border-b border-line/50 last:border-0">{it.label}</button>
+        <button key={it.id} onClick={() => {setOpen(false);goTo(it.id);}} className="block w-full text-left py-3.5 text-[14px] uppercase tracking-[0.1em] border-b border-line last:border-0">{it.label}</button>
         )}
         </nav>
       }
@@ -294,7 +323,9 @@ function ProjectCard({ p, onOpen }) {
 function Work({ filter, setFilter, onOpen, showFilters }) {
   const [zoom, setZoom] = useState(null);
   const filters = ["All","graphic","logo","Poster","motion"];
-  const list = filter === "All" ? PROJECTS : PROJECTS.filter((p) => p.tags.includes(filter));
+  const list = filter === "All"
+  ? PROJECTS.filter((p) => !(p.tags.length === 1 && (p.tags[0] === "logo" || p.tags[0] === "Poster")))
+  : PROJECTS.filter((p) => p.tags.includes(filter));
   const isPoster = filter === "Poster";
   const isLogo = filter === "logo";
   const isGrid = filter === "graphic" || filter === "motion";

@@ -252,7 +252,7 @@
         "type": "section",
         "label": "Execution",
         "labelEn": "Original Contetns Package",
-        "body": "Lifetime's content design prioritizes the unwavering consistency of the brand essence, flexibly expanding content identities within this solid framework.\n\n 라이프타임의 콘텐츠 디자인은 브랜드 본질의 일관성을 확고하게 유지하는 것을 최우선으로 하며, 이 단단한 체계 안에서 각 콘텐츠의 정체성을 유연하게 확장되도록 했습니다."
+        "body": "Lifetime's content design prioritizes the unwavering consistency of the brand essence, flexibly expanding content identities within this solid framework.\n라이프타임의 콘텐츠 디자인은 브랜드 본질의 일관성을 확고하게 유지하는 것을 최우선으로 하며, 이 단단한 체계 안에서 각 콘텐츠의 정체성이 유연하게 확장되도록 했습니다."
       },
       {
         "type": "images",
@@ -297,7 +297,8 @@
       "logo"
     ],
     "color": "#8a5a44",
-    "logo": "site-img/Project_3_logo_2.png",
+    "logo": "site-img/Project_3_logo_3.png",
+    "poster": "site-img/Project_3_poster_1.png",
     "role": "SLL(JTBC Studios)\n Date : 2023.03 \n Scope : Visual Identity, Design System",
     "summaryEn": "This project focused on visual optimization for the launch of Season 2 of the mega-hit digital content, Workman. The core objective was not a total overhaul. Instead, it was about protecting the established brand logo and signature colors—the visual assets the audience is already familiar with. By refining only the background graphics and textures, the design maintains brand continuity for existing fans while introducing a fresh rhythm and tension for the new season.",
     "summaryKr" : "유튜브 메가히트 오리지널 콘텐츠 <워크맨>의 시즌 2 론칭에 맞춘 비주얼 최적화 프로젝트입니다. 이번 작업의 핵심은 '모든 것을 갈아엎는 전면적인 리뉴얼'이 아니었습니다. 사람들이 이미 친숙하게 인지하고 있는 브랜드 로고와 메인 컬러의 고유한 정체성은 철저히 보호하되, 영상 전반을 구성하는 배경 그래픽과 텍스처를 새롭게 다듬었습니다. 이를 통해 기존 팬들이 느끼는 브랜드의 편안함은 유지하면서도, 시즌 2 특유의 새로운 활기와 긴장감을 부여하는 시각적 스케일업에 집중했습니다.",
@@ -372,8 +373,17 @@
           "site-img/Project_3_event_7.png",
           "site-img/Project_3_event_8.png"
         ],
-        "cols": 2,
+        "cols": 4,
         "ratio": "16/9"
+      },
+      {
+        "type": "images",
+        "src":[
+          "site-img/Project_3_event_10.png",
+          "site-img/Project_3_event_11.png"
+        ],
+        "cols": 2,
+        "ratio": "contain"
       },
       {
         "type": "section",
@@ -392,7 +402,7 @@
   {
     "id": "Tti-Bal-Nom",
     "num": "03",
-    "title": "Tti-Bal-Nom: Dynamic Visual Package",
+    "title": "Tti-Bal-Nom",
     "thumb": "site-img/Project_4_bumper.mp4",
     "titleEn": "띄밟놈 : 콘텐츠 비주얼 아이덴티티 및 패키지 구축",
     "year": "2022",
@@ -400,11 +410,12 @@
     "tags": [
       "graphic",
       "motion",
-      "logo",
-      "poster"
+      "Poster",
+      "logo"
     ],
     "color": "#8a5a44",
     "logo": "site-img/Project_4_logo.png",
+    "poster": "site-img/Project_4_poster.jpg",
     "role": "SLL(JTBC Studios)\n Date : 2022.12 \n Scope : Visual Identity, Design System",
     "summaryEn": "I developed the visual identity and the entire Youtube contents design package for SLL's new original variety show, Tti-Bal-Nom. The biggest mission was figuring out how to visually capture the explosive, cheerful tension created when ‘Park Myung-soo’ and ‘Haha’—two of the most iconic and unbridled figures in Korean variety shows—come together. Moving beyond mere screen decoration, we focused on planning a dynamic visual package that intuitively delivers the raw charm of these two characters and the bouncy nature of the content to the viewers. \n\n ",
     "summaryKr": "SLL의 유튜브 오리지널 예능 <띄밟놈>의 비주얼 아이덴티티와 전체 방송 디자인 패키지를 구축하는 프로젝트를 진행했습니다. 박명수와 하하, 예능계에서 가장 상징적이고 거침없는 두 인물이 만났을 때 폭발하는 그 유쾌한 텐션을 시각적으로 어떻게 담아낼 것인가가 가장 큰 미션이었습니다. 우리는 단순히 화면을 예쁘게 꾸미는 장식적인 접근을 넘어, 두 캐릭터가 가진 날것의 매력과 콘텐츠의 통통 튀는 성격을 시청자들에게 직관적으로 전달할 수 있는 역동적인 비주얼 패키지를 기획하는 데 집중했습니다.",
@@ -485,35 +496,37 @@
     ]
   },
   {
-    "id": "workman2",
-    "num": "03",
-    "title": "Workman Season 2 : Visual Optimization",
-    "thumb": "site-img/Project_3_bumper.mp4",
-    "titleEn": "워크맨 시즌 2 : 디자인 개편 및 비주얼 최적화 프로젝트",
+    "id": "project10K",
+    "num": "05",
+    "title": "Project 10K",
+    "thumb": "site-img/Project_5_bumper_1.mp4",
+    "titleEn": "프로젝트 10K : 콘텐츠 비주얼 아이덴티티 및 패키지 구축",
     "year": "2023",
-    "meta": "SLL(JTBC Studios",
+    "meta": "SLL(JTBC Studios)",
     "tags": [
       "graphic",
       "motion",
+      "Poster",
       "logo"
     ],
     "color": "#8a5a44",
-    "logo": "site-img/Project_3_logo_2.png",
+    "logo": "site-img/Project_5_logo.png",
+    "poster": "site-img/Project_5_poster.png",
     "role": "SLL(JTBC Studios)\n Date : 2023.03 \n Scope : Visual Identity, Design System",
-    "summary": "This project focused on visual optimization for the launch of Season 2 of the mega-hit digital content, Workman. The core objective was not a total overhaul. Instead, it was about protecting the established brand logo and signature colors—the visual assets the audience is already familiar with. By refining only the background graphics and textures, the design maintains brand continuity for existing fans while introducing a fresh rhythm and tension for the new season. \n\n 유튜브 메가히트 오리지널 콘텐츠 <워크맨>의 시즌 2 론칭에 맞춘 비주얼 최적화 프로젝트입니다. 이번 작업의 핵심은 '모든 것을 갈아엎는 전면적인 리뉴얼'이 아니었습니다. 사람들이 이미 친숙하게 인지하고 있는 브랜드 로고와 메인 컬러의 고유한 정체성은 철저히 보호하되, 영상 전반을 구성하는 배경 그래픽과 텍스처를 새롭게 다듬었습니다. 이를 통해 기존 팬들이 느끼는 브랜드의 편안함은 유지하면서도, 시즌 2 특유의 새로운 활기와 긴장감을 부여하는 시각적 스케일업에 집중했습니다.",
-    "keyart": "site-img/Project_3_logo_keyart_1.png",
+    "summaryEn": "Directed the visual identity and packaging system for <Project 10K>, a challenge-based reality show tracking a rookie artist's journey to a Tokyo arena debut. The project visualizes a massive quest to mobilize 10,000 audience members across five guerrilla performances. Going beyond standard variety show entertainment graphic design, the focus was on designing a dynamic framework where the artists break through real-world missions and expand their own universe. \n\n ",
+    "summaryKr" : "신인 아티스트 '엔싸인(n.SSign)'의 도쿄 아레나 입성을 위한 챌린지 리얼리티 <Project 10K>의 비주얼 아이덴티티 및 패키지 시스템을 총괄했습니다. 총 5번의 게릴라 공연을 통해 1만 명의 관객을 동원해야 하는 거대한 퀘스트 과정을 시각화하는 프로젝트입니다. 단순한 웹 예능 로고 제작을 넘어, 아티스트가 현실의 미션을 격파하고 자신들만의 세계관을 확장해 나가는 역동적인 구조를 설계하는 데 집중했습니다.",
+    "keyart": "site-img/Project_5_keyart.png",
     "blocks": [
       {
         "type": "section",
         "label": "Project Overview",
         "labelEn": "",
-        "body": "This project focused on visual optimization for the launch of Season 2 of the mega-hit digital content, Workman. The core objective was not a total overhaul. Instead, it was about protecting the established brand logo and signature colors—the visual assets the audience is already familiar with. By refining only the background graphics and textures, the design maintains brand continuity for existing fans while introducing a fresh rhythm and tension for the new season. \n\n 유튜브 메가히트 오리지널 콘텐츠 <워크맨>의 시즌 2 론칭에 맞춘 비주얼 최적화 프로젝트입니다. 이번 작업의 핵심은 '모든 것을 갈아엎는 전면적인 리뉴얼'이 아니었습니다. 사람들이 이미 친숙하게 인지하고 있는 브랜드 로고와 메인 컬러의 고유한 정체성은 철저히 보호하되, 영상 전반을 구성하는 배경 그래픽과 텍스처를 새롭게 다듬었습니다. 이를 통해 기존 팬들이 느끼는 브랜드의 편안함은 유지하면서도, 시즌 2 특유의 새로운 활기와 긴장감을 부여하는 시각적 스케일업에 집중했습니다."
+        "body": "Directed the visual identity and packaging system for <Project 10K>, a challenge-based reality show tracking a rookie artist's journey to a Tokyo arena debut. The project visualizes a massive quest to mobilize 10,000 audience members across five guerrilla performances. Going beyond standard variety show entertainment graphic design, the focus was on designing a dynamic framework where the artists break through real-world missions and expand their own universe. \n\n 신인 아티스트 '엔싸인(n.SSign)'의 도쿄 아레나 입성을 위한 챌린지 리얼리티 <Project 10K>의 비주얼 아이덴티티 및 패키지 시스템을 총괄했습니다. 총 5번의 게릴라 공연을 통해 1만 명의 관객을 동원해야 하는 거대한 퀘스트 과정을 시각화하는 프로젝트입니다. 단순한 웹 예능 로고 제작을 넘어, 아티스트가 현실의 미션을 격파하고 자신들만의 세계관을 확장해 나가는 역동적인 구조를 설계하는 데 집중했습니다."
       },
       {
-        "type": "images",
+        "type": "image",
         "src": [
-          "site-img/Project_3_logo_1.png",
-          "site-img/Project_3_logo_2.png"
+          "site-img/Project_5_logo.png"
         ],
         "cols": 2,
         "ratio": "16/9"
@@ -522,13 +535,13 @@
         "type": "section",
         "label": "Problem Definition",
         "labelEn": "",
-        "body": "When a major IP transitions to a new season, the biggest risk is causing visual confusion among the fandom through unnecessary design changes. Altering the logo or core tone too abruptly can disrupt the brand loyalty built with viewers over time. Conversely, making no changes leads to visual fatigue. To balance this, we avoided superficial decorations and focused on a strategic graphic solution that captures attention immediately while respecting the existing framework. \n\n 인기 있는 메가 IP가 다음 시즌으로 넘어갈 때 가장 경계해야 할 것은 무리한 디자인 개편으로 인한 '팬덤의 인지 혼란'입니다. 로고나 핵심 톤앤매너를 섣불리 바꿀 경우, 오랜 시간 시청자와 쌓아온 브랜드 애착이 단절될 위험이 큽니다. 반대로 아무런 변화가 없다면 장기 방영으로 인한 시각적 피로도를 극복하기 어렵습니다. 따라서 단순히 '새롭게 보이려는' 과잉을 과감히 배제하고, 기존의 정돈된 골격 위에서 시청자의 시선을 다시금 꽉 붙잡아둘 수 있는 전략적이고 즉각적인 그래픽 해법이 필요했습니다."
+        "body": "Due to unpredictable outdoor locations—such as baseball stadiums and amusement parks—and the nature of live guerrilla shows, the on-screen backgrounds presented severe visual noise. In this chaotic environment, a distinctive visual anchor was required to instantly imprint the program's identity. The primary business challenge was to preempt viewer recognition by breaking through these spatial and temporal constraints. \n\n 야구장, 놀이공원 등 매번 달라지는 야외 로케이션과 불특정 다수를 상대로 한 게릴라 공연이라는 포맷 특성상, 화면의 배경은 늘 복잡하고 예측 불가능합니다. 이러한 환경 속에서 시각적 노이즈에 묻히지 않고 프로그램의 정체성을 단번에 각인시킬 수 있는 '시각적 기준점'이 필요했습니다. 시공간의 제약을 뚫고 시청자의 인지를 즉각적으로 선점하는 것이 비즈니스의 가장 큰 과제였습니다."
       },
       {
         "type": "images",
         "src": [
-          "site-img/Project_3_poster_1.png",
-          "site-img/Project_3_poster_1.png"
+          "site-img/Project_5_poster.png",
+          "site-img/Project_5_poster.png"
         ],
         "cols": 2,
         "ratio": "16/9"
@@ -537,12 +550,12 @@
         "type": "section",
         "label": "Design Strategy",
         "labelEn": "Logo",
-        "body": "While the logo remained a fixed 'constant' of the brand, the textures and graphic elements were treated as dynamic 'variables' that define the season. We introduced high-density textures and dimensional graphic motifs to the bumper animations and promotional pop-ups. This approach seamlessly integrates with the familiar logo system, adding a rich visual rhythm and maximizing the energetic mood of the content without compromising its identity.\n\n 로고라는 확고한 중심을 변하지 않는 브랜드의 '상수'로 두었다면, 텍스처와 그래픽 요소들은 시즌의 성격을 규정하는 다이내믹한 '변수'로 활용했습니다. 화면이 전환될 때 쓰이는 범퍼 영상이나 콘텐츠 곳곳에 등장하는 이벤트 팝업 디자인 등에 기존보다 훨씬 밀도 높은 질감(Texture)과 입체적인 모티프를 정교하게 입혔습니다. 이는 기존의 익숙한 로고 시스템과 자연스럽게 결합하면서도 콘텐츠에 풍부한 시각적 리듬감을 더해, 브랜드의 근본을 훼손하지 않고도 발랄한 에너지를 극대화하는 결과를 낳았습니다."
+        "body": "Reinterpreted the artist’s core 'space' identity into a cybernetic mood tailored for a mission-solving format. 'Neon Green' was established as the key color for immediate luminance against complex backgrounds, paired with a deep blue cosmic base to maximize visual impact. Specifically, applying a 3D dimension to the logo creates the form of a massive basecamp or infrastructure, which visually demonstrates the grand scale of the 10,000-audience project directly to the viewers. \n\n 아티스트가 가진 고유의 '우주' 아이덴티티를 미션 해결형 예능의 맥락에 맞춰 '사이버네틱(Cybernetic)' 무드로 재해석했습니다. 어떤 복잡한 배경 속에서도 가장 직관적으로 반응하는 '네온 그린'을 키 컬러로 설정하고, 이를 딥 블루 톤의 우주적 배경과 강렬하게 대비시켜 시각적 몰입감을 유도했습니다. 특히 로고에 입체감(3D)을 주어 거대한 베이스캠프나 구조물 을 연상시키는 쉐입은, 1만 명을 모으는 이번 프로젝트의 엄청난 규모를 시청자들에게 눈으로 직접 확인시켜 주는 역할을 하게 만들었습니다."
       },
       {
         "type": "images",
         "src": [
-          "site-img/Project_3_bumper.mp4"
+          "site-img/Project_5_bumper_2.mp4"
         ],
         "cols": 1,
         "object-fit": "contain"
@@ -550,43 +563,39 @@
       {
         "type": "images",
         "src": [
-          "site-img/Project_3_event_1.png",
-          "site-img/Project_3_event_3.png"
-        ],
-        "cols": 2,
-        "ratio": "16/9"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_3_event_4.png"
+          "site-img/Project_5_endpage.png"
         ],
         "cols": 1,
-        "object-fit": "contain"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_3_event_5.png",
-          "site-img/Project_3_event_6.png",
-          "site-img/Project_3_event_7.png",
-          "site-img/Project_3_event_8.png"
-        ],
-        "cols": 2,
         "ratio": "16/9"
       },
       {
         "type": "section",
         "label": "Impact",
         "labelEn": "",
-        "body": "This project challenges the misconception that a rebrand requires changing everything from scratch. It proves that optimizing a visual system can successfully extend the lifecycle of a massive IP. By refining the graphic details and structuring the system, we delivered stability to existing fans and fresh excitement to new viewers. The established graphic rules now serve as a scalable visual asset, allowing future seasons to adapt swiftly without the heavy costs or time required for a full redesign.\n\n 이 프로젝트는 '무조건 새롭게 엎어야만 리뉴얼'이라는 편견을 깨고, 시스템을 최적화하는 것만으로 메가 IP의 생명력을 성공적으로 연장한 사례입니다. 그래픽 디테일을 다듬고 시스템을 정리한 결과, 기존 팬들에게는 안정감을, 새로운 시청자에게는 트렌디한 자극을 완벽히 전달했습니다. 여기서 정립된 텍스처와 그래픽 운용 규칙은 향후 시즌 3, 4로 확장되더라도 전면적인 리뉴얼에 드는 막대한 비용과 시간 없이, 유연하고 신속하게 새로운 분위기를 전환할 수 있는 단단한 비주얼 자산으로 남았습니다."
+        "body": "Secured a powerful presence as an independent entertainment IP while preserving the artist's original identity. Through calculated visual density and a unified system, the pre-debut reality show was elevated into the premium content tier. This completed a robust visual architecture capable of maintaining absolute brand authority across any digital platform or OOH media expansion. \n\n 아티스트의 오리지널리티를 훼손하지 않으면서도, 독자적인 예능 IP로서의 묵직한 존재감을 확보했습니다. 치밀하게 계산된 시각적 밀도와 일관된 시스템을 통해 자칫 가벼워질 수 있는 프리 데뷔 리얼리티를 프리미엄 콘텐츠의 영역으로 끌어올렸습니다. 향후 어떤 규모의 디지털 플랫폼이나 옥외 매체로 확장되더라도, 브랜드의 시각적 지배력을 흔들림 없이 유지할 수 있는 묵직한 비주얼 아키텍처를 완성했습니다."
       },
       {
         "type": "section",
         "label": "Credits",
-        "labelEn": "2023.03",
+        "labelEn": "2023.08",
         "body": "Creative Direction : jiyeon kim \n Design Strategy & System : jiyeon kim \n Visual Identity Design : jiyeon kim \n Key Art & Poster Design : jiyeon kim \n On-Air Graphic System : jiyeon kim \n Motion & Content Design : jiyeon kim \n\n Platform : Youtube Channel-Studio Lululala"
       }
     ]
+  },
+  {
+  "id": "Changing Majors",
+  "num": "L1",
+  "title": "Changing Majors",
+  "tags": ["Poster"],
+  "Poster": "site-img/Poster_ootb_1_1.jpg",
+  "thumb": "site-img/Poster_ootb_1_1.jpg"
+  },
+  {
+  "id": "Dae-pyo-ja",
+  "num": "L1",
+  "title": "Dae-pyo-ja",
+  "tags": ["Poster"],
+  "Poster": "site-img/Poster_ootb_2.jpg",
+  "thumb": "site-img/Poster_ootb_2.png"
   }
 ]
