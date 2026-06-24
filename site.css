@@ -190,21 +190,14 @@ body {
 /* ---- update ticker (news box) ---- */
 .update-ticker {
   position: relative;
-  border: 0;
-  border-radius: 8px;
-  background: var(--paper-2);
-  padding: 12px 14px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+  padding: 12px 0;
 }
-/* speech-bubble tail (top-left, pointing up) */
-.update-ticker.side::after {
-  content: "";
-  position: absolute;
-  left: 22px; top: -8px;
-  width: 0; height: 0;
-  border-left: 9px solid transparent;
-  border-right: 9px solid transparent;
-  border-bottom: 9px solid var(--paper-2);
-}
+/* (speech-bubble tail removed) */
+.update-ticker.side::after { display: none; }
 .update-ticker__head {
   display: flex; align-items: center; gap: 7px;
   margin-bottom: 9px;
@@ -245,8 +238,14 @@ body {
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
 
-/* desktop sidebar variant */
-.update-ticker.side { margin-top: 28px; }
+/* desktop sidebar variant — lines bleed to aside edges (screen-left ↔ divider) */
+.update-ticker.side {
+  margin-top: 28px;
+  margin-left: -23px;   /* cancel aside padding-left */
+  margin-right: -28px;  /* reach the right divider line */
+  padding-left: 23px;
+  padding-right: 28px;
+}
 
 /* mobile fixed-bottom variant */
 .update-ticker-fixed {
