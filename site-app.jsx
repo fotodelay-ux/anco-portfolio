@@ -726,7 +726,7 @@ function VisitorPopup() {
   const submit = (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
-    data.append("_subject", "🎉 100번째 방문자 이벤트 응모");
+    data.append("_subject", "[anco.] 100번째 방문자 이벤트 응모");
     fetch(FORMSPREE, { method: "POST", body: data, headers: { Accept: "application/json" } });
     setSent(true);
   };
@@ -737,20 +737,30 @@ function VisitorPopup() {
         <button className="vpop__x" onClick={close} aria-label="닫기">×</button>
         {sent ?
         <div className="vpop__done">
-            <div className="vpop__emoji">☕️</div>
-            <h3 className="vpop__title">응모 완료!</h3>
-            <p className="vpop__text">곧 커피 한 잔 쏠게요. 남겨주신 메일로 연락드리겠습니다. 감사합니다 :)</p>
+            <div className="vpop__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </div>
+            <h3 className="vpop__title">전송 완료</h3>
+            <p className="vpop__text">곧 커피 한 잔 쏠게요. 남겨주신 곳으로 연락드리겠습니다. 감사합니다.</p>
             <button className="vpop__btn" onClick={close}>닫기</button>
           </div> :
         <div>
             <div className="vpop__badge mono">100<span>th visitor</span></div>
-            <div className="vpop__emoji">🎉</div>
-            <h3 className="vpop__title">축하합니다!</h3>
+            <div className="vpop__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 9h13v4a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Z" />
+                <path d="M17 10h2.2a2.3 2.3 0 0 1 0 4.6H17" />
+                <path d="M8 2.5c-.6.8-.6 1.7 0 2.5M12 2.5c-.6.8-.6 1.7 0 2.5" />
+                <path d="M3 21.5h15" />
+              </svg>
+            </div>
+            <h3 className="vpop__title">축하합니다</h3>
             <p className="vpop__text">당신은 anco.의 <b>100번째 방문자</b>입니다.<br />작은 감사의 마음으로 <b>커피 한 잔</b>을 쏘고 싶어요.</p>
             <form className="vpop__form" onSubmit={submit}>
-              <input name="name" className="vpop__input" placeholder="이름 / Name" required />
-              <input name="email" type="email" className="vpop__input" placeholder="이메일 / Email" required />
-              <button type="submit" className="vpop__btn">커피 받기 ☕️ →</button>
+              <textarea name="message" className="vpop__input vpop__area" rows="3" placeholder="쓰고 싶은 메시지 혹은 이메일 혹은 연락처" required></textarea>
+              <button type="submit" className="vpop__btn">커피 받기 →</button>
             </form>
             <div className="vpop__note mono">* 이벤트 응모는 anco.에게만 전달됩니다.</div>
           </div>
