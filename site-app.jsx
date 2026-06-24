@@ -45,6 +45,36 @@ function ThemeToggle({ className = "", showLabel = false }) {
 
 }
 
+/* ---------------- update ticker (news box) ---------------- */
+function UpdateTicker({ variant = "side" }) {
+  const items = (typeof window !== "undefined" && window.UPDATES) || [];
+  const [i, setI] = useState(0);
+  const [show, setShow] = useState(true);
+  useEffect(() => {
+    if (items.length <= 1) return;
+    const HOLD = 4000, FADE = 480;
+    const t = setInterval(() => {
+      setShow(false);
+      setTimeout(() => { setI((p) => (p + 1) % items.length); setShow(true); }, FADE);
+    }, HOLD);
+    return () => clearInterval(t);
+  }, [items.length]);
+  if (!items.length) return null;
+  const it = items[i];
+  return (
+    <div className={"update-ticker " + variant}>
+      <div className={"update-ticker__body" + (show ? " is-in" : " is-out")}>
+        <div className="update-ticker__meta">
+          <span className="update-ticker__dot"></span>
+          {it.tag && <span className="update-ticker__tag">{it.tag}</span>}
+          {it.date && <span className="update-ticker__date">{it.date}</span>}
+        </div>
+        <div className="update-ticker__text kr">{it.text}</div>
+      </div>
+    </div>);
+
+}
+
 function Sidebar({ active, goTo }) {
   return (
     <aside className="hidden md:flex fixed left-0 top-0 h-screen w-[300px] border-r border-line flex-col justify-between py-7 pr-7 pl-[23px] z-30 bg-paper" style={{ fontFamily: "Inter" }}>
@@ -61,13 +91,14 @@ function Sidebar({ active, goTo }) {
             </button>
           )}
         </nav>
-        <button
+        {false && <button
           onClick={() => goTo("contact")}
           className="mt-7 inline-flex items-center gap-2 whitespace-nowrap bg-ink text-paper text-[12px] uppercase tracking-[0.04em] rounded-full pl-4 pr-3.5 py-2.5 hover:opacity-90 transition" style={{ fontSize: "13px" }}>
           
           Start the project
           <span className="text-sm leading-none">↗</span>
-        </button>
+        </button>}
+        <UpdateTicker variant="side" />
       </div>
 
       <div>
@@ -723,6 +754,7 @@ function App() {
     <>
       <Sidebar active={active} goTo={goTo} />
       <MobileHeader goTo={goTo} />
+      <div className="md:hidden update-ticker-fixed"><UpdateTicker variant="mobile" /></div>
       <main className="md:ml-[300px] pt-0">
         <Work filter={filter} setFilter={setFilter} onOpen={setProject} showFilters={showFilters} />
         <About />
@@ -741,14 +773,16 @@ function App() {
 async function boot() {
   const root = document.getElementById("root");
   try {
-    const [projects, services, blog] = await Promise.all([
+    const [projects, services, blog, updates] = await Promise.all([
       fetch("content/projects.json").then((r) => r.json()),
       fetch("content/services.json").then((r) => r.json()),
-      fetch("content/blog.json").then((r) => r.json())]
+      fetch("content/blog.json").then((r) => r.json()),
+      fetch("content/updates.json").then((r) => r.json()).catch(() => [])]
     );
     window.PROJECTS = projects;
     window.SERVICES = services;
     window.BLOG = blog;
+    window.UPDATES = updates;
     ReactDOM.createRoot(root).render(<App />);
   } catch (err) {
     console.error("content load failed:", err);
