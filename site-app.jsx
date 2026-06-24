@@ -700,7 +700,7 @@ function Footer({ goTo }) {
 }
 
 /* ---------------- 100th visitor event popup ---------------- */
-const VISIT_TARGET = 100;            // ← 몇 번째 방문자에게 띄울지
+const VISIT_TARGET = 1;            // ← 몇 번째 방문자에게 띄울지
 const FORMSPREE = "https://formspree.io/f/mgobzbed";
 
 function VisitorPopup() {
