@@ -759,6 +759,7 @@ function VisitorPopup() {
             <h3 className="vpop__title">축하합니다</h3>
             <p className="vpop__text">당신은 anco.의 <b>100번째 방문자</b>입니다.<br />작은 감사의 마음으로 <b>커피 한 잔</b>을 쏘고 싶어요.</p>
             <form className="vpop__form" onSubmit={submit}>
+              <input name="name" className="vpop__input" placeholder="이름 / Name" required />
               <textarea name="message" className="vpop__input vpop__area" rows="3" placeholder="쓰고 싶은 메시지 혹은 이메일 혹은 연락처" required></textarea>
               <button type="submit" className="vpop__btn">커피 받기 →</button>
             </form>
