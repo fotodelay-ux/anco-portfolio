@@ -270,12 +270,12 @@ body {
 .update-ticker.mobile .update-ticker__title { display: none; }
 .update-ticker.mobile .update-ticker__count { display: none; }
 .update-ticker.mobile .update-ticker__body { flex: 1; min-width: 0; }
-.update-ticker.mobile .update-ticker__meta { margin-bottom: 2px; }
-.update-ticker.mobile .update-ticker__text { -webkit-line-clamp: 1; font-size: 12px; }
+.update-ticker.mobile .update-ticker__meta { margin-bottom: 3px; gap: 8px; }
+.update-ticker.mobile .update-ticker__text { -webkit-line-clamp: 2; font-size: 12px; padding-left: 14px; }
 
 /* keep mobile content clear of the fixed bar */
 @media (max-width: 767px) {
-  body { padding-bottom: 64px; }
+  body { padding-bottom: 86px; }
 }
 
 /* ---- 100th visitor popup ---- */

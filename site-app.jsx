@@ -272,11 +272,11 @@ function About() {
 /* ---------------- Work ---------------- */
 function GridCard({ p, onOpen }) {
   return (
-    <button onClick={() => onOpen(p)} className="group block text-left cursor-pointer w-full">
+    <button onClick={() => onOpen(p)} className="group flex flex-col text-left cursor-pointer w-full h-full">
       <Thumb color={p.color} img={p.thumb} label={p.titleEn} fig={"no. " + p.num} className="w-full aspect-[16/9] rounded-[6px]" />
       <h3 className="text-[14px] lg:text-[16px] font-semibold tracking-tight mt-3 leading-snug">{p.title}</h3>
       <p className="text-[12px] lg:text-[13px] leading-relaxed opacity-70 mt-1.5 line-clamp-3" style={{ fontFamily: "Roboto" }}>{p.summary}</p>
-      <span className="mono text-[12px] tracking-wide opacity-40 mt-2 inline-block group-hover:opacity-100 transition">See More →</span>
+      <span className="mono text-[12px] tracking-wide opacity-40 mt-auto pt-2 inline-block group-hover:opacity-100 transition">See More →</span>
     </button>);
 
 }
@@ -405,7 +405,7 @@ function Work({ filter, setFilter, onOpen, showFilters }) {
         </div> :
       isGrid ?
       /* branding/graphic/motion: 인스타식 3그리드 (16:9 + 영문 소개) */
-      <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-10">
+      <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-x-5 gap-y-10 items-stretch">
           {list.map((p) => <GridCard key={p.id} p={p} onOpen={onOpen} />)}
         </div> :
       /* All: 기존 리스트 */
