@@ -153,6 +153,13 @@ body {
 .detail-in { animation: slideIn 0.55s cubic-bezier(0.2, 0.7, 0.15, 1) both; }
 
 /* ---- bottom-left paper flip: anco. ⇄ jiyeon kim ---- */
+/* vertical lockup: rotated -90° (reads bottom→top) */
+.vlogo {
+  width: 60px;
+  height: 240px;
+  display: flex; align-items: center; justify-content: center;
+}
+.vlogo .flip-card { width: 240px; flex: none; transform: rotate(-90deg); }
 .flip-card { perspective: 1100px; }
 .flip-inner {
   position: relative; width: 100%;
@@ -270,3 +277,62 @@ body {
 @media (max-width: 767px) {
   body { padding-bottom: 64px; }
 }
+
+/* ---- 100th visitor popup ---- */
+.vpop-overlay {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(23, 18, 13, 0.55);
+  backdrop-filter: blur(3px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px;
+  animation: vpopFade 0.35s ease both;
+}
+@keyframes vpopFade { from { opacity: 0; } to { opacity: 1; } }
+.vpop {
+  position: relative;
+  width: 100%; max-width: 400px;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 4px;
+  padding: 38px 34px 30px;
+  text-align: center;
+  box-shadow: 0 30px 80px -20px rgba(23, 18, 13, 0.6);
+  animation: vpopPop 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes vpopPop { from { opacity: 0; transform: translateY(18px) scale(0.97); } to { opacity: 1; transform: none; } }
+.vpop__x {
+  position: absolute; top: 12px; right: 14px;
+  background: transparent; border: 0; cursor: pointer;
+  font-size: 22px; line-height: 1; color: var(--ink); opacity: 0.4;
+  transition: opacity 0.2s ease;
+}
+.vpop__x:hover { opacity: 1; }
+.vpop__badge {
+  display: inline-block; font-size: 11px; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 4px 11px; border-radius: 999px;
+  background: var(--ink); color: var(--paper); margin-bottom: 18px;
+  font-weight: 600;
+}
+.vpop__badge span { opacity: 0.7; margin-left: 3px; }
+.vpop__emoji { font-size: 40px; line-height: 1; margin-bottom: 12px; }
+.vpop__title { font-family: "Inter", sans-serif; font-size: 26px; font-weight: 600; margin: 0 0 10px; letter-spacing: -0.01em; }
+.vpop__text { font-size: 14px; line-height: 1.7; opacity: 0.78; margin: 0 0 22px; }
+.vpop__form { display: flex; flex-direction: column; gap: 10px; }
+.vpop__input {
+  width: 100%; background: transparent;
+  border: 1px solid var(--line); border-radius: 3px;
+  padding: 12px 13px; font-size: 14px; color: var(--ink);
+  transition: border-color 0.25s ease;
+}
+.vpop__input::placeholder { color: var(--muted); }
+.vpop__input:focus { outline: none; border-color: var(--ink); }
+.vpop__btn {
+  margin-top: 4px; width: 100%;
+  background: var(--ink); color: var(--paper);
+  border: 0; border-radius: 3px; padding: 13px;
+  font-size: 14px; font-weight: 500; cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+.vpop__btn:hover { opacity: 0.88; }
+.vpop__note { font-size: 10px; opacity: 0.4; margin-top: 14px; letter-spacing: 0.02em; }
+.vpop__done .vpop__emoji { margin-top: 6px; }

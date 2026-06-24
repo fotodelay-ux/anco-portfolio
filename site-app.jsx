@@ -102,7 +102,8 @@ function Sidebar({ active, goTo }) {
       </div>
 
       <div>
-        <div className="flip-card w-full">
+        <div className="vlogo">
+          <div className="flip-card">
           <div className="flip-inner">
             <div className="flip-front"><AncoLogo className="w-full text-ink" /></div>
             <div className="flip-back">
@@ -110,6 +111,7 @@ function Sidebar({ active, goTo }) {
                 <text x="0" y="118" textLength="661.45" lengthAdjust="spacingAndGlyphs" fill="currentColor" style={{ fontFamily: "Inter", fontWeight: 800, fontSize: "135px", letterSpacing: "-4px" }}>Jiyeon Kim</text>
               </svg>
             </div>
+          </div>
           </div>
         </div>
         <div className="flex items-center justify-between gap-3 mt-4">
@@ -697,6 +699,67 @@ function Footer({ goTo }) {
 
 }
 
+/* ---------------- 100th visitor event popup ---------------- */
+const VISIT_TARGET = 100;            // ← 몇 번째 방문자에게 띄울지
+const FORMSPREE = "https://formspree.io/f/mgobzbed";
+
+function VisitorPopup() {
+  const [open, setOpen] = useState(false);
+  const [sent, setSent] = useState(false);
+
+  useEffect(() => {
+    let n = 0;
+    try {
+      // 이미 당첨창을 본 사람은 다시 안 띄움
+      if (localStorage.getItem("anco-100-done")) return;
+      n = parseInt(localStorage.getItem("anco-visits") || "0", 10) + 1;
+      localStorage.setItem("anco-visits", String(n));
+    } catch (e) { return; }
+    if (n >= VISIT_TARGET) {
+      setTimeout(() => setOpen(true), 1200);
+      try { localStorage.setItem("anco-100-done", "1"); } catch (e) {}
+    }
+  }, []);
+
+  if (!open) return null;
+  const close = () => setOpen(false);
+  const submit = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    data.append("_subject", "🎉 100번째 방문자 이벤트 응모");
+    fetch(FORMSPREE, { method: "POST", body: data, headers: { Accept: "application/json" } });
+    setSent(true);
+  };
+
+  return (
+    <div className="vpop-overlay" onClick={close}>
+      <div className="vpop kr" onClick={(e) => e.stopPropagation()}>
+        <button className="vpop__x" onClick={close} aria-label="닫기">×</button>
+        {sent ?
+        <div className="vpop__done">
+            <div className="vpop__emoji">☕️</div>
+            <h3 className="vpop__title">응모 완료!</h3>
+            <p className="vpop__text">곧 커피 한 잔 쏠게요. 남겨주신 메일로 연락드리겠습니다. 감사합니다 :)</p>
+            <button className="vpop__btn" onClick={close}>닫기</button>
+          </div> :
+        <div>
+            <div className="vpop__badge mono">100<span>th visitor</span></div>
+            <div className="vpop__emoji">🎉</div>
+            <h3 className="vpop__title">축하합니다!</h3>
+            <p className="vpop__text">당신은 anco.의 <b>100번째 방문자</b>입니다.<br />작은 감사의 마음으로 <b>커피 한 잔</b>을 쏘고 싶어요.</p>
+            <form className="vpop__form" onSubmit={submit}>
+              <input name="name" className="vpop__input" placeholder="이름 / Name" required />
+              <input name="email" type="email" className="vpop__input" placeholder="이메일 / Email" required />
+              <button type="submit" className="vpop__btn">커피 받기 ☕️ →</button>
+            </form>
+            <div className="vpop__note mono">* 이벤트 응모는 anco.에게만 전달됩니다.</div>
+          </div>
+        }
+      </div>
+    </div>);
+
+}
+
 /* ---------------- App ---------------- */
 function App() {
   const [active, setActive] = useState("about");
@@ -765,6 +828,7 @@ function App() {
       </main>
       {project && <ProjectDetail p={project} onClose={() => setProject(null)} onOpen={setProject} goTo={goTo} />}
       {post && <BlogDetail b={post} onClose={() => setPost(null)} goTo={goTo} />}
+      <VisitorPopup />
     </>);
 
 }
