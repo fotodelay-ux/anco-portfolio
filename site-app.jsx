@@ -79,6 +79,24 @@ function Sidebar({ active, goTo }) {
   return (
     <aside className="hidden md:flex fixed left-0 top-0 h-screen w-[300px] border-r border-line flex-col justify-between py-7 pr-7 pl-[23px] z-30 bg-paper" style={{ fontFamily: "Inter" }}>
       <div>
+        <div className="flex items-start justify-between gap-3 mb-5">
+        <button onClick={() => goTo("about")} className="block text-left" aria-label="anco. — Jiyeon Kim">
+          <div className="hlogo">
+            <div className="flip-card">
+              <div className="flip-inner">
+                <div className="flip-front"><AncoLogo className="w-full text-ink" /></div>
+                <div className="flip-back">
+                  <svg viewBox="0 0 661.45 145.18" className="w-full" aria-label="Jiyeon Kim">
+                    <text x="0" y="118" textLength="661.45" lengthAdjust="spacingAndGlyphs" fill="currentColor" style={{ fontFamily: "Inter", fontWeight: 800, fontSize: "135px", letterSpacing: "-4px" }}>Jiyeon Kim</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </button>
+          <ThemeToggle className="subtle -mt-1 -mr-1" />
+        </div>
+        <div className="brand-rule"></div>
         <nav className="flex flex-col gap-1.5">
           {NAV.map((n) =>
           <button
@@ -102,22 +120,7 @@ function Sidebar({ active, goTo }) {
       </div>
 
       <div>
-        <div className="vlogo">
-          <div className="flip-card">
-          <div className="flip-inner">
-            <div className="flip-front"><AncoLogo className="w-full text-ink" /></div>
-            <div className="flip-back">
-              <svg viewBox="0 0 661.45 145.18" className="w-full" aria-label="Jiyeon Kim">
-                <text x="0" y="118" textLength="661.45" lengthAdjust="spacingAndGlyphs" fill="currentColor" style={{ fontFamily: "Inter", fontWeight: 800, fontSize: "135px", letterSpacing: "-4px" }}>Jiyeon Kim</text>
-              </svg>
-            </div>
-          </div>
-          </div>
-        </div>
-        <div className="flex items-center justify-between gap-3 mt-4">
-          <div className="mono text-[10px] opacity-50 leading-relaxed">© 2026 anco. — Jiyeon Kim</div>
-          <ThemeToggle className="subtle" />
-        </div>
+        <div className="mono text-[10px] opacity-50 leading-relaxed">© 2026 anco. — Jiyeon Kim</div>
       </div>
     </aside>);
 
@@ -700,7 +703,7 @@ function Footer({ goTo }) {
 }
 
 /* ---------------- 100th visitor event popup ---------------- */
-const VISIT_TARGET = 1;            // ← 몇 번째 방문자에게 띄울지
+const VISIT_TARGET = 100;            // ← 몇 번째 방문자에게 띄울지
 const FORMSPREE = "https://formspree.io/f/mgobzbed";
 
 function VisitorPopup() {

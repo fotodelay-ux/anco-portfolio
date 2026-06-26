@@ -160,6 +160,14 @@ body {
   display: flex; align-items: center; justify-content: center;
 }
 .vlogo .flip-card { width: 184px; flex: none; transform: rotate(-90deg); }
+/* top-left horizontal lockup: anco. ⇄ Jiyeon Kim */
+.hlogo { width: 96px; }
+.hlogo .flip-card { width: 130px; }
+/* full-bleed rule under the top-left brand */
+.brand-rule {
+  height: 1px; background: var(--line);
+  margin: 0 -28px 22px -23px;   /* screen-left edge ↔ right divider */
+}
 .flip-card { perspective: 1100px; }
 .flip-inner {
   position: relative; width: 100%;
