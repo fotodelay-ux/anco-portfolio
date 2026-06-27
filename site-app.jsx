@@ -189,18 +189,17 @@ function MobileFloatingNav({ goTo }) {
   return (
     <div className={"md:hidden fixed top-3 right-[18px] z-40 transition-all duration-300 " + (show ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none")} style={{ fontFamily: "Inter" }}>
       <div className="flex flex-col items-end gap-2">
-        <button onClick={() => setOpen((v) => !v)} aria-label="menu" className="inline-flex items-center gap-2.5 bg-ink text-paper rounded-full pl-4 pr-4 py-2.5">
+        <button onClick={() => setOpen((v) => !v)} aria-label="menu" className="inline-flex items-center justify-center bg-ink text-paper rounded-full w-11 h-11">
           <span className="relative w-[16px] h-[10px]">
             <span className={"absolute left-0 w-[16px] h-px bg-paper transition-all duration-300 " + (open ? "top-[4px] rotate-45" : "top-0")}></span>
             <span className={"absolute left-0 top-[4px] w-[16px] h-px bg-paper transition-all duration-200 " + (open ? "opacity-0" : "opacity-100")}></span>
             <span className={"absolute left-0 w-[16px] h-px bg-paper transition-all duration-300 " + (open ? "top-[4px] -rotate-45" : "top-[8px]")}></span>
           </span>
-          <span className="text-[11px] uppercase tracking-[0.16em]">{open ? "Close" : "Menu"}</span>
         </button>
         {open &&
         <nav className="bg-paper border border-line min-w-[164px] rise" style={{ animationDuration: "0.3s" }}>
             {MOBILE_NAV.map((it) =>
-          <button key={it.id} onClick={() => pick(it.id)} className="block w-full text-left px-4 py-3.5 text-[12px] uppercase tracking-[0.14em] border-b border-line hover:bg-paper-2 transition">{it.label}</button>
+          <button key={it.id} onClick={() => pick(it.id)} className="block w-full text-left px-4 py-3.5 text-[14px] uppercase tracking-[0.14em] border-b border-line hover:bg-paper-2 transition">{it.label}</button>
           )}
             <div className="flex items-center justify-between px-4 py-3">
               <span className="text-[12px] uppercase tracking-[0.14em] opacity-55">Theme</span>
