@@ -137,17 +137,18 @@ function MobileHeader({ goTo }) {
   return (
     <header className="md:hidden px-[30px] pt-6 pb-0" style={{ fontFamily: "Inter" }}>
       <AncoLogo className="w-[100%] text-ink" />
-      {/*<div className="w-full h-px bg-line mt-5"></div> */}
+      <div className="w-full h-px bg-line mt-5"></div>
       <div className="mt-1 flex items-baseline gap-3">
         {/* <span className="text-[20px] tracking-[0.05em]" style={{ fontFamily: "Inter", fontWeight: 500 }}>Jiyeon Kim</span> */}
         {/* <span className="mono text-[13px] uppercase tracking-[0.16em] opacity-50">Visual Designer</span> */}
       </div>
-      <nav className="mt-2 flex items-center flex-wrap gap-x-6 gap-y-2 text-[13px] uppercase tracking-[0.3px]">
+      <nav className="mt-3 flex items-center flex-wrap gap-x-6 gap-y-2 text-[13px] uppercase tracking-[0.3px]">
         {MOBILE_NAV.map((it) =>
         <button key={it.id} onClick={() => goTo(it.id)} className="ul-link font-medium uppercase text-[14px] text-center pb-1 " style={{ fontFamily: "Inter" }}>{it.label}</button>
         )}
         <ThemeToggle className="ml-auto subtle" />
       </nav>
+      <div className="w-full h-px bg-line mt-3"></div>
     </header>);
 
 }
@@ -172,6 +173,44 @@ function MobileBar({ goTo, onClose }) {
         )}
         </nav>
       }
+    </div>);
+
+}
+
+/* ---------------- mobile floating nav (appears on scroll, main page) ---------------- */
+function MobileFloatingNav({ goTo }) {
+  const [show, setShow] = useState(false);
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const onScroll = () => setShow(window.scrollY > 320);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  const pick = (id) => { setOpen(false); goTo(id); };
+  return (
+    <div className={"md:hidden fixed top-3 right-[18px] z-40 transition-all duration-300 " + (show ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none")} style={{ fontFamily: "Inter" }}>
+      <div className="flex flex-col items-end gap-2">
+        <button onClick={() => setOpen((v) => !v)} aria-label="menu" className="inline-flex items-center gap-2.5 bg-ink text-paper rounded-full pl-4 pr-4 py-2.5">
+          <span className="relative w-[16px] h-[10px]">
+            <span className={"absolute left-0 w-[16px] h-px bg-paper transition-all duration-300 " + (open ? "top-[4px] rotate-45" : "top-0")}></span>
+            <span className={"absolute left-0 top-[4px] w-[16px] h-px bg-paper transition-all duration-200 " + (open ? "opacity-0" : "opacity-100")}></span>
+            <span className={"absolute left-0 w-[16px] h-px bg-paper transition-all duration-300 " + (open ? "top-[4px] -rotate-45" : "top-[8px]")}></span>
+          </span>
+          <span className="text-[11px] uppercase tracking-[0.16em]">{open ? "Close" : "Menu"}</span>
+        </button>
+        {open &&
+        <nav className="bg-paper border border-line min-w-[164px] rise" style={{ animationDuration: "0.3s" }}>
+            {MOBILE_NAV.map((it) =>
+          <button key={it.id} onClick={() => pick(it.id)} className="block w-full text-left px-4 py-3.5 text-[12px] uppercase tracking-[0.14em] border-b border-line hover:bg-paper-2 transition">{it.label}</button>
+          )}
+            <div className="flex items-center justify-between px-4 py-3">
+              <span className="text-[12px] uppercase tracking-[0.14em] opacity-55">Theme</span>
+              <ThemeToggle className="subtle" />
+            </div>
+          </nav>
+        }
+      </div>
     </div>);
 
 }
@@ -648,7 +687,7 @@ function Contact() {
     <Block id="contact" index="05" label="Contact" labelKr="문의">
       <div className="grid lg:grid-cols-[1.3fr_1fr] gap-16">
         <div>
-          <h2 className="text-[12vw] lg:text-[6vw] font-semibold tracking-[-0.03em] leading-[0.9]" style={{ fontFamily: "Pretendard", fontWeight: "700", fontSize: "70px" }}>Say Hello.</h2>
+          <h2 className="text-[12vw] lg:text-[6vw] font-semibold tracking-[-0.03em] leading-[0.9]" style={{ fontFamily: "Inter", fontWeight: "800", fontSize: "70px" }}>Say Hello.</h2>
           <p className="kr mt-6 text-L opacity-70">Please feel free to reach out for project inquiries or just to say hello. I’m always open to new stories and conversations.</p>
           <p className="kr mt-6 text-L opacity-70">프로젝트 문의든, 그냥 가벼운 인사든 무거운 인사든 헛소리든 옹알이든 욕이든 진짜진짜 편하게 연락해 주세요. 새로운 이야기와 대화는 언제든 환영합니다.</p>
           {sent ?
@@ -831,6 +870,7 @@ function App() {
     <>
       <Sidebar active={active} goTo={goTo} />
       <MobileHeader goTo={goTo} />
+      <MobileFloatingNav goTo={goTo} />
       <div className="md:hidden update-ticker-fixed"><UpdateTicker variant="mobile" /></div>
       <main className="md:ml-[300px] pt-0">
         <Work filter={filter} setFilter={setFilter} onOpen={setProject} showFilters={showFilters} />

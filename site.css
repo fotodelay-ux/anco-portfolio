@@ -162,7 +162,7 @@ body {
 .vlogo .flip-card { width: 184px; flex: none; transform: rotate(-90deg); }
 /* top-left horizontal lockup: anco. ⇄ Jiyeon Kim */
 .hlogo { width: 96px; }
-.hlogo .flip-card { width: 130px; }
+.hlogo .flip-card { width: 96px; }
 /* full-bleed rule under the top-left brand */
 .brand-rule {
   height: 1px; background: var(--line);
