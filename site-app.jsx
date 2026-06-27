@@ -137,18 +137,14 @@ function MobileHeader({ goTo }) {
   return (
     <header className="md:hidden px-[30px] pt-6 pb-0" style={{ fontFamily: "Inter" }}>
       <AncoLogo className="w-[100%] text-ink" />
-      <div className="w-full h-px bg-line mt-5"></div>
-      <div className="mt-1 flex items-baseline gap-3">
-        {/* <span className="text-[20px] tracking-[0.05em]" style={{ fontFamily: "Inter", fontWeight: 500 }}>Jiyeon Kim</span> */}
-        {/* <span className="mono text-[13px] uppercase tracking-[0.16em] opacity-50">Visual Designer</span> */}
-      </div>
-      <nav className="mt-3 flex items-center flex-wrap gap-x-6 gap-y-2 text-[13px] uppercase tracking-[0.3px]">
+      <div className="-mx-[30px] h-px bg-line mt-5"></div>
+      <nav className="-mx-[30px] px-[30px] flex items-center flex-wrap gap-x-6 gap-y-1 text-[13px] uppercase tracking-[0.3px] py-2">
         {MOBILE_NAV.map((it) =>
-        <button key={it.id} onClick={() => goTo(it.id)} className="ul-link font-medium uppercase text-[14px] text-center pb-1 " style={{ fontFamily: "Inter" }}>{it.label}</button>
+        <button key={it.id} onClick={() => goTo(it.id)} className="ul-link font-medium uppercase text-[14px] text-center " style={{ fontFamily: "Inter" }}>{it.label}</button>
         )}
         <ThemeToggle className="ml-auto subtle" />
       </nav>
-      <div className="w-full h-px bg-line mt-3"></div>
+      <div className="-mx-[30px] h-px bg-line"></div>
     </header>);
 
 }
