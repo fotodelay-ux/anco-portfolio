@@ -1,0 +1,14 @@
+@font-face { font-family: 'Geomanist'; src: url('./fonts/GeomanistLight.ttf') format('truetype'); font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Geomanist'; src: url('./fonts/GeomanistBook.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Geomanist'; src: url('./fonts/GeomanistMedium.ttf') format('truetype'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Geomanist'; src: url('./fonts/GeomanistBold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-Light.otf') format('opentype'); font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-Regular.otf') format('opentype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-Medium.otf') format('opentype'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-SemiBold.otf') format('opentype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-Bold.otf') format('opentype'); font-weight: 700; font-display: swap; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #F7F6F2; font-family: 'Geomanist', 'Pretendard', sans-serif; color: #111111; }
+a { color: #111111; text-decoration: none; }
+a:hover { color: #666666; }
+img.ph { background: #E5E3DE; object-fit: cover; }
