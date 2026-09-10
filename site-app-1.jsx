@@ -2,7 +2,7 @@ const { useState, useEffect, useRef } = React;
 
 const EN = {
   navWork: 'WORK', navAbout: 'ABOUT', navContact: 'CONTACT',
-  heroName: 'Jiyeon Kim', heroRole: '김지연 ㅣ Visual Designer',
+  heroName: 'Jiyeon Kim', heroRole: 'Visual Designer',
   heroStatement: 'I build visual systems that turn content and ideas into memorable experiences.',
   heroSubLine1: '10+ years in Content, Brand &amp; Visual Design.',
   heroSubLine2: 'Currently exploring Product &amp; Digital Experiences.',
@@ -30,8 +30,8 @@ const EN = {
 const KO = {
   ...EN,
   heroStatement: 'AI가 뭐든 만드는 시대에, 사람이 필요한 것을 만드는 디자이너',
-  heroSubLine1: 'ㆍ콘텐츠, 브랜드, 비주얼 디자인 분야에서 9년간 활동했습니다.',
-  heroSubLine2: 'ㆍ현재는 프로덕트와 디지털 경험 영역으로 확장하고 있습니다.',
+  heroSubLine1: '콘텐츠, 브랜드, 비주얼 디자인 분야에서 10년 이상 활동했습니다.',
+  heroSubLine2: '현재는 프로덕트와 디지털 경험 영역으로 확장하고 있습니다.',
   aboutHeading: '콘텐츠와 브랜드의 본질을 시각 언어로 정의하고, 이를 필요한 모든 플랫폼과 매체로 확장합니다.',
   aboutBody1: '지난 10년간 채널 브랜딩, 콘텐츠 디자인, 프로모션 전반에서 일했습니다. 방송, OTT, 디지털 플랫폼을 위한 시각 시스템을 구축하고, 하나의 키비주얼을 모션, 소셜, 공간 환경까지 확장해왔습니다.',
   aboutBody2: '최근에는 AI 육아 앱 damdam을 직접 기획하고 만들며, 프로덕트 디자인과 UX/UI, 프로토타이핑까지 작업 영역을 넓히고 있습니다.',
@@ -137,7 +137,7 @@ function ProjectListCard({ p, isExpanded, onToggle, onOpen, fullImage, lang, t }
           </div>
           {hasDesc && (
             <div {...openProps}>
-              <div className="body-text" style={{ fontSize: 15, lineHeight: 1.6, overflow: 'hidden', display: isExpanded ? 'block' : '-webkit-box', WebkitLineClamp: isExpanded ? 'unset' : 4, WebkitBoxOrient: 'vertical' }}>{desc}</div>
+              <div style={{ fontSize: 15, lineHeight: 1.6, overflow: 'hidden', display: isExpanded ? 'block' : '-webkit-box', WebkitLineClamp: isExpanded ? 'unset' : 4, WebkitBoxOrient: 'vertical' }}>{desc}</div>
               <div
                 onClick={(e) => { e.stopPropagation(); clickable ? onOpen() : onToggle(); }}
                 className="hover-dim"
@@ -161,7 +161,7 @@ function ProjectCard3({ p, onOpen, lang, t }) {
     <div onClick={onOpen} style={{ cursor: clickable ? 'pointer' : 'default' }}>
       <div style={{ width: '100%', aspectRatio: '16/9', borderRadius: RADIUS_SM, overflow: 'hidden' }}><Ph id={p.img} style={{ width: '100%', height: '100%' }} /></div>
       <div style={{ marginTop: 18, fontSize: 20, fontWeight: 700 }}>{p.title}</div>
-      {desc && <div className="body-text" style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.6, color: '#666', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}>{desc}</div>}
+      {desc && <div style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.6, color: '#666', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}>{desc}</div>}
       {clickable && <div className="hover-dim" style={{ marginTop: 12, fontSize: 12, color: '#999' }}>{t.seeMore} →</div>}
     </div>
   );
@@ -303,23 +303,22 @@ function App() {
           zIndex: 100,
           background: 'rgba(247,246,242,0.86)',
           backdropFilter: 'blur(10px)',
-          borderBottom: '1px solid #E5E3DE',
           transform: headerHidden ? 'translateY(-100%)' : 'translateY(0)',
           transition: 'transform 0.35s ease',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 40px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-            <div onClick={goHome} style={{ fontFamily: "'Pretendard', sans-serif", fontSize: 20, fontWeight: 700, cursor: 'pointer', letterSpacing: '-0.04em'}}>Jiyeon Kim</div>
+            <div onClick={goHome} style={{ fontSize: 20, fontWeight: 700, cursor: 'pointer', letterSpacing: '-0.04em'}}>Jiyeon Kim</div>
             <div className="lang-toggle" onClick={() => setLang((l) => l === 'en' ? 'ko' : 'en')}>
               <span className={'lang-opt' + (lang === 'ko' ? ' active' : '')}>KO</span>
               <span className={'lang-opt' + (lang === 'en' ? ' active' : '')}>EN</span>
             </div>
           </div>
           <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
-            <div className="nav-item" onClick={goWork} style={{ fontSize: 13, letterSpacing: '0.06em', cursor: 'pointer', paddingBottom: 2, color: '#666666', borderBottom: `1px solid ${view === 'work' ? '#111111' : 'transparent'}` }}>{t.navWork}</div>
-            <div className="nav-item" onClick={goAbout} style={{ fontSize: 13, letterSpacing: '0.06em', cursor: 'pointer', color: '#666666' }}>{t.navAbout}</div>
-            <div className="nav-item" onClick={goContact} style={{ fontSize: 13, letterSpacing: '0.06em', cursor: 'pointer', color: '#666666' }}>{t.navContact}</div>
+            <div className="nav-item hover-dim" onClick={goWork} style={{ fontSize: 13, letterSpacing: '0.06em', cursor: 'pointer', paddingBottom: 2, color: '#666666', borderBottom: `1px solid ${view === 'work' ? '#111111' : 'transparent'}` }}>{t.navWork}</div>
+            <div className="nav-item hover-dim" onClick={goAbout} style={{ fontSize: 13, letterSpacing: '0.06em', cursor: 'pointer', color: '#666666' }}>{t.navAbout}</div>
+            <div className="nav-item hover-dim" onClick={goContact} style={{ fontSize: 13, letterSpacing: '0.06em', cursor: 'pointer', color: '#666666' }}>{t.navContact}</div>
             <div className="nav-social" style={{ width: 1, height: 14, background: '#E5E3DE' }} />
             <div className="nav-social" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <a href="https://www.behance.net/fotodelay" target="_blank" rel="noreferrer"><img src="assets/behance-icon.png" alt="Behance" style={{ width: 22, height: 22 }} /></a>
@@ -332,10 +331,10 @@ function App() {
       {view === 'home' && (
         <div key="home" className="stagger">
           <section className="hero-wrap" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '100px 40px 0', maxWidth: 1500, margin: '0 auto' }}>
-            <div style={{ fontSize: 'clamp(80px,6.46vw,120px)', fontWeight: 700, lineHeight: 0.98, letterSpacing: '-0.03em' }}>{t.heroName}</div>
-            <div style={{ marginTop: 28, fontSize: 'clamp(10px,3vw,18px)', color: '#666666' }}>{t.heroRole}</div>
-            <div className="body-text" style={{ marginTop: 56, maxWidth: 640, fontSize: 'clamp(18px,2.4vw,24px)', lineHeight: 1.5 }}>{t.heroStatement}</div>
-            <div className="body-text" style={{ marginTop: 24, fontSize: 15, lineHeight: 1.7, color: '#666666', maxWidth: 520 }}>{t.heroSubLine1}<br/>{t.heroSubLine2}</div>
+            <div style={{ fontFamily: "'Pretendard', sans-serif", fontSize: 'clamp(80px,6.46vw,120px)', fontWeight: 700, lineHeight: 0.98, letterSpacing: '-0.03em' }}>{t.heroName}</div>
+            <div style={{ marginTop: 28, fontSize: 'clamp(12px,3vw,24px)', color: '#666666' }}>{t.heroRole}</div>
+            <div style={{ marginTop: 56, maxWidth: 640, fontSize: 'clamp(18px,2.4vw,24px)', lineHeight: 1.5 }}>{t.heroStatement}</div>
+            <div style={{ marginTop: 24, fontSize: 15, lineHeight: 1.7, color: '#666666', maxWidth: 520 }}>{t.heroSubLine1}<br/>{t.heroSubLine2}</div>
           </section>
 
           <section style={{ padding: '140px 40px 100px', maxWidth: 1500, margin: '0 auto' }}>
@@ -343,7 +342,7 @@ function App() {
               <div style={{ fontSize: 13, letterSpacing: '0.1em', color: '#666666' }}>{t.selectedWork}</div>
               <div onClick={goWork} style={{ fontSize: 13, cursor: 'pointer', textDecoration: 'underline' }}>{t.viewAllWork}</div>
             </div>
-            <div className="stagger" style={{ display: 'flex', flexDirection: 'column', gap: 100 }}>
+            <div className="stagger home-work-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0,1fr))', columnGap: 60, rowGap: 90 }}>
               {PROJECTS.slice(0, 3).map((p) => (
                 <ProjectListCard
                   key={p.id}
@@ -363,8 +362,8 @@ function App() {
             <div className="detail-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)', gap: 60, marginTop: 90 }}>
               <div style={{ fontSize: 13, letterSpacing: '0.1em', color: '#666666' }}>{t.navAbout}</div>
               <div style={{ maxWidth: 680 }}>
-                <div className="body-text" style={{ fontSize: 'clamp(22px,2.6vw,32px)', fontWeight: 500, lineHeight: 1.55 }}>{t.aboutHeading}</div>
-                <div className="body-text" style={{ marginTop: 40, fontSize: 16, lineHeight: 1.85, color: '#666666' }}>{t.aboutBody1}<br/><br/>{t.aboutBody2}</div>
+                <div style={{ fontSize: 'clamp(22px,2.6vw,32px)', fontWeight: 500, lineHeight: 1.55 }}>{t.aboutHeading}</div>
+                <div style={{ marginTop: 40, fontSize: 16, lineHeight: 1.85, color: '#666666' }}>{t.aboutBody1}<br/><br/>{t.aboutBody2}</div>
               </div>
             </div>
             <div className="detail-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)', gap: 60, marginTop: 90 }}>

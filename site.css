@@ -12,16 +12,48 @@
 @font-face { font-family: 'Edmondsans'; src: url('./fonts/EdmondsansBold.otf') format('opentype'); font-weight: 700; font-display: swap; }
 * { box-sizing: border-box; }
 body { margin: 0; background: #F7F6F2; font-family: 'Geomanist', 'Pretendard', sans-serif; color: #111111; overflow-x: hidden; }
+/* body/paragraph copy (hero statement, about text, project descriptions) uses Pretendard;
+   everything else (nav, labels, titles, buttons) stays on the default Geomanist. */
+.body-text, .section-body, .detail-body-en, .detail-body-ko { font-family: 'Pretendard', sans-serif; }
 a { color: #111111; text-decoration: none; }
 a:hover { color: #666666; }
 img.ph { background: #E5E3DE; object-fit: cover; }
+#about, #contact { scroll-margin-top: 100px; }
 
-/* page-change motion: slides up into place, not too slow */
+/* hover animations: every clickable TEXT element (including WORK/ABOUT/CONTACT)
+   goes from its normal muted grey to a darker grey on hover (a color shift,
+   not an opacity fade, and no underline). Images/icons get no hover effect
+   at all. */
+.nav-item { text-decoration: none; }
+
+.hover-dim { transition: color 0.2s ease; }
+.hover-dim:hover { color: #262626 !important; }
+
+.lang-opt { transition: color 0.2s ease; }
+.lang-opt:not(.active):hover { color: #333333 !important; }
+
+.tag-pill-click { transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease; }
+.tag-pill-click:not(.active-pill):hover { color: #262626 !important; border-color: #b9b6ae !important; }
+
+/* page-change motion: elements slide up into place one after another */
 .view-enter { animation: viewSlideUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
 @keyframes viewSlideUp {
   from { opacity: 0; transform: translateY(32px); }
   to { opacity: 1; transform: translateY(0); }
 }
+.stagger > * {
+  opacity: 0;
+  animation: viewSlideUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.stagger > *:nth-child(1) { animation-delay: 0.02s; }
+.stagger > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger > *:nth-child(3) { animation-delay: 0.18s; }
+.stagger > *:nth-child(4) { animation-delay: 0.26s; }
+.stagger > *:nth-child(5) { animation-delay: 0.34s; }
+.stagger > *:nth-child(6) { animation-delay: 0.42s; }
+.stagger > *:nth-child(7) { animation-delay: 0.5s; }
+.stagger > *:nth-child(8) { animation-delay: 0.58s; }
+.stagger > *:nth-child(n+9) { animation-delay: 0.66s; }
 
 /* EN / KO capsule toggle */
 .lang-toggle { display: inline-flex; align-items: center; border: none; border-radius: 999px; padding: 3px; gap: 2px; }
