@@ -119,10 +119,10 @@ function ProjectListCard({ p, isExpanded, onToggle, onOpen, fullImage, lang, t }
   return (
     <div>
       <div {...openProps} style={{ ...openProps.style, display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
-        <div style={{ fontSize: 34, fontWeight: 700 }}>{p.title}</div>
-        {p.subtitleKo && <div style={{ fontSize: 20, color: '#999' }}> {p.subtitleKo}</div>}
+        <div className="proj-title" style={{ fontSize: 34, fontWeight: 700 }}>{p.title}</div>
+        {p.subtitleKo && <div className="proj-subtitle" style={{ fontSize: 20, color: '#999' }}> {p.subtitleKo}</div>}
       </div>
-      {(p.client || p.year) && <div style={{ fontSize: 13, color: '#999', marginTop: 6 }}>{p.client && `Client : ${p.client}`}{p.client && p.year ? ' · ' : ''}{p.year}</div>}
+      {(p.client || p.year) && <div className="proj-meta" style={{ fontSize: 13, color: '#999', marginTop: 6 }}>{p.client && `Client : ${p.client}`}{p.client && p.year ? ' · ' : ''}{p.year}</div>}
       {fullImage ? (
         <div style={{ marginTop: 24 }}>
           <div onClick={onOpen} style={{ width: '100%', aspectRatio: '16/9', cursor: clickable ? 'pointer' : 'default', borderRadius: RADIUS, overflow: 'hidden' }}><Ph id={p.img} style={{ width: '100%', height: '100%' }} /></div>
@@ -140,10 +140,10 @@ function ProjectListCard({ p, isExpanded, onToggle, onOpen, fullImage, lang, t }
           </div>
           {hasDesc && (
             <div {...openProps}>
-              <div className="body-text" style={{ fontSize: 15, lineHeight: 1.6, overflow: 'hidden', display: isExpanded ? 'block' : '-webkit-box', WebkitLineClamp: isExpanded ? 'unset' : 4, WebkitBoxOrient: 'vertical' }}>{desc}</div>
+              <div className="body-text proj-desc" style={{ fontSize: 15, lineHeight: 1.6, overflow: 'hidden', display: isExpanded ? 'block' : '-webkit-box', WebkitLineClamp: isExpanded ? 'unset' : 4, WebkitBoxOrient: 'vertical' }}>{desc}</div>
               <div
                 onClick={(e) => { e.stopPropagation(); clickable ? onOpen() : onToggle(); }}
-                className="hover-dim"
+                className="hover-dim proj-seemore"
                 style={{ marginTop: 16, fontSize: 13, color: '#999', cursor: 'pointer' }}
               >
                 {clickable ? t.seeMore : (isExpanded ? t.seeLess : t.seeMore)} →
@@ -239,14 +239,16 @@ function App() {
     return () => clearInterval(id);
   }, []);
 
-  // header: slides away on scroll down, slides back in on scroll up — every page
+  // header: single threshold shared with the floating pill — past it, the
+  // pill shows and the top bar stays hidden no matter which way you scroll;
+  // back under it (i.e. scrolled back up near the top), the pill hides and
+  // the top bar reappears. No more "any little scroll-up reveals the bar".
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      setShowFloatHeader(y > 400);
-      if (y < 80) { setHeaderHidden(false); lastScrollY.current = y; return; }
-      if (y > lastScrollY.current + 4) setHeaderHidden(true);
-      else if (y < lastScrollY.current - 4) setHeaderHidden(false);
+      const past = y > 400;
+      setShowFloatHeader(past);
+      setHeaderHidden(past);
       lastScrollY.current = y;
     };
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -346,10 +348,10 @@ function App() {
           transition: 'transform 0.35s ease',
         }}
       >
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 40px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-            <div onClick={goHome} style={{ fontFamily: "'Geomanist', sans-serif", fontSize: 20, fontWeight: 600, cursor: 'pointer', letterSpacing: '-0.02em'}}>Jiyeon Kim is growing<span style={{ display: 'inline-block', width: 18, textAlign: 'left' }}>{'.'.repeat(growDots)}</span></div>
-            <div className="lang-toggle" onClick={() => setLang((l) => l === 'en' ? 'ko' : 'en')}>
+        <div className="top-header-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 40px' }}>
+          <div className="logo-group" style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+            <div onClick={goHome} className="site-logo" style={{ fontFamily: "'Geomanist', sans-serif", fontSize: 20, fontWeight: 600, cursor: 'pointer', letterSpacing: '-0.02em'}}>Jiyeon Kim is growing<span style={{ display: 'inline-block', width: 18, textAlign: 'left' }}>{'.'.repeat(growDots)}</span></div>
+            <div className="lang-toggle header-lang-toggle" onClick={() => setLang((l) => l === 'en' ? 'ko' : 'en')}>
               <span className={'lang-opt' + (lang === 'ko' ? ' active' : '')}>KO</span>
               <span className={'lang-opt' + (lang === 'en' ? ' active' : '')}>EN</span>
             </div>
@@ -400,19 +402,19 @@ function App() {
       {view === 'home' && (
         <div key="home" className="stagger">
           <section className="hero-wrap" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0px 40px 0', maxWidth: 1500, margin: '0 auto' }}>
-            <div style={{ position: 'relative', fontSize: 'clamp(40px,6.46vw,60px)', fontWeight: 700, lineHeight: 1.2, letterSpacing: '-0.01em' }}>
+            <div className="hero-headline" style={{ position: 'relative', fontSize: 'clamp(40px,6.46vw,60px)', fontWeight: 700, lineHeight: 1.2, letterSpacing: '-0.01em' }}>
               <div style={{ visibility: 'hidden', whiteSpace: 'pre-line' }}>{t.heroName}</div>
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, whiteSpace: 'pre-line' }}>{typedHero}<span className="type-cursor">|</span></div>
             </div>
-            <div style={{ marginTop: 28, fontSize: 'clamp(10px,3vw,18px)', color: '#666666' }}>{t.heroRole}</div>
-            <div className="body-text" style={{ marginTop: 40, maxWidth: 640, fontSize: 'clamp(22px,2.4vw,28px)',fontWeight: 600, lineHeight: 1.5 }}>{t.heroStatement}</div>
-            <div className="body-text" style={{ marginTop: 24, fontSize: 16, lineHeight: 1.7, color: '#666666', maxWidth: 520,  }}>{t.heroSubLine1}<br/>{t.heroSubLine2}</div>
+            <div className="hero-role" style={{ marginTop: 28, fontSize: 'clamp(10px,3vw,18px)', color: '#666666' }}>{t.heroRole}</div>
+            <div className="body-text hero-statement" style={{ marginTop: 40, maxWidth: 640, fontSize: 'clamp(22px,2.4vw,28px)',fontWeight: 600, lineHeight: 1.5 }}>{t.heroStatement}</div>
+            <div className="body-text hero-subline" style={{ marginTop: 24, fontSize: 16, lineHeight: 1.7, color: '#666666', maxWidth: 520,  }}>{t.heroSubLine1}<br/>{t.heroSubLine2}</div>
             <div className="lang-toggle" style={{ marginTop: 40, width: 'fit-content' }}>
               <span onClick={goWork} className="lang-opt active" style={{ fontSize: 14, padding: '13px 26px', whiteSpace: 'nowrap' }}>{t.heroCta} →</span>
             </div>
           </section>
 
-          <section style={{ padding: '140px 40px 100px', maxWidth: 1500, margin: '0 auto' }}>
+          <section className="selected-work-section" style={{ padding: '140px 40px 100px', maxWidth: 1500, margin: '0 auto' }}>
             <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 90, borderBottom: '1px solid #E5E3DE', paddingBottom: 24 }}>
               <div style={{ fontSize: 13, letterSpacing: '0.1em', color: '#666666' }}>{t.selectedWork}</div>
               <div onClick={goWork} style={{ fontSize: 13, cursor: 'pointer', textDecoration: 'underline' }}>{t.viewAllWork}</div>
