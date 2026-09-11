@@ -96,10 +96,19 @@ video { display: block; }
 .proj-desktop-layout { display: grid; }
 
 
-/* contact form */
-.contact-form input, .contact-form textarea { font-family: inherit; font-size: 15px; border: 1px solid #E5E3DE; background: #ffffff; border-radius: 8px; padding: 14px 16px; width: 100%; color: #111111; }
-.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #111111; }
-.contact-form button { font-family: inherit; font-size: 14px; cursor: pointer; border: 1px solid #111111; background: #111111; color: #ffffff; border-radius: 999px; padding: 14px 32px; }
+/* contact page — two-column layout: info left, form card right (desktop);
+   single column, form-first, on mobile (see media query below). */
+.contact-grid { display: grid; grid-template-columns: minmax(0,0.85fr) minmax(0,1.15fr); gap: 80px; align-items: start; }
+
+.contact-form-card { background: #ffffff; border-radius: 24px; padding: 36px; box-shadow: 0 20px 60px rgba(0,0,0,0.06); }
+
+.contact-form { display: flex; flex-direction: column; gap: 16px; text-align: left; }
+.contact-form input, .contact-form textarea { font-family: inherit; font-size: 15px; border: 1px solid #E5E3DE; background: #F7F6F2; border-radius: 14px; padding: 14px 18px; width: 100%; color: #111111; }
+.contact-form textarea { resize: vertical; }
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #111111; background: #ffffff; }
+
+.contact-form button { font-family: inherit; font-size: 15px; font-weight: 600; cursor: pointer; border: 1px solid #111111; background: #111111; color: #ffffff; border-radius: 999px; padding: 16px 32px; margin-top: 8px; width: 100%; transition: opacity 0.2s ease; }
+.contact-form button:disabled { opacity: 0.6; cursor: default; }
 .contact-form button:hover { opacity: 0.85; }
 
 /* ============================================================
@@ -175,6 +184,9 @@ video { display: block; }
 
   /* ---- contact section ---- */
   .contact-section { padding-left: 15px !important; padding-right: 15px !important; padding-top: 160px !important; }
+  .contact-grid { grid-template-columns: minmax(0,1fr) !important; gap: 48px !important; }
+  .contact-form-card { order: -1 !important; padding: 24px !important; border-radius: 18px !important; }
+  .contact-info-col { order: 2 !important; }
 
   /* ---- project detail page ---- */
   .detail-top-pad { padding-left: 15px !important; padding-right: 15px !important; }

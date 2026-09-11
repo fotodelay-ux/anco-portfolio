@@ -2,7 +2,9 @@ const { useState, useEffect, useRef } = React;
 
 const EN = {
   navWork: 'WORK', navAbout: 'ABOUT', navContact: 'CONTACT',
-  heroName: 'AI가 뭐든 만드는 시대,\n사람이 필요한 디자인을\n하고 있어요.', heroRole: ' ',
+  heroName: 'AI가 뭐든 만드는 시대,\n사람이 필요한 디자인을\n하고 있어요.', // mobile line breaks
+  heroNameWeb: 'AI가 뭐든 만드는 시대,\n사람이 필요한 디자인을 하고 있어요.', // web: 2 lines instead of 3
+  heroRole: ' ',
   heroStatement: 'I build visual systems that turn content and ideas into memorable experiences.',
   heroSubLine1: '10+ years in Content, Brand &amp; Visual Design.',
   heroSubLine2: 'Currently exploring Product &amp; Digital Experiences.',
@@ -16,7 +18,8 @@ const EN = {
   job2Role: 'Manager, Digital Design Part', job3Role: 'Creative Designer',
   job4Role: 'Motion Graphic Designer', job5Role: 'Motion Graphic Designer',
   letsTalk: "Let's talk.",
-  contactSend: 'Send', contactName: 'Your name', contactMessage: 'Message', contactAttach: 'Attach file', contactSent: 'Thanks — your email app should be opening now.',
+  contactSend: 'Send', contactName: '이름 혹은 회사명', contactMessage: '아무말이나 써볼까요..?', contactAttach: 'Attach file', contactSent: '감사합니다 — 확인 후 빠르게 연락드릴게요.',
+  contactIntro: '프로젝트 문의나 협업 제안, 무엇이든 편하게 남겨주세요.', contactOptional: '(선택)',
   workTitle: 'Work', noResults: 'No projects match this combination yet.',
   backToWork: '← Back to Work', backToAllWork: 'Back to all work',
   filterFor: 'for', filterScope: 'scope',
@@ -253,7 +256,7 @@ function FilterRow({ label, items, active, onPick, onReset, labels }) {
             cursor: 'pointer',
             border: `1px solid ${active === item ? '#111' : '#E5E3DE'}`,
             background: active === item ? '#111' : 'transparent',
-            color: active === item ? '#fff' : '#333',
+            color: active === item ? '#fff' : '#222',
           }}
         >
           {labels ? labels[item] : item}
@@ -266,7 +269,7 @@ function FilterRow({ label, items, active, onPick, onReset, labels }) {
           cursor: 'pointer',
           border: `1px solid ${active === 'ALL' ? '#111' : '#E5E3DE'}`,
           background: active === 'ALL' ? '#111' : 'transparent',
-          color: active === 'ALL' ? '#fff' : '#333',
+          color: active === 'ALL' ? '#fff' : '#222',
         }}
       >
         ALL
@@ -284,12 +287,14 @@ function App() {
   const [expanded, setExpanded] = useState({});
   const [contactName, setContactName] = useState('');
   const [contactMsg, setContactMsg] = useState('');
-  const [contactFile, setContactFile] = useState(null);
   const [contactSent, setContactSent] = useState(false);
+  const [contactSending, setContactSending] = useState(false);
+  const [contactError, setContactError] = useState(false);
   const [headerHidden, setHeaderHidden] = useState(false);
   const lastScrollY = useRef(0);
   const [showFloatHeader, setShowFloatHeader] = useState(false);
   const [typedHero, setTypedHero] = useState('');
+  const [isMobileVP, setIsMobileVP] = useState(() => typeof window !== 'undefined' && window.innerWidth <= 768);
   const [growDots, setGrowDots] = useState(0);
 
   // top-left logo: "...is growing" dots cycle 0→3 forever
@@ -333,9 +338,16 @@ function App() {
   // clears and retypes — loops forever. Restarts if the headline text
   // changes (e.g. language switch).
   useEffect(() => {
+    const onResize = () => setIsMobileVP(window.innerWidth <= 768);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  useEffect(() => {
     let active = true;
     let timeoutId;
-    const text = (lang === 'ko' ? KO : EN).heroName;
+    const tObj = lang === 'ko' ? KO : EN;
+    const text = isMobileVP ? tObj.heroName : tObj.heroNameWeb;
     const runLoop = () => {
       let i = 0;
       setTypedHero('');
@@ -353,7 +365,7 @@ function App() {
     };
     runLoop();
     return () => { active = false; clearTimeout(timeoutId); };
-  }, [lang]);
+  }, [lang, isMobileVP]);
 
   // project detail page background: normally stays light (darkProgress 0).
   // Projects flagged with darkBg: true fade smoothly to black on entry —
@@ -375,7 +387,7 @@ function App() {
   const goWork = () => { setView('work'); window.scrollTo(0, 0); };
   const scrollToId = (id) => { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
   const goAbout = () => { setView('about'); window.scrollTo(0, 0); };
-  const goContact = () => { setView('home'); setTimeout(() => scrollToId('contact'), 60); };
+  const goContact = () => { setView('contact'); window.scrollTo(0, 0); };
   // "for" (work type) and "scope" (output tag) rows are mutually exclusive —
   // picking one clears whatever was selected in the other row.
   const pickWorkType = (wt) => { setWorkType(wt); if (wt !== 'ALL') setOutputTag('ALL'); };
@@ -398,12 +410,44 @@ function App() {
   else if (outputTag === 'LOGO' || outputTag === 'MOTION') gridMode = 'tile3';
   else if (outputTag === 'UI / UX') gridMode = 'card3';
 
-  const submitContact = (e) => {
+  // Real email delivery via Formspree (https://formspree.io) — no backend
+  // needed, works from a static site. Set this to your own form endpoint
+  // (Formspree dashboard → your form → "Your form's endpoint") after
+  // signing up with fotodelay@gmail.com and verifying it. Until it's set,
+  // submitting falls back to opening the visitor's email app instead.
+  const CONTACT_FORM_ENDPOINT = 'https://formspree.io/f/mgobzbed';
+
+  const submitContact = async (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`Portfolio contact from ${contactName || 'someone'}`);
-    const body = encodeURIComponent(`${contactMsg}\n\n— ${contactName}${contactFile ? `\n(attachment "${contactFile}" could not be auto-attached — please attach it manually)` : ''}`);
-    window.location.href = `mailto:fotodelay@gmail.com?subject=${subject}&body=${body}`;
-    setContactSent(true);
+    setContactError(false);
+
+    if (CONTACT_FORM_ENDPOINT.includes('YOUR_FORM_ID')) {
+      // fallback until a real endpoint is configured above
+      const subject = encodeURIComponent(`Portfolio contact from ${contactName || 'someone'}`);
+      const body = encodeURIComponent(`${contactMsg}\n\n— ${contactName}`);
+      window.location.href = `mailto:fotodelay@gmail.com?subject=${subject}&body=${body}`;
+      setContactSent(true);
+      return;
+    }
+
+    setContactSending(true);
+    try {
+      const fd = new FormData();
+      fd.append('name', contactName);
+      fd.append('message', contactMsg);
+      const res = await fetch(CONTACT_FORM_ENDPOINT, { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
+      if (res.ok) {
+        setContactSent(true);
+        setContactName('');
+        setContactMsg('');
+      } else {
+        setContactError(true);
+      }
+    } catch (err) {
+      setContactError(true);
+    } finally {
+      setContactSending(false);
+    }
   };
 
   return (
@@ -433,7 +477,7 @@ function App() {
           <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
             <div className="nav-item" onClick={goWork} style={{ fontSize: 13, letterSpacing: '0.06em', cursor: 'pointer', paddingBottom: 2, color: '#111111', borderBottom: `1px solid ${view === 'work' ? '#111111' : 'transparent'}` }}>{t.navWork}</div>
             <div className="nav-item" onClick={goAbout} style={{ fontSize: 13, letterSpacing: '0.06em', cursor: 'pointer', paddingBottom: 2, color: '#111111', borderBottom: `1px solid ${view === 'about' ? '#111111' : 'transparent'}` }}>{t.navAbout}</div>
-            <div className="nav-item" onClick={goContact} style={{ fontSize: 13, letterSpacing: '0.06em', cursor: 'pointer', color: '#111111' }}>{t.navContact}</div>
+            <div className="nav-item" onClick={goContact} style={{ fontSize: 13, letterSpacing: '0.06em', cursor: 'pointer', paddingBottom: 2, color: '#111111', borderBottom: `1px solid ${view === 'contact' ? '#111111' : 'transparent'}` }}>{t.navContact}</div>
             <div className="nav-social" style={{ width: 1, height: 14, background: '#E5E3DE' }} />
             <div className="nav-social" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <a href="https://www.behance.net/fotodelay" target="_blank" rel="noreferrer"><img src="assets/behance-icon.png" alt="Behance" style={{ width: 22, height: 22 }} /></a>
@@ -477,7 +521,7 @@ function App() {
         <div key="home" className="stagger">
           <section className="hero-wrap" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0px 40px 0', maxWidth: 1500, margin: '0 auto' }}>
             <div className="hero-headline" style={{ position: 'relative', fontSize: 'clamp(40px,6.46vw,60px)', fontWeight: 700, lineHeight: 1.2, letterSpacing: '-0.01em' }}>
-              <div style={{ visibility: 'hidden', whiteSpace: 'pre-line' }}>{t.heroName}</div>
+              <div style={{ visibility: 'hidden', whiteSpace: 'pre-line' }}>{isMobileVP ? t.heroName : t.heroNameWeb}</div>
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, whiteSpace: 'pre-line' }}>{typedHero}<span className="type-cursor">|</span></div>
             </div>
             <div className="hero-role" style={{ marginTop: 28, fontSize: 'clamp(10px,3vw,18px)', color: '#666666' }}>{t.heroRole}</div>
@@ -508,23 +552,31 @@ function App() {
               ))}
             </div>
           </section>
+        </div>
+      )}
 
-          <section id="contact" className="contact-section" style={{ padding: '100px 40px 160px', maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
-            <div style={{ fontSize: 13, letterSpacing: '0.1em', color: '#666666', marginBottom: 30 }}>{t.navContact}</div>
-            <div style={{ fontSize: 'clamp(36px,6vw,72px)', fontWeight: 700 }}>{t.letsTalk}</div>
-            <div style={{ marginTop: 28, fontSize: 15, color: '#666666' }}>+82 10 3179 7998 · fotodelay@gmail.com</div>
-            <div style={{ marginTop: 40, display: 'flex', gap: 32, justifyContent: 'center' }}>
-              <a href="https://www.behance.net/fotodelay" target="_blank" rel="noreferrer" style={{ width: 52, height: 52, border: '1px solid #111', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><img src="assets/behance-icon.png" style={{ width: 24, height: 24 }} /></a>
-              <a href="https://www.linkedin.com/in/jiyeonkim-anco" target="_blank" rel="noreferrer" style={{ width: 52, height: 52, border: '1px solid #111', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><img src="assets/linkedin-icon.png" style={{ width: 28, height: 28 }} /></a>
-            </div>
-            <form className="contact-form" onSubmit={submitContact} style={{ marginTop: 56, display: 'flex', flexDirection: 'column', gap: 16, textAlign: 'left' }}>
-              <input type="text" required placeholder={t.contactName} value={contactName} onChange={(e) => setContactName(e.target.value)} />
-              <textarea required placeholder={t.contactMessage} rows={5} value={contactMsg} onChange={(e) => setContactMsg(e.target.value)} />
-              <input type="file" onChange={(e) => setContactFile(e.target.files && e.target.files[0] ? e.target.files[0].name : null)} />
-              <div style={{ textAlign: 'center', marginTop: 8 }}>
-                <button type="submit">{t.contactSend}</button>
+      {view === 'contact' && (
+        <div key="contact" className="stagger">
+          <section id="contact" className="contact-section contact-grid" style={{ padding: '140px 40px 160px', maxWidth: 1100, margin: '0 auto' }}>
+            <div className="contact-info-col">
+              <div style={{ fontSize: 13, letterSpacing: '0.1em', color: '#666666' }}>{t.navContact}</div>
+              <div style={{ marginTop: 16, fontSize: 'clamp(34px,5vw,56px)', fontWeight: 700, lineHeight: 1.1 }}>{t.letsTalk}</div>
+              <div style={{ marginTop: 20, fontSize: 15, lineHeight: 1.7, color: '#666666', maxWidth: 360 }}>{t.contactIntro}</div>
+              <div style={{ marginTop: 40, display: 'flex', flexDirection: 'column', gap: 10 }}>
+                <a href="tel:+821031797998" className="hover-dim" style={{ fontSize: 15, color: '#111111' }}>+82 10 3179 7998</a>
+                <a href="mailto:fotodelay@gmail.com" className="hover-dim" style={{ fontSize: 15, color: '#111111' }}>fotodelay@gmail.com</a>
               </div>
+              <div style={{ marginTop: 32, display: 'flex', gap: 8 }}>
+                <a href="https://www.behance.net/fotodelay" target="_blank" rel="noreferrer" style={{ width: 44, height: 44, border: '0px solid #E5E3DE', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><img src="assets/behance-icon.png" style={{ width: 20, height: 20 }} /></a>
+                <a href="https://www.linkedin.com/in/jiyeonkim-anco" target="_blank" rel="noreferrer" style={{ width: 44, height: 44, border: '0px solid #E5E3DE', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><img src="assets/linkedin-icon.png" style={{ width: 32, height: 32 }} /></a>
+              </div>
+            </div>
+            <form className="contact-form contact-form-card" onSubmit={submitContact}>
+              <input type="text" required autoFocus={typeof window !== 'undefined' && window.innerWidth > 768} placeholder={t.contactName} value={contactName} onChange={(e) => setContactName(e.target.value)} />
+              <textarea required placeholder={t.contactMessage} rows={6} value={contactMsg} onChange={(e) => setContactMsg(e.target.value)} />
+              <button type="submit" disabled={contactSending}>{contactSending ? (lang === 'ko' ? '전송 중...' : 'Sending...') : t.contactSend}</button>
               {contactSent && <div style={{ textAlign: 'center', fontSize: 13, color: '#666' }}>{t.contactSent}</div>}
+              {contactError && <div style={{ textAlign: 'center', fontSize: 13, color: '#c0392b' }}>{lang === 'ko' ? '전송에 실패했어요. 다시 시도해주세요.' : 'Something went wrong — please try again.'}</div>}
             </form>
           </section>
         </div>
@@ -532,7 +584,7 @@ function App() {
 
       {view === 'about' && (
         <div key="about" className="stagger about-view" style={{ padding: '140px 40px 160px', maxWidth: 1500, margin: '0 auto' }}>
-          <div className="detail-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)', gap: 0, marginTop: 90 }}>
+          <div className="detail-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)', gap: 0 }}>
             <div>
               <div style={{ fontSize: 13, letterSpacing: '0.1em', color: '#666666' }}>{t.navAbout}</div>
               <img src="site-img/2026 Profile black_noback.png" style={{ width: '70%', aspectRatio: '3/4', objectFit: 'cover', borderRadius: 20, marginTop: 15, display: 'block' }} />
