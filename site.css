@@ -89,6 +89,12 @@ video { display: block; }
 /* tag pills under a project thumbnail */
 .tag-pill { font-size: 12px; padding: 7px 15px; border-radius: 100px; border: 1px solid #E5E3DE; color: #666666; }
 
+/* Work tab project cards: 1-column (thumb+tags, desc below) on mobile,
+   original 2-column (thumb+tags left, desc right) on web — see the
+   ".proj-mobile-layout" / ".proj-desktop-layout" pair in ProjectListCard */
+.proj-mobile-layout { display: none; }
+.proj-desktop-layout { display: grid; }
+
 
 /* contact form */
 .contact-form input, .contact-form textarea { font-family: inherit; font-size: 15px; border: 1px solid #E5E3DE; background: #ffffff; border-radius: 8px; padding: 14px 16px; width: 100%; color: #111111; }
@@ -136,6 +142,8 @@ video { display: block; }
      thumbnail bleeds out 5px further to sit at 10px, -15% text sizes */
   .selected-work-section { padding-left: 15px !important; padding-right: 15px !important; }
   .work-view { padding-left: 15px !important; padding-right: 15px !important; }
+  .proj-mobile-layout { display: block !important; }
+  .proj-desktop-layout { display: none !important; }
   .proj-thumb { margin-left: -5px !important; margin-right: -5px !important; width: calc(100% + 10px) !important; }
   .proj-title { font-size: 28.9px !important; }
   .proj-subtitle { font-size: 17px !important; }

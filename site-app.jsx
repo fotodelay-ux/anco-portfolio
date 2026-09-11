@@ -2,7 +2,7 @@ const { useState, useEffect, useRef } = React;
 
 const EN = {
   navWork: 'WORK', navAbout: 'ABOUT', navContact: 'CONTACT',
-  heroName: 'AI가 뭐든 만드는 시대,\n사람이 필요한 것을 만들고 있어요.', heroRole: ' ',
+  heroName: 'AI가 뭐든 만드는 시대,\n사람이 필요한 디자인을 하고 있어요.', heroRole: ' ',
   heroStatement: 'I build visual systems that turn content and ideas into memorable experiences.',
   heroSubLine1: '10+ years in Content, Brand &amp; Visual Design.',
   heroSubLine2: 'Currently exploring Product &amp; Digital Experiences.',
@@ -111,7 +111,7 @@ function ProjectBlocks({ blocks, isPoster, labelColor }) {
 }
 
 // default "list" card — 16:9 thumbnail + description on the right; whole card is clickable
-function ProjectListCard({ p, isExpanded, onToggle, onOpen, fullImage, descBelow, lang, t }) {
+function ProjectListCard({ p, isExpanded, onToggle, onOpen, fullImage, descBelow, responsive, lang, t }) {
   const desc = pick(p, 'desc', lang);
   const hasDesc = !!desc;
   const clickable = !!p.blocks;
@@ -123,7 +123,50 @@ function ProjectListCard({ p, isExpanded, onToggle, onOpen, fullImage, descBelow
         {p.subtitleKo && <div className="proj-subtitle" style={{ fontSize: 20, color: '#999' }}> {p.subtitleKo}</div>}
       </div>
       {(p.client || p.year) && <div className="proj-meta" style={{ fontSize: 13, color: '#999', marginTop: 6 }}>{p.client && `Client : ${p.client}`}{p.client && p.year ? ' · ' : ''}{p.year}</div>}
-      {fullImage ? (
+      {responsive ? (
+        <>
+          {/* mobile only (≤768px): 1-column, thumbnail + tags then description below */}
+          <div className="proj-mobile-layout" style={{ marginTop: 24 }}>
+            <div onClick={onOpen} className="proj-thumb" style={{ width: '100%', aspectRatio: '16/9', cursor: clickable ? 'pointer' : 'default', borderRadius: RADIUS, overflow: 'hidden' }}><Ph id={p.img} style={{ width: '100%', height: '100%' }} /></div>
+            <div className="proj-tags-row" style={{ marginTop: 18, display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+              {[p.workType, ...p.outputs].map((tag) => (<div key={tag} className="tag-pill">{tag}</div>))}
+            </div>
+            {hasDesc && (
+              <div {...openProps} className="proj-desc-below">
+                <div className="body-text proj-desc" style={{ marginTop: 20, fontSize: 15, lineHeight: 1.6, overflow: 'hidden', display: isExpanded ? 'block' : '-webkit-box', WebkitLineClamp: isExpanded ? 'unset' : 4, WebkitBoxOrient: 'vertical' }}>{desc}</div>
+                <div
+                  onClick={(e) => { e.stopPropagation(); clickable ? onOpen() : onToggle(); }}
+                  className="hover-dim proj-seemore"
+                  style={{ marginTop: 16, fontSize: 13, color: '#999', cursor: 'pointer' }}
+                >
+                  {clickable ? t.seeMore : (isExpanded ? t.seeLess : t.seeMore)} →
+                </div>
+              </div>
+            )}
+          </div>
+          {/* web (&gt;768px): original 2-column, thumbnail+tags left, description right */}
+          <div className="proj-desktop-layout" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,2fr) minmax(0,1fr)', gap: 48, marginTop: 24, alignItems: 'start' }}>
+            <div>
+              <div onClick={onOpen} style={{ width: '100%', aspectRatio: '16/9', cursor: clickable ? 'pointer' : 'default', borderRadius: RADIUS_SM, overflow: 'hidden' }}><Ph id={p.img} style={{ width: '100%', height: '100%' }} /></div>
+              <div style={{ marginTop: 18, display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+                {[p.workType, ...p.outputs].map((tag) => (<div key={tag} className="tag-pill">{tag}</div>))}
+              </div>
+            </div>
+            {hasDesc && (
+              <div {...openProps}>
+                <div className="body-text proj-desc" style={{ fontSize: 15, lineHeight: 1.6, overflow: 'hidden', display: isExpanded ? 'block' : '-webkit-box', WebkitLineClamp: isExpanded ? 'unset' : 4, WebkitBoxOrient: 'vertical' }}>{desc}</div>
+                <div
+                  onClick={(e) => { e.stopPropagation(); clickable ? onOpen() : onToggle(); }}
+                  className="hover-dim proj-seemore"
+                  style={{ marginTop: 16, fontSize: 13, color: '#999', cursor: 'pointer' }}
+                >
+                  {clickable ? t.seeMore : (isExpanded ? t.seeLess : t.seeMore)} →
+                </div>
+              </div>
+            )}
+          </div>
+        </>
+      ) : fullImage ? (
         <div style={{ marginTop: 24 }}>
           <div onClick={onOpen} className="proj-thumb" style={{ width: '100%', aspectRatio: '16/9', cursor: clickable ? 'pointer' : 'default', borderRadius: RADIUS, overflow: 'hidden' }}><Ph id={p.img} style={{ width: '100%', height: '100%' }} /></div>
           <div className="proj-tags-row" style={{ marginTop: 18, display: 'flex', flexWrap: 'wrap', gap: 10 }}>
@@ -517,8 +560,7 @@ function App() {
                   isExpanded={!!expanded[p.id]}
                   onToggle={() => setExpanded((s) => ({ ...s, [p.id]: !s[p.id] }))}
                   onOpen={p.blocks ? openProject(p.id) : undefined}
-                  fullImage
-                  descBelow
+                  responsive
                 />
               ))}
             </div>
