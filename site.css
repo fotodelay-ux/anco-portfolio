@@ -156,7 +156,7 @@ video { display: block; }
   .proj-subtitle { font-size: 15px !important; }
   .proj-meta { font-size: 12px !important; margin-top: 10px !important; }
   .proj-tags-row { gap: 6px; margin-top: 10px !important; }
-  .tag-pill { font-size: 9px !important; padding: 4px 8px !important; }
+  .tag-pill { font-size: 9.5px !important; padding: 4px 8px !important; }
   .proj-desc { font-size: 13px !important; }
   .proj-seemore { font-size: 11px !important; }
 
