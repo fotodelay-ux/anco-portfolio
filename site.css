@@ -112,7 +112,7 @@ video { display: block; }
 
   .nav-social { display: none !important; }
   .nav-links { gap: 14px !important; }
-  .tag-pill { font-size: 9.6px !important; padding: 5.6px 12px !important; }
+  .tag-pill { font-size: 8px !important; padding: 4px 10px !important; }
   .detail-grid { grid-template-columns: minmax(0,1fr) !important; }
   .detail-body-en { font-size: 18.7px  !important; }
   .detail-body-ko { font-size: 13.6px !important; }

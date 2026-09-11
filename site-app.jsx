@@ -298,17 +298,32 @@ function App() {
   // pill shows and the top bar stays hidden no matter which way you scroll;
   // back under it (i.e. scrolled back up near the top), the pill hides and
   // the top bar reappears. No more "any little scroll-up reveals the bar".
+  //
+  // Exception — project detail page, web only: the top bar never shows at
+  // all; the pill is the only nav, visible by default at the top of the
+  // page, hiding when you scroll down and reappearing when you scroll up
+  // (mobile keeps the normal single-threshold behavior above).
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
+      const isMobile = window.innerWidth <= 768;
+      if (view === 'project' && !isMobile) {
+        setHeaderHidden(true);
+        if (y < 80) { setShowFloatHeader(true); lastScrollY.current = y; return; }
+        if (y > lastScrollY.current + 4) setShowFloatHeader(false);
+        else if (y < lastScrollY.current - 4) setShowFloatHeader(true);
+        lastScrollY.current = y;
+        return;
+      }
       const past = y > 400;
       setShowFloatHeader(past);
       setHeaderHidden(past);
       lastScrollY.current = y;
     };
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  }, [view]);
 
   // hero headline: types itself out character by character, pauses, then
   // clears and retypes — loops forever. Restarts if the headline text
