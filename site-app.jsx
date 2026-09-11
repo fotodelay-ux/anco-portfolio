@@ -129,7 +129,6 @@ function ProjectListCard({ p, isExpanded, onToggle, onOpen, fullImage, descBelow
         <div className="proj-title" style={{ fontSize: 34, fontWeight: 700 }}>{p.title}</div>
         {p.subtitleKo && <div className="proj-subtitle" style={{ fontSize: 20, color: '#999' }}> {p.subtitleKo}</div>}
       </div>
-      {(p.client || p.year) && <div className="proj-meta" style={{ fontSize: 13, color: '#999', marginTop: 6 }}>{p.client && `Client : ${p.client}`}{p.client && p.year ? ' · ' : ''}{p.year}</div>}
       {responsive ? (
         <>
           {/* mobile only (≤768px): 1-column, thumbnail + tags then description below */}

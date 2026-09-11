@@ -159,7 +159,7 @@ video { display: block; }
   .proj-mobile-layout { display: block !important; margin-top: 10px !important; }
   .proj-home-thumb-wrap { margin-top: 10px !important; }
   .proj-desktop-layout { display: none !important; }
-  .proj-thumb { margin-left: -5px !important; margin-right: -5px !important; width: calc(100% + 10px) !important; border-radius: 18px !important; }
+  .proj-thumb { margin-left: -5px !important; margin-right: -5px !important; width: calc(100% + 10px) !important; border-radius: 10px !important; }
   .proj-title-row { gap: 2px !important; }
   .proj-title { font-size: 24px !important; }
   .proj-subtitle { font-size: 15px !important; }
