@@ -110,13 +110,13 @@ video { display: block; }
   .job-row .job-date { flex: none !important; }
   .job-row .job-role { text-align: left !important; }
 
-  /* top header: too tight on narrow screens — shrink padding/logo and
-     wrap the KO/EN toggle onto its own line below the logo so WORK/ABOUT/
-     CONTACT on the right never get squeezed off-screen */
+  /* top header: too tight on narrow screens — shrink padding/logo, and
+     drop the KO/EN pill out of the row entirely, onto its own line just
+     below the header bar, pinned to the right edge — so WORK/ABOUT/CONTACT
+     on the right never get squeezed off-screen */
   .top-header-row { padding: 14px 20px !important; }
   .site-logo { font-size: 15px !important; }
-  .logo-group { flex-wrap: wrap !important; row-gap: 6px !important; }
-  .logo-group .header-lang-toggle { flex-basis: 100% !important; margin-left: 0 !important; }
+  .header-lang-toggle { position: absolute !important; top: 100% !important; right: 20px !important; margin-top: 8px !important; }
   .top-header-row .nav-item { font-size: 11.5px !important; }
 
   /* hero headline/body copy: -15% */
