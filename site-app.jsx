@@ -2,7 +2,7 @@ const { useState, useEffect, useRef } = React;
 
 const EN = {
   navWork: 'WORK', navAbout: 'ABOUT', navContact: 'CONTACT',
-  heroName: 'AI가 뭐든 만드는 시대,\n사람이 필요한 디자인을 하고 있어요.', heroRole: ' ',
+  heroName: 'AI가 뭐든 만드는 시대,\n사람이 필요한 디자인을\n하고 있어요.', heroRole: ' ',
   heroStatement: 'I build visual systems that turn content and ideas into memorable experiences.',
   heroSubLine1: '10+ years in Content, Brand &amp; Visual Design.',
   heroSubLine2: 'Currently exploring Product &amp; Digital Experiences.',
@@ -86,9 +86,9 @@ function ProjectBlocks({ blocks, isPoster, labelColor }) {
       {blocks.map((b, i) => {
         if (b.type === 'section') {
           return (
-            <div key={i} style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,2fr)', gap: 60, marginBottom: 100, maxWidth: 1100, marginLeft: 'auto', marginRight: 'auto' }}>
-              <div style={{ fontSize: 16, letterSpacing: '0.1em', color: labelColor || '#232323', transition: 'color 0.8s ease', fontFamily: "'Geomanist', 'Pretendard', sans-serif" }}>{b.label}</div>
-              <div style={{ fontSize: 14, lineHeight: 1.8, whiteSpace: 'pre-line' }}>{b.body}</div>
+            <div key={i} className="pb-section-block" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,2fr)', gap: 60, marginBottom: 100, maxWidth: 1100, marginLeft: 'auto', marginRight: 'auto' }}>
+              <div className="pb-section-label" style={{ fontSize: 16, letterSpacing: '0.1em', color: labelColor || '#232323', transition: 'color 0.8s ease', fontFamily: "'Geomanist', 'Pretendard', sans-serif" }}>{b.label}</div>
+              <div className="pb-section-body" style={{ fontSize: 14, lineHeight: 1.8, whiteSpace: 'pre-line' }}>{b.body}</div>
             </div>
           );
         }
@@ -110,7 +110,11 @@ function ProjectBlocks({ blocks, isPoster, labelColor }) {
   );
 }
 
-// default "list" card — 16:9 thumbnail + description on the right; whole card is clickable
+// default "list" card — 16:9 thumbnail + description on the right; whole card is clickable.
+// Sizing/spacing for THIS component on mobile all lives in ONE place:
+// site.css → @media (max-width: 768px) → the "project cards" section
+// (every .proj-* selector). Nothing about mobile spacing is set here in
+// the JSX — this file only controls structure and desktop/web values.
 function ProjectListCard({ p, isExpanded, onToggle, onOpen, fullImage, descBelow, responsive, lang, t }) {
   const desc = pick(p, 'desc', lang);
   const hasDesc = !!desc;
@@ -167,7 +171,7 @@ function ProjectListCard({ p, isExpanded, onToggle, onOpen, fullImage, descBelow
           </div>
         </>
       ) : fullImage ? (
-        <div style={{ marginTop: 24 }}>
+        <div className="proj-home-thumb-wrap" style={{ marginTop: 24 }}>
           <div onClick={onOpen} className="proj-thumb" style={{ width: '100%', aspectRatio: '16/9', cursor: clickable ? 'pointer' : 'default', borderRadius: RADIUS, overflow: 'hidden' }}><Ph id={p.img} style={{ width: '100%', height: '100%' }} /></div>
           <div className="proj-tags-row" style={{ marginTop: 18, display: 'flex', flexWrap: 'wrap', gap: 10 }}>
             {[p.workType, ...p.outputs].map((tag) => (<div key={tag} className="tag-pill">{tag}</div>))}
@@ -238,7 +242,7 @@ function ProjectTile({ p, onOpen, isPoster }) {
 
 function FilterRow({ label, items, active, onPick, onReset, labels }) {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
       <span className="filter-row-label">{label}</span>
       {items.filter((i) => i !== 'ALL').map((item) => (
         <div

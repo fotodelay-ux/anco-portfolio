@@ -143,13 +143,14 @@ video { display: block; }
   .work-view { padding-left: 15px !important; padding-right: 15px !important; }
   .proj-mobile-layout { display: block !important; margin-top: 10px !important; }
   .proj-home-thumb-wrap { margin-top: 10px !important; }
+  .proj-home-tags-row { margin-top: 10px !important; }
   .proj-desktop-layout { display: none !important; }
   .proj-thumb { margin-left: -5px !important; margin-right: -5px !important; width: calc(100% + 10px) !important; }
   .proj-title-row { gap: 2px !important; }
   .proj-title { font-size: 24px !important; }
   .proj-subtitle { font-size: 15px !important; }
   .proj-meta { font-size: 12px !important; margin-top: 10px !important; }
-  .proj-tags-row { gap: 6px; margin-top: 10px !important; }
+  .proj-tags-row { gap: 6px !important; }
   .tag-pill { font-size: 9px !important; padding: 4px 8px !important; }
   .proj-desc { font-size: 13px !important; }
   .proj-seemore { font-size: 11px !important; }
@@ -173,9 +174,6 @@ video { display: block; }
   .detail-body-ko { font-size: 13.6px !important; }
   .section-body { font-size: 15.3px !important; padding-left: 15px !important; padding-right: 15px !important; }
   .pb-images-block { margin-left: -5px !important; margin-right: -5px !important; width: calc(100% + 10px) !important; }
-  .pb-section-block { grid-template-columns: minmax(0,1fr) !important; gap: 32px !important; }
-  .pb-section-label { font-size: 13px !important; }
-  .pb-section-body { font-size: 13px !important; }
   .detail-footer-section { padding-left: 15px !important; padding-right: 15px !important; }
   .project-thumb-wrap { padding: 0 16px !important; }
 }
