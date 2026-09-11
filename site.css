@@ -141,10 +141,16 @@ video { display: block; }
      beside the thumb) — see ProjectListCard in site-app.jsx. */
   .selected-work-section { padding-left: 15px !important; padding-right: 15px !important; }
   .work-view { padding-left: 15px !important; padding-right: 15px !important; }
+  /* when the WORK title wraps the filter tags onto their own line, a lone
+     flex item under justify-content:space-between hugs the LEFT edge by
+     default — force it back to the right so it lines up with the page's
+     15px right margin like everything else. */
+  .work-header-row { flex-wrap: wrap !important; }
+  .work-filter-col { margin-left: auto !important; align-items: flex-end !important; }
   .proj-mobile-layout { display: block !important; margin-top: 10px !important; }
   .proj-home-thumb-wrap { margin-top: 10px !important; }
   .proj-desktop-layout { display: none !important; }
-  .proj-thumb { margin-left: -5px !important; margin-right: -5px !important; width: calc(100% + 10px) !important; }
+  .proj-thumb { margin-left: -5px !important; margin-right: -5px !important; width: calc(100% + 10px) !important; border-radius: 18px !important; }
   .proj-title-row { gap: 2px !important; }
   .proj-title { font-size: 24px !important; }
   .proj-subtitle { font-size: 15px !important; }
@@ -153,6 +159,12 @@ video { display: block; }
   .tag-pill { font-size: 9px !important; padding: 4px 8px !important; }
   .proj-desc { font-size: 13px !important; }
   .proj-seemore { font-size: 11px !important; }
+
+  /* Work tab filtered grids (card3 / tile3 / poster4) — 3-col on web,
+     2-col on mobile, for every tab/filter that uses one of these grids. */
+  .work-grid3 { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+  .grid-card-title { font-size: 14px !important; }
+  .grid-card-desc { font-size: 12px !important; }
 
   /* ---- about page ---- */
   .about-view { padding-left: 15px !important; padding-right: 15px !important; }
@@ -169,12 +181,12 @@ video { display: block; }
   .detail-title-section { padding-left: 15px !important; padding-right: 15px !important; }
   .detail-hero-section { padding-left: 10px !important; padding-right: 10px !important; }
   .detail-desc-section { padding-left: 15px !important; padding-right: 15px !important; }
-  .detail-body-en { font-size: 18.7px !important; }
-  .detail-body-ko { font-size: 13.6px !important; }
+  .detail-body-en { font-size: 13px !important; }
+  .detail-body-ko { font-size: 13px !important; }
   .section-body { font-size: 15.3px !important; padding-left: 15px !important; padding-right: 15px !important; }
   .pb-images-block { margin-left: -5px !important; margin-right: -5px !important; width: calc(100% + 10px) !important; }
   .pb-section-block { grid-template-columns: minmax(0,1fr) !important; gap: 32px !important; }
-  .pb-section-label { font-size: 13px !important; }
+  .pb-section-label { font-size: 13px !important; font-weight: 700 !important; }
   .pb-section-body { font-size: 13px !important; }
   .detail-footer-section { padding-left: 15px !important; padding-right: 15px !important; }
   .project-thumb-wrap { padding: 0 16px !important; }

@@ -222,8 +222,8 @@ function ProjectCard3({ p, onOpen, lang, t }) {
   return (
     <div onClick={onOpen} style={{ cursor: clickable ? 'pointer' : 'default' }}>
       <div style={{ width: '100%', aspectRatio: '16/9', borderRadius: RADIUS_SM, overflow: 'hidden' }}><Ph id={p.img} style={{ width: '100%', height: '100%' }} /></div>
-      <div style={{ marginTop: 18, fontSize: 20, fontWeight: 700 }}>{p.title}</div>
-      {desc && <div className="body-text" style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.6, color: '#666', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}>{desc}</div>}
+      <div className="grid-card-title" style={{ marginTop: 18, fontSize: 20, fontWeight: 700 }}>{p.title}</div>
+      {desc && <div className="body-text grid-card-desc" style={{ marginTop: 8, fontSize: 13.5, lineHeight: 1.6, color: '#666', overflow: 'hidden', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}>{desc}</div>}
       {clickable && <div className="hover-dim" style={{ marginTop: 12, fontSize: 12, color: '#999' }}>{t.seeMore} →</div>}
     </div>
   );
@@ -235,7 +235,7 @@ function ProjectTile({ p, onOpen, isPoster }) {
   return (
     <div onClick={onOpen} style={{ cursor: clickable ? 'pointer' : 'default' }}>
       <div style={{ width: '100%', aspectRatio: isPoster ? '3/4' : '1/1', borderRadius: isPoster ? 0 : RADIUS_SM, overflow: 'hidden' }}><Ph id={p.img} style={{ width: '100%', height: '100%' }} /></div>
-      <div style={{ marginTop: 14, fontSize: 14, fontWeight: 700 }}>{p.title}</div>
+      <div className="grid-card-title" style={{ marginTop: 14, fontSize: 14, fontWeight: 700 }}>{p.title}</div>
     </div>
   );
 }
@@ -559,9 +559,9 @@ function App() {
 
       {view === 'work' && (
         <div key="work" className="stagger work-view" style={{ padding: '140px 40px 160px', maxWidth: 1500, margin: '0 auto' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24, marginBottom: 80, paddingBottom: 40, borderBottom: '1px solid #E5E3DE', flexWrap: 'wrap' }}>
+          <div className="work-header-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24, marginBottom: 80, paddingBottom: 40, borderBottom: '1px solid #E5E3DE', flexWrap: 'wrap' }}>
             <div style={{ fontSize: 'clamp(40px,8vw,70px)', fontWeight: 700 }}>{t.workTitle}</div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-end' }}>
+            <div className="work-filter-col" style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-end' }}>
               <FilterRow label={t.filterFor} items={WORK_TYPES} active={workType} onPick={pickWorkType} onReset={resetFilters} labels={t.workTypeLabels} />
               <FilterRow label={t.filterScope} items={OUTPUT_TAGS} active={outputTag} onPick={pickOutputTag} onReset={resetFilters} labels={t.outputLabels} />
             </div>
@@ -584,19 +584,19 @@ function App() {
               ))}
             </div>
           ) : gridMode === 'card3' ? (
-            <div className="stagger" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0,1fr))', gap: '60px 10px' }}>
+            <div className="stagger work-grid3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0,1fr))', gap: '60px 10px' }}>
               {filtered.map((p) => (
                 <ProjectCard3 key={p.id} p={p} lang={lang} t={t} onOpen={p.blocks ? openProject(p.id) : undefined} />
               ))}
             </div>
           ) : gridMode === 'tile3' ? (
-            <div className="stagger" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0,1fr))', gap: '40px 10px' }}>
+            <div className="stagger work-grid3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0,1fr))', gap: '40px 10px' }}>
               {filtered.map((p) => (
                 <ProjectTile key={p.id} p={p} onOpen={p.blocks ? openProject(p.id) : undefined} />
               ))}
             </div>
           ) : (
-            <div className="stagger" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0,1fr))', gap: '40px 10px' }}>
+            <div className="stagger work-grid3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0,1fr))', gap: '40px 10px' }}>
               {filtered.map((p) => (
                 <ProjectTile key={p.id} p={p} isPoster onOpen={p.blocks ? openProject(p.id) : undefined} />
               ))}
