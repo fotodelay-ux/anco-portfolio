@@ -95,7 +95,7 @@ function ProjectBlocks({ blocks, isPoster, labelColor }) {
         if (b.type === 'images') {
           const cols = b.cols ? b.cols : Math.min(b.src.length, 3) || 1;
           return (
-            <div key={i} style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, minmax(0,1fr))`, gap: 0, marginBottom: 70 }}>
+            <div key={i} className="pb-images-block" style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, minmax(0,1fr))`, gap: 0, marginBottom: 70 }}>
               {b.src.map((s, j) => (
                 <div key={j} style={{ width: '100%', aspectRatio: b.ratio && b.ratio !== 'auto' ? b.ratio.replace('/', ' / ') : undefined }}>
                   <Media src={s} style={{ width: '100%', height: '100%', objectFit: b.fit || 'cover'}} />
@@ -111,24 +111,36 @@ function ProjectBlocks({ blocks, isPoster, labelColor }) {
 }
 
 // default "list" card — 16:9 thumbnail + description on the right; whole card is clickable
-function ProjectListCard({ p, isExpanded, onToggle, onOpen, fullImage, lang, t }) {
+function ProjectListCard({ p, isExpanded, onToggle, onOpen, fullImage, descBelow, lang, t }) {
   const desc = pick(p, 'desc', lang);
   const hasDesc = !!desc;
   const clickable = !!p.blocks;
   const openProps = clickable ? { onClick: onOpen, style: { cursor: 'pointer' } } : {};
   return (
     <div>
-      <div {...openProps} style={{ ...openProps.style, display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
+      <div {...openProps} className="proj-title-row" style={{ ...openProps.style, display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
         <div className="proj-title" style={{ fontSize: 34, fontWeight: 700 }}>{p.title}</div>
         {p.subtitleKo && <div className="proj-subtitle" style={{ fontSize: 20, color: '#999' }}> {p.subtitleKo}</div>}
       </div>
       {(p.client || p.year) && <div className="proj-meta" style={{ fontSize: 13, color: '#999', marginTop: 6 }}>{p.client && `Client : ${p.client}`}{p.client && p.year ? ' · ' : ''}{p.year}</div>}
       {fullImage ? (
         <div style={{ marginTop: 24 }}>
-          <div onClick={onOpen} style={{ width: '100%', aspectRatio: '16/9', cursor: clickable ? 'pointer' : 'default', borderRadius: RADIUS, overflow: 'hidden' }}><Ph id={p.img} style={{ width: '100%', height: '100%' }} /></div>
-          <div style={{ marginTop: 18, display: 'flex', flexWrap: 'wrap', gap: 10 }}>
+          <div onClick={onOpen} className="proj-thumb" style={{ width: '100%', aspectRatio: '16/9', cursor: clickable ? 'pointer' : 'default', borderRadius: RADIUS, overflow: 'hidden' }}><Ph id={p.img} style={{ width: '100%', height: '100%' }} /></div>
+          <div className="proj-tags-row" style={{ marginTop: 18, display: 'flex', flexWrap: 'wrap', gap: 10 }}>
             {[p.workType, ...p.outputs].map((tag) => (<div key={tag} className="tag-pill">{tag}</div>))}
           </div>
+          {descBelow && hasDesc && (
+            <div {...openProps} className="proj-desc-below">
+              <div className="body-text proj-desc" style={{ marginTop: 20, fontSize: 15, lineHeight: 1.6, overflow: 'hidden', display: isExpanded ? 'block' : '-webkit-box', WebkitLineClamp: isExpanded ? 'unset' : 4, WebkitBoxOrient: 'vertical' }}>{desc}</div>
+              <div
+                onClick={(e) => { e.stopPropagation(); clickable ? onOpen() : onToggle(); }}
+                className="hover-dim proj-seemore"
+                style={{ marginTop: 16, fontSize: 13, color: '#999', cursor: 'pointer' }}
+              >
+                {clickable ? t.seeMore : (isExpanded ? t.seeLess : t.seeMore)} →
+              </div>
+            </div>
+          )}
         </div>
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0,2fr) minmax(0,1fr)', gap: 48, marginTop: 24, alignItems: 'start' }}>
@@ -435,7 +447,7 @@ function App() {
             </div>
           </section>
 
-          <section id="contact" style={{ padding: '100px 40px 160px', maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
+          <section id="contact" className="contact-section" style={{ padding: '100px 40px 160px', maxWidth: 900, margin: '0 auto', textAlign: 'center' }}>
             <div style={{ fontSize: 13, letterSpacing: '0.1em', color: '#666666', marginBottom: 30 }}>{t.navContact}</div>
             <div style={{ fontSize: 'clamp(36px,6vw,72px)', fontWeight: 700 }}>{t.letsTalk}</div>
             <div style={{ marginTop: 28, fontSize: 15, color: '#666666' }}>+82 10 3179 7998 · fotodelay@gmail.com</div>
@@ -457,7 +469,7 @@ function App() {
       )}
 
       {view === 'about' && (
-        <div key="about" className="stagger" style={{ padding: '140px 40px 160px', maxWidth: 1500, margin: '0 auto' }}>
+        <div key="about" className="stagger about-view" style={{ padding: '140px 40px 160px', maxWidth: 1500, margin: '0 auto' }}>
           <div className="detail-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)', gap: 0, marginTop: 90 }}>
             <div>
               <div style={{ fontSize: 13, letterSpacing: '0.1em', color: '#666666' }}>{t.navAbout}</div>
@@ -484,7 +496,7 @@ function App() {
       )}
 
       {view === 'work' && (
-        <div key="work" className="stagger" style={{ padding: '140px 40px 160px', maxWidth: 1500, margin: '0 auto' }}>
+        <div key="work" className="stagger work-view" style={{ padding: '140px 40px 160px', maxWidth: 1500, margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24, marginBottom: 80, paddingBottom: 40, borderBottom: '1px solid #E5E3DE', flexWrap: 'wrap' }}>
             <div style={{ fontSize: 'clamp(40px,8vw,70px)', fontWeight: 700 }}>{t.workTitle}</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-end' }}>
@@ -505,6 +517,8 @@ function App() {
                   isExpanded={!!expanded[p.id]}
                   onToggle={() => setExpanded((s) => ({ ...s, [p.id]: !s[p.id] }))}
                   onOpen={p.blocks ? openProject(p.id) : undefined}
+                  fullImage
+                  descBelow
                 />
               ))}
             </div>
@@ -540,10 +554,10 @@ function App() {
             transition: 'background 0.8s ease, color 0.8s ease',
           }}
         >
-          <div style={{ padding: '140px 40px 0', maxWidth: 1500, margin: '0 auto' }}>
+          <div className="detail-top-pad" style={{ padding: '140px 40px 0', maxWidth: 1500, margin: '0 auto' }}>
             <div onClick={goWork} className="hover-dim" style={{ fontSize: 13, cursor: 'pointer', color: mixColor(LIGHT_GRAY, DARK_GRAY, darkProgress), marginBottom: 40, transition: 'color 0.8s ease' }}>{t.backToWork}</div>
           </div>
-          <section style={{ maxWidth: 1500, margin: '0 auto', padding: '0 40px 40px' }}>
+          <section className="detail-title-section" style={{ maxWidth: 1500, margin: '0 auto', padding: '0 40px 40px' }}>
             <div style={{ fontSize: 'clamp(30px,9vw,42px)', fontWeight: 800, lineHeight: 0.98 }}>{activeProject.title}</div>
             {activeProject.subtitleKo && <div style={{ marginTop: 14, fontSize: 20, color: mixColor(LIGHT_GRAY, DARK_GRAY, darkProgress), transition: 'color 0.8s ease' }}>{activeProject.subtitleKo}</div>}
             <div style={{ marginTop: 28, display: 'flex', gap: 32, fontSize: 14, color: mixColor(LIGHT_GRAY, DARK_GRAY, darkProgress), flexWrap: 'wrap', transition: 'color 0.8s ease' }}>
@@ -552,7 +566,7 @@ function App() {
               <div>{t.workTypeLabels[activeProject.workType]}</div>
             </div>
           </section>
-          <section style={{ padding: '0 40px', maxWidth: 1500, margin: '0 auto' }}>
+          <section className="detail-hero-section" style={{ padding: '0 40px', maxWidth: 1500, margin: '0 auto' }}>
             {activeProject.heroImages && activeProject.heroImages.length > 1 ? (
               <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 0 }}>
                 {activeProject.heroImages.map((src, i) => (
@@ -565,13 +579,13 @@ function App() {
           </section>
           <div>
             {(activeProject.descEn || activeProject.descKo) && (
-              <section style={{ padding: '100px 40px 0', maxWidth: 1100, margin: '0 auto' }}>
+              <section className="detail-desc-section" style={{ padding: '100px 40px 0', maxWidth: 1100, margin: '0 auto' }}>
                 {activeProject.descKo && <div className="detail-body-ko" style={{ fontSize: 14, lineHeight: 1.7, marginBottom: 24 }}>{activeProject.descKo}</div>}
                 {activeProject.descEn && <div className="detail-body-en" style={{ fontSize: 14, lineHeight: 1.7, color: mixColor(LIGHT_GRAY, DARK_GRAY, darkProgress), transition: 'color 0.8s ease' }}>{activeProject.descEn}</div>}
               </section>
             )}
             <div style={{ paddingTop: 100 }}><ProjectBlocks blocks={activeProject.blocks} isPoster={false} labelColor={mixColor(LIGHT_GRAY, DARK_GRAY, darkProgress)} /></div>
-            <div style={{ padding: '60px 40px 140px', maxWidth: 1500, margin: '0 auto', borderTop: `1px solid ${mixColor(LIGHT_BORDER, DARK_BORDER, darkProgress)}`, textAlign: 'center', transition: 'border-color 0.8s ease' }}>
+            <div className="detail-footer-section" style={{ padding: '60px 40px 140px', maxWidth: 1500, margin: '0 auto', borderTop: `1px solid ${mixColor(LIGHT_BORDER, DARK_BORDER, darkProgress)}`, textAlign: 'center', transition: 'border-color 0.8s ease' }}>
               <div onClick={goWork} style={{ fontSize: 14, cursor: 'pointer', textDecoration: 'underline' }}>{t.backToAllWork}</div>
             </div>
           </div>
