@@ -2,16 +2,17 @@ const { useState, useEffect, useRef } = React;
 
 const EN = {
   navWork: 'WORK', navAbout: 'ABOUT', navContact: 'CONTACT',
-  heroName: 'Jiyeon Kim', heroRole: '김지연 ㅣ Visual Designer',
+  heroName: 'AI가 뭐든 만드는 시대,\n사람이 필요한 것을 만들고 있어요.', heroRole: ' ',
   heroStatement: 'I build visual systems that turn content and ideas into memorable experiences.',
   heroSubLine1: '10+ years in Content, Brand &amp; Visual Design.',
   heroSubLine2: 'Currently exploring Product &amp; Digital Experiences.',
+  heroCta: 'View My Work',
   selectedWork: 'SELECTED WORK', viewAllWork: 'View all work →',
   aboutHeading: 'I define the essence of content and brands in visual language, then extend that language across every platform and medium it needs to live in.',
   aboutBody1: "Over the past ten years I've worked across channel branding, content design and promotion — building visual systems for broadcast, OTT and digital platforms, and carrying them from a single key visual through motion, social and spatial environments.",
   aboutBody2: 'More recently, I designed and built damdam, an AI-powered parenting app, on my own — extending my practice into product design, UX/UI and prototyping.',
   experienceLabel: 'EXPERIENCE', present: 'Present',
-  job1Company: 'Freelance', job1Role: 'Creative Director',
+  job1Company: 'Freelance Designer', job1Role: 'Creative Director',
   job2Role: 'Manager, Digital Design Part', job3Role: 'Creative Designer',
   job4Role: 'Motion Graphic Designer', job5Role: 'Motion Graphic Designer',
   letsTalk: "Let's talk.",
@@ -29,12 +30,14 @@ const EN = {
 // buttons, experience roles etc. stay English in both languages.
 const KO = {
   ...EN,
-  heroStatement: 'AI가 뭐든 만드는 시대에, 사람이 필요한 것을 만드는 디자이너',
-  heroSubLine1: 'ㆍ콘텐츠, 브랜드, 비주얼 디자인 분야에서 9년간 활동했습니다.',
-  heroSubLine2: 'ㆍ현재는 프로덕트와 디지털 경험 영역으로 확장하고 있습니다.',
-  aboutHeading: '콘텐츠와 브랜드의 본질을 시각 언어로 정의하고, 이를 필요한 모든 플랫폼과 매체로 확장합니다.',
-  aboutBody1: '지난 10년간 채널 브랜딩, 콘텐츠 디자인, 프로모션 전반에서 일했습니다. 방송, OTT, 디지털 플랫폼을 위한 시각 시스템을 구축하고, 하나의 키비주얼을 모션, 소셜, 공간 환경까지 확장해왔습니다.',
-  aboutBody2: '최근에는 AI 육아 앱 damdam을 직접 기획하고 만들며, 프로덕트 디자인과 UX/UI, 프로토타이핑까지 작업 영역을 넓히고 있습니다.',
+  heroStatement: '김지연 / Visual Designer',
+  heroSubLine1: '콘텐츠, 브랜드, 비주얼 디자인 분야에서 9년간 디자이너로 활동했고,',
+  heroSubLine2: '현재는 프로덕트와 디지털 경험 영역으로 확장하고 있습니다.',
+  heroCta: '작업 보러가기',
+  aboutHeading: '김지연 / Brand & Visual Designer',
+  aboutBody1: '콘텐츠와 브랜드의 본질을 이해하고, 이를 사람들에게 잘 전달되는 시각 언어로 만드는 디자이너입니다. 채널과 프로그램의 성격을 시각적으로 정의하는 브랜딩부터, 콘텐츠의 콘셉트를 로고·포스터·영상으로 구체화하는 작업까지 폭넓게 경험해왔습니다.',
+  aboutBody2: '하나의 아이디어가 다양한 플랫폼과 매체에서 자연스럽게 이어지도록 디자인하는 데 관심이 많습니다. 실제로 콘텐츠 IP의 온·오프라인 브랜딩과 디자인 시스템을 구축하고, 프로그램의 프로모션 영상부터 오리지널 콘텐츠의 비주얼 아이덴티티까지 직접 기획하고 제작하며 콘텐츠가 사람들에게 기억되는 방식을 고민해왔습니다.',
+  aboutBody3: '최근에는 AI 기반 육아일기 앱 ‘담담’을 직접 기획하고 UX/UI 디자인과 프로토타입 개발까지 진행했습니다. 새로운 아이디어를 빠르게 시각화하고 직접 구현해보는 과정을 통해, 콘텐츠와 브랜드를 넘어 사용자 경험까지 디자인의 영역을 넓혀가고 있습니다.',
 };
 
 const WORK_TYPES = ['ALL', 'CHANNEL BRANDING', 'CONTENT DESIGN', 'PROMOTION'];
@@ -84,18 +87,18 @@ function ProjectBlocks({ blocks, isPoster, labelColor }) {
         if (b.type === 'section') {
           return (
             <div key={i} style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,2fr)', gap: 60, marginBottom: 100, maxWidth: 1100, marginLeft: 'auto', marginRight: 'auto' }}>
-              <div style={{ fontSize: 13, letterSpacing: '0.1em', color: labelColor || '#666666' }}>{b.label}</div>
-              <div style={{ fontSize: 15.3, lineHeight: 1.8, whiteSpace: 'pre-line' }}>{b.body}</div>
+              <div style={{ fontSize: 16, letterSpacing: '0.1em', color: labelColor || '#232323', transition: 'color 0.8s ease', fontFamily: "'Geomanist', 'Pretendard', sans-serif" }}>{b.label}</div>
+              <div style={{ fontSize: 14, lineHeight: 1.8, whiteSpace: 'pre-line' }}>{b.body}</div>
             </div>
           );
         }
         if (b.type === 'images') {
-          const cols = b.cols && b.cols > 1 ? b.cols : Math.min(b.src.length, 3) || 1;
+          const cols = b.cols ? b.cols : Math.min(b.src.length, 3) || 1;
           return (
-            <div key={i} style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, minmax(0,1fr))`, gap: 24, marginBottom: 60 }}>
+            <div key={i} style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, minmax(0,1fr))`, gap: 0, marginBottom: 70 }}>
               {b.src.map((s, j) => (
                 <div key={j} style={{ width: '100%', aspectRatio: b.ratio && b.ratio !== 'auto' ? b.ratio.replace('/', ' / ') : undefined }}>
-                  <Media src={s} style={{ width: '100%', height: '100%', objectFit: b.fit || 'cover', borderRadius: isPoster ? 0 : RADIUS_SM }} />
+                  <Media src={s} style={{ width: '100%', height: '100%', objectFit: b.fit || 'cover'}} />
                 </div>
               ))}
             </div>
@@ -116,8 +119,8 @@ function ProjectListCard({ p, isExpanded, onToggle, onOpen, fullImage, lang, t }
   return (
     <div>
       <div {...openProps} style={{ ...openProps.style, display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
-        <div style={{ fontSize: 38, fontWeight: 700 }}>{p.title}</div>
-        {p.subtitleKo && <div style={{ fontSize: 16, color: '#999' }}>— {p.subtitleKo}</div>}
+        <div style={{ fontSize: 34, fontWeight: 700 }}>{p.title}</div>
+        {p.subtitleKo && <div style={{ fontSize: 20, color: '#999' }}> {p.subtitleKo}</div>}
       </div>
       {(p.client || p.year) && <div style={{ fontSize: 13, color: '#999', marginTop: 6 }}>{p.client && `Client : ${p.client}`}{p.client && p.year ? ' · ' : ''}{p.year}</div>}
       {fullImage ? (
@@ -226,11 +229,21 @@ function App() {
   const [contactSent, setContactSent] = useState(false);
   const [headerHidden, setHeaderHidden] = useState(false);
   const lastScrollY = useRef(0);
+  const [showFloatHeader, setShowFloatHeader] = useState(false);
+  const [typedHero, setTypedHero] = useState('');
+  const [growDots, setGrowDots] = useState(0);
+
+  // top-left logo: "...is growing" dots cycle 0→3 forever
+  useEffect(() => {
+    const id = setInterval(() => setGrowDots((d) => (d + 1) % 4), 450);
+    return () => clearInterval(id);
+  }, []);
 
   // header: slides away on scroll down, slides back in on scroll up — every page
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
+      setShowFloatHeader(y > 400);
       if (y < 80) { setHeaderHidden(false); lastScrollY.current = y; return; }
       if (y > lastScrollY.current + 4) setHeaderHidden(true);
       else if (y < lastScrollY.current - 4) setHeaderHidden(false);
@@ -240,27 +253,52 @@ function App() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // project detail page: the background continuously blends to black
-  // starting the instant you scroll down at all (not waiting for the
-  // content to near the viewport), and reverses the same way scrolling
-  // back up — driven directly by scroll position, so there's no seam
+  // hero headline: types itself out character by character, pauses, then
+  // clears and retypes — loops forever. Restarts if the headline text
+  // changes (e.g. language switch).
+  useEffect(() => {
+    let active = true;
+    let timeoutId;
+    const text = (lang === 'ko' ? KO : EN).heroName;
+    const runLoop = () => {
+      let i = 0;
+      setTypedHero('');
+      const tick = () => {
+        if (!active) return;
+        if (i <= text.length) {
+          setTypedHero(text.slice(0, i));
+          i++;
+          timeoutId = setTimeout(tick, 95);
+        } else {
+          timeoutId = setTimeout(() => { if (active) runLoop(); }, 1800);
+        }
+      };
+      tick();
+    };
+    runLoop();
+    return () => { active = false; clearTimeout(timeoutId); };
+  }, [lang]);
+
+  // project detail page background: normally stays light (darkProgress 0).
+  // Projects flagged with darkBg: true fade smoothly to black on entry —
+  // not scroll-triggered, just a one-time transition right after the page
+  // mounts (CSS transition on the elements below does the actual animating,
+  // this just flips the target value from 0 to 1 a tick after mount so the
+  // transition has something to animate from/to).
   const [darkProgress, setDarkProgress] = useState(0);
   useEffect(() => {
-    if (view !== 'project') { setDarkProgress(0); return undefined; }
-    const FADE_DISTANCE = 600; // px of scrolling over which it fades to full black
-    const onScroll = () => {
-      setDarkProgress(Math.min(1, Math.max(0, window.scrollY / FADE_DISTANCE)));
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const proj = PROJECTS.find((p) => p.id === projectId);
+    if (view !== 'project' || !proj || !proj.darkBg) { setDarkProgress(0); return undefined; }
+    setDarkProgress(0);
+    const id = requestAnimationFrame(() => requestAnimationFrame(() => setDarkProgress(1)));
+    return () => cancelAnimationFrame(id);
   }, [view, projectId]);
 
   const t = lang === 'ko' ? KO : EN;
   const goHome = () => { setView('home'); window.scrollTo(0, 0); };
   const goWork = () => { setView('work'); window.scrollTo(0, 0); };
   const scrollToId = (id) => { const el = document.getElementById(id); if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' }); };
-  const goAbout = () => { setView('home'); setTimeout(() => scrollToId('about'), 60); };
+  const goAbout = () => { setView('about'); window.scrollTo(0, 0); };
   const goContact = () => { setView('home'); setTimeout(() => scrollToId('contact'), 60); };
   // "for" (work type) and "scope" (output tag) rows are mutually exclusive —
   // picking one clears whatever was selected in the other row.
@@ -310,16 +348,16 @@ function App() {
       >
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 40px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-            <div onClick={goHome} style={{ fontFamily: "'Pretendard', sans-serif", fontSize: 20, fontWeight: 700, cursor: 'pointer', letterSpacing: '-0.04em'}}>Jiyeon Kim</div>
+            <div onClick={goHome} style={{ fontFamily: "'Geomanist', sans-serif", fontSize: 20, fontWeight: 600, cursor: 'pointer', letterSpacing: '-0.02em'}}>Jiyeon Kim is growing<span style={{ display: 'inline-block', width: 18, textAlign: 'left' }}>{'.'.repeat(growDots)}</span></div>
             <div className="lang-toggle" onClick={() => setLang((l) => l === 'en' ? 'ko' : 'en')}>
               <span className={'lang-opt' + (lang === 'ko' ? ' active' : '')}>KO</span>
               <span className={'lang-opt' + (lang === 'en' ? ' active' : '')}>EN</span>
             </div>
           </div>
           <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
-            <div className="nav-item" onClick={goWork} style={{ fontSize: 13, letterSpacing: '0.06em', cursor: 'pointer', paddingBottom: 2, color: '#666666', borderBottom: `1px solid ${view === 'work' ? '#111111' : 'transparent'}` }}>{t.navWork}</div>
-            <div className="nav-item" onClick={goAbout} style={{ fontSize: 13, letterSpacing: '0.06em', cursor: 'pointer', color: '#666666' }}>{t.navAbout}</div>
-            <div className="nav-item" onClick={goContact} style={{ fontSize: 13, letterSpacing: '0.06em', cursor: 'pointer', color: '#666666' }}>{t.navContact}</div>
+            <div className="nav-item" onClick={goWork} style={{ fontSize: 13, letterSpacing: '0.06em', cursor: 'pointer', paddingBottom: 2, color: '#111111', borderBottom: `1px solid ${view === 'work' ? '#111111' : 'transparent'}` }}>{t.navWork}</div>
+            <div className="nav-item" onClick={goAbout} style={{ fontSize: 13, letterSpacing: '0.06em', cursor: 'pointer', paddingBottom: 2, color: '#111111', borderBottom: `1px solid ${view === 'about' ? '#111111' : 'transparent'}` }}>{t.navAbout}</div>
+            <div className="nav-item" onClick={goContact} style={{ fontSize: 13, letterSpacing: '0.06em', cursor: 'pointer', color: '#111111' }}>{t.navContact}</div>
             <div className="nav-social" style={{ width: 1, height: 14, background: '#E5E3DE' }} />
             <div className="nav-social" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <a href="https://www.behance.net/fotodelay" target="_blank" rel="noreferrer"><img src="assets/behance-icon.png" alt="Behance" style={{ width: 22, height: 22 }} /></a>
@@ -329,13 +367,49 @@ function App() {
         </div>
       </div>
 
+      <div
+        style={{
+          position: 'fixed',
+          top: 16,
+          left: '50%',
+          zIndex: 100,
+          display: 'flex',
+          alignItems: 'center',
+          gap: 24,
+          background: '#ffffff',
+          borderRadius: 999,
+          padding: '8px 8px 8px 18px',
+          boxShadow: '0 8px 30px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04)',
+          transform: showFloatHeader ? 'translate(-50%, 0)' : 'translate(-50%, -140%)',
+          opacity: showFloatHeader ? 1 : 0,
+          transition: 'transform 0.45s cubic-bezier(0.22,1,0.36,1), opacity 0.35s ease',
+          pointerEvents: showFloatHeader ? 'auto' : 'none',
+        }}
+      >
+        <div onClick={goHome} style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer' }}>
+          <img src="site-img/2026 Profile black_noback.png" style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover', display: 'block' }} />
+          <div style={{ fontFamily: "'Geomanist', sans-serif", fontSize: 14, fontWeight: 700, letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}>Jiyeon kim</div>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+          <div className="nav-item" onClick={goWork} style={{ fontSize: 13, cursor: 'pointer', color: '#333333', whiteSpace: 'nowrap' }}>{t.navWork}</div>
+          <div className="nav-item" onClick={goAbout} style={{ fontSize: 13, cursor: 'pointer', color: '#333333', whiteSpace: 'nowrap' }}>{t.navAbout}</div>
+        </div>
+        <div onClick={goContact} style={{ fontSize: 13, fontWeight: 600, cursor: 'pointer', color: '#ffffff', background: '#111111', borderRadius: 999, padding: '9px 18px', whiteSpace: 'nowrap' }}>{t.letsTalk}</div>
+      </div>
+
       {view === 'home' && (
         <div key="home" className="stagger">
-          <section className="hero-wrap" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '100px 40px 0', maxWidth: 1500, margin: '0 auto' }}>
-            <div style={{ fontSize: 'clamp(80px,6.46vw,120px)', fontWeight: 700, lineHeight: 0.98, letterSpacing: '-0.03em' }}>{t.heroName}</div>
+          <section className="hero-wrap" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0px 40px 0', maxWidth: 1500, margin: '0 auto' }}>
+            <div style={{ position: 'relative', fontSize: 'clamp(40px,6.46vw,60px)', fontWeight: 700, lineHeight: 1.2, letterSpacing: '-0.01em' }}>
+              <div style={{ visibility: 'hidden', whiteSpace: 'pre-line' }}>{t.heroName}</div>
+              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, whiteSpace: 'pre-line' }}>{typedHero}<span className="type-cursor">|</span></div>
+            </div>
             <div style={{ marginTop: 28, fontSize: 'clamp(10px,3vw,18px)', color: '#666666' }}>{t.heroRole}</div>
-            <div className="body-text" style={{ marginTop: 56, maxWidth: 640, fontSize: 'clamp(18px,2.4vw,24px)', lineHeight: 1.5 }}>{t.heroStatement}</div>
-            <div className="body-text" style={{ marginTop: 24, fontSize: 15, lineHeight: 1.7, color: '#666666', maxWidth: 520 }}>{t.heroSubLine1}<br/>{t.heroSubLine2}</div>
+            <div className="body-text" style={{ marginTop: 40, maxWidth: 640, fontSize: 'clamp(22px,2.4vw,28px)',fontWeight: 600, lineHeight: 1.5 }}>{t.heroStatement}</div>
+            <div className="body-text" style={{ marginTop: 24, fontSize: 16, lineHeight: 1.7, color: '#666666', maxWidth: 520,  }}>{t.heroSubLine1}<br/>{t.heroSubLine2}</div>
+            <div className="lang-toggle" style={{ marginTop: 40, width: 'fit-content' }}>
+              <span onClick={goWork} className="lang-opt active" style={{ fontSize: 14, padding: '13px 26px', whiteSpace: 'nowrap' }}>{t.heroCta} →</span>
+            </div>
           </section>
 
           <section style={{ padding: '140px 40px 100px', maxWidth: 1500, margin: '0 auto' }}>
@@ -356,28 +430,6 @@ function App() {
                   fullImage
                 />
               ))}
-            </div>
-          </section>
-
-          <section id="about" style={{ padding: '100px 40px 140px', maxWidth: 1500, margin: '0 auto', borderTop: '1px solid #E5E3DE' }}>
-            <div className="detail-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)', gap: 60, marginTop: 90 }}>
-              <div style={{ fontSize: 13, letterSpacing: '0.1em', color: '#666666' }}>{t.navAbout}</div>
-              <div style={{ maxWidth: 680 }}>
-                <div className="body-text" style={{ fontSize: 'clamp(22px,2.6vw,32px)', fontWeight: 500, lineHeight: 1.55 }}>{t.aboutHeading}</div>
-                <div className="body-text" style={{ marginTop: 40, fontSize: 16, lineHeight: 1.85, color: '#666666' }}>{t.aboutBody1}<br/><br/>{t.aboutBody2}</div>
-              </div>
-            </div>
-            <div className="detail-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)', gap: 60, marginTop: 90 }}>
-              <div style={{ fontSize: 13, letterSpacing: '0.1em', color: '#666666' }}>{t.experienceLabel}</div>
-              <div>
-                {[['2025—Present', t.job1Company, t.job1Role], ['2020—2023', 'SLL (JTBC Studios)', t.job2Role], ['2016—2020', 'A+E Networks Korea', t.job3Role], ['2014—2015', 'Style&', t.job4Role], ['2014', 'Imagebakery', t.job5Role]].map((row, i) => (
-                  <div key={i} style={{ display: 'flex', justifyContent: 'space-between', gap: 24, padding: '26px 0', borderTop: '1px solid #E5E3DE', borderBottom: i === 4 ? '1px solid #E5E3DE' : 'none' }}>
-                    <div style={{ fontSize: 15, color: '#666666', flex: '0 0 140px' }}>{row[0]}</div>
-                    <div style={{ flex: 1, fontSize: 18, fontWeight: 500 }}>{row[1]}</div>
-                    <div style={{ fontSize: 15, color: '#666666', textAlign: 'right' }}>{row[2]}</div>
-                  </div>
-                ))}
-              </div>
             </div>
           </section>
 
@@ -402,10 +454,37 @@ function App() {
         </div>
       )}
 
+      {view === 'about' && (
+        <div key="about" className="stagger" style={{ padding: '140px 40px 160px', maxWidth: 1500, margin: '0 auto' }}>
+          <div className="detail-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)', gap: 0, marginTop: 90 }}>
+            <div>
+              <div style={{ fontSize: 13, letterSpacing: '0.1em', color: '#666666' }}>{t.navAbout}</div>
+              <img src="site-img/2026 Profile black_noback.png" style={{ width: '70%', aspectRatio: '3/4', objectFit: 'cover', borderRadius: 20, marginTop: 15, display: 'block' }} />
+            </div>
+            <div style={{ maxWidth: 680, paddingLeft: 0 }}>
+              <div className="body-text" style={{ fontSize: 'clamp(22px,2.6vw,32px)', fontWeight: 600, marginTop: 38, lineHeight: 1.55 }}>{t.aboutHeading}</div>
+              <div className="body-text" style={{ marginTop: 40, fontSize: 14, lineHeight: 1.85, color: '#666666' }}>{t.aboutBody1}<br/><br/>{t.aboutBody2}<br/><br/>{t.aboutBody3}</div>
+            </div>
+          </div>
+          <div className="detail-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)', gap: 0, marginTop: 90 }}>
+            <div style={{ fontSize: 13, letterSpacing: '0.1em', color: '#666666' }}>{t.experienceLabel}</div>
+            <div>
+              {[['2025.04 — Present', t.job1Company, t.job1Role], ['2020.06 — 2023.10', 'SLL (JTBC Studios)', t.job2Role], ['2016.03 — 2020.06', 'A+E Networks Korea', t.job3Role], ['2014.11 — 2015.11', 'Style&', t.job4Role], ['2014.05 — 2014.10', 'Imagebakery', t.job5Role]].map((row, i) => (
+                <div key={i} className="job-row" style={{ display: 'flex', justifyContent: 'space-between', gap: 80, padding: '26px 0', borderTop: '1px solid #E5E3DE', borderBottom: i === 4 ? '1px solid #E5E3DE' : 'none' }}>
+                  <div className="job-date" style={{ fontSize: 13, color: '#666666', flex: '0 0 140px' }}>{row[0]}</div>
+                  <div className="job-company" style={{ flex: 1, fontSize: 15, fontWeight: 500 }}>{row[1]}</div>
+                  <div className="job-role" style={{ fontSize: 13, color: '#666666', textAlign: 'right' }}>{row[2]}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {view === 'work' && (
         <div key="work" className="stagger" style={{ padding: '140px 40px 160px', maxWidth: 1500, margin: '0 auto' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24, marginBottom: 80, paddingBottom: 40, borderBottom: '1px solid #E5E3DE', flexWrap: 'wrap' }}>
-            <div style={{ fontSize: 'clamp(48px,8vw,96px)', fontWeight: 700 }}>{t.workTitle}</div>
+            <div style={{ fontSize: 'clamp(40px,8vw,70px)', fontWeight: 700 }}>{t.workTitle}</div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-end' }}>
               <FilterRow label={t.filterFor} items={WORK_TYPES} active={workType} onPick={pickWorkType} onReset={resetFilters} labels={t.workTypeLabels} />
               <FilterRow label={t.filterScope} items={OUTPUT_TAGS} active={outputTag} onPick={pickOutputTag} onReset={resetFilters} labels={t.outputLabels} />
@@ -450,36 +529,47 @@ function App() {
       )}
 
       {view === 'project' && activeProject && (
-        <div key={'project-' + activeProject.id} className="stagger">
+        <div
+          key={'project-' + activeProject.id}
+          className="stagger"
+          style={{
+            background: mixColor(LIGHT_BG, DARK_BG, darkProgress),
+            color: mixColor(LIGHT_TEXT, DARK_TEXT, darkProgress),
+            transition: 'background 0.8s ease, color 0.8s ease',
+          }}
+        >
           <div style={{ padding: '140px 40px 0', maxWidth: 1500, margin: '0 auto' }}>
-            <div onClick={goWork} className="hover-dim" style={{ fontSize: 13, cursor: 'pointer', color: '#666', marginBottom: 40 }}>{t.backToWork}</div>
+            <div onClick={goWork} className="hover-dim" style={{ fontSize: 13, cursor: 'pointer', color: mixColor(LIGHT_GRAY, DARK_GRAY, darkProgress), marginBottom: 40, transition: 'color 0.8s ease' }}>{t.backToWork}</div>
           </div>
           <section style={{ maxWidth: 1500, margin: '0 auto', padding: '0 40px 40px' }}>
-            <div style={{ fontSize: 'clamp(48px,9vw,50px)', fontWeight: 700, lineHeight: 0.98 }}>{activeProject.title}</div>
-            {activeProject.subtitleKo && <div style={{ marginTop: 20, fontSize: 20, color: '#666' }}>{activeProject.subtitleKo}</div>}
-            <div style={{ marginTop: 28, display: 'flex', gap: 32, fontSize: 14, color: '#666', flexWrap: 'wrap' }}>
+            <div style={{ fontSize: 'clamp(30px,9vw,42px)', fontWeight: 800, lineHeight: 0.98 }}>{activeProject.title}</div>
+            {activeProject.subtitleKo && <div style={{ marginTop: 14, fontSize: 20, color: mixColor(LIGHT_GRAY, DARK_GRAY, darkProgress), transition: 'color 0.8s ease' }}>{activeProject.subtitleKo}</div>}
+            <div style={{ marginTop: 28, display: 'flex', gap: 32, fontSize: 14, color: mixColor(LIGHT_GRAY, DARK_GRAY, darkProgress), flexWrap: 'wrap', transition: 'color 0.8s ease' }}>
               {activeProject.year && <div>{activeProject.year}</div>}
               {activeProject.client && <div>{activeProject.client}</div>}
               <div>{t.workTypeLabels[activeProject.workType]}</div>
             </div>
           </section>
           <section style={{ padding: '0 40px', maxWidth: 1500, margin: '0 auto' }}>
-            <div style={{ width: '100%', aspectRatio: '16/9', borderRadius: RADIUS_SM, overflow: 'hidden' }}><Ph id={activeProject.hero || activeProject.img} style={{ width: '100%', height: '100%' }} /></div>
+            {activeProject.heroImages && activeProject.heroImages.length > 1 ? (
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 0 }}>
+                {activeProject.heroImages.map((src, i) => (
+                  <div key={i} style={{ width: '100%', aspectRatio: '16/9', overflow: 'hidden' }}><Ph id={src} style={{ width: '100%', height: '100%' }} /></div>
+                ))}
+              </div>
+            ) : (
+              <div style={{ width: '100%', aspectRatio: '16/9', overflow: 'hidden' }}><Ph id={activeProject.hero || activeProject.img} style={{ width: '100%', height: '100%' }} /></div>
+            )}
           </section>
-          <div
-            style={{
-              background: mixColor(LIGHT_BG, DARK_BG, darkProgress),
-              color: mixColor(LIGHT_TEXT, DARK_TEXT, darkProgress),
-            }}
-          >
+          <div>
             {(activeProject.descEn || activeProject.descKo) && (
               <section style={{ padding: '100px 40px 0', maxWidth: 1100, margin: '0 auto' }}>
-                {activeProject.descKo && <div className="detail-body-ko" style={{ fontSize: 18.7, lineHeight: 1.7, marginBottom: 24 }}>{activeProject.descKo}</div>}
-                {activeProject.descEn && <div className="detail-body-en" style={{ fontSize: 13.6, lineHeight: 1.8, color: mixColor(LIGHT_GRAY, DARK_GRAY, darkProgress) }}>{activeProject.descEn}</div>}
+                {activeProject.descKo && <div className="detail-body-ko" style={{ fontSize: 14, lineHeight: 1.7, marginBottom: 24 }}>{activeProject.descKo}</div>}
+                {activeProject.descEn && <div className="detail-body-en" style={{ fontSize: 14, lineHeight: 1.7, color: mixColor(LIGHT_GRAY, DARK_GRAY, darkProgress), transition: 'color 0.8s ease' }}>{activeProject.descEn}</div>}
               </section>
             )}
             <div style={{ paddingTop: 100 }}><ProjectBlocks blocks={activeProject.blocks} isPoster={false} labelColor={mixColor(LIGHT_GRAY, DARK_GRAY, darkProgress)} /></div>
-            <div style={{ padding: '60px 40px 140px', maxWidth: 1500, margin: '0 auto', borderTop: `1px solid ${mixColor(LIGHT_BORDER, DARK_BORDER, darkProgress)}`, textAlign: 'center' }}>
+            <div style={{ padding: '60px 40px 140px', maxWidth: 1500, margin: '0 auto', borderTop: `1px solid ${mixColor(LIGHT_BORDER, DARK_BORDER, darkProgress)}`, textAlign: 'center', transition: 'border-color 0.8s ease' }}>
               <div onClick={goWork} style={{ fontSize: 14, cursor: 'pointer', textDecoration: 'underline' }}>{t.backToAllWork}</div>
             </div>
           </div>

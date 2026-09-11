@@ -2,29 +2,46 @@
 @font-face { font-family: 'Geomanist'; src: url('./fonts/GeomanistBook.ttf') format('truetype'); font-weight: 400; font-display: swap; }
 @font-face { font-family: 'Geomanist'; src: url('./fonts/GeomanistMedium.ttf') format('truetype'); font-weight: 500; font-display: swap; }
 @font-face { font-family: 'Geomanist'; src: url('./fonts/GeomanistBold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-Thin.otf') format('opentype'); font-weight: 100; font-display: swap; }
+@font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-ExtraLight.otf') format('opentype'); font-weight: 200; font-display: swap; }
 @font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-Light.otf') format('opentype'); font-weight: 300; font-display: swap; }
 @font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-Regular.otf') format('opentype'); font-weight: 400; font-display: swap; }
 @font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-Medium.otf') format('opentype'); font-weight: 500; font-display: swap; }
-@font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-SemiBold.otf') format('opentype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-SemiBold.otf') format('opentype'); font-weight: 600; font-display: swap; }
 @font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-Bold.otf') format('opentype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-ExtraBold.otf') format('opentype'); font-weight: 800; font-display: swap; }
+@font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-Black.otf') format('opentype'); font-weight: 900; font-display: swap; }
 @font-face { font-family: 'Edmondsans'; src: url('./fonts/EdmondsansRegular.otf') format('opentype'); font-weight: 400; font-display: swap; }
 @font-face { font-family: 'Edmondsans'; src: url('./fonts/EdmondsansMedium.otf') format('opentype'); font-weight: 500; font-display: swap; }
 @font-face { font-family: 'Edmondsans'; src: url('./fonts/EdmondsansBold.otf') format('opentype'); font-weight: 700; font-display: swap; }
 * { box-sizing: border-box; }
 body { margin: 0; background: #F7F6F2; font-family: 'Geomanist', 'Pretendard', sans-serif; color: #111111; overflow-x: hidden; }
-/* body/paragraph copy (hero statement, about text, project descriptions) uses Pretendard;
-   everything else (nav, labels, titles, buttons) stays on the default Geomanist. */
-.body-text, .section-body, .detail-body-en, .detail-body-ko { font-family: 'Pretendard', sans-serif; }
+/* Font rule: English text uses Geomanist, Korean text uses Pretendard.
+   Geomanist has no Hangul glyphs, so listing it first and letting the
+   browser fall back to Pretendard per-character does this automatically,
+   even within a single line that mixes English and Korean — no need to
+   split text by language. This is the default everywhere (see body below);
+   any specific element can still override with its own inline fontFamily
+   when a spot needs to break from this rule. */
+.body-text { font-family: 'Geomanist', 'Pretendard', sans-serif; }
+/* Project detail page body copy (overview blocks + KO/EN descriptions): English uses Pretendard (not Geomanist) per request. */
+.section-body, .detail-body-en , .detail-body-ko { font-family: 'Pretendard', sans-serif; }
 a { color: #111111; text-decoration: none; }
 a:hover { color: #666666; }
-img.ph { background: #E5E3DE; object-fit: cover; }
-#about, #contact { scroll-margin-top: 100px; }
+img.ph { background: #E5E3DE; object-fit: cover; display: block; vertical-align: top; }
+video { display: block; }
+
+/* blinking type-cursor next to the typing hero headline */
+.type-cursor { display: inline-block; animation: typeCursorBlink 0.9s step-end infinite; font-weight: 400; }
+@keyframes typeCursorBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+#about, #contact { scroll-margin-top: -100px; }
 
 /* hover animations: every clickable TEXT element (including WORK/ABOUT/CONTACT)
    goes from its normal muted grey to a darker grey on hover (a color shift,
    not an opacity fade, and no underline). Images/icons get no hover effect
    at all. */
-.nav-item { text-decoration: none; }
+.nav-item { text-decoration: none; transition: opacity 0.2s ease; }
+.nav-item:hover { opacity: 0.6; }
 
 .hover-dim { transition: color 0.2s ease; }
 .hover-dim:hover { color: #262626 !important; }
@@ -55,6 +72,7 @@ img.ph { background: #E5E3DE; object-fit: cover; }
 .stagger > *:nth-child(8) { animation-delay: 0.58s; }
 .stagger > *:nth-child(n+9) { animation-delay: 0.66s; }
 
+
 /* EN / KO capsule toggle */
 .lang-toggle { display: inline-flex; align-items: center; border: none; border-radius: 999px; padding: 3px; gap: 2px; }
 .lang-toggle .lang-opt { font-size: 11px; padding: 5px 14px; border-radius: 999px; cursor: pointer; transition: background 0.15s, color 0.15s; }
@@ -71,6 +89,7 @@ img.ph { background: #E5E3DE; object-fit: cover; }
 /* tag pills under a project thumbnail */
 .tag-pill { font-size: 12px; padding: 7px 15px; border-radius: 100px; border: 1px solid #E5E3DE; color: #666666; }
 
+
 /* contact form */
 .contact-form input, .contact-form textarea { font-family: inherit; font-size: 15px; border: 1px solid #E5E3DE; background: #ffffff; border-radius: 8px; padding: 14px 16px; width: 100%; color: #111111; }
 .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: #111111; }
@@ -82,9 +101,12 @@ img.ph { background: #E5E3DE; object-fit: cover; }
   .nav-links { gap: 18px !important; }
   .tag-pill { font-size: 9.6px !important; padding: 5.6px 12px !important; }
   .detail-grid { grid-template-columns: minmax(0,1fr) !important; }
-  .detail-body-en { font-size: 18.7px !important; }
+  .detail-body-en { font-size: 18.7px  !important; }
   .detail-body-ko { font-size: 13.6px !important; }
   .section-body { font-size: 15.3px !important; }
   .project-thumb-wrap { padding: 0 16px !important; }
   .hero-wrap { padding-left: 20px !important; padding-right: 20px !important; }
+  .job-row { flex-direction: column !important; align-items: flex-start !important; gap: 6px !important; }
+  .job-row .job-date { flex: none !important; }
+  .job-row .job-role { text-align: left !important; }
 }

@@ -19,8 +19,9 @@
 const PROJECTS = [
   {
     "id": "lifetime",
-    "title": "Lifetime Channel Network Rebranding",
-    "subtitleKo": "라이프타임 채널 네트워크 리브랜딩",
+    "title": "라이프타임 채널 네트워크 리브랜딩",
+    "subtitleKo": "Lifetime Channel Network Rebranding",
+    "darkBg": true,
     "year": "2020",
     "client": "A+E Networks Korea",
     "workType": "CHANNEL BRANDING",
@@ -30,30 +31,11 @@ const PROJECTS = [
       "SPATIAL / OOH"
     ],
     "img": "site-img/Project_2_lifetime_thumb.mp4",
-    "hero": "site-img/Project_2_lifetime_thumb.png",
+    "hero": "site-img/Project_2_lifetime_1.png", 
     "big": true,
-    "descKo": "라이프타임은 2017년 한국 시장에 론칭한 A+E 네트웍스의 글로벌 여성 미디어 채널입니다. 기존 글로벌 가이드의 정형화된 디자인 프레임을 돌파하기 위해, 정체된 태도에서 벗어나 삶의 주권을 쥐는 'OWN' 전략을 새롭게 정의했습니다. 이 유연하고 강력한 비주얼 시스템은 지난 7년간 브랜드의 확고한 정체성으로 작동하고 있습니다.",
-    "descEn": "I led the strategic rebranding of Lifetime Korea, moving the channel beyond A+E's global guideline to a system built specifically for Korean audiences.",
+    "descKo": "라이프타임은 2017년 한국 시장에 론칭한 A+E 네트웍스의 글로벌 여성 미디어 채널입니다. 기존 글로벌 가이드의 정형화된 디자인 프레임을 리뉴얼 하기 위해, 라이프타임의 채널 정체성은 스스로 삶의 주권을 쥐는 방향으로 발전해 왔습니다. 이 방향성을 2026년 현재 시점에서 'OWN' 전략으로 재정의했습니다. 이 유연하고 강력한 비주얼 시스템은 지난 7년간 브랜드의 확고한 정체성으로 작동하고 있습니다.",
+    "descEn": "Lifetime is a global women’s media channel launched in Korea in 2017. To move beyond fixed global design standards and a passive approach, the brand's on-air identity evolved toward personal ownership — a direction this 2026 retrospective frames as the 'OWN' strategy. This flexible and powerful visual system has remained the brand's core identity for the past 7 years.",
     "blocks": [
-      {
-        "type": "section",
-        "label": "Project Overview",
-        "body": "Since its launch in 2017, Lifetime Korea has been a key destination for female-focused dramas and variety shows. However, the original US headquarters identity—minimal, text-heavy, and restrained—felt too quiet for Korea’s dense and fast-paced media environment. In a landscape shaped by 1-second zapping, subtlety often becomes invisibility. We needed a system that didn’t just follow global brand guidelines, but could command attention within a highly competitive visual field. \n\n글로벌 미디어 그룹 A+E Networks의 한국 첫 진출 채널인 라이프타임 코리아는 2017년 론칭 이후 드라마와 예능을 중심으로 여성 타겟 콘텐츠를 확장해 왔습니다. 그러나 미국 본사의 텍스트 중심 가이드라인을 그대로 차용한 초기 비주얼은, 화려한 모션과 높은 시각 밀도에 익숙한 한국 시청자들에게 다소 낯설고 정적으로 인식되었습니다. 이러한 시각적 이질감은 한국 시장 첫 상륙이라는 중요한 시점에 채널의 존재감을 강렬하게 각인시키고 채널 인지도를 형성하는 데 한계가 있었습니다."
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_2_lifetime_2.png"
-        ],
-        "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Problem Definition",
-        "body": "In the highly competitive Korean broadcast landscape, the global minimalist design struggled to project a distinct brand presence. While visible on screen, the brand remained stagnant, failing to effectively communicate its core identity. \n\n 경쟁이 치열한 국내 방송 환경 속에서, 글로벌 가이드의 미니멀리즘 디자인은 브랜드 특유의 존재감을 각인시키기에 한계가 있었습니다. 단순히 화면에 노출되는 수준에 그쳤고, 브랜드의 핵심적인 정체성이 대중에게 제대로 전달되지 못하고 있었습니다."
-      },
       {
         "type": "images",
         "src": [
@@ -65,22 +47,27 @@ const PROJECTS = [
       },
       {
         "type": "section",
-        "label": "Brand Manifesto",
-        "body": "We rewrite 'Time for Me.' Beyond a simple pause to catch your breath, it is a moment to decide your own rhythm and direction. We awaken the strength hidden in softness and learn to move at our own pace, not one set by others. Lifetime supports your every moment with a bold and uncompromising visual language, ensuring you truly own your time. \n\n 우리는 '나를 위한 시간'을 다시 씁니다. 단순히 멈춰 서서 숨을 고르는 휴식을 넘어, 내 삶의 방향과 리듬을 스스로 결정하는 가장 뜨거운 순간으로 그 시간을 채워갑니다. 부드러움 속에 숨겨진 단단한 에너지를 깨우고, 남이 정해준 속도가 아닌 나만의 속도로 움직이는 법을 알아갑니다.  라이프타임은 당신이 당신의 시간을 온전히 소유할 수 있도록, 가장 대담하고 선명한 브랜드 언어로 당신의 모든 순간을 지지합니다."
+        "label": "PROBLEM DEFINITION",
+        "body": "A+E Networks의 한국 첫 진출 채널인 라이프타임 코리아는 2017년 론칭 이후 드라마와 예능을 중심으로 여성 타겟 콘텐츠를 확장해 왔습니다. 그러나 미국 본사의 텍스트 중심 가이드라인을 그대로 차용한 초기 비주얼은, 화려한 모션과 밀도 높은 디자인에 익숙한 한국 시청자들에게 다소 낯설고 정적으로 인식되었습니다. 이러한 시각적 이질감은 한국 시장 첫 상륙이라는 중요한 시점에 채널의 존재감을 강렬하게 각인시키고 채널 인지도를 형성하는 데 한계가 있었습니다. \n\n Since its launch in 2017, Lifetime Korea has been a key destination for female-focused dramas and variety shows. However, the original US headquarters identity—minimal, text-heavy, and restrained—felt too quiet for Korea’s dense and fast-paced media environment. In a landscape shaped by 1-second zapping, subtlety often becomes invisibility. We needed a system that didn’t just follow global brand guidelines, but could command attention within a highly competitive visual field."
       },
+      {/* {
+        "type": "section",
+        "label": "Problem Definition",
+        "body": "경쟁이 치열한 국내 방송 환경 속에서, 글로벌 가이드의 미니멀리즘 디자인은 브랜드 특유의 존재감을 각인시키기에 어려움이 있었습니다. 단순히 화면에 노출되는 수준에 그쳤고, 브랜드의 핵심적인 정체성이 대중에게 제대로 전달되지 못하고 있었습니다.\n\n In the highly competitive Korean broadcast landscape, the global minimalist design struggled to project a distinct brand presence. While visible on screen, the brand remained stagnant, failing to effectively communicate its core identity."
+      },*/},
       {
         "type": "images",
         "src": [
           "site-img/Project_2_lifetime_4.png"
         ],
         "cols": 1,
-        "ratio": "16/9",
+        "ratio": "auto",
         "fit": "cover"
       },
       {
         "type": "section",
-        "label": "Design Strategy — Brand Attitude",
-        "body": "The project began by reinterpreting the brand slogan, Time for Me. Rather than framing the message as passive rest, I repositioned it around the' idea of women actively claiming ownership of their time and choices — a direction articulated as “OWN”. This shift moved the brand away from conventionally soft and passive representations of women’s media. Instead, the visual language was built around three defining attributes: Active, Bold, and Assertive. \n\n 단순히 새로운 디자인을 만드는 데서 출발하지 않고, 브랜드 슬로건인 ‘나를 위한 시간’의 의미를 다시 해석하는 것에서 프로젝트를 시작했습니다. 기존 비주얼이 전달하던 ‘정적인 휴식’의 이미지를 넘어, 자신의 삶을 스스로 선택하고 주도하는 현대 여성의 능동적인 태도(OWN) 를 브랜드의 핵심 가치로 정의했습니다. 이를 바탕으로 여성에게 흔히 기대되는 부드럽고 수동적인 이미지에서 벗어나, Active(능동), Bold(대담), Assertive(확신) 라는 세 가지 키워드를 시각 언어의 기준으로 설정하고 디자인 시스템 전반에 반영하기로 했습니다."
+        "label": "BRAND MANIFESTO",
+        "body": "우리는 '나를 위한 시간'을 다시 씁니다. 단순히 멈춰 서서 숨을 고르는 휴식을 넘어, 내 삶의 방향과 리듬을 스스로 결정하는 가장 뜨거운 순간으로 그 시간을 채워갑니다. 부드러움 속에 숨겨진 단단한 에너지를 깨우고, 남이 정해준 속도가 아닌 나만의 속도로 움직이는 법을 알아갑니다.  라이프타임은 당신이 당신의 시간을 온전히 소유할 수 있도록, 가장 대담하고 선명한 브랜드 언어로 당신의 모든 순간을 지지합니다.  \n\n We rewrite 'Time for Me.' Beyond a simple pause to catch your breath, it is a moment to decide your own rhythm and direction. We awaken the strength hidden in softness and learn to move at our own pace, not one set by others. Lifetime supports your every moment with a bold and uncompromising visual language, ensuring you truly own your time."
       },
       {
         "type": "images",
@@ -93,8 +80,8 @@ const PROJECTS = [
       },
       {
         "type": "section",
-        "label": "Color System",
-        "body": "The most fundamental transformation occurred in the color architecture. While preserving Lifetime Red as the primary brand anchor, four high-saturation colors were assigned to key content genres: Red (Drama), Purple (Thriller), Yellow (Variety), and Blue (Reality). This structure functioned not only as an aesthetic device but as a visual navigation system, enabling viewers to immediately recognize genre context upon encountering the channel. \n\n 가장 직관적인 변화는 컬러 시스템의 전략적 설계였습니다. 브랜드의 핵심 자산인 라이프타임 레드(Red) 를 모든 접점의 앵커 컬러로 설정해 강한 존재감을 만들었고, 동시에 드라마(Red), 스릴러(Purple), 예능(Yellow), 리얼리티(Blue) 등 콘텐츠 장르별로 네 가지 고채도 컬러를 부여했습니다. 이는 단순한 장식이 아니라, 시청자가 화면을 보는 즉시 콘텐츠 성격을 직관적으로 구분할 수 있도록 돕는 시각적 장치로 설계한 것입니다."
+        "label": "DESIGN STRATEGY — BRAND ATTITUDE",
+        "body": "단순히 새로운 디자인을 만드는 데서 출발하지 않고, 브랜드 슬로건인 ‘나를 위한 시간’의 의미를 다시 해석하는 것에서 프로젝트를 시작했습니다. 기존 비주얼이 전달하던 ‘정적인 휴식’의 이미지를 넘어, 자신의 삶을 스스로 선택하고 주도하는 현대 여성의 능동적인 태도(OWN) 를 브랜드의 핵심 가치로 정의했습니다. 이를 바탕으로 여성에게 흔히 기대되는 부드럽고 수동적인 이미지에서 벗어나, Active(능동), Bold(대담), Assertive(확신) 라는 세 가지 키워드를 시각 언어의 기준으로 설정하고 디자인 시스템 전반에 반영하기로 했습니다. \n\n The project began by reinterpreting the brand slogan, Time for Me. Rather than framing the message as passive rest, I repositioned it around the' idea of women actively claiming ownership of their time and choices — a direction articulated as “OWN”. This shift moved the brand away from conventionally soft and passive representations of women’s media. Instead, the visual language was built around three defining attributes: Active, Bold, and Assertive."
       },
       {
         "type": "images",
@@ -102,42 +89,43 @@ const PROJECTS = [
           "site-img/Project_2_lifetime_6.png"
         ],
         "cols": 1,
-        "ratio": "auto",
-        "fit": "contain"
+        "ratio": "16/9",
+        "fit": "cover"
       },
       {
         "type": "section",
-        "label": "Principles",
-        "body": "- To ensure clarity and consistency across platforms, the visual system was guided by a Flat & Solid principle. Gradients, transparency, and muddy mid-tones were eliminated in favor of high-contrast, decisive compositions capable of cutting through visual noise. \n - Word-driven graphics further reinforced the brand voice, using concise statements such as Live your life and Time for me to communicate attitude instantly without reliance on lengthy messaging.\n\n - 디자인 원칙 또한 명확했습니다. ‘Flat & Solid’라는 기준 아래, 모호한 중간 톤이나 그라데이션, 투명도는 과감히 덜어냈습니다. 오직 선명한 경계와 뚜렷한 대비만 남겨 시각적인 노이즈를 지우고, ‘OWN’이라는 철학에 맞는 단단하고 분명한 브랜드 이미지를 완성했습니다. \n- 메시지를 전달하는 방식도 마찬가지입니다. ‘Live your life’, ‘Time for me’ 같은 선언적인 문장들을 생략 없이 화면 전면에 내세웠습니다. 화면을 가득 채우는 거대한 텍스트 배치가 일견 투박하거나 정제되지 않은 인상을 줄 수도 있습니다. 하지만 불필요한 요소를 덜어낸 이 압도적인 비례감은, 그 어떤 장황한 설명보다 훨씬 힘 있고 임팩트 있는 커뮤니케이션을 완성합니다."
+        "label": "COLOR SYSTEM",
+        "body": "가장 직관적인 변화는 컬러 시스템의 전략적 설계였습니다. 브랜드의 핵심 자산인 라이프타임 레드(Red) 를 모든 접점의 앵커 컬러로 설정해 강한 존재감을 만들었고, 동시에 드라마(Red), 스릴러(Purple), 예능(Yellow), 리얼리티(Blue) 등 콘텐츠 장르별로 네 가지 고채도 컬러를 부여했습니다. 이는 단순한 장식이 아니라, 시청자가 화면을 보는 즉시 콘텐츠 성격을 직관적으로 구분할 수 있도록 돕는 시각적 장치로 설계한 것입니다. \n\n The most fundamental transformation occurred in the color architecture. While preserving Lifetime Red as the primary brand anchor, four high-saturation colors were assigned to key content genres: Red (Drama), Purple (Thriller), Yellow (Variety), and Blue (Reality). This structure functioned not only as an aesthetic device but as a visual navigation system, enabling viewers to immediately recognize genre context upon encountering the channel.  "
       },
       {
         "type": "images",
         "src": [
           "site-img/Project_2_lifetime_7.png",
-          "site-img/Project_2_lifetime_1.png"
+          "site-img/Project_2_lifetime_1.png",
         ],
         "cols": 1,
         "ratio": "auto",
         "fit": "contain"
+      },
+      
+      {
+        "type": "section",
+        "label": "DESIGN PRICIPLES",
+        "body": "- 디자인 원칙 또한 명확했습니다. ‘Flat & Solid’라는 기준 아래, 모호한 중간 톤이나 그라데이션, 투명도는 과감히 덜어냈습니다. 오직 선명한 경계와 뚜렷한 대비만 남겨 시각적인 노이즈를 지우고, ‘OWN’이라는 철학에 맞는 단단하고 분명한 브랜드 이미지를 완성했습니다. \n - 메시지를 전달하는 방식도 마찬가지입니다. ‘Live your life’, ‘Time for me’ 같은 선언적인 문장들을 생략 없이 화면 전면에 내세웠습니다. 화면을 가득 채우는 거대한 텍스트 배치가 일견 투박하거나 정제되지 않은 인상을 줄 수도 있습니다. 하지만 불필요한 요소를 덜어낸 이 압도적인 비례감은, 그 어떤 장황한 설명보다 훨씬 힘 있고 임팩트 있는 커뮤니케이션을 완성합니다.\n\n - To ensure clarity and consistency across platforms, the visual system was guided by a Flat & Solid principle. Gradients, transparency, and muddy mid-tones were eliminated in favor of high-contrast, decisive compositions capable of cutting through visual noise. \n - Word-driven graphics further reinforced the brand voice, using concise statements such as Live your life and Time for me to communicate attitude instantly without reliance on lengthy messaging. "
       },
       {
         "type": "images",
         "src": [
           "site-img/Project_2_lifetime_8.png",
-          "site-img/Project_2_lifetime_9.png",
+          "site-img/Project_2_lifetime_16.mp4",
           "site-img/Project_2_lifetime_10.png",
           "site-img/Project_2_lifetime_11.png",
-          "site-img/Project_2_lifetime_16.mp4",
-          "site-img/Project_2_lifetime_17.gif"
+          "site-img/Project_2_lifetime_9.png",
+          "site-img/Project_2_lifetime_17.gif",
         ],
         "cols": 1,
         "ratio": "auto",
         "fit": "contain"
-      },
-      {
-        "type": "section",
-        "label": "Execution — Original Contetns Package",
-        "body": "Lifetime's content design prioritizes the unwavering consistency of the brand essence, flexibly expanding content identities within this solid framework.\n라이프타임의 콘텐츠 디자인은 브랜드 본질의 일관성을 확고하게 유지하는 것을 최우선으로 하며, 이 단단한 체계 안에서 각 콘텐츠의 정체성이 유연하게 확장되도록 했습니다."
       },
       {
         "type": "images",
@@ -152,9 +140,9 @@ const PROJECTS = [
       },
       {
         "type": "section",
-        "label": "Impact & Sustainablity",
-        "body": "This rebrand achieved definitive Visual PMF, supporting a major business scale-up. In 2020, Backstreet Rookie hit the highest-ever target ratings in the channel's history and ranked #1 across seven Asian markets. Our system served as a vital anchor, unifying high-impact content under one cohesive brand experience. \n\n Beyond growth, the system proved its Design ROI. When the global logo transitioned, our structural logic allowed a seamless adaptation without a costly redesign. For seven years (2019–2026), this framework has remained the visual backbone of Lifetime Korea, proving that effective branding creates adaptable systems that endure. \n\n 이 리브랜딩의 진정한 가치는 확실한 시장 적합성(PMF)과 압도적인 디자인 투자 효율(ROI)을 증명했다는 데 있습니다. 한국 시청자의 눈높이에 맞춘 시각 언어는 채널의 성공적인 비즈니스 스케일업을 견인했습니다. 특히 첫 오리지널 투자작 <편의점 샛별이(2020)> 방영 당시 채널 타깃(여성 2539) 역대 최고 시청률과 동시간대 1위를 기록했으며, 아시아 7개국에서 OTT 시청률 1위를 휩쓰는 과정에서 다양한 콘텐츠를 하나의 브랜드로 묶어내는 강력한 구심점이 되었습니다. \n\n 나아가 브랜딩 구축 1년도 채 되지 않아 본사의 글로벌 로고가 원형에서 워드마크로 전면 교체되는 리스크가 있었지만, 형태가 아닌 '논리적 구조'로 설계된 시스템은 전면 재구성 없이 새로운 로고를 완벽히 흡수했습니다. 2020년부터 2026년 현재까지 약 7년 동안, 이 디자인 시스템은 TV 온에어부터 유튜브, SNS 등 모든 디지털 플랫폼을 아우르며 막대한 리뉴얼 비용 없이도 100%의 브랜드 일관성을 유지하는 견고한 생명력을 보여주고 있습니다."
-      },
+        "label": "EXECUTION - ORIGINAL CONTENTS PACKAGE",
+        "body": "라이프타임의 콘텐츠 디자인은 브랜드 본질의 일관성을 확고하게 유지하는 것을 최우선으로 하며, 이 단단한 체계 안에서 각 콘텐츠의 정체성이 유연하게 확장되도록 했습니다. \n\n Lifetime's content design prioritizes the unwavering consistency of the brand essence, flexibly expanding content identities within this solid framework."
+      }, 
       {
         "type": "images",
         "src": [
@@ -163,11 +151,16 @@ const PROJECTS = [
         "cols": 1,
         "ratio": "16/9",
         "fit": "cover"
-      },
+      },        
       {
         "type": "section",
-        "label": "Credits — 2020-2026",
-        "body": "Direction & Strategy : jiyeon kim \n Visual Identity Design : jiyeon kim \n Motion Graphics & System : jiyeon kim \n Compositing & Post-production : jiyeon kim \n\n Content IP : © A+E Networks Korea \n Visual Explorations : via Google Gemini \n\n Official 2019 rebranding project led by Jiyeon Kim, encompassing the full cycle from strategic planning to visual execution and successfully sustaining the brand system for 7 years."
+        "label": "IMPACT & SUSTAINABILITY",
+        "body": "이 리브랜딩의 진정한 가치는 확실한 시장 적합성(PMF)과 압도적인 디자인 투자 효율(ROI)을 증명했다는 데 있습니다. 한국 시청자의 눈높이에 맞춘 시각 언어는 채널의 성공적인 비즈니스 스케일업을 견인했습니다. 특히 첫 오리지널 투자작 <편의점 샛별이(2020)> 방영 당시 채널 타깃(여성 2539) 역대 최고 시청률과 동시간대 1위를 기록했으며, 아시아 7개국에서 OTT 시청률 1위를 휩쓰는 과정에서 다양한 콘텐츠를 하나의 브랜드로 묶어내는 강력한 구심점이 되었습니다. \n\n 나아가 브랜딩 구축 1년도 채 되지 않아 본사의 글로벌 로고가 원형에서 워드마크로 전면 교체되는 리스크가 있었지만, 형태가 아닌 '논리적 구조'로 설계된 시스템은 전면 재구성 없이 새로운 로고를 완벽히 흡수했습니다. 2020년부터 2026년 현재까지 약 7년 동안, 이 디자인 시스템은 TV 온에어부터 유튜브, SNS 등 모든 디지털 플랫폼을 아우르며 막대한 리뉴얼 비용 없이도 100%의 브랜드 일관성을 유지하는 견고한 생명력을 보여주고 있습니다. \n\n  This rebrand achieved definitive Visual PMF, supporting a major business scale-up. In 2020, Backstreet Rookie hit the highest-ever target ratings in the channel's history and ranked #1 across seven Asian markets. Our system served as a vital anchor, unifying high-impact content under one cohesive brand experience. \n\n Beyond growth, the system proved its Design ROI. When the global logo transitioned, our structural logic allowed a seamless adaptation without a costly redesign. For seven years (2019–2026), this framework has remained the visual backbone of Lifetime Korea, proving that effective branding creates adaptable systems that endure."
+      },   
+      {
+        "type": "section",
+        "label": "CREDITS — 2020-2026",
+        "body": "Direction & Strategy : jiyeon kim \n Visual Identity Design : jiyeon kim \n Motion Graphics & System : jiyeon kim \n Compositing & Post-production : jiyeon kim \n\n Content IP : © A+E Networks Korea \n Visual Explorations : Visual Explorations (Spatial & Urban Expansion mockups) — Concept visualization via Google Gemini, not actual executed placements \n\n Based on the 2019 on-air rebranding execution led by Jiyeon Kim, this document retrospectively reconstructs the visual system's strategic framework as of 2026, and traces its consistent evolution across on-air executions over the following 7 years.\n\n 2019년 진행한 실제 온에어 리브랜딩 결과물을 기반으로, 2026년 현재 시점에서 비주얼 시스템의 전략적 프레임을 재구성하고, 이후 7년간 온에어 실행 전반에 걸친 일관된 발전 과정을 정리한 문서입니다."
       }
     ]
   },
