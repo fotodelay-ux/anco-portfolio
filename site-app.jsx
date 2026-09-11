@@ -253,7 +253,7 @@ function FilterRow({ label, items, active, onPick, onReset, labels }) {
             cursor: 'pointer',
             border: `1px solid ${active === item ? '#111' : '#E5E3DE'}`,
             background: active === item ? '#111' : 'transparent',
-            color: active === item ? '#fff' : '#666',
+            color: active === item ? '#fff' : '#333',
           }}
         >
           {labels ? labels[item] : item}
@@ -266,7 +266,7 @@ function FilterRow({ label, items, active, onPick, onReset, labels }) {
           cursor: 'pointer',
           border: `1px solid ${active === 'ALL' ? '#111' : '#E5E3DE'}`,
           background: active === 'ALL' ? '#111' : 'transparent',
-          color: active === 'ALL' ? '#fff' : '#666',
+          color: active === 'ALL' ? '#fff' : '#333',
         }}
       >
         ALL
@@ -425,7 +425,7 @@ function App() {
         <div className="top-header-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 40px' }}>
           <div className="logo-group" style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
             <div onClick={goHome} className="site-logo" style={{ fontFamily: "'Geomanist', sans-serif", fontSize: 20, fontWeight: 600, cursor: 'pointer', letterSpacing: '-0.02em'}}>Jiyeon Kim is growing<span style={{ display: 'inline-block', width: 18, textAlign: 'left' }}>{'.'.repeat(growDots)}</span></div>
-            <div className="lang-toggle header-lang-toggle" onClick={() => setLang((l) => l === 'en' ? 'ko' : 'en')}>
+            <div className="lang-toggle header-lang-toggle" onClick={() => setLang((l) => l === 'en' ? 'ko' : 'en')} style={{ opacity: headerHidden ? 0 : 1, pointerEvents: headerHidden ? 'none' : 'auto', transition: 'opacity 0.25s ease' }}>
               <span className={'lang-opt' + (lang === 'ko' ? ' active' : '')}>KO</span>
               <span className={'lang-opt' + (lang === 'en' ? ' active' : '')}>EN</span>
             </div>

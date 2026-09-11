@@ -125,7 +125,7 @@ video { display: block; }
   .top-header-row { padding: 14px 15px !important; }
   .site-logo { font-size: 15px !important; }
   .header-lang-toggle { position: absolute !important; top: 100% !important; right: 15px !important; margin-top: 8px !important; }
-  .top-header-row .nav-item { font-size: 11.5px !important; }
+  .top-header-row .nav-item { font-size: 11.5px !important; position: relative !important; top: 2px !important; }
 
   /* ---- home: hero ---- */
   .hero-wrap { padding-left: 15px !important; padding-right: 15px !important; }
@@ -186,7 +186,7 @@ video { display: block; }
   .section-body { font-size: 15.3px !important; padding-left: 15px !important; padding-right: 15px !important; }
   .pb-images-block { margin-left: -5px !important; margin-right: -5px !important; width: calc(100% + 10px) !important; }
   .pb-section-block { grid-template-columns: minmax(0,1fr) !important; gap: 32px !important; }
-  .pb-section-label { font-size: 13px !important; font-weight: 700 !important; }
+  .pb-section-label { font-size: 13px !important; font-weight: 600 !important; color: #ff124d !important; }
   .pb-section-body { font-size: 13px !important; }
   .detail-footer-section { padding-left: 15px !important; padding-right: 15px !important; }
   .project-thumb-wrap { padding: 0 16px !important; }
