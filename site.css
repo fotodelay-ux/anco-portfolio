@@ -167,14 +167,14 @@ video { display: block; }
   .grid-card-desc { font-size: 12px !important; }
 
   /* ---- about page ---- */
-  .about-view { padding-left: 15px !important; padding-right: 15px !important; }
+  .about-view { padding-left: 15px !important; padding-right: 15px !important; padding-top: 80px !important; }
   .detail-grid { grid-template-columns: minmax(0,1fr) !important; }
   .job-row { flex-direction: column !important; align-items: flex-start !important; gap: 6px !important; }
   .job-row .job-date { flex: none !important; }
   .job-row .job-role { text-align: left !important; }
 
   /* ---- contact section ---- */
-  .contact-section { padding-left: 15px !important; padding-right: 15px !important; }
+  .contact-section { padding-left: 15px !important; padding-right: 15px !important; padding-top: 160px !important; }
 
   /* ---- project detail page ---- */
   .detail-top-pad { padding-left: 15px !important; padding-right: 15px !important; }
