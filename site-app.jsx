@@ -123,20 +123,24 @@ function ProjectListCard({ p, isExpanded, onToggle, onOpen, fullImage, descBelow
   const hasDesc = !!desc;
   const clickable = !!p.blocks;
   const openProps = clickable ? { onClick: onOpen, style: { cursor: 'pointer' } } : {};
+  const titleRow = (
+    <div {...openProps} className="proj-title-row" style={{ ...openProps.style, display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
+      <div className="proj-title" style={{ fontSize: 34, fontWeight: 700 }}>{p.title}</div>
+      {p.subtitleKo && <div className="proj-subtitle" style={{ fontSize: 20, color: '#999' }}> {p.subtitleKo}</div>}
+    </div>
+  );
   return (
     <div>
-      <div {...openProps} className="proj-title-row" style={{ ...openProps.style, display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
-        <div className="proj-title" style={{ fontSize: 34, fontWeight: 700 }}>{p.title}</div>
-        {p.subtitleKo && <div className="proj-subtitle" style={{ fontSize: 20, color: '#999' }}> {p.subtitleKo}</div>}
-      </div>
+      {!responsive && !fullImage && titleRow}
       {responsive ? (
         <>
-          {/* mobile only (≤768px): 1-column, thumbnail + tags then description below */}
-          <div className="proj-mobile-layout" style={{ marginTop: 24 }}>
+          {/* mobile only (≤768px): 1-column — thumbnail, tags, then title right above the description */}
+          <div className="proj-mobile-layout">
             <div onClick={onOpen} className="proj-thumb" style={{ width: '100%', aspectRatio: '16/9', cursor: clickable ? 'pointer' : 'default', borderRadius: RADIUS, overflow: 'hidden' }}><Ph id={p.img} style={{ width: '100%', height: '100%' }} /></div>
             <div className="proj-tags-row" style={{ marginTop: 18, display: 'flex', flexWrap: 'wrap', gap: 10 }}>
               {[p.workType, ...p.outputs].map((tag) => (<div key={tag} className="tag-pill">{tag}</div>))}
             </div>
+            <div style={{ marginTop: 18 }}>{titleRow}</div>
             {hasDesc && (
               <div {...openProps} className="proj-desc-below">
                 <div className="body-text proj-desc" style={{ marginTop: 20, fontSize: 15, lineHeight: 1.6, overflow: 'hidden', display: isExpanded ? 'block' : '-webkit-box', WebkitLineClamp: isExpanded ? 'unset' : 4, WebkitBoxOrient: 'vertical' }}>{desc}</div>
@@ -150,31 +154,35 @@ function ProjectListCard({ p, isExpanded, onToggle, onOpen, fullImage, descBelow
               </div>
             )}
           </div>
-          {/* web (&gt;768px): original 2-column, thumbnail+tags left, description right */}
-          <div className="proj-desktop-layout" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,2fr) minmax(0,1fr)', gap: 48, marginTop: 24, alignItems: 'start' }}>
+          {/* web (&gt;768px): 2-column, thumbnail+tags left, title+description right (title sits above the description) */}
+          <div className="proj-desktop-layout" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,2fr) minmax(0,1fr)', gap: 48, alignItems: 'start' }}>
             <div>
               <div onClick={onOpen} style={{ width: '100%', aspectRatio: '16/9', cursor: clickable ? 'pointer' : 'default', borderRadius: RADIUS_SM, overflow: 'hidden' }}><Ph id={p.img} style={{ width: '100%', height: '100%' }} /></div>
               <div style={{ marginTop: 18, display: 'flex', flexWrap: 'wrap', gap: 10 }}>
                 {[p.workType, ...p.outputs].map((tag) => (<div key={tag} className="tag-pill">{tag}</div>))}
               </div>
             </div>
-            {hasDesc && (
-              <div {...openProps}>
-                <div className="body-text proj-desc" style={{ fontSize: 15, lineHeight: 1.6, overflow: 'hidden', display: isExpanded ? 'block' : '-webkit-box', WebkitLineClamp: isExpanded ? 'unset' : 4, WebkitBoxOrient: 'vertical' }}>{desc}</div>
-                <div
-                  onClick={(e) => { e.stopPropagation(); clickable ? onOpen() : onToggle(); }}
-                  className="hover-dim proj-seemore"
-                  style={{ marginTop: 16, fontSize: 13, color: '#999', cursor: 'pointer' }}
-                >
-                  {clickable ? t.seeMore : (isExpanded ? t.seeLess : t.seeMore)} →
+            <div>
+              {titleRow}
+              {hasDesc && (
+                <div {...openProps} style={{ marginTop: 18 }}>
+                  <div className="body-text proj-desc" style={{ fontSize: 15, lineHeight: 1.6, overflow: 'hidden', display: isExpanded ? 'block' : '-webkit-box', WebkitLineClamp: isExpanded ? 'unset' : 4, WebkitBoxOrient: 'vertical' }}>{desc}</div>
+                  <div
+                    onClick={(e) => { e.stopPropagation(); clickable ? onOpen() : onToggle(); }}
+                    className="hover-dim proj-seemore"
+                    style={{ marginTop: 16, fontSize: 13, color: '#999', cursor: 'pointer' }}
+                  >
+                    {clickable ? t.seeMore : (isExpanded ? t.seeLess : t.seeMore)} →
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </>
       ) : fullImage ? (
-        <div className="proj-home-thumb-wrap" style={{ marginTop: 24 }}>
+        <div className="proj-home-thumb-wrap">
           <div onClick={onOpen} className="proj-thumb" style={{ width: '100%', aspectRatio: '16/9', cursor: clickable ? 'pointer' : 'default', borderRadius: RADIUS, overflow: 'hidden' }}><Ph id={p.img} style={{ width: '100%', height: '100%' }} /></div>
+          <div style={{ marginTop: 18 }}>{titleRow}</div>
           <div className="proj-tags-row" style={{ marginTop: 18, display: 'flex', flexWrap: 'wrap', gap: 10 }}>
             {[p.workType, ...p.outputs].map((tag) => (<div key={tag} className="tag-pill">{tag}</div>))}
           </div>
@@ -518,7 +526,9 @@ function App() {
 
       {view === 'home' && (
         <div key="home" className="stagger">
-          <section className="hero-wrap" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '0px 40px 0', maxWidth: 1500, margin: '0 auto' }}>
+          {/* temporarily hidden — main copy / name / "View My Work" button.
+              Restore by removing `display: 'none'` below. */}
+          <section className="hero-wrap" style={{ display: 'none', minHeight: '100vh', flexDirection: 'column', justifyContent: 'center', padding: '0px 40px 0', maxWidth: 1500, margin: '0 auto' }}>
             <div className="hero-headline" style={{ position: 'relative', fontSize: 'clamp(40px,6.46vw,60px)', fontWeight: 700, lineHeight: 1.2, letterSpacing: '-0.01em' }}>
               <div style={{ visibility: 'hidden', whiteSpace: 'pre-line' }}>{isMobileVP ? t.heroName : t.heroNameWeb}</div>
               <div style={{ position: 'absolute', top: 0, left: 0, right: 0, whiteSpace: 'pre-line' }}>{typedHero}<span className="type-cursor">|</span></div>
@@ -532,7 +542,8 @@ function App() {
           </section>
 
           <section className="selected-work-section" style={{ padding: '140px 40px 100px', maxWidth: 1500, margin: '0 auto' }}>
-            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 90, borderBottom: '1px solid #E5E3DE', paddingBottom: 24 }}>
+            {/* temporarily hidden — "SELECTED WORK" / "View all work" row */}
+            <div style={{ display: 'none', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 90, borderBottom: '1px solid #E5E3DE', paddingBottom: 24 }}>
               <div style={{ fontSize: 13, letterSpacing: '0.1em', color: '#666666' }}>{t.selectedWork}</div>
               <div onClick={goWork} style={{ fontSize: 13, cursor: 'pointer', textDecoration: 'underline' }}>{t.viewAllWork}</div>
             </div>
