@@ -214,7 +214,7 @@ video { display: block; }
   .section-body { font-size: 15.3px !important; padding-left: 15px !important; padding-right: 15px !important; }
   .pb-images-block { margin-left: -5px !important; margin-right: -5px !important; width: calc(100% + 10px) !important; }
   .pb-section-block { grid-template-columns: minmax(0,1fr) !important; gap: 32px !important; }
-  .pb-section-label { font-size: 13px !important; font-weight: 600 !important; color: #ff124d !important; }
+  .pb-section-label { font-size: 13px !important; font-weight: 500 !important; }
   .pb-section-body { font-size: 13px !important; }
   .detail-footer-section { padding-left: 15px !important; padding-right: 15px !important; }
   .project-thumb-wrap { padding: 0 16px !important; }
