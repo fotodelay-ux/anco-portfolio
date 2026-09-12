@@ -16,6 +16,10 @@
 @font-face { font-family: 'Edmondsans'; src: url('./fonts/EdmondsansBold.otf') format('opentype'); font-weight: 700; font-display: swap; }
 * { box-sizing: border-box; }
 body { margin: 0; background: #F7F6F2; font-family: 'Geomanist', 'Pretendard', sans-serif; color: #111111; overflow-x: hidden; }
+/* Line-wrapping: always break at word boundaries, never mid-word/mid-spelling,
+   on any screen width. word-break:keep-all also keeps Korean word units intact
+   (default CJK behavior can otherwise wrap between any two syllables). */
+* { word-break: keep-all; overflow-wrap: normal; }
 /* Font rule: English text uses Geomanist, Korean text uses Pretendard.
    Geomanist has no Hangul glyphs, so listing it first and letting the
    browser fall back to Pretendard per-character does this automatically,
@@ -133,8 +137,12 @@ video { display: block; }
   /* ---- top header bar ---- */
   .top-header-row { padding: 14px 15px !important; }
   .site-logo { font-size: 15px !important; }
-  .header-lang-toggle { position: absolute !important; top: 100% !important; right: 15px !important; margin-top: 8px !important; }
+  .header-lang-toggle { position: absolute !important; top: 100% !important; left: 15px !important; margin-top: 8px !important; }
   .top-header-row .nav-item { font-size: 11.5px !important; position: relative !important; top: 2px !important; }
+  /* the floating pill nav's separate lang toggle overlaps the pill itself
+     on narrow screens — hide it on mobile; the header-lang-toggle above
+     still covers language switching whenever the top bar is visible. */
+  .float-lang-toggle { display: none !important; }
 
   /* ---- home: hero ---- */
   .hero-wrap { padding-left: 15px !important; padding-right: 15px !important; }
@@ -149,13 +157,15 @@ video { display: block; }
      desc below), web shows the original 2-column card (desc
      beside the thumb) — see ProjectListCard in site-app.jsx. */
   .selected-work-section { padding-left: 15px !important; padding-right: 15px !important; }
-  .work-view { padding-left: 15px !important; padding-right: 15px !important; }
+  .work-view { padding-left: 15px !important; padding-right: 15px !important; padding-top: 100px !important; }
   /* when the WORK title wraps the filter tags onto their own line, a lone
      flex item under justify-content:space-between hugs the LEFT edge by
      default — force it back to the right so it lines up with the page's
      15px right margin like everything else. */
-  .work-header-row { flex-wrap: wrap !important; }
+  .work-header-row { flex-wrap: wrap !important; margin-bottom: 30px !important; padding-bottom: 20px !important; }
   .work-filter-col { margin-left: auto !important; align-items: flex-end !important; }
+  /* mobile: skip the big "Work" headline, go straight into the filter tags */
+  .work-page-title { display: none !important; }
   .proj-mobile-layout { display: block !important; margin-top: 10px !important; }
   .proj-home-thumb-wrap { margin-top: 10px !important; }
   .proj-desktop-layout { display: none !important; }
@@ -166,12 +176,18 @@ video { display: block; }
   .proj-meta { font-size: 12px !important; margin-top: 10px !important; }
   .proj-tags-row { gap: 6px; margin-top: 10px !important; }
   .tag-pill { font-size: 9.5px !important; padding: 4px 8px !important; }
+  /* filter-select pills (Work page "for" / "scope" rows) can afford to be a
+     bit bigger than the small per-project tag pills above — bumped up just
+     short of where the rows would wrap onto a second line. */
+  .tag-pill.tag-pill-click { font-size: 11px !important; padding: 6px 12px !important; }
   .proj-desc { font-size: 13px !important; }
   .proj-seemore { font-size: 11px !important; }
 
   /* Work tab filtered grids (card3 / tile3 / poster4) — 3-col on web,
-     2-col on mobile, for every tab/filter that uses one of these grids. */
+     2-col on mobile, for every tab/filter that uses one of these grids.
+     When only 1 result matches, keep it single-column on mobile too. */
   .work-grid3 { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+  .work-grid3.work-grid-1 { grid-template-columns: 1fr !important; }
   .grid-card-title { font-size: 14px !important; }
   .grid-card-desc { font-size: 12px !important; }
 

@@ -10,9 +10,13 @@ const EN = {
   heroSubLine2: 'Currently exploring Product &amp; Digital Experiences.',
   heroCta: 'View My Work',
   selectedWork: 'SELECTED WORK', viewAllWork: 'View all work →',
-  aboutHeading: 'I define the essence of content and brands in visual language, then extend that language across every platform and medium it needs to live in.',
-  aboutBody1: "Over the past ten years I've worked across channel branding, content design and promotion — building visual systems for broadcast, OTT and digital platforms, and carrying them from a single key visual through motion, social and spatial environments.",
-  aboutBody2: 'More recently, I designed and built damdam, an AI-powered parenting app, on my own — extending my practice into product design, UX/UI and prototyping.',
+  aboutHeading: 'Content & Brand Designer',
+  aboutBodies: [
+    "I'm a designer creating a wide range of visual experiences across content and brand.",
+    'My experience spans everything from defining the identity of channels and programs to bringing content concepts to life through logos, posters, motion, and other visual work.',
+    'I enjoy building visual identities and design systems that allow an idea to work naturally across different platforms and formats. I have also planned and produced a wide range of work, from promotional videos to visual identities for original content.',
+    "Most recently, I planned and designed 'DamDam,' an AI-powered parenting diary app, taking the project from UX/UI design through to prototype development. I'm continuing to expand my practice from content and brand into digital experiences, exploring ideas by making, testing, and building them myself.",
+  ],
   experienceLabel: 'EXPERIENCE', present: 'Present',
   job1Company: 'Freelance Designer', job1Role: 'Creative Director',
   job2Role: 'Manager, Digital Design Part', job3Role: 'Creative Designer',
@@ -24,7 +28,7 @@ const EN = {
   backToWork: '← Back to Work', backToAllWork: 'Back to all work',
   filterFor: 'for', filterScope: 'scope',
   seeMore: 'See More', seeLess: 'See Less',
-  workTypeLabels: { ALL: 'ALL', 'CHANNEL BRANDING': 'CHANNEL BRANDING', 'CONTENT DESIGN': 'CONTENT DESIGN', PROMOTION: 'PROMOTION', 'PRODUCT / DIGITAL': 'PRODUCT / DIGITAL', 'INTERNAL BRANDING': 'INTERNAL BRANDING' },
+  workTypeLabels: { ALL: 'ALL', 'CHANNEL BRANDING': 'CHANNEL BRANDING', 'CONTENT DESIGN': 'CONTENT DESIGN', 'PRODUCT DESIGN': 'PRODUCT DESIGN', 'PRODUCT / DIGITAL': 'PRODUCT / DIGITAL', 'INTERNAL BRANDING': 'INTERNAL BRANDING' },
   outputLabels: { 'BRAND IDENTITY': 'BRAND IDENTITY', LOGO: 'LOGO', 'KEY VISUAL': 'KEY VISUAL', POSTER: 'POSTER', MOTION: 'MOTION', VIDEO: 'VIDEO', SOCIAL: 'SOCIAL', 'UI / UX': 'UI / UX', 'DESIGN SYSTEM': 'DESIGN SYSTEM', 'SPATIAL / OOH': 'SPATIAL / OOH' },
 };
 
@@ -33,17 +37,19 @@ const EN = {
 // buttons, experience roles etc. stay English in both languages.
 const KO = {
   ...EN,
-  heroStatement: '김지연 / Visual Designer',
+  heroStatement: 'Jiyeon Kim 김지연 / Visual Designer',
   heroSubLine1: '콘텐츠, 브랜드, 비주얼 디자인 분야에서 9년간 디자이너로 활동했고,',
   heroSubLine2: '현재는 프로덕트와 디지털 경험 영역으로 확장하고 있습니다.',
   heroCta: '작업 보러가기',
-  aboutHeading: '김지연 / Brand & Visual Designer',
-  aboutBody1: '콘텐츠와 브랜드의 본질을 이해하고, 이를 사람들에게 잘 전달되는 시각 언어로 만드는 디자이너입니다. 채널과 프로그램의 성격을 시각적으로 정의하는 브랜딩부터, 콘텐츠의 콘셉트를 로고·포스터·영상으로 구체화하는 작업까지 폭넓게 경험해왔습니다.',
-  aboutBody2: '하나의 아이디어가 다양한 플랫폼과 매체에서 자연스럽게 이어지도록 디자인하는 데 관심이 많습니다. 실제로 콘텐츠 IP의 온·오프라인 브랜딩과 디자인 시스템을 구축하고, 프로그램의 프로모션 영상부터 오리지널 콘텐츠의 비주얼 아이덴티티까지 직접 기획하고 제작하며 콘텐츠가 사람들에게 기억되는 방식을 고민해왔습니다.',
-  aboutBody3: '최근에는 AI 기반 육아일기 앱 ‘담담’을 직접 기획하고 UX/UI 디자인과 프로토타입 개발까지 진행했습니다. 새로운 아이디어를 빠르게 시각화하고 직접 구현해보는 과정을 통해, 콘텐츠와 브랜드를 넘어 사용자 경험까지 디자인의 영역을 넓혀가고 있습니다.',
+  aboutHeading: 'Jiyeon Kim / Content & Brand Designer',
+  aboutBodies: [
+    '콘텐츠와 브랜드를 중심으로 다양한 시각 경험을 만드는 디자이너입니다. 채널과 프로그램의 성격을 정의하는 브랜딩부터 로고, 포스터, 영상 등 콘텐츠의 콘셉트를 구체화하는 작업까지 폭넓은 경험을 가지고 있습니다.',
+    '하나의 아이디어가 여러 플랫폼과 매체에서 자연스럽게 이어질 수 있도록 비주얼 아이덴티티와 디자인 시스템을 만들고, 프로모션 영상과 오리지널 콘텐츠의 비주얼 디자인까지 직접 기획하고 제작해왔습니다.',
+    '최근에는 AI 기반 육아일기 앱 ‘담담’을 직접 기획하고 UX/UI 디자인과 프로토타입 개발까지 진행했습니다. 콘텐츠와 브랜드를 넘어 디지털 경험까지 작업의 범위를 넓히며, 생각한 것을 직접 만들고 실험하는 디자인을 이어가고 있습니다.',
+  ],
 };
 
-const WORK_TYPES = ['ALL', 'CHANNEL BRANDING', 'CONTENT DESIGN', 'PROMOTION'];
+const WORK_TYPES = ['ALL', 'CHANNEL BRANDING', 'CONTENT DESIGN', 'PRODUCT DESIGN'];
 const OUTPUT_TAGS = ['ALL', 'LOGO', 'POSTER', 'MOTION', 'UI / UX'];
 const RADIUS = 20; // home page's scrolling project thumbnails
 const RADIUS_SM = 10; // every other thumbnail (Work list/grids, detail page)
@@ -82,16 +88,21 @@ function pick(p, base, lang) {
   return ko || en || '';
 }
 
-function ProjectBlocks({ blocks, isPoster, labelColor }) {
+function ProjectBlocks({ blocks, isPoster, labelColor, lang }) {
   if (!blocks || blocks.length === 0) return null;
   return (
     <section className="section-body" style={{ padding: '0 40px 160px', maxWidth: 1500, margin: '0 auto' }}>
       {blocks.map((b, i) => {
         if (b.type === 'section') {
+          // Prefer separate bodyKo/bodyEn (language toggle switches the whole
+          // paragraph); legacy blocks that only have "body" (KO + EN
+          // concatenated with \n\n) still render as-is for backward compatibility.
+          const body = (b.bodyKo || b.bodyEn) ? pick(b, 'body', lang) : b.body;
+          const label = (b.labelKo || b.labelEn) ? pick(b, 'label', lang) : b.label;
           return (
             <div key={i} className="pb-section-block" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,2fr)', gap: 60, marginBottom: 100, maxWidth: 1100, marginLeft: 'auto', marginRight: 'auto' }}>
-              <div className="pb-section-label" style={{ fontSize: 16, letterSpacing: '0.1em', color: labelColor || '#232323', transition: 'color 0.8s ease', fontFamily: "'Geomanist', 'Pretendard', sans-serif" }}>{b.label}</div>
-              <div className="pb-section-body" style={{ fontSize: 14, lineHeight: 1.8, whiteSpace: 'pre-line' }}>{b.body}</div>
+              <div className="pb-section-label" style={{ fontSize: 16, letterSpacing: '0.1em', color: labelColor || '#232323', transition: 'color 0.8s ease', fontFamily: "'Geomanist', 'Pretendard', sans-serif" }}>{label}</div>
+              <div className="pb-section-body" style={{ fontSize: 14, lineHeight: 1.8, whiteSpace: 'pre-line' }}>{body}</div>
             </div>
           );
         }
@@ -124,9 +135,9 @@ function ProjectListCard({ p, isExpanded, onToggle, onOpen, fullImage, descBelow
   const clickable = !!p.blocks;
   const openProps = clickable ? { onClick: onOpen, style: { cursor: 'pointer' } } : {};
   const titleRow = (
-    <div {...openProps} className="proj-title-row" style={{ ...openProps.style, display: 'flex', alignItems: 'baseline', gap: 12, flexWrap: 'wrap' }}>
-      <div className="proj-title" style={{ fontSize: 34, fontWeight: 700 }}>{p.title}</div>
-      {p.subtitleKo && <div className="proj-subtitle" style={{ fontSize: 20, color: '#999' }}> {p.subtitleKo}</div>}
+    <div {...openProps} className="proj-title-row" style={{ ...openProps.style, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: responsive ? 2 : 4 }}>
+      <div className="proj-title" style={{ fontSize: responsive ? 24 : 28, fontWeight: 700 }}>{p.title}</div>
+      {p.subtitleKo && <div className="proj-subtitle" style={{ fontSize: responsive ? 15 : 17, color: '#999' }}>{p.subtitleKo}</div>}
     </div>
   );
   return (
@@ -409,6 +420,9 @@ function App() {
     (outputTag === 'ALL' || p.outputs.includes(outputTag))
   );
 
+  // grid columns follow the result count: 1 result -> 1 col, 2 -> 2 col, 3+ -> 3 col
+  const gridCols = filtered.length >= 3 ? 3 : Math.max(filtered.length, 1);
+
   // which grid layout to use — a WORK TYPE selection (for) always wins with the
   // 3-col title+desc+see-more layout; otherwise the scope tag decides.
   let gridMode = 'list';
@@ -524,6 +538,28 @@ function App() {
         <div onClick={goContact} style={{ fontSize: 13, fontWeight: 600, cursor: 'pointer', color: '#ffffff', background: '#111111', borderRadius: 999, padding: '9px 18px', whiteSpace: 'nowrap' }}>{t.letsTalk}</div>
       </div>
 
+      {/* language toggle for the floating pill nav — kept as its own separate
+          pill outside the WORK/ABOUT/Let's talk nav, same show/hide timing */}
+      <div
+        className="lang-toggle float-lang-toggle"
+        onClick={() => setLang((l) => l === 'en' ? 'ko' : 'en')}
+        style={{
+          position: 'fixed',
+          top: 16,
+          right: 40,
+          zIndex: 100,
+          background: '#ffffff',
+          boxShadow: '0 8px 30px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04)',
+          transform: showFloatHeader ? 'translateY(0)' : 'translateY(-140%)',
+          opacity: showFloatHeader ? 1 : 0,
+          transition: 'transform 0.45s cubic-bezier(0.22,1,0.36,1), opacity 0.35s ease',
+          pointerEvents: showFloatHeader ? 'auto' : 'none',
+        }}
+      >
+        <span className={'lang-opt' + (lang === 'ko' ? ' active' : '')}>KO</span>
+        <span className={'lang-opt' + (lang === 'en' ? ' active' : '')}>EN</span>
+      </div>
+
       {view === 'home' && (
         <div key="home" className="stagger">
           {/* temporarily hidden — main copy / name / "View My Work" button.
@@ -601,7 +637,9 @@ function App() {
             </div>
             <div style={{ maxWidth: 680, paddingLeft: 0 }}>
               <div className="body-text" style={{ fontSize: 'clamp(22px,2.6vw,32px)', fontWeight: 600, marginTop: 38, lineHeight: 1.55 }}>{t.aboutHeading}</div>
-              <div className="body-text" style={{ marginTop: 40, fontSize: 14, lineHeight: 1.85, color: '#666666' }}>{t.aboutBody1}<br/><br/>{t.aboutBody2}<br/><br/>{t.aboutBody3}</div>
+              <div className="body-text" style={{ marginTop: 40, fontSize: 14, lineHeight: 1.85, color: '#666666' }}>
+                {(t.aboutBodies || []).map((p, i) => (<React.Fragment key={i}>{i > 0 && <><br/><br/></>}{p}</React.Fragment>))}
+              </div>
             </div>
           </div>
           <div className="detail-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)', gap: 0, marginTop: 90 }}>
@@ -622,7 +660,7 @@ function App() {
       {view === 'work' && (
         <div key="work" className="stagger work-view" style={{ padding: '140px 40px 160px', maxWidth: 1500, margin: '0 auto' }}>
           <div className="work-header-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24, marginBottom: 80, paddingBottom: 40, borderBottom: '1px solid #E5E3DE', flexWrap: 'wrap' }}>
-            <div style={{ fontSize: 'clamp(40px,8vw,70px)', fontWeight: 700 }}>{t.workTitle}</div>
+            <div className="work-page-title" style={{ fontSize: 'clamp(40px,8vw,70px)', fontWeight: 700 }}>{t.workTitle}</div>
             <div className="work-filter-col" style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-end' }}>
               <FilterRow label={t.filterFor} items={WORK_TYPES} active={workType} onPick={pickWorkType} onReset={resetFilters} labels={t.workTypeLabels} />
               <FilterRow label={t.filterScope} items={OUTPUT_TAGS} active={outputTag} onPick={pickOutputTag} onReset={resetFilters} labels={t.outputLabels} />
@@ -646,19 +684,19 @@ function App() {
               ))}
             </div>
           ) : gridMode === 'card3' ? (
-            <div className="stagger work-grid3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0,1fr))', gap: '60px 10px' }}>
+            <div className={`stagger work-grid3 work-grid-${gridCols}`} style={{ display: 'grid', gridTemplateColumns: `repeat(${gridCols}, minmax(0,1fr))`, gap: '60px 10px' }}>
               {filtered.map((p) => (
                 <ProjectCard3 key={p.id} p={p} lang={lang} t={t} onOpen={p.blocks ? openProject(p.id) : undefined} />
               ))}
             </div>
           ) : gridMode === 'tile3' ? (
-            <div className="stagger work-grid3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0,1fr))', gap: '40px 10px' }}>
+            <div className={`stagger work-grid3 work-grid-${gridCols}`} style={{ display: 'grid', gridTemplateColumns: `repeat(${gridCols}, minmax(0,1fr))`, gap: '40px 10px' }}>
               {filtered.map((p) => (
                 <ProjectTile key={p.id} p={p} onOpen={p.blocks ? openProject(p.id) : undefined} />
               ))}
             </div>
           ) : (
-            <div className="stagger work-grid3" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0,1fr))', gap: '40px 10px' }}>
+            <div className={`stagger work-grid3 work-grid-${gridCols}`} style={{ display: 'grid', gridTemplateColumns: `repeat(${gridCols}, minmax(0,1fr))`, gap: '40px 10px' }}>
               {filtered.map((p) => (
                 <ProjectTile key={p.id} p={p} isPoster onOpen={p.blocks ? openProject(p.id) : undefined} />
               ))}
@@ -677,7 +715,7 @@ function App() {
             transition: 'background 0.8s ease, color 0.8s ease',
           }}
         >
-          <div className="detail-top-pad" style={{ padding: '140px 40px 0', maxWidth: 1500, margin: '0 auto' }}>
+          <div className="detail-top-pad" style={{ padding: '100px 40px 0', maxWidth: 1500, margin: '0 auto' }}>
             <div onClick={goWork} className="hover-dim" style={{ fontSize: 13, cursor: 'pointer', color: mixColor(LIGHT_GRAY, DARK_GRAY, darkProgress), marginBottom: 40, transition: 'color 0.8s ease' }}>{t.backToWork}</div>
           </div>
           <section className="detail-title-section" style={{ maxWidth: 1500, margin: '0 auto', padding: '0 40px 40px' }}>
@@ -701,13 +739,7 @@ function App() {
             )}
           </section>
           <div>
-            {(activeProject.descEn || activeProject.descKo) && (
-              <section className="detail-desc-section" style={{ padding: '100px 40px 0', maxWidth: 1100, margin: '0 auto' }}>
-                {activeProject.descKo && <div className="detail-body-ko" style={{ fontSize: 14, lineHeight: 1.7, marginBottom: 24 }}>{activeProject.descKo}</div>}
-                {activeProject.descEn && <div className="detail-body-en" style={{ fontSize: 14, lineHeight: 1.7, color: mixColor(LIGHT_GRAY, DARK_GRAY, darkProgress), transition: 'color 0.8s ease' }}>{activeProject.descEn}</div>}
-              </section>
-            )}
-            <div style={{ paddingTop: 100 }}><ProjectBlocks blocks={activeProject.blocks} isPoster={false} labelColor={mixColor(LIGHT_GRAY, DARK_GRAY, darkProgress)} /></div>
+            <div style={{ paddingTop: 100 }}><ProjectBlocks blocks={activeProject.blocks} isPoster={false} labelColor={mixColor(LIGHT_GRAY, DARK_GRAY, darkProgress)} lang={lang} /></div>
             <div className="detail-footer-section" style={{ padding: '60px 40px 140px', maxWidth: 1500, margin: '0 auto', borderTop: `1px solid ${mixColor(LIGHT_BORDER, DARK_BORDER, darkProgress)}`, textAlign: 'center', transition: 'border-color 0.8s ease' }}>
               <div onClick={goWork} style={{ fontSize: 14, cursor: 'pointer', textDecoration: 'underline' }}>{t.backToAllWork}</div>
             </div>

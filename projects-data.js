@@ -18,6 +18,389 @@
 
 const PROJECTS = [
   {
+    "id": "damdam",
+    "title": "damdam",
+    "subtitleKo": "AI-Powered Parenting App",
+    "year": "2026",
+    "client": "Personal Project",
+    "workType": "PRODUCT DESIGN",
+    "outputs": [
+      "UI / UX",
+      "CHARACTER DESIGN"
+    ],
+    "img": "site-img/damdam_main_thumb.mp4",
+    "big": false,
+    "descEn": "damdam is more than a simple journaling app. It proposes a new way to document parenthood—one that captures the way parents observe their children's growth, just as it is.",
+    "descKo": "담담(damdam)은 단순한 일기 앱이 아니라, 아이의 성장을 있는 그대로 바라보는 부모의 시선을 담는 새로운 육아 기록 경험을 제안합니다. 감정을 과하게 덧붙이거나 기록을 꾸미는 대신, 담담한 문장과 절제된 UI를 중심으로, 사진 한 장과 몇 번의 선택만으로 하루의 기억이 자연스럽게 남도록 만들었습니다.",
+    "blocks": [
+      {
+        "type": "images",
+        "src": [
+          "site-img/damdam_cover.png",
+          "site-img/damdam_what-is.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "OVERVIEW",
+        "bodyKo": "담담(damdam)은 단순한 일기 앱이 아니라, 아이의 성장을 있는 그대로 바라보는 부모의 시선을 담는 새로운 육아 기록 경험을 제안합니다. 감정을 과하게 덧붙이거나 기록을 꾸미는 대신, 담담한 문장과 절제된 UI를 중심으로, 사진 한 장과 몇 번의 선택만으로 하루의 기억이 자연스럽게 남도록 만들었습니다.",
+        "bodyEn": "damdam is more than a simple journaling app. It proposes a new way to document parenthood—one that captures the way parents observe their children's growth, just as it is. Rather than adding excessive emotion or decorative elements, damdam centers on understated language and a restrained UI, allowing a day's memories to be naturally preserved with just one photo and a few simple choices."
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/damdam_background.png",
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "THE PROBLEM",
+        "bodyKo": "아이와 함께한 하루에는 수십 장의 사진이 쌓이지만, 그중 무엇이 기억할 만한 순간이었는지 다시 정리하기는 어렵습니다. 육아일기를 쓰고 싶은 마음은 있어도, 바쁜 일상 속에서 사진을 고르고 글을 쓰는 일은 쉽게 미뤄지곤 합니다.\n\n특히 기존의 육아 일기 기록 방식은 스티커와 꾸밈, 긴 글쓰기처럼 기록 자체를 하나의 과제로 만들기 쉬웠습니다. 담담은 여기서 기록하지 못하는 이유가 시간 부족만이 아니라 '제대로, 예쁘게 해야 한다'는 부담에도 있다는 문제의식에서 출발했습니다.",
+        "bodyEn": "A day spent with a child can quickly fill up with dozens of photos, yet it is often difficult to identify which moments are truly worth remembering. Parents may want to keep a journal, but in the middle of a busy routine, selecting photos and writing about them is easily put off.\n\nExisting parenting journals can also turn documentation into a task of its own, with stickers, decoration, and lengthy writing. damdam began with the realization that the reason parents struggle to keep records is not simply a lack of time, but also the pressure to make them \"proper\" and \"beautiful.\""
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/damdam_philosophy.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "THE CHALLENGE",
+        "bodyKo": "기록의 진입 장벽을 낮추면서도, 시간이 지나 다시 보았을 때 아이가 커가는 모습이 남아 있어야 했습니다. 따라서 사용자가 긴 문장을 직접 작성하거나 사진을 꾸미게 하는 대신, 사진 한 장과 몇 번의 선택만으로 객관적인 한 줄을 완성하는 구조를 만들었습니다. 동시에 AI가 감정이나 서사를 임의로 만들어내지 않도록 역할과 개입의 범위를 명확히 제한했습니다.\n\n 담담의 핵심은 '더하기'보다 '빼기'입니다. 사용자가 직접 해야 하는 행동을 최소화하고, 사진을 고르면 AI가 장면을 관찰해 기록할 만한 단서를 찾고, 필요한 경우 짧은 질문을 던진 뒤 한 줄로 조립하도록 설계했습니다. AI의 역할도 '대필 작가'가 아닌 '기록 비서'로 정의했습니다. 감정이나 미사여구를 덧붙이지 않고 고른 팩트를 한 줄로 조립하며, 사용자가 스스로 발견하고 기억할 수 있는 여백을 남기도록 했습니다.",
+        "bodyEn": "The challenge was to lower the barrier to documenting everyday moments while still preserving a meaningful record of a child's growth that could be revisited over time. Instead of asking users to write long entries or decorate their photos, we created a structure where one photo and a few simple choices are enough to create an objective, one-line record. At the same time, the role and scope of AI were deliberately limited so that it would not invent emotions or narratives of its own.\n\n The core principle of damdam was \"less, rather than more.We minimized the actions required from the user. Once a photo is selected, AI observes the scene, identifies details that may be worth recording, and asks short follow-up questions when needed before assembling them into a single line.AI was also defined not as a \"ghostwriter,\" but as a \"recording assistant.\" Rather than adding emotion or embellishment, it simply assembles the selected facts into a single line, leaving space for users to discover and remember the meaning of the moment for themselves."
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/damdam_ux-flow.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "EXPERIENCE SYSTEM",
+        "bodyKo": "전체 경험은 사진 선택 → AI의 질문 → 한 줄 기록 → 회상의 흐름으로 설계했습니다.\n\n사진 속 아이의 행동과 상황을 바탕으로 베스트 컷을 추천하고, 필요한 정보만 짧은 선택형 질문으로 확인한 뒤 하나의 기록으로 완성합니다. 작성된 기록은 월별 앨범과 '1년 전 오늘' 같은 방식으로 다시 돌아오며, 사용자가 매일 기록해야 한다는 압박보다 시간이 쌓일수록 가치가 커지는 아카이브가 되도록 구성했습니다.",
+        "bodyEn": "The overall experience follows a simple flow: Photo Selection → AI Questions → One-Line Record → Accumulation & Reflection.\n\nBased on the child's actions and context in each photo, damdam recommends the best shot and confirms only the information needed through short, tap-based questions before turning it into a single record.\n\nThese records return through monthly albums and features such as \"On This Day, One Year Ago,\" creating an archive whose value grows over time rather than adding pressure to document every day."
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/damdam_character.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "contain"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/damdam_turnaround.png"
+        ],
+        "cols": 1,
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/damdam_storyboard.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "CHARACTER DESIGN",
+        "bodyKo": "담담(damdam)의 캐릭터 AI 담담이는 화면 안을 조용히 부유하는 해파리입니다. 기록을 재촉하거나 감정을 대신 표현하기보다, 사용자의 하루를 곁에서 조용히 바라보는 존재로 설정했습니다.\n\n과장된 표정이나 지나치게 귀여운 요소를 더하기보다, 코와 입을 없애 단순하고 절제된 형태로 디자인했습니다. 이를 통해 감정을 직접적으로 드러내지 않으면서도 친근하고 차분한 분위기를 전달하고자 했습니다.\n\n해파리의 느리고 가벼운 움직임은 담담(damdam)이 육아의 순간을 바라보는 방식과도 연결됩니다. 모든 순간을 완벽하게 남겨야 한다는 부담 대신, 하루의 작은 순간들이 조용히 흘러들어와 자연스럽게 쌓이는 경험을 표현했습니다.",
+        "bodyEn": "damdam's character, Damdam, is a jellyfish that quietly drifts across the screen. Rather than prompting users to record or expressing emotions on their behalf, Damdam was designed as a quiet presence that simply observes their everyday moments.\n\nInstead of exaggerated expressions or overly cute features, we removed the nose and mouth to create a simple, restrained form. This allows the character to feel friendly and approachable while maintaining a calm and understated presence.\n\nThe jellyfish's slow, gentle movement reflects the way damdam approaches the everyday moments of parenthood. Rather than creating pressure to capture every moment perfectly, it represents an experience where small moments quietly flow in and naturally accumulate over time."
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/damdam_mov.mp4",
+        ],
+        "cols": 1,
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "section",
+        "label": "WHAT IT MEANS",
+        "bodyKo": "담담은 AI를 활용해 더 많은 기능을 만드는 프로젝트가 아니라, 육아 기록에 필요한 행동만 남기는 제품을 설계한 프로젝트입니다. 특히 AI가 감동적인 문장이나 아이의 감정을 대신 만들어주는 방향을 택하지 않고, 사실을 관찰하고 질문하는 역할에 한정했습니다. 기록은 지금의 사실만 담고, 그 의미와 감정은 나중의 사용자가 다시 발견할 수 있도록 남겨두었습니다. 결국 담담이 만들고자 한 것은 '완성도 높은 육아일기'가 아니라, 애쓰지 않아도 아이의 시간이 차곡차곡 남는 육아 아카이브입니다.",
+        "bodyEn": "damdam is not a project about using AI to add more features. It is about designing a product that leaves only the actions necessary to preserve a moment. Rather than having AI generate touching sentences or assume a child's emotions, its role is limited to observing facts and asking questions. The record captures what happened in the moment, while leaving its meaning and emotion open for the user to rediscover later. Ultimately, damdam is not designed to create the \"perfect parenting journal,\" but an archive of childhood that quietly accumulates over time, without requiring parents to make an effort every day."
+      },
+      {
+        "type": "section",
+        "label": "CREDITS — 2026.8",
+        "body": "Creative Direction : jiyeon kim \n Design Strategy & System : jiyeon kim \n Visual Identity Design : jiyeon kim \n UX-UI Architecture : jiyeon kim \n Prompt Engineering : jiyeon kim \n Front-end Implementation : jiyeon kim \n\n Production : Jiyeon Kim \n Platform : iOS / Android\n\nJiyeon Kim led the entire journey from deep user research to multi-modal product execution. By rejecting excessive decoration and the artificial warmth of typical AI, she established a calm, privacy-first archive that helps parents preserve genuine memories through minimal taps rather than burdensome writing."
+      }
+    ]
+  },
+  {
+    "id": "coupang",
+    "title": "순례자들 in Spain",
+    "subtitleKo": "'Stadium Crashers in Spain' Visual Design",
+    "darkBg": true,
+    "year": "2025",
+    "client": "Coupang Play",
+    "workType": "CONTENT DESIGN",
+    "outputs": [
+      "LOGO",
+      "MOTION",
+      "POSTER"
+    ],
+    "img": "site-img/Project_1_keyart.mp4",
+    "hero": "site-img/Project_1_keyart.gif",
+    "big": false,
+    "descEn": "I designed the integrated visual identity system for the Coupang Play Original contents, <순례자들 in Spain>. This contents follows creators who love football traveling to Spain—the holy land of football culture—capturing their raw passion and natural chemistry on-site. My core objective was to establish a distinct, original identity within Coupang Play, a platform that already holds a dominant position in sports broadcasting. Moving beyond a generic travel format, the visual assets were engineered to capture the genuine authenticity and energy that resonates with the football fandom.",
+    "descKo": "쿠팡플레이 오리지널 예능 <순례자들 in Spain>의 비주얼 아이덴티티 제작을 진행했습니다. 이 프로그램은 축구에 진심인 연예인들이 축구의 성지인 스페인으로 떠나, 현지에서 겪는 생생한 열정과 유쾌한 케미를 담아낸 리얼리티 예능입니다. 프로젝트의 핵심은 스포츠 중계의 강자인 쿠팡플레이 안에서, 가벼운 여행 예능을 넘어 '축구 팬덤의 진정성'을 돋보이게 하는 독보적인 오리지널리티를 만드는 일이었습니다. 진짜 축구 팬덤이 공감할 수 있는 진정성과 에너지를 시각적으로 어떻게 구현할지 고민하며 디자인 자산을 설계했습니다.",
+    "blocks": [
+      {
+        "type": "section",
+        "label": "Project Overview",
+        "body": "쿠팡플레이 오리지널 예능 <순례자들 in Spain>의 비주얼 아이덴티티 제작을 진행했습니다. 이 프로그램은 축구에 진심인 연예인들이 축구의 성지인 스페인으로 떠나, 현지에서 겪는 생생한 열정과 유쾌한 케미를 담아낸 리얼리티 예능입니다. 프로젝트의 핵심은 스포츠 중계의 강자인 쿠팡플레이 안에서, 가벼운 여행 예능을 넘어 '축구 팬덤의 진정성'을 돋보이게 하는 독보적인 오리지널리티를 만드는 일이었습니다. 진짜 축구 팬덤이 공감할 수 있는 진정성과 에너지를 시각적으로 어떻게 구현할지 고민하며 디자인 자산을 설계했습니다.\n\nI designed the integrated visual identity system for the Coupang Play Original contents, <순례자들 in Spain>. This contents follows creators who love football traveling to Spain—the holy land of football culture—capturing their raw passion and natural chemistry on-site. My core objective was to establish a distinct, original identity within Coupang Play, a platform that already holds a dominant position in sports broadcasting. Moving beyond a generic travel format, the visual assets were engineered to capture the genuine authenticity and energy that resonates with the football fandom."
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_ui.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "Problem Definition",
+        "body": " 보통의 스포츠 예능에서 자주 쓰는 번쩍이는 3D 효과나 메탈릭한 디자인은 쿠팡플레이 특유의 차분하고 어두운 화면(Dark UI) 환경과 다른 수많은 콘텐츠들과 아무런 차별성을 만들어내지 못할 것이라 판단했습니다. 저는 이런 전형적인 스타일을 과감하게 걷어내고, 쿠팡플레이라는 플랫폼 안에서 축구 덕후들의 날 것 같은 에너지와 예능 특유의 유쾌함이 돋보일 수 있는 확실한 시각 전략을 세웠습니다.\n\nI determined that the shiny 3D effects and metallic designs frequently used in sports entertainment would not create any differentiation within Coupang Play’s quiet Dark UI environment and among its other contents. I viewed these conventional styles as visual noise that distracts the audience. By removing these generic trends, I established a clear, system-driven visual strategy to deliver the unrefined energy of football fans and the natural brightness of the contents directly to the screen. "
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_sketch.png",
+          "site-img/Project_1_logo.png",
+          "site-img/Project_1_keyart.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "Design Strategy — Logo",
+        "body": " 스페인이라는 공간적 배경을 가장 직관적으로 보여주기 위해, 축구 명문 구단 'FC 바르셀로나'를 상징하는 빨강, 파랑, 노랑 세 가지 원색을 메인 컬러웨이로 가져왔습니다. 이 강렬한 삼원색은 프로그램에 출연하는 세 명의 출연진이 가진 고유의 개성이자, 축구 덕후들의 날것 같은 에너지를 그대로 대변합니다. 여기에 길거리 그래피티에서 아이디어를 얻어 페인트가 흘러내리는 듯한 ‘드립(Dripping) 쉐입’과 역동적인 사선 구도를 매치했습니다. 이 조합은 수많은 콘텐츠 사이에서도 눈에 확실히 띄면서 프로그램 특유의 발랄한 인상을 남길 수 있도록 유도하였습니다.\n\nTo show the geographic and cultural context of Spain intuitively, I brought in a primary colorway inspired by the iconic colors of FC Barcelona. These three high-saturation primary colors represent the distinct personalities of the three hosts and the raw energy of the football fandom. To structure this attitude, I combined a dynamic diagonal layout with dripping shapes inspired by street graffiti. This combination ensures high contrast and clear visibility within dense digital product lists while leaving a memorable impression."
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_poster.png"
+        ],
+        "cols": 1,
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "section",
+        "label": "Poster",
+        "body": " 포스터를 디자인은 인위적인 스튜디오 연출을 최대한 피했습니다. 스페인 축구 경기 현장의 거친 질감과 출연진이 보여주는 진짜 리얼리티를 있는 그대로 살려내는 데 집중했습니다. 여기에 로고와 같은 ‘드립’ 요소를 위트 있게 얹어, 시청자가 활기찬 ‘축구 성지순례’ 여정의 한복판에 함께 서 있는 듯한 몰입감을 주었습니다.\n\nThe poster and key art design avoids artificial studio setups and staged framing. Instead, it focuses on preserving the rough textures of actual football stadiums and the unscripted reality of the hosts. By placing the structural graffiti elements as a cohesive overlay, the design brings the audience closer to the screen, making them feel as if they are standing in the middle of this lively journey. "
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_substitles_1.png",
+          "site-img/Project_1_substitles_2.png",
+          "site-img/Project_1_substitles_3.png"
+        ],
+        "cols": 3,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_substitles_4.png",
+          "site-img/Project_1_substitles_5.png",
+          "site-img/Project_1_substitles_6.png"
+        ],
+        "cols": 3,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_subway.png",
+          "site-img/Project_1_car.png",
+          "site-img/Project_1_vinyl.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "Execution",
+        "body": " 작은 모바일 썸네일부터 방송 자막 시스템, 심지어 오프라인 촬영 차량 래핑까지 모든 접점의 디자인을 하나로 연결했습니다. 특히 수많은 제작진이 매주 빠르게 편집해야 하는 방송 환경을 고려해, 그래픽 소스와 자막 형태를 누구나 쉽게 조립해 쓸 수 있도록 템플릿으로 묶어두었습니다. 작업자마다 디자인이 제각각으로 변하는 것을 막고, 후반 작업 시간을 크게 줄여주어 실무진의 운영 효율(ROI)을 실질적으로 높였습니다.\n\nI connected the design rules seamlessly across all touchpoints, from small mobile thumbnails and on-air subtitle systems to offline vehicle wraps. Considering the fast-paced, weekly editing workflows of production teams, I modularized all graphic sources and typographic layouts into a component-based design system. By setting structural rules—such as optimized font widths and systematic safe margins for multi-device environments—I prevented design fragmentation and reduced post-production time, effectively increasing operational efficiency. "
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_stadium.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "Impact",
+        "body": " 기획 초기 단계부터 이 프로그램이 향후 다른 국가나 다른 리그로 스핀오프(확장)될 상황까지 미리 계산해서 디자인 가이드를 짰습니다. 중심이 되는 뼈대와 레이아웃은 그대로 두고, 다음 시즌 국가의 상징색에 맞춰 컬러만 쏙 바꾸면 즉시 새 패키지가 완성되는 유연한 구조입니다. 매번 디자인을 새로 하느라 비용과 시간을 낭비하지 않고, 회차가 거듭될수록 가치가 쌓이는 단단한 자산이 되도록 만들었습니다.\n\nFrom the early planning stages, the visual identity was designed to scale smoothly into future seasons, different national leagues, or spin-offs. The core typographic hierarchy and layout grids remain completely fixed as a structural framework; flexibility is achieved instantly by changing the primary color system to match the representative colors of the next country. This variable architecture eliminates redundant design processes, turning a single-season design package into a sustainable institutional asset that builds value over time. "
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_poster_2.png"
+        ],
+        "cols": 1,
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "section",
+        "label": "Credits — 2025.06",
+        "body": "Creative Direction : jiyeon kim \n Design Strategy & System : jiyeon kim \n Visual Identity Design : jiyeon kim \n Key Art & Poster Design : jiyeon kim \n On-Air Graphic System : jiyeon kim \n Motion & Content Design : jiyeon kim \n\n Production : Borderless Film \n Platform : Coupang Play"
+      }
+    ]
+  },
+  {
+    "id": "workman",
+    "title": "워크맨 시즌2",
+    "subtitleKo": "Workman Season 2 Visual Optimization",
+    "darkBg": true,
+    "year": "2022",
+    "client": "SLL",
+    "workType": "CONTENT DESIGN",
+    "outputs": [
+      "MOTION",
+      "POSTER"
+    ],
+    "img": "site-img/Project_3_bumper.mp4",
+    "hero": "site-img/Project_3_logo_keyart_1.png",
+    "big": false,
+    "descEn": "This project focused on visual optimization for the launch of Season 2 of the mega-hit digital content, Workman. The core objective was not a total overhaul. Instead, it was about protecting the established brand logo and signature colors—the visual assets the audience is already familiar with. By refining only the background graphics and textures, the design maintains brand continuity for existing fans while introducing a fresh rhythm and tension for the new season.",
+    "descKo": "유튜브 메가히트 오리지널 콘텐츠 <워크맨>의 시즌 2 론칭에 맞춘 비주얼 최적화 프로젝트입니다. 이번 작업의 핵심은 '모든 것을 갈아엎는 전면적인 리뉴얼'이 아니었습니다. 사람들이 이미 친숙하게 인지하고 있는 브랜드 로고와 메인 컬러의 고유한 정체성은 철저히 보호하되, 영상 전반을 구성하는 배경 그래픽과 텍스처를 새롭게 다듬었습니다. 이를 통해 기존 팬들이 느끼는 브랜드의 편안함은 유지하면서도, 시즌 2 특유의 새로운 활기와 긴장감을 부여하는 시각적 스케일업에 집중했습니다.",
+    "blocks": [
+      {
+        "type": "section",
+        "label": "Project Overview",
+        "body": " 유튜브 메가히트 오리지널 콘텐츠 <워크맨>의 시즌 2 론칭에 맞춘 비주얼 최적화 프로젝트입니다. 이번 작업의 핵심은 '모든 것을 갈아엎는 전면적인 리뉴얼'이 아니었습니다. 사람들이 이미 친숙하게 인지하고 있는 브랜드 로고와 메인 컬러의 고유한 정체성은 철저히 보호하되, 영상 전반을 구성하는 배경 그래픽과 텍스처를 새롭게 다듬었습니다. 이를 통해 기존 팬들이 느끼는 브랜드의 편안함은 유지하면서도, 시즌 2 특유의 새로운 활기와 긴장감을 부여하는 시각적 스케일업에 집중했습니다.\n\nThis project focused on visual optimization for the launch of Season 2 of the mega-hit digital content, Workman. The core objective was not a total overhaul. Instead, it was about protecting the established brand logo and signature colors—the visual assets the audience is already familiar with. By refining only the background graphics and textures, the design maintains brand continuity for existing fans while introducing a fresh rhythm and tension for the new season. "
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_3_logo_1.png",
+          "site-img/Project_3_logo_2.png"
+        ],
+        "cols": 2,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "Problem Definition",
+        "body": " 인기 있는 메가 IP가 다음 시즌으로 넘어갈 때 가장 경계해야 할 것은 무리한 디자인 개편으로 인한 '팬덤의 인지 혼란'입니다. 로고나 핵심 톤앤매너를 섣불리 바꿀 경우, 오랜 시간 시청자와 쌓아온 브랜드 애착이 단절될 위험이 큽니다. 반대로 아무런 변화가 없다면 장기 방영으로 인한 시각적 피로도를 극복하기 어렵습니다. 따라서 단순히 '새롭게 보이려는' 과잉을 과감히 배제하고, 기존의 정돈된 골격 위에서 시청자의 시선을 다시금 꽉 붙잡아둘 수 있는 전략적이고 즉각적인 그래픽 해법이 필요했습니다.\n\nWhen a major IP transitions to a new season, the biggest risk is causing visual confusion among the fandom through unnecessary design changes. Altering the logo or core tone too abruptly can disrupt the brand loyalty built with viewers over time. Conversely, making no changes leads to visual fatigue. To balance this, we avoided superficial decorations and focused on a strategic graphic solution that captures attention immediately while respecting the existing framework. "
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_3_poster_1.png",
+          "site-img/Project_3_poster_1.png"
+        ],
+        "cols": 2,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "Design Strategy — Logo",
+        "body": " 채널의 얼굴인 로고는 항상 같은 자리에 단단히 고정해 브랜드의 중심을 잡았습니다. 반면, 화면에 깔리는 질감이나 주변 그래픽 요소들은 새 시즌의 성격에 맞춰 유연하게 바꾸어 구성했습니다. 특히 '셔터'가 거칠게 내려가는 강렬한 움직임을 활용하여, 퇴근을 열망하는 직장인들의 일상 속 바람을 위트 있게 담아냈습니다. 시청자의 시선이 순간적으로 머무는 범퍼 트랜지션이나 유튜브 엔드페이지에는 이전보다 훨씬 밀도 높은 텍스처와 입체적인 디자인을 적용해 완성도를 높였습니다. 이처럼 기존 브랜드 고유의 정체성은 안전하게 지키면서도, 시즌에 필요한 활기차고 생동감 넘치는 분위기를 거친 질감 표현을 통해 효과적으로 강조했습니다.\n\nThe brand logo, serving as the core anchor of the identity, remains strictly fixed in its position to maintain structural consistency. In contrast, the surrounding graphic components and textures are designed to adapt flexibly according to the seasonal context. We introduced a dynamic motion motif based on a sharp, heavy shutter movement, translating the everyday context of 'the end of the workday' into a distinct visual tension. For interstitial bumpers and pop-up notifications where viewer attention peaks momentarily, we applied high-density textures and structural depth to maximize visual engagement. This framework effectively preserves the brand's core legacy while allowing the seasonal narrative to feel lively and impactful through carefully controlled tactile expressions."
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_3_bumper.mp4"
+        ],
+        "cols": 1,
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_3_event_1.png",
+          "site-img/Project_3_event_3.png"
+        ],
+        "cols": 2,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_3_event_4.png"
+        ],
+        "cols": 1,
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_3_event_5.png",
+          "site-img/Project_3_event_6.png",
+          "site-img/Project_3_event_7.png",
+          "site-img/Project_3_event_8.png"
+        ],
+        "cols": 4,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_3_event_10.png",
+          "site-img/Project_3_event_11.png"
+        ],
+        "cols": 2,
+        "ratio": "contain",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "Impact",
+        "body": " 이 프로젝트는 '무조건 새롭게 엎어야만 리뉴얼'이라는 편견을 깨고, 시스템을 최적화하는 것만으로 메가 IP의 생명력을 성공적으로 연장한 사례입니다. 그래픽 디테일을 다듬고 시스템을 정리한 결과, 기존 팬들에게는 안정감을, 새로운 시청자에게는 트렌디한 자극을 완벽히 전달했습니다. 여기서 정립된 텍스처와 그래픽 운용 규칙은 향후 시즌 3, 4로 확장되더라도 전면적인 리뉴얼에 드는 막대한 비용과 시간 없이, 유연하고 신속하게 새로운 분위기를 전환할 수 있는 단단한 비주얼 자산으로 남았습니다.\n\nThis project challenges the misconception that a rebrand requires changing everything from scratch. It proves that optimizing a visual system can successfully extend the lifecycle of a massive IP. By refining the graphic details and structuring the system, we delivered stability to existing fans and fresh excitement to new viewers. The established graphic rules now serve as a scalable visual asset, allowing future seasons to adapt swiftly without the heavy costs or time required for a full redesign."
+      },
+      {
+        "type": "section",
+        "label": "Credits — 2023.03",
+        "body": "Creative Direction : jiyeon kim \n Design Strategy & System : jiyeon kim \n Visual Identity Design : jiyeon kim \n Key Art & Poster Design : jiyeon kim \n On-Air Graphic System : jiyeon kim \n Motion & Content Design : jiyeon kim \n\n Platform : Youtube Channel-Studio Lululala"
+      }
+    ]
+  },
+  {
     "id": "lifetime",
     "title": "라이프타임 채널 네트워크 리브랜딩",
     "subtitleKo": "Lifetime Channel Network Rebranding",
@@ -26,15 +409,14 @@ const PROJECTS = [
     "client": "A+E Networks Korea",
     "workType": "CHANNEL BRANDING",
     "outputs": [
-      "BRAND IDENTITY",
-      "MOTION",
-      "SPATIAL / OOH"
+      "CONTENT DESIGN",
+      "MOTION"
     ],
     "img": "site-img/Project_2_lifetime_thumb.mp4",
     "hero": "site-img/Project_2_lifetime_1.png", 
     "big": true,
-    "descKo": "라이프타임은 2017년 한국 시장에 론칭한 A+E 네트웍스의 글로벌 여성 미디어 채널입니다. 기존 글로벌 가이드의 정형화된 디자인 프레임을 리뉴얼 하기 위해, 라이프타임의 채널 정체성은 스스로 삶의 주권을 쥐는 방향으로 발전해 왔습니다. 이 방향성을 2026년 현재 시점에서 'OWN' 전략으로 재정의했습니다. 이 유연하고 강력한 비주얼 시스템은 지난 7년간 브랜드의 확고한 정체성으로 작동하고 있습니다.",
-    "descEn": "Lifetime is a global women’s media channel launched in Korea in 2017. To move beyond fixed global design standards and a passive approach, the brand's on-air identity evolved toward personal ownership — a direction this 2026 retrospective frames as the 'OWN' strategy. This flexible and powerful visual system has remained the brand's core identity for the past 7 years.",
+    "descKo": "A+E Networks의 한국 첫 진출 채널인 라이프타임 코리아는 2017년 론칭 이후 드라마와 예능을 중심으로 여성 타겟 콘텐츠를 확장해 왔습니다. 그러나 미국 본사의 텍스트 중심 가이드라인을 그대로 차용한 초기 비주얼은, 화려한 모션과 밀도 높은 디자인에 익숙한 한국 시청자들에게 다소 낯설고 정적으로 인식되었습니다. 이러한 시각적 이질감은 한국 시장 첫 상륙이라는 중요한 시점에 채널의 존재감을 강렬하게 각인시키고 채널 인지도를 형성하는 데 한계가 있었습니다.",
+    "descEn": "Since its launch in 2017, Lifetime Korea has been a key destination for female-focused dramas and variety shows. However, the original US headquarters identity—minimal, text-heavy, and restrained—felt too quiet for Korea’s dense and fast-paced media environment. In a landscape shaped by 1-second zapping, subtlety often becomes invisibility. We needed a system that didn’t just follow global brand guidelines, but could command attention within a highly competitive visual field.",
     "blocks": [
       {
         "type": "images",
@@ -160,318 +542,33 @@ const PROJECTS = [
       {
         "type": "section",
         "label": "CREDITS — 2020-2026",
-        "body": "Direction & Strategy : jiyeon kim \n Visual Identity Design : jiyeon kim \n Motion Graphics & System : jiyeon kim \n Compositing & Post-production : jiyeon kim \n\n Content IP : © A+E Networks Korea \n Visual Explorations : Visual Explorations (Spatial & Urban Expansion mockups) — Concept visualization via Google Gemini, not actual executed placements \n\n Based on the 2019 on-air rebranding execution led by Jiyeon Kim, this document retrospectively reconstructs the visual system's strategic framework as of 2026, and traces its consistent evolution across on-air executions over the following 7 years.\n\n 2019년 진행한 실제 온에어 리브랜딩 결과물을 기반으로, 2026년 현재 시점에서 비주얼 시스템의 전략적 프레임을 재구성하고, 이후 7년간 온에어 실행 전반에 걸친 일관된 발전 과정을 정리한 문서입니다."
+        "body": " Content IP : © A+E Networks Korea \n Visual Explorations : Visual Explorations (Spatial & Urban Expansion mockups) — Concept visualization via Google Gemini, not actual executed placements \n\n 2019년 진행한 실제 온에어 리브랜딩 결과물을 기반으로, 2026년 현재 시점에서 비주얼 시스템의 전략적 프레임을 재구성하고, 이후 7년간 온에어 실행 전반에 걸친 일관된 발전 과정을 정리한 문서입니다.\n\n Based on the 2019 on-air rebranding execution led by Jiyeon Kim, this document retrospectively reconstructs the visual system's strategic framework as of 2026, and traces its consistent evolution across on-air executions over the following 7 years.\n\nDirection & Strategy : jiyeon kim \n Visual Identity Design : jiyeon kim \n Motion Graphics & System : jiyeon kim \n Compositing & Post-production : jiyeon kim "
       }
     ]
-  },
-  {
-    "id": "coupang",
-    "title": "Stadium Crashers in Spain",
-    "subtitleKo": "쿠팡플레이 오리지널 '순례자들 in Spain' Visual Identity",
-    "year": "2025",
-    "client": "Coupang Play",
-    "workType": "CONTENT DESIGN",
-    "outputs": [
-      "KEY VISUAL",
-      "LOGO",
-      "MOTION",
-      "POSTER"
-    ],
-    "img": "site-img/Project_1_poster.png",
-    "hero": "site-img/Project_1_keyart.gif",
-    "big": false,
-    "descEn": "I designed the integrated visual identity system for the Coupang Play Original contents, <순례자들 in Spain>.",
-    "descKo": "쿠팡플레이 오리지널 예능 <순례자들 in Spain>의 비주얼 아이덴티티 제작을 진행했습니다.",
-    "blocks": [
-      {
-        "type": "section",
-        "label": "Project Overview",
-        "body": "I designed the integrated visual identity system for the Coupang Play Original contents, <순례자들 in Spain>. This contents follows creators who love football traveling to Spain—the holy land of football culture—capturing their raw passion and natural chemistry on-site. My core objective was to establish a distinct, original identity within Coupang Play, a platform that already holds a dominant position in sports broadcasting. Moving beyond a generic travel format, the visual assets were engineered to capture the genuine authenticity and energy that resonates with the football fandom.\n\n쿠팡플레이 오리지널 예능 <순례자들 in Spain>의 비주얼 아이덴티티 제작을 진행했습니다. 이 프로그램은 축구에 진심인 연예인들이 축구의 성지인 스페인으로 떠나, 현지에서 겪는 생생한 열정과 유쾌한 케미를 담아낸 리얼리티 예능입니다. 프로젝트의 핵심은 스포츠 중계의 강자인 쿠팡플레이 안에서, 가벼운 여행 예능을 넘어 '축구 팬덤의 진정성'을 돋보이게 하는 독보적인 오리지널리티를 만드는 일이었습니다. 진짜 축구 팬덤이 공감할 수 있는 진정성과 에너지를 시각적으로 어떻게 구현할지 고민하며 디자인 자산을 설계했습니다."
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_ui.png"
-        ],
-        "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Problem Definition",
-        "body": "I determined that the shiny 3D effects and metallic designs frequently used in sports entertainment would not create any differentiation within Coupang Play’s quiet Dark UI environment and among its other contents. I viewed these conventional styles as visual noise that distracts the audience. By removing these generic trends, I established a clear, system-driven visual strategy to deliver the unrefined energy of football fans and the natural brightness of the contents directly to the screen. \n\n 보통의 스포츠 예능에서 자주 쓰는 번쩍이는 3D 효과나 메탈릭한 디자인은 쿠팡플레이 특유의 차분하고 어두운 화면(Dark UI) 환경과 다른 수많은 콘텐츠들과 아무런 차별성을 만들어내지 못할 것이라 판단했습니다. 저는 이런 전형적인 스타일을 과감하게 걷어내고, 쿠팡플레이라는 플랫폼 안에서 축구 덕후들의 날 것 같은 에너지와 예능 특유의 유쾌함이 돋보일 수 있는 확실한 시각 전략을 세웠습니다."
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_sketch.png",
-          "site-img/Project_1_logo.png",
-          "site-img/Project_1_keyart.png"
-        ],
-        "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Design Strategy — Logo",
-        "body": "To show the geographic and cultural context of Spain intuitively, I brought in a primary colorway inspired by the iconic colors of FC Barcelona. These three high-saturation primary colors represent the distinct personalities of the three hosts and the raw energy of the football fandom. To structure this attitude, I combined a dynamic diagonal layout with dripping shapes inspired by street graffiti. This combination ensures high contrast and clear visibility within dense digital product lists while leaving a memorable impression.\n\n 스페인이라는 공간적 배경을 가장 직관적으로 보여주기 위해, 축구 명문 구단 'FC 바르셀로나'를 상징하는 빨강, 파랑, 노랑 세 가지 원색을 메인 컬러웨이로 가져왔습니다. 이 강렬한 삼원색은 프로그램에 출연하는 세 명의 출연진이 가진 고유의 개성이자, 축구 덕후들의 날것 같은 에너지를 그대로 대변합니다. 여기에 길거리 그래피티에서 아이디어를 얻어 페인트가 흘러내리는 듯한 ‘드립(Dripping) 쉐입’과 역동적인 사선 구도를 매치했습니다. 이 조합은 수많은 콘텐츠 사이에서도 눈에 확실히 띄면서 프로그램 특유의 발랄한 인상을 남길 수 있도록 유도하였습니다."
-      },
-      {
-        "type": "section",
-        "label": "Poster",
-        "body": "The poster and key art design avoids artificial studio setups and staged framing. Instead, it focuses on preserving the rough textures of actual football stadiums and the unscripted reality of the hosts. By placing the structural graffiti elements as a cohesive overlay, the design brings the audience closer to the screen, making them feel as if they are standing in the middle of this lively journey. \n\n 포스터를 디자인은 인위적인 스튜디오 연출을 최대한 피했습니다. 스페인 축구 경기 현장의 거친 질감과 출연진이 보여주는 진짜 리얼리티를 있는 그대로 살려내는 데 집중했습니다. 여기에 로고와 같은 ‘드립’ 요소를 위트 있게 얹어, 시청자가 활기찬 ‘축구 성지순례’ 여정의 한복판에 함께 서 있는 듯한 몰입감을 주었습니다."
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_poster.png"
-        ],
-        "cols": 1,
-        "ratio": "auto",
-        "fit": "contain"
-      },
-      {
-        "type": "section",
-        "label": "Execution",
-        "body": "I connected the design rules seamlessly across all touchpoints, from small mobile thumbnails and on-air subtitle systems to offline vehicle wraps. Considering the fast-paced, weekly editing workflows of production teams, I modularized all graphic sources and typographic layouts into a component-based design system. By setting structural rules—such as optimized font widths and systematic safe margins for multi-device environments—I prevented design fragmentation and reduced post-production time, effectively increasing operational efficiency. \n\n 작은 모바일 썸네일부터 방송 자막 시스템, 심지어 오프라인 촬영 차량 래핑까지 모든 접점의 디자인을 하나로 연결했습니다. 특히 수많은 제작진이 매주 빠르게 편집해야 하는 방송 환경을 고려해, 그래픽 소스와 자막 형태를 누구나 쉽게 조립해 쓸 수 있도록 템플릿으로 묶어두었습니다. 작업자마다 디자인이 제각각으로 변하는 것을 막고, 후반 작업 시간을 크게 줄여주어 실무진의 운영 효율(ROI)을 실질적으로 높였습니다."
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_substitles_1.png",
-          "site-img/Project_1_substitles_2.png",
-          "site-img/Project_1_substitles_3.png"
-        ],
-        "cols": 3,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_substitles_4.png",
-          "site-img/Project_1_substitles_5.png",
-          "site-img/Project_1_substitles_6.png"
-        ],
-        "cols": 3,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_subway.png",
-          "site-img/Project_1_car.png",
-          "site-img/Project_1_vinyl.png"
-        ],
-        "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Impact",
-        "body": "From the early planning stages, the visual identity was designed to scale smoothly into future seasons, different national leagues, or spin-offs. The core typographic hierarchy and layout grids remain completely fixed as a structural framework; flexibility is achieved instantly by changing the primary color system to match the representative colors of the next country. This variable architecture eliminates redundant design processes, turning a single-season design package into a sustainable institutional asset that builds value over time. \n\n 기획 초기 단계부터 이 프로그램이 향후 다른 국가나 다른 리그로 스핀오프(확장)될 상황까지 미리 계산해서 디자인 가이드를 짰습니다. 중심이 되는 뼈대와 레이아웃은 그대로 두고, 다음 시즌 국가의 상징색에 맞춰 컬러만 쏙 바꾸면 즉시 새 패키지가 완성되는 유연한 구조입니다. 매번 디자인을 새로 하느라 비용과 시간을 낭비하지 않고, 회차가 거듭될수록 가치가 쌓이는 단단한 자산이 되도록 만들었습니다."
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_stadium.png"
-        ],
-        "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_poster_2.png"
-        ],
-        "cols": 1,
-        "ratio": "auto",
-        "fit": "contain"
-      },
-      {
-        "type": "section",
-        "label": "Credits — 2025.06",
-        "body": "Creative Direction : jiyeon kim \n Design Strategy & System : jiyeon kim \n Visual Identity Design : jiyeon kim \n Key Art & Poster Design : jiyeon kim \n On-Air Graphic System : jiyeon kim \n Motion & Content Design : jiyeon kim \n\n Production : Borderless Film \n Platform : Coupang Play"
-      }
-    ]
-  },
-  {
-    "id": "workman",
-    "title": "Workman 2",
-    "subtitleKo": "워크맨 시즌2 — 기존 IP를 계승한 비주얼 진화",
-    "year": "2022",
-    "client": "SLL",
-    "workType": "CONTENT DESIGN",
-    "outputs": [
-      "BRAND IDENTITY",
-      "MOTION",
-      "POSTER"
-    ],
-    "img": "site-img/Project_3_poster_1.png",
-    "hero": "site-img/Project_3_logo_keyart_1.png",
-    "big": false,
-    "descEn": "Workman 2 needed to preserve the recognition of an established IP while introducing a distinct visual language for its new season.",
-    "descKo": "워크맨 시즌2는 기존 IP의 인지도를 유지하면서도 새로운 시즌만의 개성 있는 비주얼 언어가 필요했습니다.",
-    "blocks": [
-      {
-        "type": "section",
-        "label": "Project Overview",
-        "body": "This project focused on visual optimization for the launch of Season 2 of the mega-hit digital content, Workman. The core objective was not a total overhaul. Instead, it was about protecting the established brand logo and signature colors—the visual assets the audience is already familiar with. By refining only the background graphics and textures, the design maintains brand continuity for existing fans while introducing a fresh rhythm and tension for the new season. \n\n 유튜브 메가히트 오리지널 콘텐츠 <워크맨>의 시즌 2 론칭에 맞춘 비주얼 최적화 프로젝트입니다. 이번 작업의 핵심은 '모든 것을 갈아엎는 전면적인 리뉴얼'이 아니었습니다. 사람들이 이미 친숙하게 인지하고 있는 브랜드 로고와 메인 컬러의 고유한 정체성은 철저히 보호하되, 영상 전반을 구성하는 배경 그래픽과 텍스처를 새롭게 다듬었습니다. 이를 통해 기존 팬들이 느끼는 브랜드의 편안함은 유지하면서도, 시즌 2 특유의 새로운 활기와 긴장감을 부여하는 시각적 스케일업에 집중했습니다."
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_3_logo_1.png",
-          "site-img/Project_3_logo_2.png"
-        ],
-        "cols": 2,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Problem Definition",
-        "body": "When a major IP transitions to a new season, the biggest risk is causing visual confusion among the fandom through unnecessary design changes. Altering the logo or core tone too abruptly can disrupt the brand loyalty built with viewers over time. Conversely, making no changes leads to visual fatigue. To balance this, we avoided superficial decorations and focused on a strategic graphic solution that captures attention immediately while respecting the existing framework. \n\n 인기 있는 메가 IP가 다음 시즌으로 넘어갈 때 가장 경계해야 할 것은 무리한 디자인 개편으로 인한 '팬덤의 인지 혼란'입니다. 로고나 핵심 톤앤매너를 섣불리 바꿀 경우, 오랜 시간 시청자와 쌓아온 브랜드 애착이 단절될 위험이 큽니다. 반대로 아무런 변화가 없다면 장기 방영으로 인한 시각적 피로도를 극복하기 어렵습니다. 따라서 단순히 '새롭게 보이려는' 과잉을 과감히 배제하고, 기존의 정돈된 골격 위에서 시청자의 시선을 다시금 꽉 붙잡아둘 수 있는 전략적이고 즉각적인 그래픽 해법이 필요했습니다."
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_3_poster_1.png",
-          "site-img/Project_3_poster_1.png"
-        ],
-        "cols": 2,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Design Strategy — Logo",
-        "body": "The brand logo, serving as the core anchor of the identity, remains strictly fixed in its position to maintain structural consistency. In contrast, the surrounding graphic components and textures are designed to adapt flexibly according to the seasonal context. We introduced a dynamic motion motif based on a sharp, heavy shutter movement, translating the everyday context of 'the end of the workday' into a distinct visual tension. For interstitial bumpers and pop-up notifications where viewer attention peaks momentarily, we applied high-density textures and structural depth to maximize visual engagement. This framework effectively preserves the brand's core legacy while allowing the seasonal narrative to feel lively and impactful through carefully controlled tactile expressions.\n\n 채널의 얼굴인 로고는 항상 같은 자리에 단단히 고정해 브랜드의 중심을 잡았습니다. 반면, 화면에 깔리는 질감이나 주변 그래픽 요소들은 새 시즌의 성격에 맞춰 유연하게 바꾸어 구성했습니다. 특히 '셔터'가 거칠게 내려가는 강렬한 움직임을 활용하여, 퇴근을 열망하는 직장인들의 일상 속 바람을 위트 있게 담아냈습니다. 시청자의 시선이 순간적으로 머무는 범퍼 트랜지션이나 유튜브 엔드페이지에는 이전보다 훨씬 밀도 높은 텍스처와 입체적인 디자인을 적용해 완성도를 높였습니다. 이처럼 기존 브랜드 고유의 정체성은 안전하게 지키면서도, 시즌에 필요한 활기차고 생동감 넘치는 분위기를 거친 질감 표현을 통해 효과적으로 강조했습니다."
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_3_bumper.mp4"
-        ],
-        "cols": 1,
-        "ratio": "auto",
-        "fit": "contain"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_3_event_1.png",
-          "site-img/Project_3_event_3.png"
-        ],
-        "cols": 2,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_3_event_4.png"
-        ],
-        "cols": 1,
-        "ratio": "auto",
-        "fit": "contain"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_3_event_5.png",
-          "site-img/Project_3_event_6.png",
-          "site-img/Project_3_event_7.png",
-          "site-img/Project_3_event_8.png"
-        ],
-        "cols": 4,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_3_event_10.png",
-          "site-img/Project_3_event_11.png"
-        ],
-        "cols": 2,
-        "ratio": "contain",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Impact",
-        "body": "This project challenges the misconception that a rebrand requires changing everything from scratch. It proves that optimizing a visual system can successfully extend the lifecycle of a massive IP. By refining the graphic details and structuring the system, we delivered stability to existing fans and fresh excitement to new viewers. The established graphic rules now serve as a scalable visual asset, allowing future seasons to adapt swiftly without the heavy costs or time required for a full redesign.\n\n 이 프로젝트는 '무조건 새롭게 엎어야만 리뉴얼'이라는 편견을 깨고, 시스템을 최적화하는 것만으로 메가 IP의 생명력을 성공적으로 연장한 사례입니다. 그래픽 디테일을 다듬고 시스템을 정리한 결과, 기존 팬들에게는 안정감을, 새로운 시청자에게는 트렌디한 자극을 완벽히 전달했습니다. 여기서 정립된 텍스처와 그래픽 운용 규칙은 향후 시즌 3, 4로 확장되더라도 전면적인 리뉴얼에 드는 막대한 비용과 시간 없이, 유연하고 신속하게 새로운 분위기를 전환할 수 있는 단단한 비주얼 자산으로 남았습니다."
-      },
-      {
-        "type": "section",
-        "label": "Credits — 2023.03",
-        "body": "Creative Direction : jiyeon kim \n Design Strategy & System : jiyeon kim \n Visual Identity Design : jiyeon kim \n Key Art & Poster Design : jiyeon kim \n On-Air Graphic System : jiyeon kim \n Motion & Content Design : jiyeon kim \n\n Platform : Youtube Channel-Studio Lululala"
-      }
-    ]
-  },
-  {
-    "id": "damdam",
-    "title": "damdam",
-    "subtitleKo": "AI 육아일기 새로운 서비스 — Product Design Case Study",
-    "year": "2025",
-    "client": "Personal Project",
-    "workType": "PRODUCT / DIGITAL",
-    "outputs": [
-      "UI / UX",
-      "DESIGN SYSTEM"
-    ],
-    "img": "site-img/damdam-cover.jpg",
-    "big": false,
-    "descEn": "I planned and designed damdam, an AI-powered parenting app, end to end.",
-    "descKo": "AI 육아일기 새로운 서비스 damdam을 직접 기획하고 디자인했습니다."
-  },
-  {
-    "id": "ae-promo",
-    "title": "A+E Content Promotion",
-    "subtitleKo": "다양한 콘텐츠 프로모션 — 빠른 기획과 제작 역량",
-    "year": "2018",
-    "client": "A+E Networks Korea",
-    "workType": "PROMOTION",
-    "outputs": [
-      "MOTION",
-      "VIDEO",
-      "SOCIAL",
-      "POSTER"
-    ],
-    "img": "site-img/aepromo-cover.jpg",
-    "big": false,
-    "descEn": "A broad set of programming and promotion work across motion, editing and graphic design.",
-    "descKo": "프로그래밍, 프로모션, 모션, 편집, 그래픽 디자인 등 다양한 콘텐츠 기획과 제작 역량을 보여줍니다."
   },
   {
     "id": "ttibalnom",
-    "title": "Tti-Bal-Nom",
-    "subtitleKo": "띄밟놈 : 콘텐츠 비주얼 아이덴티티 및 패키지 구축",
+    "title": "띄밟놈",
+    "subtitleKo": "SLL Original 'Tti-Bal-Nom' Visual Design",
+    "darkBg": true,
     "year": "2022",
     "client": "SLL(JTBC Studios)",
     "workType": "CONTENT DESIGN",
     "outputs": [
-      "KEY VISUAL",
       "MOTION",
       "POSTER",
       "LOGO"
     ],
-    "img": "site-img/Project_4_poster.jpg",
+    "img": "site-img/Project_4_bumper.mp4",
     "hero": "site-img/Project_4_keyart.jpg",
     "big": false,
     "descEn": "I developed the visual identity and the entire Youtube contents design package for SLL's new original variety show, Tti-Bal-Nom. The biggest mission was figuring out how to visually capture the explosive, cheerful tension created when ‘Park Myung-soo’ and ‘Haha’—two of the most iconic and unbridled figures in Korean variety shows—come together. Moving beyond mere screen decoration, we focused on planning a dynamic visual package that intuitively delivers the raw charm of these two characters and the bouncy nature of the content to the viewers.",
-    "descKo": "SLL의 유튜브 오리지널 예능 <띄밟놈>의 비주얼 아이덴티티와 전체 방송 디자인 패키지를 구축하는 프로젝트를 진행했습니다. 박명수와 하하, 예능계에서 가장 상징적이고 거침없는 두 인물이 만났을 때 폭발하는 그 유쾌한 텐션을 시각적으로 어떻게 담아낼 것인가가 가장 큰 미션이었습니다. 우리는 단순히 화면을 예쁘게 꾸미는 장식적인 접근을 넘어, 두 캐릭터가 가진 날것의 매력과 콘텐츠의 통통 튀는 성격을 시청자들에게 직관적으로 전달할 수 있는 역동적인 비주얼 패키지를 기획하는 데 집중했습니다.",
+    "descKo": "SLL의 유튜브 오리지널 예능 <띄밟놈>의 비주얼 아이덴티티와 전체 방송 디자인 패키지를 구축하는 프로젝트를 진행했습니다. 박명수와 하하, 예능계에서 가장 상징적이고 거침없는 두 인물이 만났을 때 폭발하는 그 유쾌한 텐션을 시각적으로 어떻게 담아낼 것인가가 가장 큰 미션이었습니다. 단순히 화면을 예쁘게 꾸미는 장식적인 접근을 넘어, 두 캐릭터가 가진 날것의 매력과 콘텐츠의 통통 튀는 성격을 시청자들에게 직관적으로 전달할 수 있는 역동적인 비주얼 패키지를 기획하는 데 집중했습니다.",
     "blocks": [
       {
         "type": "section",
         "label": "Project Overview",
-        "body": "I developed the visual identity and the entire Youtube contents design package for SLL's new original variety show, Tti-Bal-Nom. The biggest mission was figuring out how to visually capture the explosive, cheerful tension created when ‘Park Myung-soo’ and ‘Haha’—two of the most iconic and unbridled figures in Korean variety shows—come together. Moving beyond mere screen decoration, we focused on planning a dynamic visual package that intuitively delivers the raw charm of these two characters and the bouncy nature of the content to the viewers. \n\n SLL의 유튜브 오리지널 예능 <띄밟놈>의 비주얼 아이덴티티와 전체 방송 디자인 패키지를 구축하는 프로젝트를 진행했습니다. 박명수와 하하, 예능계에서 가장 상징적이고 거침없는 두 인물이 만났을 때 폭발하는 그 유쾌한 텐션을 시각적으로 어떻게 담아낼 것인가가 가장 큰 미션이었습니다. 단순히 화면을 예쁘게 꾸미는 장식적인 접근을 넘어, 두 캐릭터가 가진 날것의 매력과 콘텐츠의 통통 튀는 성격을 시청자들에게 직관적으로 전달할 수 있는 역동적인 비주얼 패키지를 기획하는 데 집중했습니다."
+        "body": " SLL의 유튜브 오리지널 예능 <띄밟놈>의 비주얼 아이덴티티와 전체 방송 디자인 패키지를 구축하는 프로젝트를 진행했습니다. 박명수와 하하, 예능계에서 가장 상징적이고 거침없는 두 인물이 만났을 때 폭발하는 그 유쾌한 텐션을 시각적으로 어떻게 담아낼 것인가가 가장 큰 미션이었습니다. 단순히 화면을 예쁘게 꾸미는 장식적인 접근을 넘어, 두 캐릭터가 가진 날것의 매력과 콘텐츠의 통통 튀는 성격을 시청자들에게 직관적으로 전달할 수 있는 역동적인 비주얼 패키지를 기획하는 데 집중했습니다.\n\nI developed the visual identity and the entire Youtube contents design package for SLL's new original variety show, Tti-Bal-Nom. The biggest mission was figuring out how to visually capture the explosive, cheerful tension created when ‘Park Myung-soo’ and ‘Haha’—two of the most iconic and unbridled figures in Korean variety shows—come together. Moving beyond mere screen decoration, we focused on planning a dynamic visual package that intuitively delivers the raw charm of these two characters and the bouncy nature of the content to the viewers. "
       },
       {
         "type": "images",
@@ -486,7 +583,7 @@ const PROJECTS = [
       {
         "type": "section",
         "label": "Problem Definition",
-        "body": "In content where the cast's personalities are exceptionally strong and unpredictable situations pour out, if the design is also flashy without any rules, viewers will easily experience visual fatigue. Therefore, the deepest consideration in this project was finding the line where we could 'preserve the rough dynamism of the characters on screen while absolutely not losing the readability of information.' Even amidst the chaotic overlapping audio and bursts of laughter, the title and subtitle graphics had to create a solid 'visual order' that comfortably guides the viewers' eyes. \n\n 출연진의 개성이 워낙 강하고 예측할 수 없는 상황이 쏟아지는 콘텐츠일수록, 디자인마저 아무런 규칙 없이 화려하기만 하면 시청자의 눈은 쉽게 피로해집니다. 따라서 이번 작업에서 가장 깊게 고민한 부분은 '캐릭터의 거친 역동성을 화면에 그대로 살리면서도, 시청자가 정보를 읽어내는 가독성은 절대 놓치지 않는 선'을 찾는 것이었습니다. 화면 안에서 정신없이 오디오가 물리고 웃음이 터지는 와중에도, 타이틀과 자막 그래픽만큼은 시청자의 시선을 편안하게 안내하는 단단한 시각적 흐름을 만들어야 했습니다."
+        "body": " 출연진의 개성이 워낙 강하고 예측할 수 없는 상황이 쏟아지는 콘텐츠일수록, 디자인마저 아무런 규칙 없이 화려하기만 하면 시청자의 눈은 쉽게 피로해집니다. 따라서 이번 작업에서 가장 깊게 고민한 부분은 '캐릭터의 거친 역동성을 화면에 그대로 살리면서도, 시청자가 정보를 읽어내는 가독성은 절대 놓치지 않는 선'을 찾는 것이었습니다. 화면 안에서 정신없이 오디오가 물리고 웃음이 터지는 와중에도, 타이틀과 자막 그래픽만큼은 시청자의 시선을 편안하게 안내하는 단단한 시각적 흐름을 만들어야 했습니다.\n\nIn content where the cast's personalities are exceptionally strong and unpredictable situations pour out, if the design is also flashy without any rules, viewers will easily experience visual fatigue. Therefore, the deepest consideration in this project was finding the line where we could 'preserve the rough dynamism of the characters on screen while absolutely not losing the readability of information.' Even amidst the chaotic overlapping audio and bursts of laughter, the title and subtitle graphics had to create a solid 'visual order' that comfortably guides the viewers' eyes. "
       },
       {
         "type": "images",
@@ -500,7 +597,7 @@ const PROJECTS = [
       {
         "type": "section",
         "label": "Design Strategy",
-        "body": "To intuitively show the bouncy and free-spirited personalities of the two characters, we selected highly saturated pop colors—such as red, blue, and yellow—as the main palette. Interestingly, we didn't arrange these colors in obvious patterns but mixed them irregularly. This visually represents the personalities of the two unpredictable figures. We also placed rough, hand-drawn elements throughout to add an unembellished, raw feel unique to the show. However, to ensure these free elements didn't look messy, we built a solid, invisible grid system to precisely balance flashiness and order. \n\n 두 캐릭터의 톡톡 튀고 자유분방한 개성을 직관적으로 보여주기 위해 레드, 블루, 옐로우 등 채도가 아주 높은 팝(Pop)한 컬러들을 메인으로 선택했습니다. 재미있는 점은 이 색상들을 뻔한 패턴대로 배열하지 않고 불규칙하게 섞어 사용했다는 것입니다. 이는 어떤 돌발 행동을 할지 모르는 두 사람의 성격을 시각적으로 대변합니다. 여기에 러프하게 그린 핸드드로잉 소스들을 곳곳에 배치해 콘텐츠 특유의 꾸밈없는 날것의 느낌을 더했습니다. 하지만 이렇게 자유로운 요소들이 자칫 지저분해 보이지 않도록, 보이지 않는 그리드(격자) 시스템을 단단하게 짜두어 화려함과 정돈됨 사이의 밸런스를 정교하게 맞췄습니다."
+        "body": " 두 캐릭터의 톡톡 튀고 자유분방한 개성을 직관적으로 보여주기 위해 레드, 블루, 옐로우 등 채도가 아주 높은 팝(Pop)한 컬러들을 메인으로 선택했습니다. 재미있는 점은 이 색상들을 뻔한 패턴대로 배열하지 않고 불규칙하게 섞어 사용했다는 것입니다. 이는 어떤 돌발 행동을 할지 모르는 두 사람의 성격을 시각적으로 대변합니다. 여기에 러프하게 그린 핸드드로잉 소스들을 곳곳에 배치해 콘텐츠 특유의 꾸밈없는 날것의 느낌을 더했습니다. 하지만 이렇게 자유로운 요소들이 자칫 지저분해 보이지 않도록, 보이지 않는 그리드(격자) 시스템을 단단하게 짜두어 화려함과 정돈됨 사이의 밸런스를 정교하게 맞췄습니다.\n\nTo intuitively show the bouncy and free-spirited personalities of the two characters, we selected highly saturated pop colors—such as red, blue, and yellow—as the main palette. Interestingly, we didn't arrange these colors in obvious patterns but mixed them irregularly. This visually represents the personalities of the two unpredictable figures. We also placed rough, hand-drawn elements throughout to add an unembellished, raw feel unique to the show. However, to ensure these free elements didn't look messy, we built a solid, invisible grid system to precisely balance flashiness and order. "
       },
       {
         "type": "images",
@@ -535,7 +632,7 @@ const PROJECTS = [
       {
         "type": "section",
         "label": "Impact",
-        "body": "This project was about clothing the show in visuals fitting the hype of the legendary duo's return, imprinting the content of Tti-Bal-Nom itself as a unique brand. It provided viewers with intuitive visual joy from the moment they looked at the screen, and left the internal production team with a robust design guide that maintains a consistent mood without wavering, even if the season extends or spin-offs are created. \n\n 이 프로젝트는 두 레전드 콤비의 귀환이라는 화제성에 걸맞은 룩을 적용해, <띄밟놈>이라는 콘텐츠 자체를 하나의 독보적인 브랜드로 각인시킨 작업이었습니다. 시청자에게는 처음 화면을 보는 순간부터 직관적인 시각적 즐거움을 주었고, 내부 제작진에게는 시즌이 길어지거나 스핀오프가 생기더라도 흔들림 없이 일관된 무드를 유지할 수 있는 튼튼한 디자인 가이드를 남길 수 있었습니다."
+        "body": " 이 프로젝트는 두 레전드 콤비의 귀환이라는 화제성에 걸맞은 룩을 적용해, <띄밟놈>이라는 콘텐츠 자체를 하나의 독보적인 브랜드로 각인시킨 작업이었습니다. 시청자에게는 처음 화면을 보는 순간부터 직관적인 시각적 즐거움을 주었고, 내부 제작진에게는 시즌이 길어지거나 스핀오프가 생기더라도 흔들림 없이 일관된 무드를 유지할 수 있는 튼튼한 디자인 가이드를 남길 수 있었습니다.\n\nThis project was about clothing the show in visuals fitting the hype of the legendary duo's return, imprinting the content of Tti-Bal-Nom itself as a unique brand. It provided viewers with intuitive visual joy from the moment they looked at the screen, and left the internal production team with a robust design guide that maintains a consistent mood without wavering, even if the season extends or spin-offs are created. "
       },
       {
         "type": "section",
@@ -566,7 +663,7 @@ const PROJECTS = [
       {
         "type": "section",
         "label": "Project Overview",
-        "body": "Directed the visual identity and packaging system for <Project 10K>, a challenge-based reality show tracking a rookie artist's journey to a Tokyo arena debut. The project visualizes a massive quest to mobilize 10,000 audience members across five guerrilla performances. Going beyond standard variety show entertainment graphic design, the focus was on designing a dynamic framework where the artists break through real-world missions and expand their own universe. \n\n 신인 아티스트 '엔싸인(n.SSign)'의 도쿄 아레나 입성을 위한 챌린지 리얼리티 <Project 10K>의 비주얼 아이덴티티 및 패키지 시스템을 총괄했습니다. 총 5번의 게릴라 공연을 통해 1만 명의 관객을 동원해야 하는 거대한 퀘스트 과정을 시각화하는 프로젝트입니다. 단순한 웹 예능 로고 제작을 넘어, 아티스트가 현실의 미션을 격파하고 자신들만의 세계관을 확장해 나가는 역동적인 구조를 설계하는 데 집중했습니다."
+        "body": " 신인 아티스트 '엔싸인(n.SSign)'의 도쿄 아레나 입성을 위한 챌린지 리얼리티 <Project 10K>의 비주얼 아이덴티티 및 패키지 시스템을 총괄했습니다. 총 5번의 게릴라 공연을 통해 1만 명의 관객을 동원해야 하는 거대한 퀘스트 과정을 시각화하는 프로젝트입니다. 단순한 웹 예능 로고 제작을 넘어, 아티스트가 현실의 미션을 격파하고 자신들만의 세계관을 확장해 나가는 역동적인 구조를 설계하는 데 집중했습니다.\n\nDirected the visual identity and packaging system for <Project 10K>, a challenge-based reality show tracking a rookie artist's journey to a Tokyo arena debut. The project visualizes a massive quest to mobilize 10,000 audience members across five guerrilla performances. Going beyond standard variety show entertainment graphic design, the focus was on designing a dynamic framework where the artists break through real-world missions and expand their own universe. "
       },
       {
         "type": "images",
@@ -580,7 +677,7 @@ const PROJECTS = [
       {
         "type": "section",
         "label": "Problem Definition",
-        "body": "Due to unpredictable outdoor locations—such as baseball stadiums and amusement parks—and the nature of live guerrilla shows, the on-screen backgrounds presented severe visual noise. In this chaotic environment, a distinctive visual anchor was required to instantly imprint the program's identity. The primary business challenge was to preempt viewer recognition by breaking through these spatial and temporal constraints. \n\n 야구장, 놀이공원 등 매번 달라지는 야외 로케이션과 불특정 다수를 상대로 한 게릴라 공연이라는 포맷 특성상, 화면의 배경은 늘 복잡하고 예측 불가능합니다. 이러한 환경 속에서 시각적 노이즈에 묻히지 않고 프로그램의 정체성을 단번에 각인시킬 수 있는 '시각적 기준점'이 필요했습니다. 시공간의 제약을 뚫고 시청자의 인지를 즉각적으로 선점하는 것이 비즈니스의 가장 큰 과제였습니다."
+        "body": " 야구장, 놀이공원 등 매번 달라지는 야외 로케이션과 불특정 다수를 상대로 한 게릴라 공연이라는 포맷 특성상, 화면의 배경은 늘 복잡하고 예측 불가능합니다. 이러한 환경 속에서 시각적 노이즈에 묻히지 않고 프로그램의 정체성을 단번에 각인시킬 수 있는 '시각적 기준점'이 필요했습니다. 시공간의 제약을 뚫고 시청자의 인지를 즉각적으로 선점하는 것이 비즈니스의 가장 큰 과제였습니다.\n\nDue to unpredictable outdoor locations—such as baseball stadiums and amusement parks—and the nature of live guerrilla shows, the on-screen backgrounds presented severe visual noise. In this chaotic environment, a distinctive visual anchor was required to instantly imprint the program's identity. The primary business challenge was to preempt viewer recognition by breaking through these spatial and temporal constraints. "
       },
       {
         "type": "images",
@@ -595,7 +692,7 @@ const PROJECTS = [
       {
         "type": "section",
         "label": "Design Strategy — Logo",
-        "body": "Reinterpreted the artist’s core 'space' identity into a cybernetic mood tailored for a mission-solving format. 'Neon Green' was established as the key color for immediate luminance against complex backgrounds, paired with a deep blue cosmic base to maximize visual impact. Specifically, applying a 3D dimension to the logo creates the form of a massive basecamp or infrastructure, which visually demonstrates the grand scale of the 10,000-audience project directly to the viewers. \n\n 아티스트가 가진 고유의 '우주' 아이덴티티를 미션 해결형 예능의 맥락에 맞춰 '사이버네틱(Cybernetic)' 무드로 재해석했습니다. 어떤 복잡한 배경 속에서도 가장 직관적으로 반응하는 '네온 그린'을 키 컬러로 설정하고, 이를 딥 블루 톤의 우주적 배경과 강렬하게 대비시켜 시각적 몰입감을 유도했습니다. 특히 로고에 입체감(3D)을 주어 거대한 베이스캠프나 구조물 을 연상시키는 쉐입은, 1만 명을 모으는 이번 프로젝트의 엄청난 규모를 시청자들에게 눈으로 직접 확인시켜 주는 역할을 하게 만들었습니다."
+        "body": " 아티스트가 가진 고유의 '우주' 아이덴티티를 미션 해결형 예능의 맥락에 맞춰 '사이버네틱(Cybernetic)' 무드로 재해석했습니다. 어떤 복잡한 배경 속에서도 가장 직관적으로 반응하는 '네온 그린'을 키 컬러로 설정하고, 이를 딥 블루 톤의 우주적 배경과 강렬하게 대비시켜 시각적 몰입감을 유도했습니다. 특히 로고에 입체감(3D)을 주어 거대한 베이스캠프나 구조물 을 연상시키는 쉐입은, 1만 명을 모으는 이번 프로젝트의 엄청난 규모를 시청자들에게 눈으로 직접 확인시켜 주는 역할을 하게 만들었습니다.\n\nReinterpreted the artist’s core 'space' identity into a cybernetic mood tailored for a mission-solving format. 'Neon Green' was established as the key color for immediate luminance against complex backgrounds, paired with a deep blue cosmic base to maximize visual impact. Specifically, applying a 3D dimension to the logo creates the form of a massive basecamp or infrastructure, which visually demonstrates the grand scale of the 10,000-audience project directly to the viewers. "
       },
       {
         "type": "images",
@@ -618,7 +715,7 @@ const PROJECTS = [
       {
         "type": "section",
         "label": "Impact",
-        "body": "Secured a powerful presence as an independent entertainment IP while preserving the artist's original identity. Through calculated visual density and a unified system, the pre-debut reality show was elevated into the premium content tier. This completed a robust visual architecture capable of maintaining absolute brand authority across any digital platform or OOH media expansion. \n\n 아티스트의 오리지널리티를 훼손하지 않으면서도, 독자적인 예능 IP로서의 묵직한 존재감을 확보했습니다. 치밀하게 계산된 시각적 밀도와 일관된 시스템을 통해 자칫 가벼워질 수 있는 프리 데뷔 리얼리티를 프리미엄 콘텐츠의 영역으로 끌어올렸습니다. 향후 어떤 규모의 디지털 플랫폼이나 옥외 매체로 확장되더라도, 브랜드의 시각적 지배력을 흔들림 없이 유지할 수 있는 묵직한 비주얼 아키텍처를 완성했습니다."
+        "body": " 아티스트의 오리지널리티를 훼손하지 않으면서도, 독자적인 예능 IP로서의 묵직한 존재감을 확보했습니다. 치밀하게 계산된 시각적 밀도와 일관된 시스템을 통해 자칫 가벼워질 수 있는 프리 데뷔 리얼리티를 프리미엄 콘텐츠의 영역으로 끌어올렸습니다. 향후 어떤 규모의 디지털 플랫폼이나 옥외 매체로 확장되더라도, 브랜드의 시각적 지배력을 흔들림 없이 유지할 수 있는 묵직한 비주얼 아키텍처를 완성했습니다.\n\nSecured a powerful presence as an independent entertainment IP while preserving the artist's original identity. Through calculated visual density and a unified system, the pre-debut reality show was elevated into the premium content tier. This completed a robust visual architecture capable of maintaining absolute brand authority across any digital platform or OOH media expansion. "
       },
       {
         "type": "section",
