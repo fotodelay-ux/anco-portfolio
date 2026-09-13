@@ -10,6 +10,11 @@ const EN = {
   heroSubLine2: 'Currently exploring Product &amp; Digital Experiences.',
   heroCta: 'View My Work',
   selectedWork: 'SELECTED WORK', viewAllWork: 'View all work →',
+  // shown side by side (EN left, KO right) regardless of the language toggle — not tied to `lang`
+  homeIntroHeadingEn: 'Jiyeon Kim / Visual Designer',
+  homeIntroHeadingKo: '김지연 / 비주얼 디자이너',
+  homeIntroEn: "I’m a designer working across content and brand. I mainly work on logos, posters, motions, and branding. Recently, I’ve also been planning and designing mobile apps, exploring new ideas by making and testing them myself.",
+  homeIntroKo: '콘텐츠와 브랜드를 다루는 디자이너입니다. 주로 로고, 포스터, 모션그래픽부터 브랜딩까지 다양한 작업을 합니다. 최근에는 모바일 앱 제품을 직접 기획하고 디자인하며, 생각한 것을 직접 만들고 실험하는 디자인을 이어가고 있습니다.',
   aboutHeading: 'Content & Brand Designer',
   aboutBodies: [
     "I'm a designer creating a wide range of visual experiences across content and brand.",
@@ -41,6 +46,8 @@ const KO = {
   heroSubLine1: '콘텐츠, 브랜드, 비주얼 디자인 분야에서 9년간 디자이너로 활동했고,',
   heroSubLine2: '현재는 프로덕트와 디지털 경험 영역으로 확장하고 있습니다.',
   heroCta: '작업 보러가기',
+  // homeIntro* fields intentionally NOT overridden here — the home intro
+  // shows both languages side by side, unaffected by the lang toggle.
   aboutHeading: 'Jiyeon Kim / Content & Brand Designer',
   aboutBodies: [
     '콘텐츠와 브랜드를 중심으로 다양한 시각 경험을 만드는 디자이너입니다. 채널과 프로그램의 성격을 정의하는 브랜딩부터 로고, 포스터, 영상 등 콘텐츠의 콘셉트를 구체화하는 작업까지 폭넓은 경험을 가지고 있습니다.',
@@ -562,6 +569,19 @@ function App() {
 
       {view === 'home' && (
         <div key="home" className="stagger">
+          <section className="home-intro-section" style={{ padding: '110px 40px 0', maxWidth: 1500, margin: '0 auto' }}>
+            <div className="home-intro-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40 }}>
+              <div className="home-intro-col">
+                <div className="home-intro-heading" style={{ fontWeight: 700, fontSize: 'clamp(13.6px,1.7vw,17px)', marginBottom: 10 }}>{t.homeIntroHeadingEn}</div>
+                <div className="body-text" style={{ fontSize: 'clamp(13.6px,1.7vw,17px)', lineHeight: 1.6, fontWeight: 400 }}>{t.homeIntroEn}</div>
+              </div>
+              <div className="home-intro-col">
+                <div className="home-intro-heading" style={{ fontWeight: 700, fontSize: 'clamp(13.6px,1.7vw,17px)', marginBottom: 10 }}>{t.homeIntroHeadingKo}</div>
+                <div className="body-text" style={{ fontSize: 'clamp(13.6px,1.7vw,17px)', lineHeight: 1.6, fontWeight: 400 }}>{t.homeIntroKo}</div>
+              </div>
+            </div>
+          </section>
+
           {/* temporarily hidden — main copy / name / "View My Work" button.
               Restore by removing `display: 'none'` below. */}
           <section className="hero-wrap" style={{ display: 'none', minHeight: '100vh', flexDirection: 'column', justifyContent: 'center', padding: '0px 40px 0', maxWidth: 1500, margin: '0 auto' }}>
@@ -577,7 +597,7 @@ function App() {
             </div>
           </section>
 
-          <section className="selected-work-section" style={{ padding: '140px 40px 100px', maxWidth: 1500, margin: '0 auto' }}>
+          <section className="selected-work-section" style={{ padding: '60px 40px 100px', maxWidth: 1500, margin: '0 auto' }}>
             {/* temporarily hidden — "SELECTED WORK" / "View all work" row */}
             <div style={{ display: 'none', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 90, borderBottom: '1px solid #E5E3DE', paddingBottom: 24 }}>
               <div style={{ fontSize: 13, letterSpacing: '0.1em', color: '#666666' }}>{t.selectedWork}</div>
