@@ -9,11 +9,52 @@
    - descEn / descKo : Work 목록에 보이는 요약 설명
    - hero : 상세페이지 상단 큰 이미지 (없으면 img 사용)
    - blocks : 상세페이지 본문. 있으면 클릭해서 들어가는 케이스 스터디 페이지가 생기고,
-     없으면 목록에서 클릭 안 되는 단순 카드로 표시됩니다.
+     없으면 목록에서 클릭 안 되는 단순 카드로 표시됩니다. (POSTER 항목은 예외 — 아래 참고)
      블록 종류는 두 가지뿐입니다:
        { type: 'section', label: '섹션 제목', body: '본문 텍스트' }
        { type: 'images', src: ['site-img/...'], cols: 1, ratio: '16/9', fit: 'cover' }
          - src 배열에 .mp4를 넣으면 자동으로 비디오로 재생됩니다.
+
+   ── POSTER 카테고리에 낱장 포스터 추가하기 ──────────────
+   Work 페이지에서 scope 필터를 POSTER로 선택했을 때 나오는 그리드에 낱장 포스터를
+   하나씩 추가하고 싶으면, blocks 없이 아래처럼 최소 항목만 있는 객체를 PROJECTS
+   배열 아무 곳에나 추가하면 됩니다 (blocks가 없으면 상세페이지로 안 가고, 클릭 시
+   이미지가 화면 가득 크게 보이는 팝업이 배경 어둡게 처리되며 뜹니다):
+       {
+         "id": "poster-무엇이든-고유하게",
+         "title": "포스터 제목",
+         "outputs": ["POSTER"],
+         "img": "site-img/파일명.jpg"
+       }
+   이런 항목은 홈페이지 SELECTED WORK / 상단 캐러셀에는 노출되지 않고, Work →
+   scope: POSTER 그리드에만 나타납니다. blocks를 넣어 케이스 스터디 프로젝트로
+   만들면(다른 프로젝트들처럼) 기존과 동일하게 클릭 시 상세페이지로 이동합니다.
+
+   포스터 확대보기 팝업 오른쪽 여백에 짧은 정보를 넣고 싶으면 year / client / scope
+   필드를 추가하면 됩니다 (셋 다 선택 사항, 있는 것만 표시됩니다. "year" 대신
+   "Year"나 "date"로 적어도 똑같이 인식됩니다):
+       {
+         "id": "poster-무엇이든-고유하게",
+         "title": "포스터 제목",
+         "outputs": ["POSTER"],
+         "img": "site-img/파일명.jpg",
+         "year": "2023",
+         "client": "SLL",
+         "scope": "Youtube Content Design"
+       }
+
+   ── LOGO 카테고리는 현재 비어 있습니다 ──────────────────
+   scope: LOGO 그리드는 지금 의도적으로 비워둔 상태입니다 (기존 프로젝트들의
+   outputs에서 "LOGO"를 뺐습니다). POSTER와 똑같은 방식으로, blocks 없이 최소
+   항목만 있는 객체를 추가하면 로고를 하나씩 채울 수 있습니다:
+       {
+         "id": "logo-무엇이든-고유하게",
+         "title": "로고 제목",
+         "outputs": ["LOGO"],
+         "img": "site-img/파일명.png"
+       }
+   LOGO 항목은 정사각형(1:1) 썸네일로 나오고, 클릭하면 POSTER와 동일하게 확대보기
+   팝업이 뜹니다(마찬가지로 blocks를 넣으면 케이스 스터디 상세페이지로 바뀝니다).
    ───────────────────────────────────────────── */
 
 const PROJECTS = [
@@ -146,257 +187,6 @@ const PROJECTS = [
         "type": "section",
         "label": "CREDITS — 2026.8",
         "body": "Creative Direction : jiyeon kim \n Design Strategy & System : jiyeon kim \n Visual Identity Design : jiyeon kim \n UX-UI Architecture : jiyeon kim \n Prompt Engineering : jiyeon kim \n Front-end Implementation : jiyeon kim \n\n Production : Jiyeon Kim \n Platform : iOS / Android\n\nJiyeon Kim led the entire journey from deep user research to multi-modal product execution. By rejecting excessive decoration and the artificial warmth of typical AI, she established a calm, privacy-first archive that helps parents preserve genuine memories through minimal taps rather than burdensome writing."
-      }
-    ]
-  },
-  {
-    "id": "coupang",
-    "title": "순례자들 in Spain",
-    "subtitleKo": "'Stadium Crashers in Spain' Visual Design",
-    "darkBg": true,
-    "year": "2025",
-    "client": "Coupang Play",
-    "workType": "CONTENT DESIGN",
-    "outputs": [
-      "LOGO",
-      "MOTION",
-      "POSTER"
-    ],
-    "img": "site-img/Project_1_keyart.mp4",
-    "hero": "site-img/Project_1_keyart.gif",
-    "big": false,
-    "descEn": "I designed the integrated visual identity system for the Coupang Play Original contents, <순례자들 in Spain>. This contents follows creators who love football traveling to Spain—the holy land of football culture—capturing their raw passion and natural chemistry on-site. My core objective was to establish a distinct, original identity within Coupang Play, a platform that already holds a dominant position in sports broadcasting. Moving beyond a generic travel format, the visual assets were engineered to capture the genuine authenticity and energy that resonates with the football fandom.",
-    "descKo": "쿠팡플레이 오리지널 예능 <순례자들 in Spain>의 비주얼 아이덴티티 제작을 진행했습니다. 이 프로그램은 축구에 진심인 연예인들이 축구의 성지인 스페인으로 떠나, 현지에서 겪는 생생한 열정과 유쾌한 케미를 담아낸 리얼리티 예능입니다. 프로젝트의 핵심은 스포츠 중계의 강자인 쿠팡플레이 안에서, 가벼운 여행 예능을 넘어 '축구 팬덤의 진정성'을 돋보이게 하는 독보적인 오리지널리티를 만드는 일이었습니다. 진짜 축구 팬덤이 공감할 수 있는 진정성과 에너지를 시각적으로 어떻게 구현할지 고민하며 디자인 자산을 설계했습니다.",
-    "blocks": [
-      {
-        "type": "section",
-        "label": "Project Overview",
-        "body": "쿠팡플레이 오리지널 예능 <순례자들 in Spain>의 비주얼 아이덴티티 제작을 진행했습니다. 이 프로그램은 축구에 진심인 연예인들이 축구의 성지인 스페인으로 떠나, 현지에서 겪는 생생한 열정과 유쾌한 케미를 담아낸 리얼리티 예능입니다. 프로젝트의 핵심은 스포츠 중계의 강자인 쿠팡플레이 안에서, 가벼운 여행 예능을 넘어 '축구 팬덤의 진정성'을 돋보이게 하는 독보적인 오리지널리티를 만드는 일이었습니다. 진짜 축구 팬덤이 공감할 수 있는 진정성과 에너지를 시각적으로 어떻게 구현할지 고민하며 디자인 자산을 설계했습니다.\n\nI designed the integrated visual identity system for the Coupang Play Original contents, <순례자들 in Spain>. This contents follows creators who love football traveling to Spain—the holy land of football culture—capturing their raw passion and natural chemistry on-site. My core objective was to establish a distinct, original identity within Coupang Play, a platform that already holds a dominant position in sports broadcasting. Moving beyond a generic travel format, the visual assets were engineered to capture the genuine authenticity and energy that resonates with the football fandom."
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_ui.png"
-        ],
-        "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Problem Definition",
-        "body": " 보통의 스포츠 예능에서 자주 쓰는 번쩍이는 3D 효과나 메탈릭한 디자인은 쿠팡플레이 특유의 차분하고 어두운 화면(Dark UI) 환경과 다른 수많은 콘텐츠들과 아무런 차별성을 만들어내지 못할 것이라 판단했습니다. 저는 이런 전형적인 스타일을 과감하게 걷어내고, 쿠팡플레이라는 플랫폼 안에서 축구 덕후들의 날 것 같은 에너지와 예능 특유의 유쾌함이 돋보일 수 있는 확실한 시각 전략을 세웠습니다.\n\nI determined that the shiny 3D effects and metallic designs frequently used in sports entertainment would not create any differentiation within Coupang Play’s quiet Dark UI environment and among its other contents. I viewed these conventional styles as visual noise that distracts the audience. By removing these generic trends, I established a clear, system-driven visual strategy to deliver the unrefined energy of football fans and the natural brightness of the contents directly to the screen. "
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_sketch.png",
-          "site-img/Project_1_logo.png",
-          "site-img/Project_1_keyart.png"
-        ],
-        "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Design Strategy — Logo",
-        "body": " 스페인이라는 공간적 배경을 가장 직관적으로 보여주기 위해, 축구 명문 구단 'FC 바르셀로나'를 상징하는 빨강, 파랑, 노랑 세 가지 원색을 메인 컬러웨이로 가져왔습니다. 이 강렬한 삼원색은 프로그램에 출연하는 세 명의 출연진이 가진 고유의 개성이자, 축구 덕후들의 날것 같은 에너지를 그대로 대변합니다. 여기에 길거리 그래피티에서 아이디어를 얻어 페인트가 흘러내리는 듯한 ‘드립(Dripping) 쉐입’과 역동적인 사선 구도를 매치했습니다. 이 조합은 수많은 콘텐츠 사이에서도 눈에 확실히 띄면서 프로그램 특유의 발랄한 인상을 남길 수 있도록 유도하였습니다.\n\nTo show the geographic and cultural context of Spain intuitively, I brought in a primary colorway inspired by the iconic colors of FC Barcelona. These three high-saturation primary colors represent the distinct personalities of the three hosts and the raw energy of the football fandom. To structure this attitude, I combined a dynamic diagonal layout with dripping shapes inspired by street graffiti. This combination ensures high contrast and clear visibility within dense digital product lists while leaving a memorable impression."
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_poster.png"
-        ],
-        "cols": 1,
-        "ratio": "auto",
-        "fit": "contain"
-      },
-      {
-        "type": "section",
-        "label": "Poster",
-        "body": " 포스터를 디자인은 인위적인 스튜디오 연출을 최대한 피했습니다. 스페인 축구 경기 현장의 거친 질감과 출연진이 보여주는 진짜 리얼리티를 있는 그대로 살려내는 데 집중했습니다. 여기에 로고와 같은 ‘드립’ 요소를 위트 있게 얹어, 시청자가 활기찬 ‘축구 성지순례’ 여정의 한복판에 함께 서 있는 듯한 몰입감을 주었습니다.\n\nThe poster and key art design avoids artificial studio setups and staged framing. Instead, it focuses on preserving the rough textures of actual football stadiums and the unscripted reality of the hosts. By placing the structural graffiti elements as a cohesive overlay, the design brings the audience closer to the screen, making them feel as if they are standing in the middle of this lively journey. "
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_substitles_1.png",
-          "site-img/Project_1_substitles_2.png",
-          "site-img/Project_1_substitles_3.png"
-        ],
-        "cols": 3,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_substitles_4.png",
-          "site-img/Project_1_substitles_5.png",
-          "site-img/Project_1_substitles_6.png"
-        ],
-        "cols": 3,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_subway.png",
-          "site-img/Project_1_car.png",
-          "site-img/Project_1_vinyl.png"
-        ],
-        "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Execution",
-        "body": " 작은 모바일 썸네일부터 방송 자막 시스템, 심지어 오프라인 촬영 차량 래핑까지 모든 접점의 디자인을 하나로 연결했습니다. 특히 수많은 제작진이 매주 빠르게 편집해야 하는 방송 환경을 고려해, 그래픽 소스와 자막 형태를 누구나 쉽게 조립해 쓸 수 있도록 템플릿으로 묶어두었습니다. 작업자마다 디자인이 제각각으로 변하는 것을 막고, 후반 작업 시간을 크게 줄여주어 실무진의 운영 효율(ROI)을 실질적으로 높였습니다.\n\nI connected the design rules seamlessly across all touchpoints, from small mobile thumbnails and on-air subtitle systems to offline vehicle wraps. Considering the fast-paced, weekly editing workflows of production teams, I modularized all graphic sources and typographic layouts into a component-based design system. By setting structural rules—such as optimized font widths and systematic safe margins for multi-device environments—I prevented design fragmentation and reduced post-production time, effectively increasing operational efficiency. "
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_stadium.png"
-        ],
-        "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Impact",
-        "body": " 기획 초기 단계부터 이 프로그램이 향후 다른 국가나 다른 리그로 스핀오프(확장)될 상황까지 미리 계산해서 디자인 가이드를 짰습니다. 중심이 되는 뼈대와 레이아웃은 그대로 두고, 다음 시즌 국가의 상징색에 맞춰 컬러만 쏙 바꾸면 즉시 새 패키지가 완성되는 유연한 구조입니다. 매번 디자인을 새로 하느라 비용과 시간을 낭비하지 않고, 회차가 거듭될수록 가치가 쌓이는 단단한 자산이 되도록 만들었습니다.\n\nFrom the early planning stages, the visual identity was designed to scale smoothly into future seasons, different national leagues, or spin-offs. The core typographic hierarchy and layout grids remain completely fixed as a structural framework; flexibility is achieved instantly by changing the primary color system to match the representative colors of the next country. This variable architecture eliminates redundant design processes, turning a single-season design package into a sustainable institutional asset that builds value over time. "
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_poster_2.png"
-        ],
-        "cols": 1,
-        "ratio": "auto",
-        "fit": "contain"
-      },
-      {
-        "type": "section",
-        "label": "Credits — 2025.06",
-        "body": "Creative Direction : jiyeon kim \n Design Strategy & System : jiyeon kim \n Visual Identity Design : jiyeon kim \n Key Art & Poster Design : jiyeon kim \n On-Air Graphic System : jiyeon kim \n Motion & Content Design : jiyeon kim \n\n Production : Borderless Film \n Platform : Coupang Play"
-      }
-    ]
-  },
-  {
-    "id": "workman",
-    "title": "워크맨 시즌2",
-    "subtitleKo": "Workman Season 2 Visual Optimization",
-    "darkBg": true,
-    "year": "2022",
-    "client": "SLL",
-    "workType": "CONTENT DESIGN",
-    "outputs": [
-      "MOTION",
-      "POSTER"
-    ],
-    "img": "site-img/Project_3_bumper.mp4",
-    "hero": "site-img/Project_3_logo_keyart_1.png",
-    "big": false,
-    "descEn": "This project focused on visual optimization for the launch of Season 2 of the mega-hit digital content, Workman. The core objective was not a total overhaul. Instead, it was about protecting the established brand logo and signature colors—the visual assets the audience is already familiar with. By refining only the background graphics and textures, the design maintains brand continuity for existing fans while introducing a fresh rhythm and tension for the new season.",
-    "descKo": "유튜브 메가히트 오리지널 콘텐츠 <워크맨>의 시즌 2 론칭에 맞춘 비주얼 최적화 프로젝트입니다. 이번 작업의 핵심은 '모든 것을 갈아엎는 전면적인 리뉴얼'이 아니었습니다. 사람들이 이미 친숙하게 인지하고 있는 브랜드 로고와 메인 컬러의 고유한 정체성은 철저히 보호하되, 영상 전반을 구성하는 배경 그래픽과 텍스처를 새롭게 다듬었습니다. 이를 통해 기존 팬들이 느끼는 브랜드의 편안함은 유지하면서도, 시즌 2 특유의 새로운 활기와 긴장감을 부여하는 시각적 스케일업에 집중했습니다.",
-    "blocks": [
-      {
-        "type": "section",
-        "label": "Project Overview",
-        "body": " 유튜브 메가히트 오리지널 콘텐츠 <워크맨>의 시즌 2 론칭에 맞춘 비주얼 최적화 프로젝트입니다. 이번 작업의 핵심은 '모든 것을 갈아엎는 전면적인 리뉴얼'이 아니었습니다. 사람들이 이미 친숙하게 인지하고 있는 브랜드 로고와 메인 컬러의 고유한 정체성은 철저히 보호하되, 영상 전반을 구성하는 배경 그래픽과 텍스처를 새롭게 다듬었습니다. 이를 통해 기존 팬들이 느끼는 브랜드의 편안함은 유지하면서도, 시즌 2 특유의 새로운 활기와 긴장감을 부여하는 시각적 스케일업에 집중했습니다.\n\nThis project focused on visual optimization for the launch of Season 2 of the mega-hit digital content, Workman. The core objective was not a total overhaul. Instead, it was about protecting the established brand logo and signature colors—the visual assets the audience is already familiar with. By refining only the background graphics and textures, the design maintains brand continuity for existing fans while introducing a fresh rhythm and tension for the new season. "
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_3_logo_1.png",
-          "site-img/Project_3_logo_2.png"
-        ],
-        "cols": 2,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Problem Definition",
-        "body": " 인기 있는 메가 IP가 다음 시즌으로 넘어갈 때 가장 경계해야 할 것은 무리한 디자인 개편으로 인한 '팬덤의 인지 혼란'입니다. 로고나 핵심 톤앤매너를 섣불리 바꿀 경우, 오랜 시간 시청자와 쌓아온 브랜드 애착이 단절될 위험이 큽니다. 반대로 아무런 변화가 없다면 장기 방영으로 인한 시각적 피로도를 극복하기 어렵습니다. 따라서 단순히 '새롭게 보이려는' 과잉을 과감히 배제하고, 기존의 정돈된 골격 위에서 시청자의 시선을 다시금 꽉 붙잡아둘 수 있는 전략적이고 즉각적인 그래픽 해법이 필요했습니다.\n\nWhen a major IP transitions to a new season, the biggest risk is causing visual confusion among the fandom through unnecessary design changes. Altering the logo or core tone too abruptly can disrupt the brand loyalty built with viewers over time. Conversely, making no changes leads to visual fatigue. To balance this, we avoided superficial decorations and focused on a strategic graphic solution that captures attention immediately while respecting the existing framework. "
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_3_poster_1.png",
-          "site-img/Project_3_poster_1.png"
-        ],
-        "cols": 2,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Design Strategy — Logo",
-        "body": " 채널의 얼굴인 로고는 항상 같은 자리에 단단히 고정해 브랜드의 중심을 잡았습니다. 반면, 화면에 깔리는 질감이나 주변 그래픽 요소들은 새 시즌의 성격에 맞춰 유연하게 바꾸어 구성했습니다. 특히 '셔터'가 거칠게 내려가는 강렬한 움직임을 활용하여, 퇴근을 열망하는 직장인들의 일상 속 바람을 위트 있게 담아냈습니다. 시청자의 시선이 순간적으로 머무는 범퍼 트랜지션이나 유튜브 엔드페이지에는 이전보다 훨씬 밀도 높은 텍스처와 입체적인 디자인을 적용해 완성도를 높였습니다. 이처럼 기존 브랜드 고유의 정체성은 안전하게 지키면서도, 시즌에 필요한 활기차고 생동감 넘치는 분위기를 거친 질감 표현을 통해 효과적으로 강조했습니다.\n\nThe brand logo, serving as the core anchor of the identity, remains strictly fixed in its position to maintain structural consistency. In contrast, the surrounding graphic components and textures are designed to adapt flexibly according to the seasonal context. We introduced a dynamic motion motif based on a sharp, heavy shutter movement, translating the everyday context of 'the end of the workday' into a distinct visual tension. For interstitial bumpers and pop-up notifications where viewer attention peaks momentarily, we applied high-density textures and structural depth to maximize visual engagement. This framework effectively preserves the brand's core legacy while allowing the seasonal narrative to feel lively and impactful through carefully controlled tactile expressions."
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_3_bumper.mp4"
-        ],
-        "cols": 1,
-        "ratio": "auto",
-        "fit": "contain"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_3_event_1.png",
-          "site-img/Project_3_event_3.png"
-        ],
-        "cols": 2,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_3_event_4.png"
-        ],
-        "cols": 1,
-        "ratio": "auto",
-        "fit": "contain"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_3_event_5.png",
-          "site-img/Project_3_event_6.png",
-          "site-img/Project_3_event_7.png",
-          "site-img/Project_3_event_8.png"
-        ],
-        "cols": 4,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_3_event_10.png",
-          "site-img/Project_3_event_11.png"
-        ],
-        "cols": 2,
-        "ratio": "contain",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Impact",
-        "body": " 이 프로젝트는 '무조건 새롭게 엎어야만 리뉴얼'이라는 편견을 깨고, 시스템을 최적화하는 것만으로 메가 IP의 생명력을 성공적으로 연장한 사례입니다. 그래픽 디테일을 다듬고 시스템을 정리한 결과, 기존 팬들에게는 안정감을, 새로운 시청자에게는 트렌디한 자극을 완벽히 전달했습니다. 여기서 정립된 텍스처와 그래픽 운용 규칙은 향후 시즌 3, 4로 확장되더라도 전면적인 리뉴얼에 드는 막대한 비용과 시간 없이, 유연하고 신속하게 새로운 분위기를 전환할 수 있는 단단한 비주얼 자산으로 남았습니다.\n\nThis project challenges the misconception that a rebrand requires changing everything from scratch. It proves that optimizing a visual system can successfully extend the lifecycle of a massive IP. By refining the graphic details and structuring the system, we delivered stability to existing fans and fresh excitement to new viewers. The established graphic rules now serve as a scalable visual asset, allowing future seasons to adapt swiftly without the heavy costs or time required for a full redesign."
-      },
-      {
-        "type": "section",
-        "label": "Credits — 2023.03",
-        "body": "Creative Direction : jiyeon kim \n Design Strategy & System : jiyeon kim \n Visual Identity Design : jiyeon kim \n Key Art & Poster Design : jiyeon kim \n On-Air Graphic System : jiyeon kim \n Motion & Content Design : jiyeon kim \n\n Platform : Youtube Channel-Studio Lululala"
       }
     ]
   },
@@ -547,17 +337,270 @@ const PROJECTS = [
     ]
   },
   {
+    "id": "coupang",
+    "title": "순례자들 in Spain",
+    "subtitleKo": "'Stadium Crashers in Spain' Visual Design",
+    "darkBg": true,
+    "year": "2025",
+    "client": "Coupang Play",
+    "scope": "OTT Content Design",
+    "workType": "CONTENT DESIGN",
+    "outputs": [
+      "MOTION",
+      "POSTER"
+    ],
+    "img": "site-img/Project_1_keyart.mp4",
+    "hero": "site-img/Project_1_keyart.gif",
+    "big": false,
+    "descEn": "I designed the integrated visual identity system for the Coupang Play Original contents, <순례자들 in Spain>. This contents follows creators who love football traveling to Spain—the holy land of football culture—capturing their raw passion and natural chemistry on-site. My core objective was to establish a distinct, original identity within Coupang Play, a platform that already holds a dominant position in sports broadcasting. Moving beyond a generic travel format, the visual assets were engineered to capture the genuine authenticity and energy that resonates with the football fandom.",
+    "descKo": "쿠팡플레이 오리지널 예능 <순례자들 in Spain>의 비주얼 아이덴티티 제작을 진행했습니다. 이 프로그램은 축구에 진심인 연예인들이 축구의 성지인 스페인으로 떠나, 현지에서 겪는 생생한 열정과 유쾌한 케미를 담아낸 리얼리티 예능입니다. 프로젝트의 핵심은 스포츠 중계의 강자인 쿠팡플레이 안에서, 가벼운 여행 예능을 넘어 '축구 팬덤의 진정성'을 돋보이게 하는 독보적인 오리지널리티를 만드는 일이었습니다. 진짜 축구 팬덤이 공감할 수 있는 진정성과 에너지를 시각적으로 어떻게 구현할지 고민하며 디자인 자산을 설계했습니다.",
+    "blocks": [
+      {
+        "type": "section",
+        "label": "Project Overview",
+        "body": "쿠팡플레이 오리지널 예능 <순례자들 in Spain>의 비주얼 아이덴티티 제작을 진행했습니다. 이 프로그램은 축구에 진심인 연예인들이 축구의 성지인 스페인으로 떠나, 현지에서 겪는 생생한 열정과 유쾌한 케미를 담아낸 리얼리티 예능입니다. 프로젝트의 핵심은 스포츠 중계의 강자인 쿠팡플레이 안에서, 가벼운 여행 예능을 넘어 '축구 팬덤의 진정성'을 돋보이게 하는 독보적인 오리지널리티를 만드는 일이었습니다. 진짜 축구 팬덤이 공감할 수 있는 진정성과 에너지를 시각적으로 어떻게 구현할지 고민하며 디자인 자산을 설계했습니다.\n\nI designed the integrated visual identity system for the Coupang Play Original contents, <순례자들 in Spain>. This contents follows creators who love football traveling to Spain—the holy land of football culture—capturing their raw passion and natural chemistry on-site. My core objective was to establish a distinct, original identity within Coupang Play, a platform that already holds a dominant position in sports broadcasting. Moving beyond a generic travel format, the visual assets were engineered to capture the genuine authenticity and energy that resonates with the football fandom."
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_ui.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "Problem Definition",
+        "body": " 보통의 스포츠 예능에서 자주 쓰는 번쩍이는 3D 효과나 메탈릭한 디자인은 쿠팡플레이 특유의 차분하고 어두운 화면(Dark UI) 환경과 다른 수많은 콘텐츠들과 아무런 차별성을 만들어내지 못할 것이라 판단했습니다. 저는 이런 전형적인 스타일을 과감하게 걷어내고, 쿠팡플레이라는 플랫폼 안에서 축구 덕후들의 날 것 같은 에너지와 예능 특유의 유쾌함이 돋보일 수 있는 확실한 시각 전략을 세웠습니다.\n\nI determined that the shiny 3D effects and metallic designs frequently used in sports entertainment would not create any differentiation within Coupang Play’s quiet Dark UI environment and among its other contents. I viewed these conventional styles as visual noise that distracts the audience. By removing these generic trends, I established a clear, system-driven visual strategy to deliver the unrefined energy of football fans and the natural brightness of the contents directly to the screen. "
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_sketch.png",
+          "site-img/Project_1_logo.png",
+          "site-img/Project_1_keyart.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "Design Strategy — Logo",
+        "body": " 스페인이라는 공간적 배경을 가장 직관적으로 보여주기 위해, 축구 명문 구단 'FC 바르셀로나'를 상징하는 빨강, 파랑, 노랑 세 가지 원색을 메인 컬러웨이로 가져왔습니다. 이 강렬한 삼원색은 프로그램에 출연하는 세 명의 출연진이 가진 고유의 개성이자, 축구 덕후들의 날것 같은 에너지를 그대로 대변합니다. 여기에 길거리 그래피티에서 아이디어를 얻어 페인트가 흘러내리는 듯한 ‘드립(Dripping) 쉐입’과 역동적인 사선 구도를 매치했습니다. 이 조합은 수많은 콘텐츠 사이에서도 눈에 확실히 띄면서 프로그램 특유의 발랄한 인상을 남길 수 있도록 유도하였습니다.\n\nTo show the geographic and cultural context of Spain intuitively, I brought in a primary colorway inspired by the iconic colors of FC Barcelona. These three high-saturation primary colors represent the distinct personalities of the three hosts and the raw energy of the football fandom. To structure this attitude, I combined a dynamic diagonal layout with dripping shapes inspired by street graffiti. This combination ensures high contrast and clear visibility within dense digital product lists while leaving a memorable impression."
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_poster.png"
+        ],
+        "cols": 1,
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "section",
+        "label": "Poster",
+        "body": " 포스터를 디자인은 인위적인 스튜디오 연출을 최대한 피했습니다. 스페인 축구 경기 현장의 거친 질감과 출연진이 보여주는 진짜 리얼리티를 있는 그대로 살려내는 데 집중했습니다. 여기에 로고와 같은 ‘드립’ 요소를 위트 있게 얹어, 시청자가 활기찬 ‘축구 성지순례’ 여정의 한복판에 함께 서 있는 듯한 몰입감을 주었습니다.\n\nThe poster and key art design avoids artificial studio setups and staged framing. Instead, it focuses on preserving the rough textures of actual football stadiums and the unscripted reality of the hosts. By placing the structural graffiti elements as a cohesive overlay, the design brings the audience closer to the screen, making them feel as if they are standing in the middle of this lively journey. "
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_substitles_1.png",
+          "site-img/Project_1_substitles_2.png",
+          "site-img/Project_1_substitles_3.png"
+        ],
+        "cols": 3,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_substitles_4.png",
+          "site-img/Project_1_substitles_5.png",
+          "site-img/Project_1_substitles_6.png"
+        ],
+        "cols": 3,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_subway.png",
+          "site-img/Project_1_car.png",
+          "site-img/Project_1_vinyl.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "Execution",
+        "body": " 작은 모바일 썸네일부터 방송 자막 시스템, 심지어 오프라인 촬영 차량 래핑까지 모든 접점의 디자인을 하나로 연결했습니다. 특히 수많은 제작진이 매주 빠르게 편집해야 하는 방송 환경을 고려해, 그래픽 소스와 자막 형태를 누구나 쉽게 조립해 쓸 수 있도록 템플릿으로 묶어두었습니다. 작업자마다 디자인이 제각각으로 변하는 것을 막고, 후반 작업 시간을 크게 줄여주어 실무진의 운영 효율(ROI)을 실질적으로 높였습니다.\n\nI connected the design rules seamlessly across all touchpoints, from small mobile thumbnails and on-air subtitle systems to offline vehicle wraps. Considering the fast-paced, weekly editing workflows of production teams, I modularized all graphic sources and typographic layouts into a component-based design system. By setting structural rules—such as optimized font widths and systematic safe margins for multi-device environments—I prevented design fragmentation and reduced post-production time, effectively increasing operational efficiency. "
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_stadium.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "Impact",
+        "body": " 기획 초기 단계부터 이 프로그램이 향후 다른 국가나 다른 리그로 스핀오프(확장)될 상황까지 미리 계산해서 디자인 가이드를 짰습니다. 중심이 되는 뼈대와 레이아웃은 그대로 두고, 다음 시즌 국가의 상징색에 맞춰 컬러만 쏙 바꾸면 즉시 새 패키지가 완성되는 유연한 구조입니다. 매번 디자인을 새로 하느라 비용과 시간을 낭비하지 않고, 회차가 거듭될수록 가치가 쌓이는 단단한 자산이 되도록 만들었습니다.\n\nFrom the early planning stages, the visual identity was designed to scale smoothly into future seasons, different national leagues, or spin-offs. The core typographic hierarchy and layout grids remain completely fixed as a structural framework; flexibility is achieved instantly by changing the primary color system to match the representative colors of the next country. This variable architecture eliminates redundant design processes, turning a single-season design package into a sustainable institutional asset that builds value over time. "
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_poster_2.png"
+        ],
+        "cols": 1,
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "section",
+        "label": "Credits — 2025.06",
+        "body": "Creative Direction : jiyeon kim \n Design Strategy & System : jiyeon kim \n Visual Identity Design : jiyeon kim \n Key Art & Poster Design : jiyeon kim \n On-Air Graphic System : jiyeon kim \n Motion & Content Design : jiyeon kim \n\n Production : Borderless Film \n Platform : Coupang Play"
+      }
+    ]
+  },
+  {
+    "id": "workman",
+    "title": "워크맨 시즌2",
+    "subtitleKo": "Workman Season 2 Visual Optimization",
+    "darkBg": true,
+    "year": "2022",
+    "client": "SLL",
+    "scope": "Youtube Content Design",
+    "workType": "CONTENT DESIGN",
+    "outputs": [
+      "MOTION",
+      "POSTER"
+    ],
+    "img": "site-img/Project_3_bumper.mp4",
+    "hero": "site-img/Project_3_logo_keyart_1.png",
+    "big": false,
+    "descEn": "This project focused on visual optimization for the launch of Season 2 of the mega-hit digital content, Workman. The core objective was not a total overhaul. Instead, it was about protecting the established brand logo and signature colors—the visual assets the audience is already familiar with. By refining only the background graphics and textures, the design maintains brand continuity for existing fans while introducing a fresh rhythm and tension for the new season.",
+    "descKo": "유튜브 메가히트 오리지널 콘텐츠 <워크맨>의 시즌 2 론칭에 맞춘 비주얼 최적화 프로젝트입니다. 이번 작업의 핵심은 '모든 것을 갈아엎는 전면적인 리뉴얼'이 아니었습니다. 사람들이 이미 친숙하게 인지하고 있는 브랜드 로고와 메인 컬러의 고유한 정체성은 철저히 보호하되, 영상 전반을 구성하는 배경 그래픽과 텍스처를 새롭게 다듬었습니다. 이를 통해 기존 팬들이 느끼는 브랜드의 편안함은 유지하면서도, 시즌 2 특유의 새로운 활기와 긴장감을 부여하는 시각적 스케일업에 집중했습니다.",
+    "blocks": [
+      {
+        "type": "section",
+        "label": "Project Overview",
+        "body": " 유튜브 메가히트 오리지널 콘텐츠 <워크맨>의 시즌 2 론칭에 맞춘 비주얼 최적화 프로젝트입니다. 이번 작업의 핵심은 '모든 것을 갈아엎는 전면적인 리뉴얼'이 아니었습니다. 사람들이 이미 친숙하게 인지하고 있는 브랜드 로고와 메인 컬러의 고유한 정체성은 철저히 보호하되, 영상 전반을 구성하는 배경 그래픽과 텍스처를 새롭게 다듬었습니다. 이를 통해 기존 팬들이 느끼는 브랜드의 편안함은 유지하면서도, 시즌 2 특유의 새로운 활기와 긴장감을 부여하는 시각적 스케일업에 집중했습니다.\n\nThis project focused on visual optimization for the launch of Season 2 of the mega-hit digital content, Workman. The core objective was not a total overhaul. Instead, it was about protecting the established brand logo and signature colors—the visual assets the audience is already familiar with. By refining only the background graphics and textures, the design maintains brand continuity for existing fans while introducing a fresh rhythm and tension for the new season. "
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_3_logo_1.png",
+          "site-img/Project_3_logo_2.png"
+        ],
+        "cols": 2,
+        "ratio": "auto",
+        "fit": "contain",
+        "transparent": true
+      },
+      {
+        "type": "section",
+        "label": "Problem Definition",
+        "body": " 인기 있는 메가 IP가 다음 시즌으로 넘어갈 때 가장 경계해야 할 것은 무리한 디자인 개편으로 인한 '팬덤의 인지 혼란'입니다. 로고나 핵심 톤앤매너를 섣불리 바꿀 경우, 오랜 시간 시청자와 쌓아온 브랜드 애착이 단절될 위험이 큽니다. 반대로 아무런 변화가 없다면 장기 방영으로 인한 시각적 피로도를 극복하기 어렵습니다. 따라서 단순히 '새롭게 보이려는' 과잉을 과감히 배제하고, 기존의 정돈된 골격 위에서 시청자의 시선을 다시금 꽉 붙잡아둘 수 있는 전략적이고 즉각적인 그래픽 해법이 필요했습니다.\n\nWhen a major IP transitions to a new season, the biggest risk is causing visual confusion among the fandom through unnecessary design changes. Altering the logo or core tone too abruptly can disrupt the brand loyalty built with viewers over time. Conversely, making no changes leads to visual fatigue. To balance this, we avoided superficial decorations and focused on a strategic graphic solution that captures attention immediately while respecting the existing framework. "
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_3_poster_1.png",
+          "site-img/Project_3_poster_1.png"
+        ],
+        "cols": 2,
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "section",
+        "label": "Design Strategy — Logo",
+        "body": " 채널의 얼굴인 로고는 항상 같은 자리에 단단히 고정해 브랜드의 중심을 잡았습니다. 반면, 화면에 깔리는 질감이나 주변 그래픽 요소들은 새 시즌의 성격에 맞춰 유연하게 바꾸어 구성했습니다. 특히 '셔터'가 거칠게 내려가는 강렬한 움직임을 활용하여, 퇴근을 열망하는 직장인들의 일상 속 바람을 위트 있게 담아냈습니다. 시청자의 시선이 순간적으로 머무는 범퍼 트랜지션이나 유튜브 엔드페이지에는 이전보다 훨씬 밀도 높은 텍스처와 입체적인 디자인을 적용해 완성도를 높였습니다. 이처럼 기존 브랜드 고유의 정체성은 안전하게 지키면서도, 시즌에 필요한 활기차고 생동감 넘치는 분위기를 거친 질감 표현을 통해 효과적으로 강조했습니다.\n\nThe brand logo, serving as the core anchor of the identity, remains strictly fixed in its position to maintain structural consistency. In contrast, the surrounding graphic components and textures are designed to adapt flexibly according to the seasonal context. We introduced a dynamic motion motif based on a sharp, heavy shutter movement, translating the everyday context of 'the end of the workday' into a distinct visual tension. For interstitial bumpers and pop-up notifications where viewer attention peaks momentarily, we applied high-density textures and structural depth to maximize visual engagement. This framework effectively preserves the brand's core legacy while allowing the seasonal narrative to feel lively and impactful through carefully controlled tactile expressions."
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_3_bumper.mp4"
+        ],
+        "cols": 1,
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_3_event_1.png",
+          "site-img/Project_3_event_3.png"
+        ],
+        "cols": 2,
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_3_event_4.png"
+        ],
+        "cols": 1,
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_3_event_5.png",
+          "site-img/Project_3_event_6.png",
+          "site-img/Project_3_event_7.png",
+          "site-img/Project_3_event_8.png"
+        ],
+        "cols": 4,
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_3_event_10.png",
+          "site-img/Project_3_event_11.png"
+        ],
+        "cols": 2,
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "section",
+        "label": "Impact",
+        "body": " 이 프로젝트는 '무조건 새롭게 엎어야만 리뉴얼'이라는 편견을 깨고, 시스템을 최적화하는 것만으로 메가 IP의 생명력을 성공적으로 연장한 사례입니다. 그래픽 디테일을 다듬고 시스템을 정리한 결과, 기존 팬들에게는 안정감을, 새로운 시청자에게는 트렌디한 자극을 완벽히 전달했습니다. 여기서 정립된 텍스처와 그래픽 운용 규칙은 향후 시즌 3, 4로 확장되더라도 전면적인 리뉴얼에 드는 막대한 비용과 시간 없이, 유연하고 신속하게 새로운 분위기를 전환할 수 있는 단단한 비주얼 자산으로 남았습니다.\n\nThis project challenges the misconception that a rebrand requires changing everything from scratch. It proves that optimizing a visual system can successfully extend the lifecycle of a massive IP. By refining the graphic details and structuring the system, we delivered stability to existing fans and fresh excitement to new viewers. The established graphic rules now serve as a scalable visual asset, allowing future seasons to adapt swiftly without the heavy costs or time required for a full redesign."
+      },
+      {
+        "type": "section",
+        "label": "Credits — 2023.03",
+        "body": "Creative Direction : jiyeon kim \n Design Strategy & System : jiyeon kim \n Visual Identity Design : jiyeon kim \n Key Art & Poster Design : jiyeon kim \n On-Air Graphic System : jiyeon kim \n Motion & Content Design : jiyeon kim \n\n Platform : Youtube Channel-Studio Lululala"
+      }
+    ]
+  },
+  {
     "id": "ttibalnom",
     "title": "띄밟놈",
     "subtitleKo": "SLL Original 'Tti-Bal-Nom' Visual Design",
     "darkBg": true,
     "year": "2022",
     "client": "SLL(JTBC Studios)",
+    "scope": "Youtube Content Design",
     "workType": "CONTENT DESIGN",
     "outputs": [
       "MOTION",
-      "POSTER",
-      "LOGO"
+      "POSTER"
     ],
     "img": "site-img/Project_4_bumper.mp4",
     "hero": "site-img/Project_4_keyart.jpg",
@@ -578,7 +621,8 @@ const PROJECTS = [
         ],
         "cols": 2,
         "ratio": "16/9",
-        "fit": "cover"
+        "fit": "cover",
+        "transparent": true
       },
       {
         "type": "section",
@@ -591,8 +635,8 @@ const PROJECTS = [
           "site-img/Project_4_poster.jpg"
         ],
         "cols": 1,
-        "ratio": "contain",
-        "fit": "cover"
+        "ratio": "auto",
+        "fit": "contain"
       },
       {
         "type": "section",
@@ -645,16 +689,17 @@ const PROJECTS = [
     "id": "project10k",
     "title": "Project 10K",
     "subtitleKo": "프로젝트 10K : 콘텐츠 비주얼 아이덴티티 및 패키지 구축",
+    "darkBg": true,
     "year": "2023",
     "client": "SLL(JTBC Studios)",
+    "scope": "Youtube Content Design",
     "workType": "CONTENT DESIGN",
     "outputs": [
       "KEY VISUAL",
       "MOTION",
-      "POSTER",
-      "LOGO"
+      "POSTER"
     ],
-    "img": "site-img/Project_5_poster.png",
+    "img": "site-img/Project_5_bumper_1.mp4",
     "hero": "site-img/Project_5_keyart.png",
     "big": false,
     "descEn": "Directed the visual identity and packaging system for <Project 10K>, a challenge-based reality show tracking a rookie artist's journey to a Tokyo arena debut. The project visualizes a massive quest to mobilize 10,000 audience members across five guerrilla performances. Going beyond standard variety show entertainment graphic design, the focus was on designing a dynamic framework where the artists break through real-world missions and expand their own universe.",
@@ -668,11 +713,12 @@ const PROJECTS = [
       {
         "type": "images",
         "src": [
-          "site-img/Project_5_logo.png"
+          "site-img/Project_5_logo.png",
         ],
-        "cols": 2,
+        "cols": 1,
         "ratio": "16/9",
-        "fit": "cover"
+        "fit": "cover",
+        "transparent": true
       },
       {
         "type": "section",
@@ -686,8 +732,8 @@ const PROJECTS = [
           "site-img/Project_5_poster.png"
         ],
         "cols": 2,
-        "ratio": "16/9",
-        "fit": "cover"
+        "ratio": "auto",
+        "fit": "contain"
       },
       {
         "type": "section",
@@ -725,35 +771,98 @@ const PROJECTS = [
     ]
   },
   {
-    "id": "changing-majors",
-    "title": "Changing Majors",
-    "subtitleKo": "",
-    "year": "",
-    "client": "",
-    "workType": "PROMOTION",
-    "outputs": [
-      "POSTER"
-    ],
-    "img": "site-img/Poster_ootb_1_1.jpg",
-    "big": false,
-    "descEn": "",
-    "descKo": ""
-  },
+         "id": "poster-SLL-0",
+         "title": "워크돌",
+         "outputs": ["POSTER"],
+         "date": "2023",
+         "client": "SLL",
+         "scope": "Youtube Content Design",
+         "img": "site-img/Poster_workdol.png"
+       },
   {
-    "id": "dae-pyo-ja",
-    "title": "Dae-pyo-ja",
-    "subtitleKo": "",
-    "year": "",
-    "client": "",
-    "workType": "PROMOTION",
-    "outputs": [
-      "POSTER"
-    ],
-    "img": "site-img/Poster_ootb_2.png",
-    "big": false,
-    "descEn": "",
-    "descKo": ""
-  }
+         "id": "poster-SLL-1",
+         "title": "와썹맨X",
+         "outputs": ["POSTER"],
+         "date": "2021",
+         "client": "SLL",
+         "scope": "Youtube Content Design",
+         "img": "site-img/Poster_wassupman.png"
+       },
+       {
+         "id": "poster-SLL-2",
+         "title": "퍼니맨",
+         "outputs": ["POSTER"],
+         "Year": "2022",
+         "client": "SLL",
+         "scope": "Youtube Content Design",
+         "img": "site-img/Poster_funnyman.png"
+       },
+       {
+         "id": "poster-SLL-3",
+         "title": "아이돌원더랜드",
+         "outputs": ["POSTER"],
+         "Year": "2022",
+         "client": "SLL",
+         "scope": "Youtube Content Design",
+         "img": "site-img/Poster_idolwonderland.png"
+       },
+       {
+         "id": "poster-SLL-4",
+         "title": "주크박스3",
+         "outputs": ["POSTER"],
+         "Year": "2022",
+         "client": "SLL",
+         "scope": "Youtube Content Design",
+         "img": "site-img/Poster_jukebox.png"
+       },
+        {
+         "id": "poster-jeongwaja",
+         "title": "전과자",
+         "outputs": ["POSTER"],
+         "img": "site-img/Poster_ootb_1_1.jpg",
+         "Year": "2022",
+         "client": "OOTB",
+         "scope": "Youtube Content Design"
+       },
+       {
+         "id": "poster-daepyoja",
+         "title": "대표자",
+         "outputs": ["POSTER"],
+         "img": "site-img/Poster_ootb_2.png",
+         "Year": "2023",
+         "client": "OOTB",
+         "scope": "Youtube Content Design"
+       },
+        {
+         "id": "poster-3",
+         "title": "승진왕",
+         "outputs": ["POSTER"],
+         "img": "site-img/Poster_ootb_3.png",
+         "Year": "2022",
+         "client": "OOTB",
+         "scope": "Youtube Content Design"
+       },
+       {
+         "id": "poster-4",
+         "title": "종목발굴단",
+         "outputs": ["POSTER"],
+         "img": "site-img/Poster_ootb_4.jpg",
+         "Year": "2023",
+         "client": "OOTB",
+         "scope": "Youtube Content Design"
+       },
+       {
+         "id": "logo-1",
+         "title": "띄밟놈",
+         "outputs": ["LOGO"],
+         "img": "site-img/Project_4_logo.png"
+       },
+       {
+         "id": "logo-2",
+         "title": "Project 10K",
+         "outputs": ["LOGO"],
+         "img": "site-img/Project_5_logo.png"
+       }
 ];
 
 window.PROJECTS = PROJECTS;

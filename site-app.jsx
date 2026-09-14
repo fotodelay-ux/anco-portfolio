@@ -13,9 +13,9 @@ const EN = {
   // shown side by side (EN left, KO right) regardless of the language toggle — not tied to `lang`
   homeIntroHeadingEn: 'Jiyeon Kim / Visual Designer',
   homeIntroHeadingKo: '김지연 / 비주얼 디자이너',
-  homeIntroEn: "I’m a designer working across content and brand. I mainly work on logos, posters, motions, and branding. Recently, I’ve also been planning and designing mobile apps, exploring new ideas by making and testing them myself.",
-  homeIntroKo: '콘텐츠와 브랜드를 다루는 디자이너입니다. 주로 로고, 포스터, 모션그래픽부터 브랜딩까지 다양한 작업을 합니다. 최근에는 모바일 앱 제품을 직접 기획하고 디자인하며, 생각한 것을 직접 만들고 실험하는 디자인을 이어가고 있습니다.',
-  aboutHeading: 'Content & Brand Designer',
+  homeIntroEn: "I’m a designer working across content and brand. My work spans graphic design, motion, and channel branding. Recently, I’ve expanded into mobile app design, turning ideas into products through hands-on making and experimentation.",
+  homeIntroKo: '콘텐츠와 브랜드를 다루는 비주얼 디자이너입니다. 로고와 포스터를 비롯한 그래픽 디자인부터 타이틀과 프로모션 영상, 채널 브랜딩까지 다양한 디자인 작업을 합니다. 최근에는 모바일 앱 제품을 직접 기획하고 디자인하며, 생각한 것을 직접 만들고 실험하는 디자인을 이어가고 있습니다.',
+  aboutHeading: 'Jiyeon Kim / Visual Designer',
   aboutBodies: [
     "I'm a designer creating a wide range of visual experiences across content and brand.",
     'My experience spans everything from defining the identity of channels and programs to bringing content concepts to life through logos, posters, motion, and other visual work.',
@@ -48,7 +48,7 @@ const KO = {
   heroCta: '작업 보러가기',
   // homeIntro* fields intentionally NOT overridden here — the home intro
   // shows both languages side by side, unaffected by the lang toggle.
-  aboutHeading: 'Jiyeon Kim / Content & Brand Designer',
+  aboutHeading: 'Jiyeon Kim / Visual Designer',
   aboutBodies: [
     '콘텐츠와 브랜드를 중심으로 다양한 시각 경험을 만드는 디자이너입니다. 채널과 프로그램의 성격을 정의하는 브랜딩부터 로고, 포스터, 영상 등 콘텐츠의 콘셉트를 구체화하는 작업까지 폭넓은 경험을 가지고 있습니다.',
     '하나의 아이디어가 여러 플랫폼과 매체에서 자연스럽게 이어질 수 있도록 비주얼 아이덴티티와 디자인 시스템을 만들고, 프로모션 영상과 오리지널 콘텐츠의 비주얼 디자인까지 직접 기획하고 제작해왔습니다.',
@@ -58,8 +58,111 @@ const KO = {
 
 const WORK_TYPES = ['ALL', 'CHANNEL BRANDING', 'CONTENT DESIGN', 'PRODUCT DESIGN'];
 const OUTPUT_TAGS = ['ALL', 'LOGO', 'POSTER', 'MOTION', 'UI / UX'];
-const RADIUS = 20; // home page's scrolling project thumbnails
-const RADIUS_SM = 10; // every other thumbnail (Work list/grids, detail page)
+const RADIUS = 25; // home page's scrolling project thumbnails
+const RADIUS_SM = 20; // every other thumbnail (Work list/grids, detail page)
+
+// About page "Selected Projects" (from resume) — ordered most recent first.
+const SELECTED_PROJECTS = [
+  {
+    year: '2026',
+    title: 'AI 사진 육아일기 앱 <담담(damdam)> 프로덕트 기획, UX/UI 디자인, 개발',
+    company: 'Independent Project',
+    desc: '과잉과 꾸밈, 가짜 AI 감성에 지친 부모들을 위한 AI 사진 육아 아카이브 프로덕트의 기획, 브랜딩, UX/UI 디자인 및 MVP 개발 과정을 전담했습니다.',
+    problem: [
+      '기존 육아일기/기록 앱의 높은 인지부하(수십 장 셀렉, 장문 타이핑 노동)로 인한 지속성 한계.',
+      '기존 AI 서비스가 대신 지어내는 과장된 감성 문장("사랑스러운 우리 천사...")에 대한 거부감과 낯섦.',
+      '남들에게 보여주기 위한 전시성 육아 SNS 및 소셜 피로도 증가.',
+    ],
+    strategy: [
+      "Anti-AI & UX 철학 : AI를 대필가가 아닌 '조용한 인터뷰어'로 정의, 감정 표현을 배제하고 간단한 질문을 통해 사실과 관찰 중심의 한 줄만 완성하여 부모 스스로가 기억을 회상하도록 설계.",
+      '제약 기반의 극단적 인지부하 감소 : 하루 단 1장, 3초 탭 인터뷰 구조로 글쓰기 마찰 제로화.',
+      "절제된 브랜드 아이덴티티 및 디자인 시스템 : 표정은 없지만 묵묵히 그 자리에서 임무를 완수하는 3D 리퀴드 글래스 캐릭터 'AI 담담이' 설정으로 신뢰감 있고 편안한 분위기 조성.",
+    ],
+    impact: [],
+  },
+  {
+    year: '2025',
+    title: '쿠팡플레이 오리지널 〈순례자들 in Spain〉 비주얼 아이덴티티 & 패키지 시스템',
+    company: 'Freelance - Coupang Play',
+    desc: '축구 팬덤을 타겟으로 한 쿠팡플레이의 오리지널 여행 콘텐츠의 비주얼 아이덴티티 및 디지털 패키지 전반을 총괄했습니다.',
+    problem: [
+      "스포츠 중계의 강자인 쿠팡플레이 안에서 단순 스포츠 예능을 넘어 '축구 팬덤의 진정성'을 담아내는 IP 이미지가 필요.",
+      '다크 톤 기반의 OTT 환경 안에서 빠른 인지와 집중도를 방해할 수 있는 기존 스포츠 예능 그래픽(3D/메탈릭)의 한계.',
+    ],
+    strategy: [
+      "축구 팬덤 특유의 거칠고 즉각적인 '날것의 에너지'를 전달하기 위해 채도가 높은 솔리드 컬러와 역동적인 사선 구조를 중심으로 그래픽 시스템을 설계하고, 그래피티 기반의 흘러내리는 그래픽 요소를 활용해 현장감과 속도감을 강화.",
+      '향후 시즌 및 글로벌 확장을 고려해 그래픽 요소들을 템플릿화하여 브랜드 일관성을 유지할 수 있는 운영 가이드를 구축.',
+    ],
+    impact: [
+      '모바일 및 스마트 TV 환경 내 시인성을 유지하면서도 기존 스포츠 콘텐츠와 차별화되는 브랜드 톤을 구축.',
+      '시즌 확장 및 반복 제작 환경에서도 일관된 브랜드 경험을 확장시킬 수 있는 기반을 마련.',
+    ],
+  },
+  {
+    year: '2020-23',
+    title: 'SLL 콘텐츠 〈워크맨 2〉 브랜드 고도화 & 온·오프라인 디자인 확장',
+    company: 'SLL (JTBC Studios)',
+    desc: '400만 구독자 규모의 메가 콘텐츠 IP <워크맨 2>의 비주얼 시스템 정립부터 온·오프라인 브랜드 경험(BX), 프로모션 디자인 전반을 리드했습니다.',
+    problem: [
+      '시즌 전환과 프로모션 이벤트 확장 과정에서 브랜드 자산이 분산되고 있었고, 온·오프라인 전반에서 일관된 브랜드 경험을 유지할 기준이 필요한 상황.',
+    ],
+    strategy: [
+      "기존 로고 헤리티지를 유지하면서 '시즌 2'의 전환을 직관적으로 보여주는 범퍼, 키비주얼 등 콘텐츠 디자인 패키지 기획 및 제작.",
+      '온라인 이벤트 페이지, 오프라인 페스티벌 현장 에셋 등 전반에 동일한 디자인 기준을 적용해 온·오프라인 경험의 일관성을 유지.',
+    ],
+    impact: [
+      '브랜드의 일관성을 완벽히 확보하여 기존 팬덤의 몰입도를 유지하며, 온·오프라인 이벤트와 프로모션을 성공적으로 견인.',
+    ],
+  },
+  {
+    year: '2020-23',
+    title: 'SLL 콘텐츠 비주얼 아이덴티티 총괄 & 채널 브랜드 가이드라인 수립',
+    company: 'SLL (JTBC Studios)',
+    desc: 'SLL 디지털 콘텐츠 본부에서 론칭한 다수의 오리지널 프로그램의 비주얼 아이덴티티와 유튜브 채널 브랜드의 디자인 가이드라인을 기획 단계부터 총괄했습니다. 주요 프로젝트 : <워크맨 2>, <워크돌>, <프로젝트10K>, <집털뷰>, <띄밟놈>, <퍼니맨> 등 다수',
+    problem: [
+      '디지털 플랫폼 내 콘텐츠 경쟁이 심화되면서 유튜브 특유의 가볍고 휘발적인 비주얼이 범람하고 있었고, 높은 디자인 퀄리티를 유지하면서도 시청자의 시선을 즉각적으로 사로잡을 수 있는 차별화된 디자인 구조가 필요했던 상황.',
+    ],
+    strategy: [
+      '콘텐츠별 맞춤형 비주얼 브랜딩 리드 : 콘텐츠 제작 기획 단계부터 참여해 로고, 키아트, 타이틀 범퍼, 포스터, SNS 디자인 등 유튜브 생태계에 최적화된 비주얼 에셋 전반을 설계 및 운영.',
+      '비주얼 품질 및 브랜드 리스크 관리 : 디자인 파트의 모든 결과물을 전수 검토하며, 미세한 디테일을 조율해 스튜디오 고유의 일관된 시각 톤을 유지하고, 혐오·차별적 요소 등 브랜드 가치를 훼손할 수 있는 시각적 리스크를 사전에 차단하고 필터링.',
+    ],
+    impact: [
+      '디자인 완성도와 함께 사회·윤리적 비주얼 리스크를 고려한 운영 기준을 구축하고, 브랜드 톤앤매너의 일관성을 유지.',
+    ],
+  },
+  {
+    year: '2020',
+    title: '라이프타임 코리아 채널 네트워크 디자인 리브랜딩 & 프로모션 비주얼 구축',
+    company: 'A+E Networks Korea',
+    desc: '글로벌 채널의 단조로운 가이드라인을 한국 시장에 맞게 재해석하여, 현재까지 7년간 유지되고있는 채널 브랜딩 시스템과 TV 프로모션 비주얼을 설계한 프로젝트입니다.',
+    problem: [
+      '글로벌 본사의 단조로운 가이드라인과 국내 시청자 정서 간의 괴리, 채널 슬로건과 비주얼의 불일치 해소 필요.',
+    ],
+    strategy: [
+      "시청자가 채널에 들어오는 즉시 드라마, 예능 등의 장르를 인지할 수 있도록 직관적인 '장르별 컬러(Color as Navigation)' 시스템 활용.",
+      '채널 브랜딩 강화를 위한 씨즐영상, 수급 콘텐츠 프로모, 이벤트 프로모션 등 TV용 프로모션 비주얼 시스템 설계 및 제작.',
+    ],
+    impact: [
+      '구축된 브랜드 시스템이 론칭 이후 7년간 전면 리뉴얼 없이 채널의 시각적 기준으로 작동하며 압도적인 비용 대비 효율(Design ROI) 증명.',
+      '일관된 프로모션 비주얼 시스템을 통해, 다양한 매체에 쓰일 디자인 에셋 제작 과정을 효율화하고 현업 운영 속도를 획기적으로 단축.',
+    ],
+  },
+  {
+    year: '2016-2020',
+    title: '라이프타임 채널 코리아 오리지널 콘텐츠 디자인 총괄 (TV & 디지털 통합)',
+    company: 'A+E Networks Korea',
+    desc: '신생 글로벌 채널의 국내 안착을 위해, TV 본방송부터 모바일 환경까지 아우르는 주요 대형 오리지널 콘텐츠들의 비주얼 전반을 총괄했습니다. 주요 프로젝트 : <파자마프렌즈>, <밝히는연애코치>, <돌아이덴티티>, <스무살은 처음이라>',
+    problem: [
+      '국내 론칭 초기 단계로 인지도가 낮았던 글로벌 채널의 한계를 극복하고, 수많은 방송 콘텐츠 사이에서 한국 시청자의 시선을 즉각 선점할 강력한 비주얼 전략이 필요한 상황.',
+    ],
+    strategy: [
+      '글로벌 브랜드의 기본 가이드라인은 유지하되, 개별 콘텐츠의 장르와 스토리를 극대화할 수 있도록 로고, 포스터, 타이틀 등 차별화된 디자인 패키지 구축.',
+    ],
+    impact: [
+      '다양한 장르의 오리지널 콘텐츠에 맞춘 비주얼 톤앤매너를 구축하며, 신생 채널의 초기 브랜드 이미지와 콘텐츠 인지도 형성에 기여.',
+    ],
+  },
+];
 
 // linearly blend two [r,g,b] colors by t (0..1) into an rgb() string —
 // used to fade the project detail page to black continuously as you scroll,
@@ -75,16 +178,18 @@ const LIGHT_BORDER = [229, 227, 222], DARK_BORDER = [51, 51, 51];
 
 function isVideo(src) { return /\.mp4($|\?)/i.test(src); }
 
-function Media({ src, style, muted = true }) {
+function Media({ src, style, muted = true, transparentBg = false }) {
   if (!src) return <div className="ph" style={style} />;
   if (isVideo(src)) {
-    return <video src={src} style={{ ...style, objectFit: 'cover', background: '#E5E3DE' }} autoPlay loop muted={muted} playsInline />;
+    return <video src={src} style={{ ...style, objectFit: 'cover', background: transparentBg ? 'transparent' : '#E5E3DE' }} autoPlay loop muted={muted} playsInline />;
   }
-  return <img className="ph" src={src} style={style} onError={(e) => { e.target.style.background = '#E5E3DE'; e.target.src = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='; }} />;
+  // transparentBg: for real-alpha assets (e.g. logos) that should blend into
+  // the page background instead of showing the ph placeholder's gray fill.
+  return <img className="ph" src={src} style={transparentBg ? { ...style, background: 'transparent' } : style} onError={(e) => { if (!transparentBg) e.target.style.background = '#E5E3DE'; e.target.src = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='; }} />;
 }
 
-function Ph({ id, style }) {
-  return <Media src={id} style={style} />;
+function Ph({ id, style, transparentBg }) {
+  return <Media src={id} style={style} transparentBg={transparentBg} />;
 }
 
 // pick the right-language field, falling back to whichever exists
@@ -93,6 +198,20 @@ function pick(p, base, lang) {
   const ko = p[base + 'Ko'];
   if (lang === 'en') return en || ko || '';
   return ko || en || '';
+}
+
+// look inside a project's detail blocks for an actual "poster" image (filename contains
+// "poster", e.g. site-img/Project_4_poster.jpg) — used so the POSTER-scope Work grid shows
+// the real poster artwork instead of the project's general thumbnail. Returns null if none found.
+function findPosterImage(p) {
+  if (!p.blocks) return null;
+  for (const b of p.blocks) {
+    if (b.type === 'images' && b.src) {
+      const hit = b.src.find((s) => /poster/i.test(s));
+      if (hit) return hit;
+    }
+  }
+  return null;
 }
 
 function ProjectBlocks({ blocks, isPoster, labelColor, lang }) {
@@ -119,7 +238,7 @@ function ProjectBlocks({ blocks, isPoster, labelColor, lang }) {
             <div key={i} className="pb-images-block" style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, minmax(0,1fr))`, gap: 0, marginBottom: 70 }}>
               {b.src.map((s, j) => (
                 <div key={j} style={{ width: '100%', aspectRatio: b.ratio && b.ratio !== 'auto' ? b.ratio.replace('/', ' / ') : undefined }}>
-                  <Media src={s} style={{ width: '100%', height: '100%', objectFit: b.fit || 'cover'}} />
+                  <Media src={s} style={{ width: '100%', height: '100%', objectFit: b.fit || 'cover'}} transparentBg={!!b.transparent} />
                 </div>
               ))}
             </div>
@@ -258,12 +377,85 @@ function ProjectCard3({ p, onOpen, lang, t }) {
 }
 
 // "tile" — image + caption below only (used for LOGO / MOTION, 3-col; POSTER, 4-col with no radius)
-function ProjectTile({ p, onOpen, isPoster }) {
-  const clickable = !!p.blocks;
+// ratio: thumbnail aspect ratio override — MOTION tiles use 16:9, LOGO tiles use 3:4.
+// transparentBg: LOGO tiles are real-alpha assets — blend into the page background
+// instead of showing the placeholder's gray fill.
+// clickable is derived from whether an onOpen handler was actually passed in (so it works
+// whether the click opens a project detail page OR a poster/logo lightbox).
+// delay: per-item entrance stagger offset in seconds — used for POSTER tiles so each
+// thumbnail fades/slides in one after another regardless of how many there are (the
+// site-wide .stagger nth-child delays cap out after 8 items).
+function ProjectTile({ p, onOpen, isPoster, ratio, transparentBg, delay }) {
+  const clickable = !!onOpen;
+  const aspectRatio = isPoster ? '70/99' : (ratio || '1/1'); // A2 paper ratio (420×594mm, simplified)
   return (
-    <div onClick={onOpen} style={{ cursor: clickable ? 'pointer' : 'default' }}>
-      <div style={{ width: '100%', aspectRatio: isPoster ? '3/4' : '1/1', borderRadius: isPoster ? 0 : RADIUS_SM, overflow: 'hidden' }}><Ph id={p.img} style={{ width: '100%', height: '100%' }} /></div>
+    <div
+      onClick={onOpen}
+      className={isPoster ? 'poster-tile' : undefined}
+      style={{ cursor: clickable ? 'pointer' : 'default', animationDelay: isPoster ? `${delay || 0}s` : undefined }}
+    >
+      <div className={isPoster ? 'poster-tile-thumb' : undefined} style={{ width: '100%', aspectRatio, borderRadius: isPoster ? 0 : RADIUS_SM, overflow: 'hidden' }}>
+        <Ph id={p.img} style={{ width: '100%', height: '100%' }} transparentBg={transparentBg} />
+      </div>
       <div className="grid-card-title" style={{ marginTop: 14, fontSize: 14, fontWeight: 700 }}>{p.title}</div>
+    </div>
+  );
+}
+
+// full-screen "view large" overlay for standalone poster/logo items (dimmed background,
+// click backdrop or the × to close). Opened instead of navigating to a project page for
+// POSTER/LOGO-tagged entries that have no `blocks` (see PROJECTS comment at top of
+// projects-data.js for how to add these).
+// Clicking the image itself toggles between "fit to screen" and full original-size (native
+// pixel dimensions, scrollable if it's bigger than the viewport). While fit-to-screen, an
+// optional right-hand column shows the title plus any of date / client / scope present on p.
+function PosterLightbox({ p, onClose }) {
+  const [zoomed, setZoomed] = useState(false);
+  useEffect(() => { setZoomed(false); }, [p]);
+  if (!p) return null;
+  const toggleZoom = (e) => { e.stopPropagation(); setZoomed((z) => !z); };
+  const meta = [
+    (p.year || p.Year || p.date) && ['Year', p.year || p.Year || p.date],
+    p.client && ['Client', p.client],
+    p.scope && ['Scope', p.scope],
+  ].filter(Boolean);
+  return (
+    <div
+      onClick={onClose}
+      className="poster-lightbox"
+      style={{
+        position: 'fixed', inset: 0, zIndex: 500, background: 'rgba(17,17,17,0.92)', cursor: 'zoom-out',
+        display: zoomed ? 'block' : 'flex',
+        alignItems: zoomed ? undefined : 'center',
+        justifyContent: zoomed ? undefined : 'center',
+        overflow: zoomed ? 'auto' : 'hidden',
+        padding: zoomed ? 40 : '80px 40px',
+        textAlign: zoomed ? 'center' : undefined,
+      }}
+    >
+      {zoomed ? (
+        <div onClick={toggleZoom} style={{ display: 'inline-block', cursor: 'zoom-out' }}>
+          <Ph id={p.img} style={{ display: 'block', width: 'auto', height: 'auto', maxWidth: 'none', maxHeight: 'none', objectFit: 'contain', borderRadius: 4 }} />
+        </div>
+      ) : (
+        <div onClick={(e) => e.stopPropagation()} className="poster-lightbox-layout" style={{ display: 'flex', alignItems: 'flex-start', gap: 60, maxWidth: '92vw', maxHeight: '86vh' }}>
+          <div onClick={toggleZoom} style={{ cursor: 'zoom-in', maxWidth: meta.length || p.title ? '68vw' : '90vw' }}>
+            <Ph id={p.img} style={{ display: 'block', width: 'auto', height: 'auto', maxWidth: meta.length || p.title ? '68vw' : '90vw', maxHeight: '86vh', objectFit: 'contain', borderRadius: 4 }} />
+          </div>
+          {(p.title || meta.length > 0) && (
+            <div className="poster-lightbox-meta" style={{ minWidth: 200, paddingTop: 8, textAlign: 'left' }}>
+              {p.title && <div style={{ fontSize: 20, fontWeight: 700, color: '#fff', marginBottom: meta.length ? 22 : 0 }}>{p.title}</div>}
+              {meta.map(([label, value]) => (
+                <div key={label} style={{ fontSize: 13, color: '#ccc', marginBottom: 10, display: 'flex', gap: 8 }}>
+                  <span style={{ color: '#888', minWidth: 50 }}>{label}</span>
+                  <span>{value}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+      <div onClick={onClose} style={{ position: 'fixed', top: 28, right: 40, color: '#fff', fontSize: 30, lineHeight: 1, cursor: 'pointer', zIndex: 501 }}>&times;</div>
     </div>
   );
 }
@@ -398,6 +590,16 @@ function App() {
   // mounts (CSS transition on the elements below does the actual animating,
   // this just flips the target value from 0 to 1 a tick after mount so the
   // transition has something to animate from/to).
+  const [lightboxProject, setLightboxProject] = useState(null);
+  const openLightbox = (p) => (e) => { if (e) e.stopPropagation(); setLightboxProject(p); };
+  const closeLightbox = () => setLightboxProject(null);
+  useEffect(() => {
+    if (!lightboxProject) return undefined;
+    const onKey = (e) => { if (e.key === 'Escape') closeLightbox(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [lightboxProject]);
+
   const [darkProgress, setDarkProgress] = useState(0);
   useEffect(() => {
     const proj = PROJECTS.find((p) => p.id === projectId);
@@ -422,9 +624,14 @@ function App() {
 
   const activeProject = PROJECTS.find((p) => p.id === projectId);
 
+  // standalone poster/logo entries (no `blocks`, no `workType` — see projects-data.js) are
+  // only meant to show up in their own scope grid (POSTER or LOGO); everywhere else (ALL, a
+  // specific workType, MOTION/UI-UX) they'd render as a broken card (missing tags/description),
+  // so they're excluded unless outputTag is specifically POSTER or LOGO.
   const filtered = PROJECTS.filter((p) =>
     (workType === 'ALL' || p.workType === workType) &&
-    (outputTag === 'ALL' || p.outputs.includes(outputTag))
+    (outputTag === 'ALL' || p.outputs.includes(outputTag)) &&
+    (p.blocks || outputTag === 'POSTER' || outputTag === 'LOGO')
   );
 
   // grid columns follow the result count: 1 result -> 1 col, 2 -> 2 col, 3+ -> 3 col
@@ -496,7 +703,7 @@ function App() {
       >
         <div className="top-header-row" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '18px 40px' }}>
           <div className="logo-group" style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-            <div onClick={goHome} className="site-logo" style={{ fontFamily: "'Geomanist', sans-serif", fontSize: 20, fontWeight: 600, cursor: 'pointer', letterSpacing: '-0.02em'}}>Jiyeon Kim is growing<span style={{ display: 'inline-block', width: 18, textAlign: 'left' }}>{'.'.repeat(growDots)}</span></div>
+            <div onClick={goHome} className="site-logo" style={{ fontFamily: "'Inter', sans-serif", fontSize: 22, fontWeight: 900, cursor: 'pointer', letterSpacing: '-0.02em'}}>Jiyeon Kim is growing<span style={{ display: 'inline-block', width: 18, textAlign: 'left' }}>{'.'.repeat(growDots)}</span></div>
             <div className="lang-toggle header-lang-toggle" onClick={() => setLang((l) => l === 'en' ? 'ko' : 'en')} style={{ opacity: headerHidden ? 0 : 1, pointerEvents: headerHidden ? 'none' : 'auto', transition: 'opacity 0.25s ease' }}>
               <span className={'lang-opt' + (lang === 'ko' ? ' active' : '')}>KO</span>
               <span className={'lang-opt' + (lang === 'en' ? ' active' : '')}>EN</span>
@@ -536,7 +743,7 @@ function App() {
       >
         <div onClick={goHome} style={{ display: 'flex', alignItems: 'center', gap: 10, cursor: 'pointer' }}>
           <img src="site-img/2026 Profile black_noback.png" style={{ width: 32, height: 32, borderRadius: '50%', objectFit: 'cover', display: 'block' }} />
-          <div style={{ fontFamily: "'Geomanist', sans-serif", fontSize: 14, fontWeight: 700, letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}>Jiyeon kim</div>
+          <div style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, fontWeight: 700, letterSpacing: '-0.02em', whiteSpace: 'nowrap' }}>Jiyeon kim</div>
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
           <div className="nav-item" onClick={goWork} style={{ fontSize: 13, cursor: 'pointer', color: '#333333', whiteSpace: 'nowrap' }}>{t.navWork}</div>
@@ -570,14 +777,14 @@ function App() {
       {view === 'home' && (
         <div key="home" className="stagger">
           <section className="home-intro-section" style={{ padding: '110px 40px 0', maxWidth: 1500, margin: '0 auto' }}>
-            <div className="home-intro-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40 }}>
+            <div className="home-intro-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, alignItems: 'start' }}>
               <div className="home-intro-col">
-                <div className="home-intro-heading" style={{ fontWeight: 700, fontSize: 'clamp(13.6px,1.7vw,17px)', marginBottom: 10 }}>{t.homeIntroHeadingEn}</div>
-                <div className="body-text" style={{ fontSize: 'clamp(13.6px,1.7vw,17px)', lineHeight: 1.6, fontWeight: 400 }}>{t.homeIntroEn}</div>
+                <div className="home-intro-heading" style={{ fontFamily: "'Pretendard', sans-serif", fontWeight: 700, fontSize: 'clamp(11.6px,1.5vw,15px)', marginBottom: 10 }}>{t.homeIntroHeadingEn}</div>
+                <div className="body-text" style={{ fontFamily: "'Pretendard', sans-serif", fontSize: 'clamp(11.6px,1.5vw,15px)', lineHeight: 1.6, fontWeight: 400 }}>{t.homeIntroEn}</div>
               </div>
-              <div className="home-intro-col">
-                <div className="home-intro-heading" style={{ fontWeight: 700, fontSize: 'clamp(13.6px,1.7vw,17px)', marginBottom: 10 }}>{t.homeIntroHeadingKo}</div>
-                <div className="body-text" style={{ fontSize: 'clamp(13.6px,1.7vw,17px)', lineHeight: 1.6, fontWeight: 400 }}>{t.homeIntroKo}</div>
+              <div className="home-intro-col" style={{ marginLeft: '-0.06em' }}>
+                <div className="home-intro-heading" style={{ fontFamily: "'Pretendard', sans-serif", fontWeight: 700, fontSize: 'clamp(10.6px,1.4vw,14px)', marginBottom: 10 }}>{t.homeIntroHeadingKo}</div>
+                <div className="body-text" style={{ fontFamily: "'Pretendard', sans-serif", fontSize: 'clamp(10.6px,1.4vw,14px)', lineHeight: 1.6, fontWeight: 400 }}>{t.homeIntroKo}</div>
               </div>
             </div>
           </section>
@@ -604,7 +811,9 @@ function App() {
               <div onClick={goWork} style={{ fontSize: 13, cursor: 'pointer', textDecoration: 'underline' }}>{t.viewAllWork}</div>
             </div>
             <div className="stagger" style={{ display: 'flex', flexDirection: 'column', gap: 100 }}>
-              {PROJECTS.slice(0, 3).map((p) => (
+              {/* only real case-study projects (with `blocks`) show here — standalone poster
+                  entries (no `blocks`) are poster-category-only and never appear on the home page */}
+              {PROJECTS.filter((p) => p.blocks).slice(0, 5).map((p) => (
                 <ProjectListCard
                   key={p.id}
                   p={p}
@@ -616,6 +825,11 @@ function App() {
                   fullImage
                 />
               ))}
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: 90 }}>
+              <div className="lang-toggle" style={{ width: 'fit-content' }}>
+                <span onClick={goWork} className="lang-opt active" style={{ fontSize: 14, padding: '13px 26px', whiteSpace: 'nowrap' }}>{t.viewAllWork}</span>
+              </div>
             </div>
           </section>
         </div>
@@ -656,7 +870,7 @@ function App() {
               <img src="site-img/2026 Profile black_noback.png" style={{ width: '70%', aspectRatio: '3/4', objectFit: 'cover', borderRadius: 20, marginTop: 15, display: 'block' }} />
             </div>
             <div style={{ maxWidth: 680, paddingLeft: 0 }}>
-              <div className="body-text" style={{ fontSize: 'clamp(22px,2.6vw,32px)', fontWeight: 600, marginTop: 38, lineHeight: 1.55 }}>{t.aboutHeading}</div>
+              <div className="body-text" style={{ fontFamily: "'Inter', 'Pretendard', sans-serif", fontSize: 'clamp(11px,1.3vw,16px)', fontWeight: 600, marginTop: 38, lineHeight: 1.55 }}>{t.aboutHeading}</div>
               <div className="body-text" style={{ marginTop: 40, fontSize: 14, lineHeight: 1.85, color: '#666666' }}>
                 {(t.aboutBodies || []).map((p, i) => (<React.Fragment key={i}>{i > 0 && <><br/><br/></>}{p}</React.Fragment>))}
               </div>
@@ -674,13 +888,38 @@ function App() {
               ))}
             </div>
           </div>
+          <div className="detail-grid" style={{ display: 'grid', gridTemplateColumns: 'minmax(0,1fr) minmax(0,1.4fr)', gap: 0, marginTop: 90 }}>
+            <div style={{ fontSize: 13, letterSpacing: '0.1em', color: '#666666' }}>SELECTED PROJECTS</div>
+            <div>
+              {SELECTED_PROJECTS.map((proj, i) => (
+                <div key={i} className="selected-project-row" style={{ padding: '36px 0', borderTop: '1px solid #E5E3DE', borderBottom: i === SELECTED_PROJECTS.length - 1 ? '1px solid #E5E3DE' : 'none' }}>
+                  <div style={{ display: 'flex', gap: 20 }}>
+                    <div style={{ fontSize: 13, color: '#666666', flex: '0 0 90px' }}>{proj.year}</div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: 16, fontWeight: 600, lineHeight: 1.4 }}>{proj.title}</div>
+                      <div style={{ fontSize: 13, color: '#666666', marginTop: 4 }}>{proj.company}</div>
+                      <div style={{ fontSize: 13.5, lineHeight: 1.7, color: '#666666', marginTop: 10 }}>{proj.desc}</div>
+                    </div>
+                  </div>
+                  {['problem', 'strategy', 'impact'].map((key) => (proj[key] && proj[key].length > 0) && (
+                    <div key={key} style={{ display: 'flex', gap: 20, marginTop: 16 }}>
+                      <div style={{ flex: '0 0 90px', fontSize: 11, letterSpacing: '0.08em', color: '#999999', textTransform: 'uppercase' }}>{key}</div>
+                      <div style={{ flex: 1, fontSize: 13, lineHeight: 1.75, color: '#333333' }}>
+                        {proj[key].map((line, j) => (<div key={j} style={{ marginBottom: 4 }}>· {line}</div>))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       )}
 
       {view === 'work' && (
         <div key="work" className="stagger work-view" style={{ padding: '140px 40px 160px', maxWidth: 1500, margin: '0 auto' }}>
           <div className="work-header-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 24, marginBottom: 80, paddingBottom: 40, borderBottom: '1px solid #E5E3DE', flexWrap: 'wrap' }}>
-            <div className="work-page-title" style={{ fontSize: 'clamp(40px,8vw,70px)', fontWeight: 700 }}>{t.workTitle}</div>
+            <div className="work-page-title" style={{ fontFamily: "'Geomanist', 'Pretendard', sans-serif", fontSize: 'clamp(40px,8vw,70px)', fontWeight: 700 }}>{t.workTitle}</div>
             <div className="work-filter-col" style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-end' }}>
               <FilterRow label={t.filterFor} items={WORK_TYPES} active={workType} onPick={pickWorkType} onReset={resetFilters} labels={t.workTypeLabels} />
               <FilterRow label={t.filterScope} items={OUTPUT_TAGS} active={outputTag} onPick={pickOutputTag} onReset={resetFilters} labels={t.outputLabels} />
@@ -710,16 +949,29 @@ function App() {
               ))}
             </div>
           ) : gridMode === 'tile3' ? (
+            // LOGO scope: a blocks-less entry (standalone logo, no case study) opens the
+            // large-view lightbox instead of being non-clickable — same as standalone posters.
             <div className={`stagger work-grid3 work-grid-${gridCols}`} style={{ display: 'grid', gridTemplateColumns: `repeat(${gridCols}, minmax(0,1fr))`, gap: '40px 10px' }}>
               {filtered.map((p) => (
-                <ProjectTile key={p.id} p={p} onOpen={p.blocks ? openProject(p.id) : undefined} />
+                <ProjectTile key={p.id} p={p} ratio={outputTag === 'MOTION' ? '16/9' : '3/4'} transparentBg={outputTag === 'LOGO'} onOpen={p.blocks ? openProject(p.id) : (outputTag === 'LOGO' && p.img ? openLightbox(p) : undefined)} />
               ))}
             </div>
           ) : (
-            <div className={`stagger work-grid3 work-grid-${gridCols}`} style={{ display: 'grid', gridTemplateColumns: `repeat(${gridCols}, minmax(0,1fr))`, gap: '40px 10px' }}>
-              {filtered.map((p) => (
-                <ProjectTile key={p.id} p={p} isPoster onOpen={p.blocks ? openProject(p.id) : undefined} />
-              ))}
+            // POSTER scope: if a project's detail blocks contain an actual poster image
+            // (filename has "poster" in it), show THAT as the tile thumbnail and clicking
+            // opens the large-view lightbox on that poster image — it does not navigate into
+            // the case-study page. Projects without a findable poster image (and standalone
+            // poster entries with no `blocks` at all) fall back to the previous behavior:
+            // navigate to the project page if it has `blocks`, otherwise lightbox on p.img.
+            <div className={`work-grid3 work-grid-${gridCols}`} style={{ display: 'grid', gridTemplateColumns: `repeat(${gridCols}, minmax(0,1fr))`, gap: '40px 10px' }}>
+              {filtered.map((p, i) => {
+                const posterSrc = findPosterImage(p);
+                const tileData = posterSrc ? { ...p, img: posterSrc } : p;
+                const onOpen = posterSrc
+                  ? openLightbox(tileData)
+                  : (p.blocks ? openProject(p.id) : (p.img ? openLightbox(p) : undefined));
+                return <ProjectTile key={p.id} p={tileData} isPoster delay={i * 0.07} onOpen={onOpen} />;
+              })}
             </div>
           )}
         </div>
@@ -766,6 +1018,8 @@ function App() {
           </div>
         </div>
       )}
+
+      <PosterLightbox p={lightboxProject} onClose={closeLightbox} />
     </div>
   );
 }

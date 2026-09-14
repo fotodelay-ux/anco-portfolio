@@ -2,6 +2,11 @@
 @font-face { font-family: 'Geomanist'; src: url('./fonts/GeomanistBook.ttf') format('truetype'); font-weight: 400; font-display: swap; }
 @font-face { font-family: 'Geomanist'; src: url('./fonts/GeomanistMedium.ttf') format('truetype'); font-weight: 500; font-display: swap; }
 @font-face { font-family: 'Geomanist'; src: url('./fonts/GeomanistBold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('./fonts/Inter-Light.ttf') format('truetype'); font-weight: 300; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('./fonts/Inter-Regular.ttf') format('truetype'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('./fonts/Inter-Medium.ttf') format('truetype'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('./fonts/Inter-SemiBold.ttf') format('truetype'); font-weight: 600; font-display: swap; }
+@font-face { font-family: 'Inter'; src: url('./fonts/Inter-Bold.ttf') format('truetype'); font-weight: 700; font-display: swap; }
 @font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-Thin.otf') format('opentype'); font-weight: 100; font-display: swap; }
 @font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-ExtraLight.otf') format('opentype'); font-weight: 200; font-display: swap; }
 @font-face { font-family: 'Pretendard'; src: url('./fonts/Pretendard-Light.otf') format('opentype'); font-weight: 300; font-display: swap; }
@@ -15,21 +20,26 @@
 @font-face { font-family: 'Edmondsans'; src: url('./fonts/EdmondsansMedium.otf') format('opentype'); font-weight: 500; font-display: swap; }
 @font-face { font-family: 'Edmondsans'; src: url('./fonts/EdmondsansBold.otf') format('opentype'); font-weight: 700; font-display: swap; }
 * { box-sizing: border-box; }
-body { margin: 0; background: #F7F6F2; font-family: 'Geomanist', 'Pretendard', sans-serif; color: #111111; overflow-x: hidden; }
+body { margin: 0; background: #F7F6F2; font-family: 'Inter', 'Pretendard', sans-serif; color: #111111; overflow-x: hidden; }
 /* Line-wrapping: always break at word boundaries, never mid-word/mid-spelling,
    on any screen width. word-break:keep-all also keeps Korean word units intact
    (default CJK behavior can otherwise wrap between any two syllables). */
 * { word-break: keep-all; overflow-wrap: normal; }
-/* Font rule: English text uses Geomanist, Korean text uses Pretendard.
-   Geomanist has no Hangul glyphs, so listing it first and letting the
+/* Font rule: English text uses Inter, Korean text uses Pretendard.
+   Inter has no Hangul glyphs, so listing it first and letting the
    browser fall back to Pretendard per-character does this automatically,
    even within a single line that mixes English and Korean — no need to
    split text by language. This is the default everywhere (see body below);
    any specific element can still override with its own inline fontFamily
    when a spot needs to break from this rule. */
-.body-text { font-family: 'Geomanist', 'Pretendard', sans-serif; }
+.body-text { font-family: 'Inter', 'Pretendard', sans-serif; }
 /* Project detail page body copy (overview blocks + KO/EN descriptions): English uses Pretendard (not Geomanist) per request. */
 .section-body, .detail-body-en , .detail-body-ko { font-family: 'Pretendard', sans-serif; }
+/* About / Experience / Contact: keep Geomanist (not Inter) per request — higher
+   specificity than .body-text alone so it wins even on elements using that class. */
+.about-view, .about-view .body-text, .contact-section, .contact-grid, .contact-form { font-family: 'Geomanist', 'Pretendard', sans-serif; }
+/* Selected Projects (About page): body copy uses Pretendard, overriding the Geomanist rule above. */
+.about-view .selected-project-row { font-family: 'Pretendard', sans-serif; }
 a { color: #111111; text-decoration: none; }
 a:hover { color: #666666; }
 img.ph { background: #E5E3DE; object-fit: cover; display: block; vertical-align: top; }
@@ -44,7 +54,7 @@ video { display: block; }
    goes from its normal muted grey to a darker grey on hover (a color shift,
    not an opacity fade, and no underline). Images/icons get no hover effect
    at all. */
-.nav-item { text-decoration: none; transition: opacity 0.2s ease; }
+.nav-item { text-decoration: none; transition: opacity 0.2s ease; font-family: 'Geomanist', 'Pretendard', sans-serif; }
 .nav-item:hover { opacity: 0.6; }
 
 .hover-dim { transition: color 0.2s ease; }
@@ -91,7 +101,7 @@ video { display: block; }
 .filter-sep { font-size: 13px; color: #cfccc4; }
 
 /* tag pills under a project thumbnail */
-.tag-pill { font-size: 12px; padding: 7px 15px; border-radius: 100px; border: 1px solid #E5E3DE; color: #666666; }
+.tag-pill { font-size: 12px; padding: 7px 15px; border-radius: 100px; border: 1px solid #E5E3DE; color: #666666; font-family: 'Geomanist', 'Pretendard', sans-serif; }
 
 /* Work tab project cards: 1-column (thumb+tags, desc below) on mobile,
    original 2-column (thumb+tags left, desc right) on web — see the
@@ -224,3 +234,23 @@ video { display: block; }
   .detail-footer-section { padding-left: 15px !important; padding-right: 15px !important; }
   .project-thumb-wrap { padding: 0 16px !important; }
 }
+
+/* poster/logo "view large" lightbox (POSTER/LOGO scope, standalone items) */
+@keyframes posterLightboxIn { from { opacity: 0; } to { opacity: 1; } }
+.poster-lightbox { animation: posterLightboxIn 0.2s ease; }
+@media (max-width: 768px) {
+  .poster-lightbox-layout { flex-direction: column !important; align-items: center !important; max-width: 92vw !important; }
+  .poster-lightbox-layout .poster-lightbox-meta { text-align: center !important; min-width: 0 !important; }
+  .poster-lightbox-layout > div:first-child { max-width: 90vw !important; }
+  .poster-lightbox-layout img { max-width: 90vw !important; }
+}
+
+/* POSTER grid (scope: POSTER) — each thumbnail fades/slides in one after another
+   (per-tile animation-delay set inline in JS, so it scales to any number of posters),
+   and the thumbnail image gets a subtle zoom + dim-lighten on hover. */
+@keyframes posterTileIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+.poster-tile { opacity: 0; animation: posterTileIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.poster-tile-thumb { position: relative; }
+.poster-tile-thumb img, .poster-tile-thumb video { transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.3s ease; }
+.poster-tile:hover .poster-tile-thumb img,
+.poster-tile:hover .poster-tile-thumb video { transform: scale(1.045); filter: brightness(0.92); }
