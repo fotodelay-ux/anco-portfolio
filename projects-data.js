@@ -191,6 +191,142 @@ const PROJECTS = [
     ]
   },
   {
+    "id": "coupang",
+    "title": "순례자들 in Spain",
+    "subtitleKo": "'Stadium Crashers in Spain' Visual Design",
+    "darkBg": true,
+    "year": "2025",
+    "client": "Coupang Play",
+    "scope": "OTT Content Design",
+    "workType": "CONTENT DESIGN",
+    "outputs": [
+      "MOTION",
+      "POSTER"
+    ],
+    "img": "site-img/Project_1_keyart.mp4",
+    "hero": "site-img/Project_1_keyart.gif",
+    "big": false,
+    "descEn": "I designed the integrated visual identity system for the Coupang Play Original contents, <순례자들 in Spain>. This contents follows creators who love football traveling to Spain—the holy land of football culture—capturing their raw passion and natural chemistry on-site. My core objective was to establish a distinct, original identity within Coupang Play, a platform that already holds a dominant position in sports broadcasting. Moving beyond a generic travel format, the visual assets were engineered to capture the genuine authenticity and energy that resonates with the football fandom.",
+    "descKo": "쿠팡플레이 오리지널 예능 <순례자들 in Spain>의 비주얼 아이덴티티 제작을 진행했습니다. 이 프로그램은 축구에 진심인 연예인들이 축구의 성지인 스페인으로 떠나, 현지에서 겪는 생생한 열정과 유쾌한 케미를 담아낸 리얼리티 예능입니다. 프로젝트의 핵심은 스포츠 중계의 강자인 쿠팡플레이 안에서, 가벼운 여행 예능을 넘어 '축구 팬덤의 진정성'을 돋보이게 하는 독보적인 오리지널리티를 만드는 일이었습니다. 진짜 축구 팬덤이 공감할 수 있는 진정성과 에너지를 시각적으로 어떻게 구현할지 고민하며 디자인 자산을 설계했습니다.",
+    "blocks": [
+      {
+        "type": "section",
+        "label": "Project Overview",
+        "body": "쿠팡플레이 오리지널 예능 <순례자들 in Spain>의 비주얼 아이덴티티 제작을 진행했습니다. 이 프로그램은 축구에 진심인 연예인들이 축구의 성지인 스페인으로 떠나, 현지에서 겪는 생생한 열정과 유쾌한 케미를 담아낸 리얼리티 예능입니다. 프로젝트의 핵심은 스포츠 중계의 강자인 쿠팡플레이 안에서, 가벼운 여행 예능을 넘어 '축구 팬덤의 진정성'을 돋보이게 하는 독보적인 오리지널리티를 만드는 일이었습니다. 진짜 축구 팬덤이 공감할 수 있는 진정성과 에너지를 시각적으로 어떻게 구현할지 고민하며 디자인 자산을 설계했습니다.\n\nI designed the integrated visual identity system for the Coupang Play Original contents, <순례자들 in Spain>. This contents follows creators who love football traveling to Spain—the holy land of football culture—capturing their raw passion and natural chemistry on-site. My core objective was to establish a distinct, original identity within Coupang Play, a platform that already holds a dominant position in sports broadcasting. Moving beyond a generic travel format, the visual assets were engineered to capture the genuine authenticity and energy that resonates with the football fandom."
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_ui.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "Problem Definition",
+        "body": " 보통의 스포츠 예능에서 자주 쓰는 번쩍이는 3D 효과나 메탈릭한 디자인은 쿠팡플레이 특유의 차분하고 어두운 화면(Dark UI) 환경과 다른 수많은 콘텐츠들과 아무런 차별성을 만들어내지 못할 것이라 판단했습니다. 저는 이런 전형적인 스타일을 과감하게 걷어내고, 쿠팡플레이라는 플랫폼 안에서 축구 덕후들의 날 것 같은 에너지와 예능 특유의 유쾌함이 돋보일 수 있는 확실한 시각 전략을 세웠습니다.\n\nI determined that the shiny 3D effects and metallic designs frequently used in sports entertainment would not create any differentiation within Coupang Play’s quiet Dark UI environment and among its other contents. I viewed these conventional styles as visual noise that distracts the audience. By removing these generic trends, I established a clear, system-driven visual strategy to deliver the unrefined energy of football fans and the natural brightness of the contents directly to the screen. "
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_sketch.png",
+          "site-img/Project_1_logo.png",
+          "site-img/Project_1_keyart.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "Design Strategy — Logo",
+        "body": " 스페인이라는 공간적 배경을 가장 직관적으로 보여주기 위해, 축구 명문 구단 'FC 바르셀로나'를 상징하는 빨강, 파랑, 노랑 세 가지 원색을 메인 컬러웨이로 가져왔습니다. 이 강렬한 삼원색은 프로그램에 출연하는 세 명의 출연진이 가진 고유의 개성이자, 축구 덕후들의 날것 같은 에너지를 그대로 대변합니다. 여기에 길거리 그래피티에서 아이디어를 얻어 페인트가 흘러내리는 듯한 ‘드립(Dripping) 쉐입’과 역동적인 사선 구도를 매치했습니다. 이 조합은 수많은 콘텐츠 사이에서도 눈에 확실히 띄면서 프로그램 특유의 발랄한 인상을 남길 수 있도록 유도하였습니다.\n\nTo show the geographic and cultural context of Spain intuitively, I brought in a primary colorway inspired by the iconic colors of FC Barcelona. These three high-saturation primary colors represent the distinct personalities of the three hosts and the raw energy of the football fandom. To structure this attitude, I combined a dynamic diagonal layout with dripping shapes inspired by street graffiti. This combination ensures high contrast and clear visibility within dense digital product lists while leaving a memorable impression."
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_poster.png"
+        ],
+        "cols": 1,
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "section",
+        "label": "Poster",
+        "body": " 포스터를 디자인은 인위적인 스튜디오 연출을 최대한 피했습니다. 스페인 축구 경기 현장의 거친 질감과 출연진이 보여주는 진짜 리얼리티를 있는 그대로 살려내는 데 집중했습니다. 여기에 로고와 같은 ‘드립’ 요소를 위트 있게 얹어, 시청자가 활기찬 ‘축구 성지순례’ 여정의 한복판에 함께 서 있는 듯한 몰입감을 주었습니다.\n\nThe poster and key art design avoids artificial studio setups and staged framing. Instead, it focuses on preserving the rough textures of actual football stadiums and the unscripted reality of the hosts. By placing the structural graffiti elements as a cohesive overlay, the design brings the audience closer to the screen, making them feel as if they are standing in the middle of this lively journey. "
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_substitles_1.png",
+          "site-img/Project_1_substitles_2.png",
+          "site-img/Project_1_substitles_3.png"
+        ],
+        "cols": 3,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_substitles_4.png",
+          "site-img/Project_1_substitles_5.png",
+          "site-img/Project_1_substitles_6.png"
+        ],
+        "cols": 3,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_subway.png",
+          "site-img/Project_1_car.png",
+          "site-img/Project_1_vinyl.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "Execution",
+        "body": " 작은 모바일 썸네일부터 방송 자막 시스템, 심지어 오프라인 촬영 차량 래핑까지 모든 접점의 디자인을 하나로 연결했습니다. 특히 수많은 제작진이 매주 빠르게 편집해야 하는 방송 환경을 고려해, 그래픽 소스와 자막 형태를 누구나 쉽게 조립해 쓸 수 있도록 템플릿으로 묶어두었습니다. 작업자마다 디자인이 제각각으로 변하는 것을 막고, 후반 작업 시간을 크게 줄여주어 실무진의 운영 효율(ROI)을 실질적으로 높였습니다.\n\nI connected the design rules seamlessly across all touchpoints, from small mobile thumbnails and on-air subtitle systems to offline vehicle wraps. Considering the fast-paced, weekly editing workflows of production teams, I modularized all graphic sources and typographic layouts into a component-based design system. By setting structural rules—such as optimized font widths and systematic safe margins for multi-device environments—I prevented design fragmentation and reduced post-production time, effectively increasing operational efficiency. "
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_stadium.png"
+        ],
+        "cols": 1,
+        "ratio": "16/9",
+        "fit": "cover"
+      },
+      {
+        "type": "section",
+        "label": "Impact",
+        "body": " 기획 초기 단계부터 이 프로그램이 향후 다른 국가나 다른 리그로 스핀오프(확장)될 상황까지 미리 계산해서 디자인 가이드를 짰습니다. 중심이 되는 뼈대와 레이아웃은 그대로 두고, 다음 시즌 국가의 상징색에 맞춰 컬러만 쏙 바꾸면 즉시 새 패키지가 완성되는 유연한 구조입니다. 매번 디자인을 새로 하느라 비용과 시간을 낭비하지 않고, 회차가 거듭될수록 가치가 쌓이는 단단한 자산이 되도록 만들었습니다.\n\nFrom the early planning stages, the visual identity was designed to scale smoothly into future seasons, different national leagues, or spin-offs. The core typographic hierarchy and layout grids remain completely fixed as a structural framework; flexibility is achieved instantly by changing the primary color system to match the representative colors of the next country. This variable architecture eliminates redundant design processes, turning a single-season design package into a sustainable institutional asset that builds value over time. "
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/Project_1_poster_2.png"
+        ],
+        "cols": 1,
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "section",
+        "label": "Credits — 2025.06",
+        "body": "Creative Direction : jiyeon kim \n Design Strategy & System : jiyeon kim \n Visual Identity Design : jiyeon kim \n Key Art & Poster Design : jiyeon kim \n On-Air Graphic System : jiyeon kim \n Motion & Content Design : jiyeon kim \n\n Production : Borderless Film \n Platform : Coupang Play"
+      }
+    ]
+  },
+  {
     "id": "lifetime",
     "title": "라이프타임 채널 네트워크 리브랜딩",
     "subtitleKo": "Lifetime Channel Network Rebranding",
@@ -333,142 +469,6 @@ const PROJECTS = [
         "type": "section",
         "label": "CREDITS — 2020-2026",
         "body": " Content IP : © A+E Networks Korea \n Visual Explorations : Visual Explorations (Spatial & Urban Expansion mockups) — Concept visualization via Google Gemini, not actual executed placements \n\n 2019년 진행한 실제 온에어 리브랜딩 결과물을 기반으로, 2026년 현재 시점에서 비주얼 시스템의 전략적 프레임을 재구성하고, 이후 7년간 온에어 실행 전반에 걸친 일관된 발전 과정을 정리한 문서입니다.\n\n Based on the 2019 on-air rebranding execution led by Jiyeon Kim, this document retrospectively reconstructs the visual system's strategic framework as of 2026, and traces its consistent evolution across on-air executions over the following 7 years.\n\nDirection & Strategy : jiyeon kim \n Visual Identity Design : jiyeon kim \n Motion Graphics & System : jiyeon kim \n Compositing & Post-production : jiyeon kim "
-      }
-    ]
-  },
-  {
-    "id": "coupang",
-    "title": "순례자들 in Spain",
-    "subtitleKo": "'Stadium Crashers in Spain' Visual Design",
-    "darkBg": true,
-    "year": "2025",
-    "client": "Coupang Play",
-    "scope": "OTT Content Design",
-    "workType": "CONTENT DESIGN",
-    "outputs": [
-      "MOTION",
-      "POSTER"
-    ],
-    "img": "site-img/Project_1_keyart.mp4",
-    "hero": "site-img/Project_1_keyart.gif",
-    "big": false,
-    "descEn": "I designed the integrated visual identity system for the Coupang Play Original contents, <순례자들 in Spain>. This contents follows creators who love football traveling to Spain—the holy land of football culture—capturing their raw passion and natural chemistry on-site. My core objective was to establish a distinct, original identity within Coupang Play, a platform that already holds a dominant position in sports broadcasting. Moving beyond a generic travel format, the visual assets were engineered to capture the genuine authenticity and energy that resonates with the football fandom.",
-    "descKo": "쿠팡플레이 오리지널 예능 <순례자들 in Spain>의 비주얼 아이덴티티 제작을 진행했습니다. 이 프로그램은 축구에 진심인 연예인들이 축구의 성지인 스페인으로 떠나, 현지에서 겪는 생생한 열정과 유쾌한 케미를 담아낸 리얼리티 예능입니다. 프로젝트의 핵심은 스포츠 중계의 강자인 쿠팡플레이 안에서, 가벼운 여행 예능을 넘어 '축구 팬덤의 진정성'을 돋보이게 하는 독보적인 오리지널리티를 만드는 일이었습니다. 진짜 축구 팬덤이 공감할 수 있는 진정성과 에너지를 시각적으로 어떻게 구현할지 고민하며 디자인 자산을 설계했습니다.",
-    "blocks": [
-      {
-        "type": "section",
-        "label": "Project Overview",
-        "body": "쿠팡플레이 오리지널 예능 <순례자들 in Spain>의 비주얼 아이덴티티 제작을 진행했습니다. 이 프로그램은 축구에 진심인 연예인들이 축구의 성지인 스페인으로 떠나, 현지에서 겪는 생생한 열정과 유쾌한 케미를 담아낸 리얼리티 예능입니다. 프로젝트의 핵심은 스포츠 중계의 강자인 쿠팡플레이 안에서, 가벼운 여행 예능을 넘어 '축구 팬덤의 진정성'을 돋보이게 하는 독보적인 오리지널리티를 만드는 일이었습니다. 진짜 축구 팬덤이 공감할 수 있는 진정성과 에너지를 시각적으로 어떻게 구현할지 고민하며 디자인 자산을 설계했습니다.\n\nI designed the integrated visual identity system for the Coupang Play Original contents, <순례자들 in Spain>. This contents follows creators who love football traveling to Spain—the holy land of football culture—capturing their raw passion and natural chemistry on-site. My core objective was to establish a distinct, original identity within Coupang Play, a platform that already holds a dominant position in sports broadcasting. Moving beyond a generic travel format, the visual assets were engineered to capture the genuine authenticity and energy that resonates with the football fandom."
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_ui.png"
-        ],
-        "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Problem Definition",
-        "body": " 보통의 스포츠 예능에서 자주 쓰는 번쩍이는 3D 효과나 메탈릭한 디자인은 쿠팡플레이 특유의 차분하고 어두운 화면(Dark UI) 환경과 다른 수많은 콘텐츠들과 아무런 차별성을 만들어내지 못할 것이라 판단했습니다. 저는 이런 전형적인 스타일을 과감하게 걷어내고, 쿠팡플레이라는 플랫폼 안에서 축구 덕후들의 날 것 같은 에너지와 예능 특유의 유쾌함이 돋보일 수 있는 확실한 시각 전략을 세웠습니다.\n\nI determined that the shiny 3D effects and metallic designs frequently used in sports entertainment would not create any differentiation within Coupang Play’s quiet Dark UI environment and among its other contents. I viewed these conventional styles as visual noise that distracts the audience. By removing these generic trends, I established a clear, system-driven visual strategy to deliver the unrefined energy of football fans and the natural brightness of the contents directly to the screen. "
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_sketch.png",
-          "site-img/Project_1_logo.png",
-          "site-img/Project_1_keyart.png"
-        ],
-        "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Design Strategy — Logo",
-        "body": " 스페인이라는 공간적 배경을 가장 직관적으로 보여주기 위해, 축구 명문 구단 'FC 바르셀로나'를 상징하는 빨강, 파랑, 노랑 세 가지 원색을 메인 컬러웨이로 가져왔습니다. 이 강렬한 삼원색은 프로그램에 출연하는 세 명의 출연진이 가진 고유의 개성이자, 축구 덕후들의 날것 같은 에너지를 그대로 대변합니다. 여기에 길거리 그래피티에서 아이디어를 얻어 페인트가 흘러내리는 듯한 ‘드립(Dripping) 쉐입’과 역동적인 사선 구도를 매치했습니다. 이 조합은 수많은 콘텐츠 사이에서도 눈에 확실히 띄면서 프로그램 특유의 발랄한 인상을 남길 수 있도록 유도하였습니다.\n\nTo show the geographic and cultural context of Spain intuitively, I brought in a primary colorway inspired by the iconic colors of FC Barcelona. These three high-saturation primary colors represent the distinct personalities of the three hosts and the raw energy of the football fandom. To structure this attitude, I combined a dynamic diagonal layout with dripping shapes inspired by street graffiti. This combination ensures high contrast and clear visibility within dense digital product lists while leaving a memorable impression."
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_poster.png"
-        ],
-        "cols": 1,
-        "ratio": "auto",
-        "fit": "contain"
-      },
-      {
-        "type": "section",
-        "label": "Poster",
-        "body": " 포스터를 디자인은 인위적인 스튜디오 연출을 최대한 피했습니다. 스페인 축구 경기 현장의 거친 질감과 출연진이 보여주는 진짜 리얼리티를 있는 그대로 살려내는 데 집중했습니다. 여기에 로고와 같은 ‘드립’ 요소를 위트 있게 얹어, 시청자가 활기찬 ‘축구 성지순례’ 여정의 한복판에 함께 서 있는 듯한 몰입감을 주었습니다.\n\nThe poster and key art design avoids artificial studio setups and staged framing. Instead, it focuses on preserving the rough textures of actual football stadiums and the unscripted reality of the hosts. By placing the structural graffiti elements as a cohesive overlay, the design brings the audience closer to the screen, making them feel as if they are standing in the middle of this lively journey. "
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_substitles_1.png",
-          "site-img/Project_1_substitles_2.png",
-          "site-img/Project_1_substitles_3.png"
-        ],
-        "cols": 3,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_substitles_4.png",
-          "site-img/Project_1_substitles_5.png",
-          "site-img/Project_1_substitles_6.png"
-        ],
-        "cols": 3,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_subway.png",
-          "site-img/Project_1_car.png",
-          "site-img/Project_1_vinyl.png"
-        ],
-        "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Execution",
-        "body": " 작은 모바일 썸네일부터 방송 자막 시스템, 심지어 오프라인 촬영 차량 래핑까지 모든 접점의 디자인을 하나로 연결했습니다. 특히 수많은 제작진이 매주 빠르게 편집해야 하는 방송 환경을 고려해, 그래픽 소스와 자막 형태를 누구나 쉽게 조립해 쓸 수 있도록 템플릿으로 묶어두었습니다. 작업자마다 디자인이 제각각으로 변하는 것을 막고, 후반 작업 시간을 크게 줄여주어 실무진의 운영 효율(ROI)을 실질적으로 높였습니다.\n\nI connected the design rules seamlessly across all touchpoints, from small mobile thumbnails and on-air subtitle systems to offline vehicle wraps. Considering the fast-paced, weekly editing workflows of production teams, I modularized all graphic sources and typographic layouts into a component-based design system. By setting structural rules—such as optimized font widths and systematic safe margins for multi-device environments—I prevented design fragmentation and reduced post-production time, effectively increasing operational efficiency. "
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_stadium.png"
-        ],
-        "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
-      },
-      {
-        "type": "section",
-        "label": "Impact",
-        "body": " 기획 초기 단계부터 이 프로그램이 향후 다른 국가나 다른 리그로 스핀오프(확장)될 상황까지 미리 계산해서 디자인 가이드를 짰습니다. 중심이 되는 뼈대와 레이아웃은 그대로 두고, 다음 시즌 국가의 상징색에 맞춰 컬러만 쏙 바꾸면 즉시 새 패키지가 완성되는 유연한 구조입니다. 매번 디자인을 새로 하느라 비용과 시간을 낭비하지 않고, 회차가 거듭될수록 가치가 쌓이는 단단한 자산이 되도록 만들었습니다.\n\nFrom the early planning stages, the visual identity was designed to scale smoothly into future seasons, different national leagues, or spin-offs. The core typographic hierarchy and layout grids remain completely fixed as a structural framework; flexibility is achieved instantly by changing the primary color system to match the representative colors of the next country. This variable architecture eliminates redundant design processes, turning a single-season design package into a sustainable institutional asset that builds value over time. "
-      },
-      {
-        "type": "images",
-        "src": [
-          "site-img/Project_1_poster_2.png"
-        ],
-        "cols": 1,
-        "ratio": "auto",
-        "fit": "contain"
-      },
-      {
-        "type": "section",
-        "label": "Credits — 2025.06",
-        "body": "Creative Direction : jiyeon kim \n Design Strategy & System : jiyeon kim \n Visual Identity Design : jiyeon kim \n Key Art & Poster Design : jiyeon kim \n On-Air Graphic System : jiyeon kim \n Motion & Content Design : jiyeon kim \n\n Production : Borderless Film \n Platform : Coupang Play"
       }
     ]
   },
