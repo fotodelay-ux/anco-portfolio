@@ -237,7 +237,7 @@ function ProjectBlocks({ blocks, isPoster, labelColor, lang }) {
           return (
             <div key={i} className="pb-images-block" style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, minmax(0,1fr))`, gap: 0, marginBottom: 70 }}>
               {b.src.map((s, j) => (
-                <div key={j} style={{ width: '100%', aspectRatio: b.ratio && b.ratio !== 'auto' ? b.ratio.replace('/', ' / ') : undefined }}>
+                <div key={j} style={{ width: '100%', aspectRatio: b.ratio && b.ratio.toLowerCase() !== 'auto' ? b.ratio.replace('/', ' / ') : undefined }}>
                   <Media src={s} style={{ width: '100%', height: '100%', objectFit: b.fit || 'cover'}} transparentBg={!!b.transparent} />
                 </div>
               ))}

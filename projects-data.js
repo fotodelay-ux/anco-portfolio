@@ -77,12 +77,11 @@ const PROJECTS = [
       {
         "type": "images",
         "src": [
-          "site-img/damdam_cover.png",
-          "site-img/damdam_what-is.png"
+          "site-img/damdam_pf_1.png"
         ],
         "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
+        "ratio": "Auto",
+        "fit": "contain"
       },
       {
         "type": "section",
@@ -93,11 +92,11 @@ const PROJECTS = [
       {
         "type": "images",
         "src": [
-          "site-img/damdam_background.png",
+          "site-img/damdam_pf_2.png",
         ],
         "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
+        "ratio": "auto",
+        "fit": "contain"
       },
       {
         "type": "section",
@@ -108,11 +107,12 @@ const PROJECTS = [
       {
         "type": "images",
         "src": [
-          "site-img/damdam_philosophy.png"
+          "site-img/damdam_pf_3.png",
+          "site-img/damdam_pf_4.png"
         ],
         "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
+        "ratio": "auto",
+        "fit": "contain"
       },
       {
         "type": "section",
@@ -123,11 +123,20 @@ const PROJECTS = [
       {
         "type": "images",
         "src": [
-          "site-img/damdam_ux-flow.png"
+          "site-img/damdam_pf_5.png"
         ],
         "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/damdam_pf_11.png"
+        ],
+        "cols": 1,
+        "ratio": "Auto",
+        "fit": "contain"
       },
       {
         "type": "section",
@@ -138,16 +147,36 @@ const PROJECTS = [
       {
         "type": "images",
         "src": [
-          "site-img/damdam_character.png"
+          "site-img/damdam_pf_6.png",
+          "site-img/damdam_pf_7.png"
         ],
         "cols": 1,
-        "ratio": "16/9",
+        "ratio": "Auto",
+        "fit": "contain"
+      },
+      {
+        "type": "section",
+        "label": "DESIGN SYSTEM",
+        "bodyKo": "담담의 디자인은 '부드럽지만 과하게 꾸미지 않은 인상'을 기준으로 만들었습니다. 로고타입은 둥근 곡선과 일정한 굵기로 글자의 형태를 재구성하고, 끝에 작은 초승달을 더해 하루를 돌아보는 시간을 표현했습니다. 따뜻한 옐로와 피치를 포인트 컬러로 사용하고, 차콜과 미색을 바탕으로 차분한 균형을 잡았습니다. 타이포그래피는 제목·기록·본문·보조 문구의 크기와 굵기를 구분해, 작은 모바일 화면에서도 일관된 읽기 흐름을 유지하도록 했습니다.",
+        "bodyEn": "damdam’s visual language was designed to feel **soft and approachable without becoming overly decorative.** The logotype uses rounded curves and a consistent weight, with a small crescent at the end to evoke a quiet moment of looking back on the day. Warm yellow and peach serve as accent colors, balanced by charcoal and off-white. A clear type hierarchy distinguishes titles, records, body text, and captions, creating a consistent reading experience across the app."
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/damdam_pf_8.png",
+          "site-img/damdam_pf_9.png",
+          "site-img/damdam_pf_10.png",
+          "site-img/damdam_pf_12.png",
+          "site-img/damdam_pf_13.png"
+        ],
+        "cols": 1,
+        "ratio": "Auto",
         "fit": "contain"
       },
       {
         "type": "images",
         "src": [
-          "site-img/damdam_turnaround.png"
+          "site-img/damdam_pf_14.png"
         ],
         "cols": 1,
         "ratio": "auto",
@@ -156,11 +185,20 @@ const PROJECTS = [
       {
         "type": "images",
         "src": [
-          "site-img/damdam_storyboard.png"
+          "site-img/damdam_pf_15.png"
         ],
         "cols": 1,
-        "ratio": "16/9",
-        "fit": "cover"
+        "ratio": "auto",
+        "fit": "contain"
+      },
+      {
+        "type": "images",
+        "src": [
+          "site-img/damdam_pf_16.png"
+        ],
+        "cols": 1,
+        "ratio": "auto",
+        "fit": "contain"
       },
       {
         "type": "section",
