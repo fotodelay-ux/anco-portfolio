@@ -777,15 +777,18 @@ function App() {
       {view === 'home' && (
         <div key="home" className="stagger">
           <section className="home-intro-section" style={{ padding: '110px 40px 0', maxWidth: 1500, margin: '0 auto' }}>
-            <div className="home-intro-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 40, alignItems: 'start' }}>
+            {/* mobile: English-only (Korean column hidden); web: EN/KO side by side as before */}
+            <div className="home-intro-grid" style={{ display: 'grid', gridTemplateColumns: isMobileVP ? '1fr' : '1fr 1fr', gap: 40, alignItems: 'start' }}>
               <div className="home-intro-col">
-                <div className="home-intro-heading" style={{ fontFamily: "'Pretendard', sans-serif", fontWeight: 700, fontSize: 'clamp(11.6px,1.5vw,15px)', marginBottom: 10 }}>{t.homeIntroHeadingEn}</div>
-                <div className="body-text" style={{ fontFamily: "'Pretendard', sans-serif", fontSize: 'clamp(11.6px,1.5vw,15px)', lineHeight: 1.6, fontWeight: 400 }}>{t.homeIntroEn}</div>
+                <div className="home-intro-heading" style={{ fontFamily: "'Pretendard', sans-serif", fontWeight: 700, fontSize: isMobileVP ? 'clamp(13.6px,1.5vw,17px)' : 'clamp(11.6px,1.5vw,15px)', marginBottom: 10 }}>{t.homeIntroHeadingEn}</div>
+                <div className="body-text" style={{ fontFamily: "'Pretendard', sans-serif", fontSize: isMobileVP ? 'clamp(13.6px,1.5vw,17px)' : 'clamp(11.6px,1.5vw,15px)', lineHeight: 1.6, fontWeight: 400 }}>{t.homeIntroEn}</div>
               </div>
-              <div className="home-intro-col" style={{ marginLeft: '-0.06em' }}>
-                <div className="home-intro-heading" style={{ fontFamily: "'Pretendard', sans-serif", fontWeight: 700, fontSize: 'clamp(10.6px,1.4vw,14px)', marginBottom: 10 }}>{t.homeIntroHeadingKo}</div>
-                <div className="body-text" style={{ fontFamily: "'Pretendard', sans-serif", fontSize: 'clamp(10.6px,1.4vw,14px)', lineHeight: 1.6, fontWeight: 400 }}>{t.homeIntroKo}</div>
-              </div>
+              {!isMobileVP && (
+                <div className="home-intro-col" style={{ marginLeft: '-0.06em' }}>
+                  <div className="home-intro-heading" style={{ fontFamily: "'Pretendard', sans-serif", fontWeight: 700, fontSize: 'clamp(10.6px,1.4vw,14px)', marginBottom: 10 }}>{t.homeIntroHeadingKo}</div>
+                  <div className="body-text" style={{ fontFamily: "'Pretendard', sans-serif", fontSize: 'clamp(10.6px,1.4vw,14px)', lineHeight: 1.6, fontWeight: 400 }}>{t.homeIntroKo}</div>
+                </div>
+              )}
             </div>
           </section>
 
